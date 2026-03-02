@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Building2, Home, Briefcase, Factory, GraduationCap, Landmark } from "lucide-react";
+import { Building2, Home, Briefcase, Factory, GraduationCap, Landmark, ExternalLink } from "lucide-react";
 
 import partner1 from "@/assets/partners/partner1.png";
 import partner2 from "@/assets/partners/partner2.jpeg";
@@ -15,6 +15,15 @@ const clientTypes = [
   { icon: Factory, label: "Industries", sub: "Sites techniques & environnements sensibles" },
   { icon: Landmark, label: "Institutions", sub: "Ambassades & organisations officielles" },
   { icon: GraduationCap, label: "Éducation", sub: "Établissements scolaires & formations" },
+];
+
+const clientLinks = [
+  { name: "LLM Education", url: "https://llm.education/en/" },
+  { name: "MBDA Systems", url: "https://www.mbda-systems.com/" },
+  { name: "Ambassade de France (EAU)", url: "https://ae.diplomatie.gouv.fr/fr" },
+  { name: "Ambassade du Sénégal", url: "http://ae-senegalembassy.com/" },
+  { name: "Économat des Armées", url: "https://www.economat-armees.com" },
+  { name: "Huda Beauty", url: "https://hudabeauty.com/en-ae" },
 ];
 
 const partnerLogos = [
