@@ -1,9 +1,31 @@
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin } from "lucide-react";
 
+const contactItems = [
+  { icon: Mail, text: "contact@khayrafm.com" },
+  { icon: Phone, text: "+971 50 805 4220" },
+  { icon: MapPin, text: "10 Floor, Corniche Building, Al HISN, Abu Dhabi, UAE" },
+];
+
 const Contact = () => {
   return (
     <div className="min-h-screen bg-background">
+      {/* Scrolling contact bar */}
+      <div className="overflow-hidden border-b border-border bg-primary/5 py-3">
+        <motion.div
+          className="flex w-max gap-16"
+          animate={{ x: ["0%", "-50%"] }}
+          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+        >
+          {[...contactItems, ...contactItems, ...contactItems, ...contactItems].map((item, i) => (
+            <div key={i} className="flex items-center gap-2 whitespace-nowrap text-sm text-muted-foreground">
+              <item.icon className="h-4 w-4 text-primary" />
+              <span>{item.text}</span>
+            </div>
+          ))}
+        </motion.div>
+      </div>
+
       {/* Hero */}
       <section className="relative py-32 bg-muted/50 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent" />
