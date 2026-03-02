@@ -1,12 +1,18 @@
 import { motion } from "framer-motion";
-import servicesBg from "@/assets/services-bg.webp";
+import aboutBg from "@/assets/about-bg.webp";
+
+const pillars = [
+  { title: "Prévention", desc: "Plans de maintenance structurés pour prolonger la durée de vie des équipements." },
+  { title: "Performance", desc: "Optimisation des systèmes techniques pour un fonctionnement fiable et efficace." },
+  { title: "Transparence", desc: "Reporting clair, suivi des interventions, communication structurée." },
+  { title: "Sécurité", desc: "Respect strict des réglementations locales et standards techniques UAE." },
+];
 
 const AboutSection = () => {
   return (
     <section id="à-propos" className="relative py-32">
       <div className="container mx-auto px-6">
         <div className="grid items-center gap-16 lg:grid-cols-2">
-          {/* Image */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -16,18 +22,17 @@ const AboutSection = () => {
           >
             <div className="overflow-hidden rounded-2xl">
               <img
-                src={servicesBg}
-                alt="Expert KFM en maintenance technique"
+                src={aboutBg}
+                alt="Équipe KFM en intervention sur un toit à Abu Dhabi"
                 className="h-[500px] w-full object-cover"
               />
             </div>
             <div className="absolute -bottom-6 -right-6 rounded-xl glow bg-primary p-6 font-display">
-              <div className="text-3xl font-bold text-primary-foreground">15+</div>
-              <div className="text-sm text-primary-foreground/80">Années d'expertise</div>
+              <div className="text-3xl font-bold text-primary-foreground">Abu Dhabi</div>
+              <div className="text-sm text-primary-foreground/80">Émirats Arabes Unis</div>
             </div>
           </motion.div>
 
-          {/* Content */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -40,22 +45,19 @@ const AboutSection = () => {
               <span className="text-gradient">bâtiments</span>
             </h2>
             <p className="mt-6 leading-relaxed text-muted-foreground">
-              Chez KFM, nous croyons que chaque espace mérite une attention exceptionnelle. 
-              Notre équipe de professionnels passionnés combine expertise technique et innovation 
-              pour offrir des services de facility management qui dépassent vos attentes.
+              KFM – Khayra Facilities Management est une société spécialisée en Facility Management 
+              basée à Abu Dhabi. Nous accompagnons les propriétaires d'actifs immobiliers, les entreprises, 
+              les industries et les résidences haut de gamme dans la gestion, la maintenance et l'optimisation 
+              technique de leurs bâtiments.
             </p>
             <p className="mt-4 leading-relaxed text-muted-foreground">
-              De la maintenance prédictive à la gestion énergétique intelligente, nous transformons 
-              la façon dont les entreprises interagissent avec leurs espaces de travail.
+              Chez KFM, le Facility Management ne se limite pas à l'entretien. Il s'agit d'une approche 
+              globale visant à garantir la performance, la sécurité et la durabilité des infrastructures.
             </p>
 
-            <div className="mt-8 grid grid-cols-2 gap-6">
-              {[
-                { title: "Innovation", desc: "Technologies de pointe" },
-                { title: "Fiabilité", desc: "Engagement sans faille" },
-                { title: "Durabilité", desc: "Impact environnemental" },
-                { title: "Proximité", desc: "Écoute et réactivité" },
-              ].map((item) => (
+            <h3 className="mt-8 font-display text-lg font-semibold text-foreground">Notre Approche</h3>
+            <div className="mt-4 grid grid-cols-2 gap-6">
+              {pillars.map((item) => (
                 <div key={item.title} className="border-l-2 border-primary/40 pl-4">
                   <div className="font-display font-semibold">{item.title}</div>
                   <div className="text-sm text-muted-foreground">{item.desc}</div>
