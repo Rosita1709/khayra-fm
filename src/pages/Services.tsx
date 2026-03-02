@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import {
-  Wind, Zap, Wrench, Paintbrush, Lightbulb, ShieldCheck,
-  Settings, ClipboardCheck, Headphones, ArrowRight,
+  ShieldCheck, Settings, ClipboardCheck, Headphones, ArrowRight,
 } from "lucide-react";
+import { servicesData } from "@/data/services";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -14,74 +14,6 @@ const scaleIn = {
   hidden: { opacity: 0, scale: 0.9 },
   visible: (i: number) => ({ opacity: 1, scale: 1, transition: { duration: 0.5, delay: i * 0.08 } }),
 };
-
-const services = [
-  {
-    icon: Wind,
-    title: "HVAC & Climatisation",
-    short: "Solutions complètes en chauffage, ventilation et climatisation adaptées au climat des EAU.",
-    details: [
-      "Installation & Mise en Service (Split, FCU, VRF/VRV, AHU)",
-      "Maintenance Préventive & Corrective",
-      "Duct Cleaning & Qualité de l'Air",
-      "Optimisation & Efficacité Énergétique",
-      "Contrats de Maintenance Annuels (AMC)",
-    ],
-    color: "from-sky-500/20 to-blue-500/20",
-  },
-  {
-    icon: Zap,
-    title: "Électricité & Plomberie (MEP)",
-    short: "Gestion, installation et maintenance des systèmes électriques et de plomberie.",
-    details: [
-      "Installation & mise à niveau électrique (DB, prises, éclairage)",
-      "Diagnostic et dépannage électrique",
-      "Réseaux d'alimentation en eau & drainage",
-      "Détection et réparation de fuites",
-      "Inspection périodique & prévention",
-    ],
-    color: "from-amber-500/20 to-orange-500/20",
-  },
-  {
-    icon: Wrench,
-    title: "Travaux Civils & Rénovation",
-    short: "Rénovation de villas, immeubles résidentiels et espaces commerciaux aux EAU.",
-    details: [
-      "Rénovation complète villas & appartements",
-      "Travaux de maçonnerie & structure",
-      "Étanchéité & protection des surfaces",
-      "Aménagements extérieurs (interlock, allées, parkings)",
-      "Gestion de projet & contrôle qualité",
-    ],
-    color: "from-stone-500/20 to-zinc-500/20",
-  },
-  {
-    icon: Paintbrush,
-    title: "Design Intérieur & Fit-Out",
-    short: "Conception et réalisation d'espaces intérieurs alliant esthétique, fonctionnalité et durabilité.",
-    details: [
-      "Conception & planification personnalisée",
-      "Visualisations 3D & plans d'aménagement",
-      "Cloisons, faux plafonds, revêtements",
-      "Menuiserie sur mesure & wrapping",
-      "Livraison clé en main résidentiel & commercial",
-    ],
-    color: "from-rose-500/20 to-pink-500/20",
-  },
-  {
-    icon: Lightbulb,
-    title: "Energy Saving & Optimisation",
-    short: "Réduction des coûts énergétiques et amélioration des performances de vos installations.",
-    details: [
-      "Audit & analyse énergétique complète",
-      "Optimisation HVAC & air balancing",
-      "Conversion LED & capteurs intelligents",
-      "Amélioration de l'isolation thermique",
-      "Valorisation de l'actif immobilier",
-    ],
-    color: "from-emerald-500/20 to-green-500/20",
-  },
-];
 
 const processSteps = [
   { icon: Headphones, title: "Consultation", desc: "Écoute de vos besoins et analyse de vos installations." },
@@ -124,65 +56,43 @@ const Services = () => {
         </div>
       </section>
 
-      {/* Services cards */}
+      {/* Services cards - click to detail */}
       <section className="py-24">
-        <div className="container mx-auto px-6 space-y-16">
-          {services.map((service, i) => (
+        <div className="container mx-auto px-6 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {servicesData.map((service, i) => (
             <motion.div
-              key={service.title}
+              key={service.slug}
               custom={i}
               variants={fadeUp}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, margin: "-60px" }}
-              className="group rounded-2xl border border-border bg-card overflow-hidden transition-all hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5"
+              viewport={{ once: true }}
             >
-              <div className="grid lg:grid-cols-[1fr_1.5fr]">
-                {/* Left: Icon & Title */}
+              <Link
+                to={`/services/${service.slug}`}
+                className={`group flex flex-col h-full rounded-2xl border border-border bg-card overflow-hidden transition-all hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5`}
+              >
                 <div className={`flex flex-col items-center justify-center p-10 text-center bg-gradient-to-br ${service.color}`}>
                   <motion.div
                     whileHover={{ rotate: 10, scale: 1.1 }}
                     transition={{ type: "spring", stiffness: 300 }}
-                    className="flex h-20 w-20 items-center justify-center rounded-2xl bg-primary/10 text-primary mb-6 group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300"
+                    className="flex h-16 w-16 items-center justify-center rounded-2xl bg-primary/10 text-primary mb-4 group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300"
                   >
-                    <service.icon className="h-10 w-10" />
+                    <service.icon className="h-8 w-8" />
                   </motion.div>
-                  <h2 className="font-display text-2xl font-bold">{service.title}</h2>
-                  <p className="mt-3 text-sm text-muted-foreground max-w-xs">{service.short}</p>
+                  <h2 className="font-display text-xl font-bold">{service.title}</h2>
+                  <p className="mt-1 text-xs text-muted-foreground">{service.titleEn}</p>
                 </div>
-
-                {/* Right: Details */}
-                <div className="p-10">
-                  <h3 className="text-xs font-semibold uppercase tracking-[0.3em] text-primary mb-5">
-                    Prestations incluses
-                  </h3>
-                  <ul className="space-y-4">
-                    {service.details.map((detail, j) => (
-                      <motion.li
-                        key={detail}
-                        custom={j}
-                        variants={scaleIn}
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        className="flex items-start gap-3 text-sm group/item"
-                      >
-                        <ArrowRight className="h-4 w-4 mt-0.5 flex-shrink-0 text-primary transition-transform group-hover/item:translate-x-1" />
-                        <span className="text-muted-foreground group-hover/item:text-foreground transition-colors">
-                          {detail}
-                        </span>
-                      </motion.li>
-                    ))}
-                  </ul>
-                  <Link
-                    to="/contact"
-                    className="mt-8 inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 font-display text-sm font-semibold text-primary-foreground transition-all hover:shadow-lg hover:shadow-primary/20"
-                  >
-                    Demander un devis
-                    <ArrowRight className="h-4 w-4" />
-                  </Link>
+                <div className="p-6 flex-1 flex flex-col">
+                  <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3">
+                    {service.intro}
+                  </p>
+                  <div className="mt-auto pt-4 flex items-center gap-2 text-sm font-semibold text-primary">
+                    Découvrir en détail
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </div>
                 </div>
-              </div>
+              </Link>
             </motion.div>
           ))}
         </div>
