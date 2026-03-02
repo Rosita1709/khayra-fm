@@ -349,8 +349,12 @@ const Index = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="rounded-3xl bg-primary p-12 md:p-20 text-center glow"
+            className="relative overflow-hidden rounded-3xl p-12 md:p-20 text-center"
           >
+            <div className="absolute inset-0">
+              <img src={ctaBg} alt="" className="h-full w-full object-cover" />
+              <div className="absolute inset-0 bg-primary/80" />
+            </div>
             <h2 className="font-display text-3xl font-bold text-primary-foreground md:text-5xl">
               Prêt à transformer vos espaces ?
             </h2>
