@@ -1,16 +1,15 @@
 import { motion } from "framer-motion";
-import heroBg from "@/assets/hero-bg.webp";
+import heroImg from "@/assets/hero-light.webp";
 
 const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
       <div className="absolute inset-0">
-        <img src={heroBg} alt="" className="h-full w-full object-cover opacity-20" />
-        <div className="absolute inset-0 bg-background/80" />
+        <img src={heroImg} alt="" className="h-full w-full object-cover" />
+        <div className="absolute inset-0 bg-background/60" />
       </div>
 
-      <div className="absolute top-1/3 left-1/4 h-96 w-96 rounded-full bg-kfm-teal/10 blur-[120px] animate-pulse-glow" />
-      <div className="absolute bottom-1/4 right-1/4 h-64 w-64 rounded-full bg-kfm-green/10 blur-[100px] animate-pulse-glow" style={{ animationDelay: "1.5s" }} />
+      <div className="absolute top-1/3 left-1/4 h-96 w-96 rounded-full bg-kfm-teal/8 blur-[120px] animate-pulse-glow" />
 
       <div className="container relative mx-auto px-6 pt-32">
         <div className="max-w-3xl">
@@ -20,7 +19,7 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
           >
             <span className="mb-6 inline-block rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-xs font-medium tracking-widest uppercase text-primary">
-              Premium Facility Management — Abu Dhabi, UAE
+              Facility Management — Abu Dhabi, UAE
             </span>
           </motion.div>
 
@@ -28,12 +27,12 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.5 }}
-            className="font-display text-5xl font-bold leading-tight tracking-tight md:text-7xl"
+            className="font-display text-5xl font-bold leading-tight tracking-tight md:text-7xl text-foreground"
           >
-            Performance,{" "}
-            <span className="text-gradient">sécurité</span>
+            Khayra{" "}
+            <span className="text-gradient">Facility</span>
             <br />
-            & durabilité
+            Management
           </motion.h1>
 
           <motion.p
@@ -42,9 +41,9 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.7 }}
             className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground"
           >
-            KFM – Khayra Facilities Management accompagne les propriétaires d'actifs immobiliers, 
-            entreprises et résidences haut de gamme dans la gestion, la maintenance et l'optimisation 
-            technique de leurs bâtiments aux Émirats Arabes Unis.
+            Khayra FM propose des services de Facilities Management digitalisés avec une application 
+            de GMAO et fournit des services et des solutions de qualité à une variété de clients 
+            dans différents secteurs aux Émirats Arabes Unis.
           </motion.p>
 
           <motion.div
@@ -57,8 +56,7 @@ const HeroSection = () => {
               href="#services"
               className="group relative overflow-hidden rounded-lg bg-primary px-8 py-4 font-display text-sm font-semibold tracking-wide text-primary-foreground transition-all hover:glow"
             >
-              <span className="relative z-10">Découvrir nos services</span>
-              <div className="absolute inset-0 bg-accent/20 opacity-0 transition-opacity group-hover:opacity-100" />
+              <span className="relative z-10">En savoir plus</span>
             </a>
             <a
               href="https://wa.me/971508054220"
@@ -81,7 +79,7 @@ const HeroSection = () => {
           {[
             { value: "HVAC", label: "Climatisation" },
             { value: "MEP", label: "Électricité & Plomberie" },
-            { value: "24/7", label: "Support Continu" },
+            { value: "GMAO", label: "Maintenance digitalisée" },
             { value: "UAE", label: "Abu Dhabi & Émirats" },
           ].map((stat) => (
             <div key={stat.label} className="glass rounded-xl px-6 py-5 text-center shadow-sm">
