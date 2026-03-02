@@ -1,8 +1,11 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import heroImg from "@/assets/hero-light.webp";
+import heroImg from "@/assets/hero-new.jpg";
 import { CheckCircle, TrendingUp, PiggyBank, Heart, Rocket } from "lucide-react";
 import aboutBg from "@/assets/about-bg.webp";
+import visionBg from "@/assets/vision-bg.jpg";
+import valuesBg from "@/assets/values-bg.jpg";
+import ctaBg from "@/assets/cta-bg.jpg";
 
 import partner1 from "@/assets/partners/partner1.png";
 import partner2 from "@/assets/partners/partner2.jpeg";
@@ -207,36 +210,53 @@ const Index = () => {
       </section>
 
       {/* ===== NOTRE VISION ===== */}
-      <section className="py-24 bg-muted/50">
-        <div className="container mx-auto px-6">
-          <motion.div
-            variants={fadeUp}
-            custom={0}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="mx-auto max-w-4xl text-center"
-          >
-            <span className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">Notre Vision</span>
-            <h2 className="mt-4 font-display text-3xl font-bold md:text-4xl">
-              Excellence <span className="text-gradient">opérationnelle</span>
-            </h2>
-            <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
-              L'objectif principal de KFM est d'assurer le bon fonctionnement des installations de ses clients, 
-              en veillant à ce qu'elles soient entretenues de manière optimale, sécurisées et conformes aux 
-              normes réglementaires.
-            </p>
-            <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
-              Que ce soit pour des entreprises, des institutions publiques, des centres commerciaux ou d'autres 
-              organisations, KFM est un partenaire fiable pour la gestion complète des installations.
-            </p>
-          </motion.div>
+      <section className="relative py-24 overflow-hidden">
+        <div className="absolute inset-0">
+          <img src={visionBg} alt="" className="h-full w-full object-cover" />
+          <div className="absolute inset-0 bg-background/85" />
+        </div>
+        <div className="container relative mx-auto px-6">
+          <div className="grid items-center gap-12 lg:grid-cols-2">
+            <motion.div
+              variants={fadeLeft}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+              className="overflow-hidden rounded-2xl shadow-xl"
+            >
+              <img src={visionBg} alt="Technicien HVAC" className="h-[400px] w-full object-cover" />
+            </motion.div>
+            <motion.div
+              variants={fadeRight}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+            >
+              <span className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">Notre Vision</span>
+              <h2 className="mt-4 font-display text-3xl font-bold md:text-4xl">
+                Excellence <span className="text-gradient">opérationnelle</span>
+              </h2>
+              <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
+                L'objectif principal de KFM est d'assurer le bon fonctionnement des installations de ses clients, 
+                en veillant à ce qu'elles soient entretenues de manière optimale, sécurisées et conformes aux 
+                normes réglementaires.
+              </p>
+              <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
+                Que ce soit pour des entreprises, des institutions publiques, des centres commerciaux ou d'autres 
+                organisations, KFM est un partenaire fiable pour la gestion complète des installations.
+              </p>
+            </motion.div>
+          </div>
         </div>
       </section>
 
       {/* ===== NOS VALEURS ===== */}
-      <section className="py-28">
-        <div className="container mx-auto px-6">
+      <section className="relative py-28 overflow-hidden">
+        <div className="absolute inset-0">
+          <img src={valuesBg} alt="" className="h-full w-full object-cover" />
+          <div className="absolute inset-0 bg-background/90" />
+        </div>
+        <div className="container relative mx-auto px-6">
           <motion.div
             variants={fadeUp}
             custom={0}
@@ -329,15 +349,19 @@ const Index = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="rounded-3xl bg-primary p-12 md:p-20 text-center glow"
+            className="relative overflow-hidden rounded-3xl p-12 md:p-20 text-center"
           >
-            <h2 className="font-display text-3xl font-bold text-primary-foreground md:text-5xl">
+            <div className="absolute inset-0">
+              <img src={ctaBg} alt="" className="h-full w-full object-cover" />
+              <div className="absolute inset-0 bg-primary/80" />
+            </div>
+            <h2 className="relative font-display text-3xl font-bold text-primary-foreground md:text-5xl">
               Prêt à transformer vos espaces ?
             </h2>
-            <p className="mx-auto mt-4 max-w-xl text-primary-foreground/80">
+            <p className="relative mx-auto mt-4 max-w-xl text-primary-foreground/80">
               Notre équipe est prête à vous accompagner pour vos projets techniques et de maintenance aux Émirats.
             </p>
-            <div className="mt-8 flex flex-wrap justify-center gap-4">
+            <div className="relative mt-8 flex flex-wrap justify-center gap-4">
               <Link
                 to="/contact"
                 className="rounded-lg bg-background px-8 py-4 font-display text-sm font-semibold text-foreground transition-all hover:shadow-lg"
