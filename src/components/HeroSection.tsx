@@ -6,7 +6,7 @@ const HeroSection = () => {
     <section className="relative min-h-screen flex items-center overflow-hidden">
       <div className="absolute inset-0">
         <img src={heroImg} alt="" className="h-full w-full object-cover" />
-        <div className="absolute inset-0 bg-background/40" />
+        <div className="absolute inset-0 bg-black/50" />
       </div>
 
       <div className="absolute top-1/3 left-1/4 h-96 w-96 rounded-full bg-kfm-teal/8 blur-[120px] animate-pulse-glow" />

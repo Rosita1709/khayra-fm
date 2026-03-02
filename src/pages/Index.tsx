@@ -123,7 +123,7 @@ const Index = () => {
               </Link>
               <Link
                 to="/contact"
-                className="rounded-lg border border-border bg-card px-8 py-4 font-display text-sm font-semibold tracking-wide text-foreground transition-all hover:border-primary/40 hover:shadow-md"
+                className="rounded-lg border border-white/30 bg-white/10 px-8 py-4 font-display text-sm font-semibold tracking-wide text-white transition-all hover:bg-white/20 hover:shadow-md"
               >
                 Nous contacter
               </Link>
