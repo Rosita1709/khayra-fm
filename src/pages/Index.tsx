@@ -210,30 +210,43 @@ const Index = () => {
       </section>
 
       {/* ===== NOTRE VISION ===== */}
-      <section className="py-24 bg-muted/50">
-        <div className="container mx-auto px-6">
-          <motion.div
-            variants={fadeUp}
-            custom={0}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="mx-auto max-w-4xl text-center"
-          >
-            <span className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">Notre Vision</span>
-            <h2 className="mt-4 font-display text-3xl font-bold md:text-4xl">
-              Excellence <span className="text-gradient">opérationnelle</span>
-            </h2>
-            <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
-              L'objectif principal de KFM est d'assurer le bon fonctionnement des installations de ses clients, 
-              en veillant à ce qu'elles soient entretenues de manière optimale, sécurisées et conformes aux 
-              normes réglementaires.
-            </p>
-            <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
-              Que ce soit pour des entreprises, des institutions publiques, des centres commerciaux ou d'autres 
-              organisations, KFM est un partenaire fiable pour la gestion complète des installations.
-            </p>
-          </motion.div>
+      <section className="relative py-24 overflow-hidden">
+        <div className="absolute inset-0">
+          <img src={visionBg} alt="" className="h-full w-full object-cover" />
+          <div className="absolute inset-0 bg-background/85" />
+        </div>
+        <div className="container relative mx-auto px-6">
+          <div className="grid items-center gap-12 lg:grid-cols-2">
+            <motion.div
+              variants={fadeLeft}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+              className="overflow-hidden rounded-2xl shadow-xl"
+            >
+              <img src={visionBg} alt="Technicien HVAC" className="h-[400px] w-full object-cover" />
+            </motion.div>
+            <motion.div
+              variants={fadeRight}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+            >
+              <span className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">Notre Vision</span>
+              <h2 className="mt-4 font-display text-3xl font-bold md:text-4xl">
+                Excellence <span className="text-gradient">opérationnelle</span>
+              </h2>
+              <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
+                L'objectif principal de KFM est d'assurer le bon fonctionnement des installations de ses clients, 
+                en veillant à ce qu'elles soient entretenues de manière optimale, sécurisées et conformes aux 
+                normes réglementaires.
+              </p>
+              <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
+                Que ce soit pour des entreprises, des institutions publiques, des centres commerciaux ou d'autres 
+                organisations, KFM est un partenaire fiable pour la gestion complète des installations.
+              </p>
+            </motion.div>
+          </div>
         </div>
       </section>
 
