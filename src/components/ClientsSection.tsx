@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Building2, Home, Briefcase, Factory, GraduationCap, Landmark } from "lucide-react";
+import { Building2, Home, Briefcase, Factory, GraduationCap, Landmark, ExternalLink } from "lucide-react";
 
 import partner1 from "@/assets/partners/partner1.png";
 import partner2 from "@/assets/partners/partner2.jpeg";
@@ -15,6 +15,15 @@ const clientTypes = [
   { icon: Factory, label: "Industries", sub: "Sites techniques & environnements sensibles" },
   { icon: Landmark, label: "Institutions", sub: "Ambassades & organisations officielles" },
   { icon: GraduationCap, label: "Éducation", sub: "Établissements scolaires & formations" },
+];
+
+const clientLinks = [
+  { name: "LLM Education", url: "https://llm.education/en/" },
+  { name: "MBDA Systems", url: "https://www.mbda-systems.com/" },
+  { name: "Ambassade de France (EAU)", url: "https://ae.diplomatie.gouv.fr/fr" },
+  { name: "Ambassade du Sénégal", url: "http://ae-senegalembassy.com/" },
+  { name: "Économat des Armées", url: "https://www.economat-armees.com" },
+  { name: "Huda Beauty", url: "https://hudabeauty.com/en-ae" },
 ];
 
 const partnerLogos = [
@@ -59,7 +68,36 @@ const ClientsSection = () => {
             >
               <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
                 <type.icon className="h-5 w-5" />
-              </div>
+        </div>
+
+        {/* Client references */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          className="mt-16"
+        >
+          <h3 className="font-display text-xl font-semibold mb-6">Ils nous font confiance</h3>
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {clientLinks.map((client, i) => (
+              <motion.a
+                key={client.name}
+                href={client.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.3, delay: i * 0.06 }}
+                className="flex items-center justify-between gap-3 rounded-xl border border-border bg-card px-5 py-4 transition-all hover:border-primary/30 hover:shadow-md group"
+              >
+                <span className="text-sm font-medium">{client.name}</span>
+                <ExternalLink className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
+              </motion.a>
+            ))}
+          </div>
+        </motion.div>
               <div>
                 <div className="font-display text-sm font-semibold">{type.label}</div>
                 <div className="mt-1 text-xs text-muted-foreground">{type.sub}</div>
