@@ -1,7 +1,10 @@
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Contact = () => {
+  const { t } = useLanguage();
+
   return (
     <div className="min-h-screen bg-background">
       {/* Hero */}
@@ -16,7 +19,10 @@ const Contact = () => {
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }}
             className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground"
           >
-            Notre équipe est prête à vous accompagner pour vos projets techniques et de maintenance.
+            {t(
+              "Notre équipe est prête à vous accompagner pour vos projets techniques et de maintenance.",
+              "Our team is ready to support you with your technical and maintenance projects."
+            )}
           </motion.p>
         </div>
       </section>
@@ -25,10 +31,15 @@ const Contact = () => {
         <div className="container mx-auto px-6">
           <div className="grid gap-16 lg:grid-cols-2">
             <motion.div initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
-              <h2 className="font-display text-3xl font-bold">Parlons de votre <span className="text-gradient">projet</span></h2>
+              <h2 className="font-display text-3xl font-bold">
+                {t("Parlons de votre ", "Let's discuss your ")}
+                <span className="text-gradient">{t("projet", "project")}</span>
+              </h2>
               <p className="mt-4 text-muted-foreground">
-                Contactez-nous pour discuter de vos besoins en facility management. 
-                Nous sommes disponibles pour vous accompagner dans tous vos projets aux Émirats.
+                {t(
+                  "Contactez-nous pour discuter de vos besoins en facility management. Nous sommes disponibles pour vous accompagner dans tous vos projets aux Émirats.",
+                  "Contact us to discuss your facility management needs. We are available to support you in all your projects in the UAE."
+                )}
               </p>
 
               <div className="mt-10 space-y-6">
@@ -46,7 +57,7 @@ const Contact = () => {
                     <Phone className="h-6 w-6" />
                   </div>
                   <div>
-                    <div className="text-sm text-muted-foreground">Téléphone / WhatsApp</div>
+                    <div className="text-sm text-muted-foreground">{t("Téléphone / WhatsApp", "Phone / WhatsApp")}</div>
                     <div className="font-semibold group-hover:text-primary transition-colors">+971 50 805 4220</div>
                   </div>
                 </a>
@@ -55,7 +66,7 @@ const Contact = () => {
                     <MapPin className="h-6 w-6" />
                   </div>
                   <div>
-                    <div className="text-sm text-muted-foreground">Adresse</div>
+                    <div className="text-sm text-muted-foreground">{t("Adresse", "Address")}</div>
                     <div className="font-semibold">10th Floor, Corniche Building, Al Hisn, Abu Dhabi, UAE</div>
                   </div>
                 </div>
@@ -72,24 +83,24 @@ const Contact = () => {
             >
               <div className="grid gap-5 sm:grid-cols-2">
                 <div>
-                  <label className="mb-2 block text-sm font-medium text-muted-foreground">Nom / Name</label>
-                  <input type="text" placeholder="Votre nom" className="w-full rounded-lg border border-border bg-muted px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground/50 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary" />
+                  <label className="mb-2 block text-sm font-medium text-muted-foreground">{t("Nom", "Name")}</label>
+                  <input type="text" placeholder={t("Votre nom", "Your name")} className="w-full rounded-lg border border-border bg-muted px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground/50 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary" />
                 </div>
                 <div>
                   <label className="mb-2 block text-sm font-medium text-muted-foreground">Email</label>
-                  <input type="email" placeholder="votre@email.com" className="w-full rounded-lg border border-border bg-muted px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground/50 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary" />
+                  <input type="email" placeholder={t("votre@email.com", "your@email.com")} className="w-full rounded-lg border border-border bg-muted px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground/50 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary" />
                 </div>
               </div>
               <div>
-                <label className="mb-2 block text-sm font-medium text-muted-foreground">Sujet / Subject</label>
-                <input type="text" placeholder="Sujet de votre message" className="w-full rounded-lg border border-border bg-muted px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground/50 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary" />
+                <label className="mb-2 block text-sm font-medium text-muted-foreground">{t("Sujet", "Subject")}</label>
+                <input type="text" placeholder={t("Sujet de votre message", "Subject of your message")} className="w-full rounded-lg border border-border bg-muted px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground/50 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary" />
               </div>
               <div>
                 <label className="mb-2 block text-sm font-medium text-muted-foreground">Message</label>
-                <textarea rows={5} placeholder="Décrivez votre projet..." className="w-full resize-none rounded-lg border border-border bg-muted px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground/50 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary" />
+                <textarea rows={5} placeholder={t("Décrivez votre projet...", "Describe your project...")} className="w-full resize-none rounded-lg border border-border bg-muted px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground/50 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary" />
               </div>
               <button type="submit" className="w-full rounded-lg bg-primary py-3.5 font-display text-sm font-semibold text-primary-foreground transition-all hover:glow hover:bg-primary/90">
-                Envoyer le message
+                {t("Envoyer le message", "Send message")}
               </button>
             </motion.form>
           </div>

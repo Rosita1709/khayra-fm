@@ -3,18 +3,20 @@ import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import kfmLogo from "@/assets/kfm-logo.jpeg";
-
-const navLinks = [
-  { label: "Accueil", href: "/" },
-  { label: "À Propos", href: "/a-propos" },
-  { label: "Nos Services", href: "/services" },
-  { label: "Projets", href: "/projets" },
-  { label: "Contact", href: "/contact" },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Navbar = () => {
   const location = useLocation();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const { lang, setLang, t } = useLanguage();
+
+  const navLinks = [
+    { label: t("Accueil", "Home"), href: "/" },
+    { label: t("À Propos", "About"), href: "/a-propos" },
+    { label: t("Nos Services", "Our Services"), href: "/services" },
+    { label: t("Projets", "Projects"), href: "/projets" },
+    { label: "Contact", href: "/contact" },
+  ];
 
   return (
     <>
@@ -60,7 +62,7 @@ const Navbar = () => {
           <div className="hidden lg:flex items-center gap-1">
             {navLinks.map((link) => (
               <Link
-                key={link.label}
+                key={link.href}
                 to={link.href}
                 className={`px-4 py-2 rounded-lg text-sm font-semibold tracking-wide transition-all ${
                   location.pathname === link.href
@@ -73,8 +75,18 @@ const Navbar = () => {
             ))}
           </div>
 
-          {/* CTA + mobile toggle */}
+          {/* CTA + Lang toggle + mobile toggle */}
           <div className="flex items-center gap-3">
+            {/* Language toggle */}
+            <button
+              onClick={() => setLang(lang === "fr" ? "en" : "fr")}
+              className="flex items-center gap-1 rounded-lg border border-border px-3 py-2 text-xs font-bold tracking-wide transition-all hover:border-primary/40 hover:bg-muted"
+            >
+              <span className={lang === "fr" ? "text-primary" : "text-muted-foreground"}>FR</span>
+              <span className="text-muted-foreground">/</span>
+              <span className={lang === "en" ? "text-primary" : "text-muted-foreground"}>EN</span>
+            </button>
+
             <a
               href="https://wa.me/971508054220"
               target="_blank"
@@ -104,7 +116,7 @@ const Navbar = () => {
             <div className="container mx-auto px-6 py-4 space-y-1">
               {navLinks.map((link) => (
                 <Link
-                  key={link.label}
+                  key={link.href}
                   to={link.href}
                   onClick={() => setMobileOpen(false)}
                   className={`block px-4 py-3 rounded-lg text-sm font-semibold ${
