@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { MapPin, Calendar, CheckCircle, ArrowRight } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import heroBg from "@/assets/hero-bg.webp";
 
 import productHvac from "@/assets/product-hvac.webp";
 import productLighting from "@/assets/product-lighting.webp";
@@ -144,9 +145,25 @@ const Produits = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Hero */}
-      <section className="relative py-32 bg-muted/50 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent" />
+      {/* Hero with background */}
+      <section className="relative py-32 overflow-hidden min-h-[50vh] flex items-center">
+        <div className="absolute inset-0">
+          <motion.img
+            src={heroBg}
+            alt=""
+            className="h-full w-full object-cover"
+            initial={{ scale: 1.15 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 1.5, ease: "easeOut" }}
+          />
+          <div className="absolute inset-0 bg-background/80 backdrop-blur-[2px]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-primary/10 via-transparent to-background" />
+        </div>
+        <motion.div
+          className="absolute top-1/3 right-1/4 h-64 w-64 rounded-full bg-primary/10 blur-[100px]"
+          animate={{ scale: [1, 1.2, 1] }}
+          transition={{ duration: 6, repeat: Infinity }}
+        />
         <div className="container relative mx-auto px-6 text-center">
           <motion.span initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}
             className="mb-4 inline-block rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-xs font-medium tracking-widest uppercase text-primary">
@@ -170,7 +187,7 @@ const Produits = () => {
       <section className="relative -mt-8 z-10">
         <div className="container mx-auto px-6">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.4 }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-4 rounded-2xl border border-border bg-card p-6 shadow-lg">
+            className="grid grid-cols-2 md:grid-cols-4 gap-4 rounded-2xl border border-border bg-card p-6 shadow-xl">
             {stats.map((stat, i) => (
               <motion.div key={stat.label} custom={i} variants={fadeUp} initial="hidden" animate="visible" className="text-center">
                 <div className="font-display text-3xl font-bold text-primary">{stat.value}</div>
@@ -190,10 +207,24 @@ const Produits = () => {
               {/* Image */}
               <motion.div initial={{ opacity: 0, x: i % 2 === 0 ? -60 : 60 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: "-80px" }} transition={{ duration: 0.8, ease: "easeOut" }}
                 className={`relative group overflow-hidden rounded-2xl shadow-xl ${i % 2 === 1 ? "lg:order-2" : ""}`}>
-                <motion.img src={project.img} alt={project.title} className="h-[420px] w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                <motion.img
+                  src={project.img}
+                  alt={project.title}
+                  className="h-[420px] w-full object-cover"
+                  whileHover={{ scale: 1.08 }}
+                  transition={{ duration: 0.7 }}
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 via-transparent to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <span className="inline-block rounded-full bg-primary px-3 py-1 text-xs font-semibold text-primary-foreground">{project.category}</span>
+                  <motion.span
+                    className="inline-block rounded-full bg-primary px-3 py-1 text-xs font-semibold text-primary-foreground"
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.3 }}
+                  >
+                    {project.category}
+                  </motion.span>
                 </div>
                 <motion.div initial={{ opacity: 0, scale: 0.8 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.4 }}
                   className="absolute top-4 right-4 rounded-xl bg-card/95 backdrop-blur-sm border border-border px-4 py-2 shadow-lg">
@@ -240,18 +271,23 @@ const Produits = () => {
       <section className="py-24 bg-muted/50">
         <div className="container mx-auto px-6">
           <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}
-            className="rounded-3xl bg-primary p-12 md:p-20 text-center">
-            <h2 className="font-display text-3xl font-bold text-primary-foreground md:text-5xl">
+            className="relative overflow-hidden rounded-3xl bg-primary p-12 md:p-20 text-center">
+            <motion.div
+              className="absolute top-0 right-0 h-64 w-64 rounded-full bg-primary-foreground/5 blur-[60px]"
+              animate={{ x: [0, 30, 0], y: [0, -20, 0] }}
+              transition={{ duration: 8, repeat: Infinity }}
+            />
+            <h2 className="relative font-display text-3xl font-bold text-primary-foreground md:text-5xl">
               {t("Votre projet est le prochain ?", "Is your project next?")}
             </h2>
-            <p className="mx-auto mt-4 max-w-xl text-primary-foreground/80">
+            <p className="relative mx-auto mt-4 max-w-xl text-primary-foreground/80">
               {t(
                 "Contactez-nous pour discuter de vos besoins. Notre équipe d'experts est prête à vous accompagner.",
                 "Contact us to discuss your needs. Our team of experts is ready to support you."
               )}
             </p>
-            <div className="mt-8 flex flex-wrap justify-center gap-4">
-              <Link to="/contact" className="rounded-lg bg-background px-8 py-4 font-display text-sm font-semibold text-foreground transition-all hover:shadow-lg">
+            <div className="relative mt-8 flex flex-wrap justify-center gap-4">
+              <Link to="/contact" className="rounded-lg bg-background px-8 py-4 font-display text-sm font-semibold text-foreground transition-all hover:shadow-lg hover:-translate-y-0.5">
                 {t("Demander un devis gratuit", "Request a free quote")}
               </Link>
               <a href="https://wa.me/971508054220" target="_blank" rel="noopener noreferrer"
