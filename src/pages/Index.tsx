@@ -361,7 +361,7 @@ const Index = () => {
             <p className="relative mx-auto mt-4 max-w-xl text-primary-foreground/80">
               Notre équipe est prête à vous accompagner pour vos projets techniques et de maintenance aux Émirats.
             </p>
-            <div className="mt-8 flex flex-wrap justify-center gap-4">
+            <div className="relative mt-8 flex flex-wrap justify-center gap-4">
               <Link
                 to="/contact"
                 className="rounded-lg bg-background px-8 py-4 font-display text-sm font-semibold text-foreground transition-all hover:shadow-lg"
