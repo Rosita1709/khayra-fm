@@ -68,7 +68,36 @@ const ClientsSection = () => {
             >
               <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
                 <type.icon className="h-5 w-5" />
-              </div>
+        </div>
+
+        {/* Client references */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          className="mt-16"
+        >
+          <h3 className="font-display text-xl font-semibold mb-6">Ils nous font confiance</h3>
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {clientLinks.map((client, i) => (
+              <motion.a
+                key={client.name}
+                href={client.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.3, delay: i * 0.06 }}
+                className="flex items-center justify-between gap-3 rounded-xl border border-border bg-card px-5 py-4 transition-all hover:border-primary/30 hover:shadow-md group"
+              >
+                <span className="text-sm font-medium">{client.name}</span>
+                <ExternalLink className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
+              </motion.a>
+            ))}
+          </div>
+        </motion.div>
               <div>
                 <div className="font-display text-sm font-semibold">{type.label}</div>
                 <div className="mt-1 text-xs text-muted-foreground">{type.sub}</div>
