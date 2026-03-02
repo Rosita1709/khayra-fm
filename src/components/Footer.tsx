@@ -7,7 +7,7 @@ const Footer = () => {
         <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
           <img src={kfmLogo} alt="KFM" className="h-8 object-contain" />
           <p className="text-sm text-muted-foreground">
-            © 2026 KFM Facility Management Services. Tous droits réservés.
+            © 2026 KFM – Khayra Facilities Management. Abu Dhabi, UAE. Tous droits réservés.
           </p>
         </div>
       </div>

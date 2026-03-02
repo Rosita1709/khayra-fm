@@ -19,23 +19,32 @@ const ContactSection = () => {
               Prêt à <span className="text-gradient">transformer</span> vos espaces ?
             </h2>
             <p className="mt-6 max-w-md text-muted-foreground">
-              Contactez-nous pour discuter de vos besoins en facility management. 
-              Notre équipe est là pour vous accompagner.
+              Notre équipe est prête à vous accompagner pour vos projets techniques et de maintenance.
             </p>
 
             <div className="mt-10 space-y-6">
-              {[
-                { icon: Mail, text: "contact@kfm-services.com" },
-                { icon: Phone, text: "+33 1 23 45 67 89" },
-                { icon: MapPin, text: "Paris, France" },
-              ].map((item) => (
-                <div key={item.text} className="flex items-center gap-4">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                    <item.icon className="h-5 w-5" />
-                  </div>
-                  <span className="text-foreground">{item.text}</span>
+              <div className="flex items-center gap-4">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                  <Mail className="h-5 w-5" />
                 </div>
-              ))}
+                <a href="mailto:contact@khayrafm.com" className="text-foreground hover:text-primary transition-colors">
+                  contact@khayrafm.com
+                </a>
+              </div>
+              <div className="flex items-center gap-4">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                  <Phone className="h-5 w-5" />
+                </div>
+                <a href="https://wa.me/971508054220" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-colors">
+                  +971 50 805 4220
+                </a>
+              </div>
+              <div className="flex items-center gap-4">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                  <MapPin className="h-5 w-5" />
+                </div>
+                <span className="text-foreground">10th Floor, Corniche Building, Al Hisn, Abu Dhabi, UAE</span>
+              </div>
             </div>
           </motion.div>
 
@@ -49,7 +58,7 @@ const ContactSection = () => {
           >
             <div className="grid gap-5 sm:grid-cols-2">
               <div>
-                <label className="mb-2 block text-sm font-medium text-muted-foreground">Nom</label>
+                <label className="mb-2 block text-sm font-medium text-muted-foreground">Nom / Name</label>
                 <input
                   type="text"
                   placeholder="Votre nom"
@@ -66,7 +75,7 @@ const ContactSection = () => {
               </div>
             </div>
             <div>
-              <label className="mb-2 block text-sm font-medium text-muted-foreground">Sujet</label>
+              <label className="mb-2 block text-sm font-medium text-muted-foreground">Sujet / Subject</label>
               <input
                 type="text"
                 placeholder="Sujet de votre message"
