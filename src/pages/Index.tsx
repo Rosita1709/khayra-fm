@@ -117,7 +117,7 @@ const Index = () => {
             >
               <Link
                 to="/services"
-                className="rounded-lg bg-primary px-8 py-4 font-display text-sm font-semibold tracking-wide text-primary-foreground transition-all hover:glow hover:shadow-lg"
+                className="rounded-lg bg-primary px-8 py-4 font-display text-sm font-semibold tracking-wide text-primary-foreground transition-all hover:shadow-lg"
               >
                 En savoir plus
               </Link>
