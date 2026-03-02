@@ -355,7 +355,7 @@ const Index = () => {
               <img src={ctaBg} alt="" className="h-full w-full object-cover" />
               <div className="absolute inset-0 bg-primary/80" />
             </div>
-            <h2 className="font-display text-3xl font-bold text-primary-foreground md:text-5xl">
+            <h2 className="relative font-display text-3xl font-bold text-primary-foreground md:text-5xl">
               Prêt à transformer vos espaces ?
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-primary-foreground/80">
