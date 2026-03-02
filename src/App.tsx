@@ -10,6 +10,7 @@ import Index from "./pages/Index";
 import APropos from "./pages/APropos";
 import Produits from "./pages/Produits";
 import Services from "./pages/Services";
+import ServiceDetail from "./pages/ServiceDetail";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 
