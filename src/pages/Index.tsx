@@ -1,8 +1,11 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import heroImg from "@/assets/hero-light.webp";
+import heroImg from "@/assets/hero-new.jpg";
 import { CheckCircle, TrendingUp, PiggyBank, Heart, Rocket } from "lucide-react";
 import aboutBg from "@/assets/about-bg.webp";
+import visionBg from "@/assets/vision-bg.jpg";
+import valuesBg from "@/assets/values-bg.jpg";
+import ctaBg from "@/assets/cta-bg.jpg";
 
 import partner1 from "@/assets/partners/partner1.png";
 import partner2 from "@/assets/partners/partner2.jpeg";
