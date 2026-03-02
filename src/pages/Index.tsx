@@ -102,7 +102,7 @@ const Index = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.6 }}
-              className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground"
+              className="mt-6 max-w-xl text-lg leading-relaxed text-white/80"
             >
               Khayra FM propose des services de Facilities Management digitalisés avec une application 
               de GMAO et fournit des services et des solutions de qualité à une variété de clients 
