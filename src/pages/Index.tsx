@@ -72,7 +72,7 @@ const Index = () => {
             animate={{ scale: 1 }}
             transition={{ duration: 1.5, ease: "easeOut" }}
           />
-          <div className="absolute inset-0 bg-background/40" />
+          <div className="absolute inset-0 bg-black/50" />
         </div>
 
         <div className="container relative mx-auto px-6 py-32">
