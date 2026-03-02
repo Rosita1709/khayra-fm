@@ -358,7 +358,7 @@ const Index = () => {
             <h2 className="relative font-display text-3xl font-bold text-primary-foreground md:text-5xl">
               Prêt à transformer vos espaces ?
             </h2>
-            <p className="mx-auto mt-4 max-w-xl text-primary-foreground/80">
+            <p className="relative mx-auto mt-4 max-w-xl text-primary-foreground/80">
               Notre équipe est prête à vous accompagner pour vos projets techniques et de maintenance aux Émirats.
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-4">
