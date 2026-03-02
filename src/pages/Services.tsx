@@ -4,6 +4,7 @@ import {
   ShieldCheck, Settings, ClipboardCheck, Headphones, ArrowRight,
 } from "lucide-react";
 import { servicesData } from "@/data/services";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -15,14 +16,16 @@ const scaleIn = {
   visible: (i: number) => ({ opacity: 1, scale: 1, transition: { duration: 0.5, delay: i * 0.08 } }),
 };
 
-const processSteps = [
-  { icon: Headphones, title: "Consultation", desc: "Écoute de vos besoins et analyse de vos installations." },
-  { icon: ClipboardCheck, title: "Audit & Diagnostic", desc: "Évaluation technique complète sur site." },
-  { icon: Settings, title: "Mise en Œuvre", desc: "Exécution par nos techniciens qualifiés." },
-  { icon: ShieldCheck, title: "Suivi & Garantie", desc: "Maintenance continue et reporting transparent." },
-];
-
 const Services = () => {
+  const { t } = useLanguage();
+
+  const processSteps = [
+    { icon: Headphones, title: t("Consultation", "Consultation"), desc: t("Écoute de vos besoins et analyse de vos installations.", "Listening to your needs and analyzing your facilities.") },
+    { icon: ClipboardCheck, title: t("Audit & Diagnostic", "Audit & Diagnosis"), desc: t("Évaluation technique complète sur site.", "Complete on-site technical assessment.") },
+    { icon: Settings, title: t("Mise en Œuvre", "Implementation"), desc: t("Exécution par nos techniciens qualifiés.", "Execution by our qualified technicians.") },
+    { icon: ShieldCheck, title: t("Suivi & Garantie", "Follow-up & Warranty"), desc: t("Maintenance continue et reporting transparent.", "Continuous maintenance and transparent reporting.") },
+  ];
+
   return (
     <div className="min-h-screen bg-background">
       {/* Hero */}
@@ -35,7 +38,7 @@ const Services = () => {
             transition={{ duration: 0.5 }}
             className="mb-4 inline-block rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-xs font-medium tracking-widest uppercase text-primary"
           >
-            Ce que nous faisons
+            {t("Ce que nous faisons", "What we do")}
           </motion.span>
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
@@ -43,7 +46,7 @@ const Services = () => {
             transition={{ duration: 0.7, delay: 0.1 }}
             className="font-display text-5xl font-bold md:text-6xl"
           >
-            Nos <span className="text-gradient">Services</span>
+            {t("Nos ", "Our ")}<span className="text-gradient">Services</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -51,12 +54,15 @@ const Services = () => {
             transition={{ duration: 0.6, delay: 0.25 }}
             className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground"
           >
-            Des solutions sur mesure pour la gestion optimale de vos installations aux Émirats Arabes Unis.
+            {t(
+              "Des solutions sur mesure pour la gestion optimale de vos installations aux Émirats Arabes Unis.",
+              "Tailored solutions for optimal management of your facilities in the United Arab Emirates."
+            )}
           </motion.p>
         </div>
       </section>
 
-      {/* Services cards - click to detail */}
+      {/* Services cards */}
       <section className="py-24">
         <div className="container mx-auto px-6 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {servicesData.map((service, i) => (
@@ -80,7 +86,7 @@ const Services = () => {
                   >
                     <service.icon className="h-8 w-8" />
                   </motion.div>
-                  <h2 className="font-display text-xl font-bold">{service.title}</h2>
+                  <h2 className="font-display text-xl font-bold">{t(service.title, service.titleEn)}</h2>
                   <p className="mt-1 text-xs text-muted-foreground">{service.titleEn}</p>
                 </div>
                 <div className="p-6 flex-1 flex flex-col">
@@ -88,7 +94,7 @@ const Services = () => {
                     {service.intro}
                   </p>
                   <div className="mt-auto pt-4 flex items-center gap-2 text-sm font-semibold text-primary">
-                    Découvrir en détail
+                    {t("Découvrir en détail", "View details")}
                     <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </div>
                 </div>
@@ -109,9 +115,9 @@ const Services = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <span className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">Méthodologie</span>
+            <span className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">{t("Méthodologie", "Methodology")}</span>
             <h2 className="mt-4 font-display text-3xl font-bold md:text-4xl">
-              Notre <span className="text-gradient">Processus</span>
+              {t("Notre ", "Our ")}<span className="text-gradient">{t("Processus", "Process")}</span>
             </h2>
           </motion.div>
 
@@ -151,17 +157,20 @@ const Services = () => {
             className="rounded-3xl bg-primary p-12 md:p-20 text-center"
           >
             <h2 className="font-display text-3xl font-bold text-primary-foreground md:text-5xl">
-              Un besoin spécifique ?
+              {t("Un besoin spécifique ?", "A specific need?")}
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-primary-foreground/80">
-              Nos experts analysent vos installations et vous proposent une solution adaptée sous 48h.
+              {t(
+                "Nos experts analysent vos installations et vous proposent une solution adaptée sous 48h.",
+                "Our experts analyze your facilities and propose a tailored solution within 48 hours."
+              )}
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-4">
               <Link
                 to="/contact"
                 className="rounded-lg bg-background px-8 py-4 font-display text-sm font-semibold text-foreground transition-all hover:shadow-lg"
               >
-                Nous contacter
+                {t("Nous contacter", "Contact us")}
               </Link>
               <a
                 href="https://wa.me/971508054220"
