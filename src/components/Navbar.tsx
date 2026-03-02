@@ -7,8 +7,8 @@ import kfmLogo from "@/assets/kfm-logo.jpeg";
 const navLinks = [
   { label: "Accueil", href: "/" },
   { label: "À Propos", href: "/a-propos" },
-  { label: "Nos Produits", href: "/produits" },
   { label: "Nos Services", href: "/services" },
+  { label: "Projets", href: "/projets" },
   { label: "Contact", href: "/contact" },
 ];
 
