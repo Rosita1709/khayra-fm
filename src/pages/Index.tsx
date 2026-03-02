@@ -90,7 +90,7 @@ const Index = () => {
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="font-display text-5xl font-bold leading-tight tracking-tight md:text-7xl"
+              className="font-display text-5xl font-bold leading-tight tracking-tight md:text-7xl text-white"
             >
               Khayra{" "}
               <span className="text-gradient">Facility</span>
