@@ -26,6 +26,13 @@ const clientLinks = [
   { name: "Huda Beauty", url: "https://hudabeauty.com/en-ae" },
 ];
 
+const partnerLinks = [
+  { name: "Takyeef Factory", url: "https://www.takyeeffactory.com/" },
+  { name: "Senben Lighting", url: "https://www.senbenlighting.com/" },
+  { name: "Universal RBM", url: "https://universal-rbm.com/" },
+  { name: "MK Lights", url: "https://www.mklights.com/" },
+];
+
 const partnerLogos = [
   { src: partner1, name: "Partenaire 1" },
   { src: partner2, name: "Partenaire 2" },
@@ -68,6 +75,13 @@ const ClientsSection = () => {
             >
               <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
                 <type.icon className="h-5 w-5" />
+              </div>
+              <div>
+                <div className="font-display text-sm font-semibold">{type.label}</div>
+                <div className="mt-1 text-xs text-muted-foreground">{type.sub}</div>
+              </div>
+            </motion.div>
+          ))}
         </div>
 
         {/* Client references */}
@@ -98,15 +112,8 @@ const ClientsSection = () => {
             ))}
           </div>
         </motion.div>
-              <div>
-                <div className="font-display text-sm font-semibold">{type.label}</div>
-                <div className="mt-1 text-xs text-muted-foreground">{type.sub}</div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
 
-        {/* Partenaires avec logos */}
+        {/* Partenaires */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -120,12 +127,13 @@ const ClientsSection = () => {
               Nos <span className="text-gradient">Partenaires</span>
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
-              Nous sommes fiers de travailler en étroite collaboration avec un réseau de partenaires 
-              de confiance qui partagent notre engagement envers l'excellence en Facility Management.
+              Nous travaillons en étroite collaboration avec un réseau de partenaires
+              de confiance qui partagent notre engagement envers l'excellence.
             </p>
           </div>
 
-          <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-6">
+          {/* Partner logos */}
+          <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-6 mb-10">
             {partnerLogos.map((partner, i) => (
               <motion.div
                 key={partner.name}
@@ -141,6 +149,26 @@ const ClientsSection = () => {
                   className="max-h-16 max-w-full object-contain grayscale transition-all hover:grayscale-0"
                 />
               </motion.div>
+            ))}
+          </div>
+
+          {/* Partner links */}
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            {partnerLinks.map((partner, i) => (
+              <motion.a
+                key={partner.name}
+                href={partner.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.3, delay: i * 0.06 }}
+                className="flex items-center justify-between gap-3 rounded-xl border border-border bg-card px-5 py-4 transition-all hover:border-primary/30 hover:shadow-md group"
+              >
+                <span className="text-sm font-medium">{partner.name}</span>
+                <ExternalLink className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
+              </motion.a>
             ))}
           </div>
         </motion.div>

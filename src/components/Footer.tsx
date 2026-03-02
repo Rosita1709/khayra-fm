@@ -26,11 +26,11 @@ const Footer = () => {
           <div>
             <h4 className="font-display font-semibold mb-4">Services</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li>HVAC & Climatisation</li>
-              <li>Électricité & Plomberie</li>
-              <li>Travaux Civils</li>
-              <li>Design Intérieur</li>
-              <li>Energy Saving</li>
+              <li><Link to="/services/hvac" className="hover:text-primary transition-colors">HVAC & Climatisation</Link></li>
+              <li><Link to="/services/mep" className="hover:text-primary transition-colors">Électricité & Plomberie</Link></li>
+              <li><Link to="/services/travaux-civils" className="hover:text-primary transition-colors">Travaux Civils</Link></li>
+              <li><Link to="/services/design-interieur" className="hover:text-primary transition-colors">Design Intérieur</Link></li>
+              <li><Link to="/services/energy-saving" className="hover:text-primary transition-colors">Energy Saving</Link></li>
             </ul>
           </div>
           <div>
