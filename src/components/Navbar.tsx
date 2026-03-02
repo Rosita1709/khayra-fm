@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Globe } from "lucide-react";
 import kfmLogo from "@/assets/kfm-logo.jpeg";
 import { useLanguage } from "@/contexts/LanguageContext";
 
