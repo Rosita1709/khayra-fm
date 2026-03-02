@@ -72,7 +72,7 @@ const Index = () => {
             animate={{ scale: 1 }}
             transition={{ duration: 1.5, ease: "easeOut" }}
           />
-          <div className="absolute inset-0 bg-background/40" />
+          <div className="absolute inset-0 bg-black/50" />
         </div>
 
         <div className="container relative mx-auto px-6 py-32">
@@ -90,7 +90,7 @@ const Index = () => {
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="font-display text-5xl font-bold leading-tight tracking-tight md:text-7xl"
+              className="font-display text-5xl font-bold leading-tight tracking-tight md:text-7xl text-white"
             >
               Khayra{" "}
               <span className="text-gradient">Facility</span>
@@ -102,7 +102,7 @@ const Index = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.6 }}
-              className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground"
+              className="mt-6 max-w-xl text-lg leading-relaxed text-white/80"
             >
               Khayra FM propose des services de Facilities Management digitalisés avec une application 
               de GMAO et fournit des services et des solutions de qualité à une variété de clients 
@@ -117,13 +117,13 @@ const Index = () => {
             >
               <Link
                 to="/services"
-                className="rounded-lg bg-primary px-8 py-4 font-display text-sm font-semibold tracking-wide text-primary-foreground transition-all hover:glow hover:shadow-lg"
+                className="rounded-lg bg-primary px-8 py-4 font-display text-sm font-semibold tracking-wide text-primary-foreground transition-all hover:shadow-lg"
               >
                 En savoir plus
               </Link>
               <Link
                 to="/contact"
-                className="rounded-lg border border-border bg-card px-8 py-4 font-display text-sm font-semibold tracking-wide text-foreground transition-all hover:border-primary/40 hover:shadow-md"
+                className="rounded-lg border border-white/30 bg-white/10 px-8 py-4 font-display text-sm font-semibold tracking-wide text-white transition-all hover:bg-white/20 hover:shadow-md"
               >
                 Nous contacter
               </Link>
