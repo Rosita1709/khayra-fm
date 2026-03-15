@@ -146,7 +146,7 @@ const ClientsSection = () => {
                 <img
                   src={partner.src}
                   alt={partner.name}
-                  className="max-h-16 max-w-full object-contain grayscale transition-all hover:grayscale-0"
+                  className="max-h-16 max-w-full object-contain transition-all"
                 />
               </motion.div>
             ))}

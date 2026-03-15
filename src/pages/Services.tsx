@@ -234,9 +234,9 @@ const Services = () => {
                 whileInView="visible"
                 viewport={{ once: true }}
                 whileHover={{ y: -8, transition: { duration: 0.3 } }}
-                className="relative text-center card-premium p-8"
+                className="relative text-center rounded-2xl border border-border bg-card p-8 pt-10 mt-4 transition-all duration-500 hover:border-primary/30 hover:shadow-card-hover"
               >
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 flex h-8 w-8 items-center justify-center rounded-full bg-primary text-xs font-bold text-primary-foreground shadow-lg shadow-primary/30">
+                <div className="absolute -top-5 left-1/2 -translate-x-1/2 flex h-10 w-10 items-center justify-center rounded-full bg-primary text-sm font-bold text-primary-foreground shadow-lg shadow-primary/30 z-10">
                   {i + 1}
                 </div>
                 <motion.div
@@ -262,19 +262,18 @@ const Services = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
-            className="relative overflow-hidden rounded-3xl p-12 md:p-20 text-center"
-            style={{ background: "var(--gradient-premium)" }}
+            className="relative overflow-hidden rounded-3xl bg-primary p-12 md:p-20 text-center"
           >
             <motion.div
               className="absolute top-0 right-0 h-64 w-64 rounded-full blur-[80px]"
-              style={{ background: "hsl(var(--primary) / 0.15)" }}
+              style={{ background: "hsl(0 0% 100% / 0.1)" }}
               animate={{ x: [0, 30, 0], y: [0, -20, 0] }}
               transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
             />
             <h2 className="relative font-display text-3xl font-bold text-primary-foreground md:text-5xl">
               {t("Un besoin spécifique ?", "A specific need?")}
             </h2>
-            <p className="relative mx-auto mt-4 max-w-xl" style={{ color: "hsl(0 0% 100% / 0.7)" }}>
+            <p className="relative mx-auto mt-4 max-w-xl text-primary-foreground/70">
               {t(
                 "Nos experts analysent vos installations et vous proposent une solution adaptée sous 48h.",
                 "Our experts analyze your facilities and propose a tailored solution within 48 hours."

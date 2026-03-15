@@ -4,7 +4,7 @@ import heroImg from "@/assets/hero-new.jpg";
 import { CheckCircle, TrendingUp, PiggyBank, Heart, Rocket, ArrowRight, Play } from "lucide-react";
 import aboutBg from "@/assets/about-bg.webp";
 import visionBg from "@/assets/vision-bg.jpg";
-import valuesBg from "@/assets/values-bg.jpg";
+
 import ctaBg from "@/assets/cta-bg.jpg";
 
 import partner1 from "@/assets/partners/partner1.png";
@@ -15,7 +15,7 @@ import ambassade from "@/assets/partners/ambassade.jpeg";
 import partner6 from "@/assets/partners/partner6.png";
 import { useLanguage } from "@/contexts/LanguageContext";
 import ServicesSection from "@/components/ServicesSection";
-import ProductsShowcase from "@/components/ProductsShowcase";
+
 import RealisationsSection from "@/components/RealisationsSection";
 
 const fadeUp = {
@@ -371,15 +371,9 @@ const Index = () => {
         </div>
       </section>
 
-      {/* ===== PRODUITS PARTENAIRES ===== */}
-      <ProductsShowcase />
 
       {/* ===== NOS VALEURS ===== */}
-      <section className="relative py-28 overflow-hidden">
-        <div className="absolute inset-0">
-          <img src={valuesBg} alt="" className="h-full w-full object-cover" />
-          <div className="absolute inset-0 bg-background/93" />
-        </div>
+      <section className="relative py-28 overflow-hidden bg-muted/40">
         <div className="container relative mx-auto px-6">
           <motion.div
             variants={fadeUp}
@@ -462,7 +456,7 @@ const Index = () => {
                 <img
                   src={partner.src}
                   alt={partner.name}
-                  className="max-h-16 max-w-full object-contain grayscale transition-all duration-500 hover:grayscale-0"
+                  className="max-h-16 max-w-full object-contain transition-all duration-500"
                 />
               </motion.div>
             ))}
