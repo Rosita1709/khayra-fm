@@ -371,8 +371,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* ===== PRODUITS PARTENAIRES ===== */}
-      <ProductsShowcase />
 
       {/* ===== NOS VALEURS ===== */}
       <section className="relative py-28 overflow-hidden">
