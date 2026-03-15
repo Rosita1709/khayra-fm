@@ -122,7 +122,7 @@ const ServicesSection = () => {
               />
               <div className="absolute inset-0 bg-gradient-to-r from-foreground/40 via-foreground/10 to-transparent lg:bg-gradient-to-r" />
               <div className="absolute top-4 left-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-primary text-primary-foreground shadow-lg">
-                <services[0].icon className="h-6 w-6" />
+                {(() => { const Icon = services[0].icon; return <Icon className="h-6 w-6" />; })()}
               </div>
             </div>
             <div className="lg:w-2/5 p-8 flex flex-col justify-center">
