@@ -27,15 +27,6 @@ const App = () => (
         <BrowserRouter>
           <ScrollToTop />
           <Navbar />
-
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <LanguageProvider>
-        <Toaster />
-        <Sonner />
-        <BrowserRouter>
-          <Navbar />
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/a-propos" element={<APropos />} />
