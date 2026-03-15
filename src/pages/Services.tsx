@@ -7,6 +7,20 @@ import { servicesData } from "@/data/services";
 import { useLanguage } from "@/contexts/LanguageContext";
 import servicesBg from "@/assets/services-bg.webp";
 
+import productHvac from "@/assets/product-hvac.webp";
+import productMep from "@/assets/product-mep.webp";
+import productCivil from "@/assets/product-civil.webp";
+import productInterior from "@/assets/product-interior.webp";
+import productEnergy from "@/assets/product-energy.webp";
+
+const serviceImages: Record<string, string> = {
+  hvac: productHvac,
+  mep: productMep,
+  "travaux-civils": productCivil,
+  "design-interieur": productInterior,
+  "energy-saving": productEnergy,
+};
+
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
   visible: (i: number) => ({ opacity: 1, y: 0, transition: { duration: 0.5, delay: i * 0.1 } }),
@@ -29,7 +43,7 @@ const Services = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Hero with background image */}
+      {/* Hero */}
       <section className="relative py-32 overflow-hidden min-h-[50vh] flex items-center">
         <div className="absolute inset-0">
           <motion.img
@@ -40,26 +54,19 @@ const Services = () => {
             animate={{ scale: 1 }}
             transition={{ duration: 1.5, ease: "easeOut" }}
           />
-          <div className="absolute inset-0 bg-background/80 backdrop-blur-[2px]" />
-          <div className="absolute inset-0 bg-gradient-to-b from-primary/10 via-transparent to-background" />
+          <div className="absolute inset-0 bg-gradient-to-b from-foreground/60 via-foreground/40 to-background" />
         </div>
-        {/* Floating orbs */}
         <motion.div
           className="absolute top-20 right-20 h-64 w-64 rounded-full bg-primary/10 blur-[100px]"
           animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
           transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <motion.div
-          className="absolute bottom-10 left-10 h-48 w-48 rounded-full bg-accent/10 blur-[80px]"
-          animate={{ scale: [1.2, 1, 1.2], opacity: [0.2, 0.4, 0.2] }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
         />
         <div className="container relative mx-auto px-6 text-center">
           <motion.span
             initial={{ opacity: 0, y: 20, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 0.5 }}
-            className="mb-4 inline-block rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-xs font-medium tracking-widest uppercase text-primary"
+            className="mb-4 inline-block rounded-full border border-primary/40 bg-primary/15 px-5 py-2 text-xs font-semibold tracking-widest uppercase text-primary backdrop-blur-sm"
           >
             {t("Ce que nous faisons", "What we do")}
           </motion.span>
@@ -67,7 +74,7 @@ const Services = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="font-display text-5xl font-bold md:text-6xl"
+            className="font-display text-5xl font-bold md:text-6xl text-background"
           >
             {t("Nos ", "Our ")}<span className="text-gradient">Services</span>
           </motion.h1>
@@ -75,7 +82,7 @@ const Services = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.25 }}
-            className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground"
+            className="mx-auto mt-4 max-w-2xl text-lg text-background/80"
           >
             {t(
               "Des solutions sur mesure pour la gestion optimale de vos installations aux Émirats Arabes Unis.",
@@ -85,7 +92,7 @@ const Services = () => {
         </div>
       </section>
 
-      {/* Services cards */}
+      {/* Services cards with images */}
       <section className="py-24">
         <div className="container mx-auto px-6 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {servicesData.map((service, i) => (
@@ -99,30 +106,39 @@ const Services = () => {
             >
               <Link
                 to={`/services/${service.slug}`}
-                className={`group flex flex-col h-full rounded-2xl border border-border bg-card overflow-hidden transition-all duration-500 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 hover:-translate-y-2`}
+                className="group flex flex-col h-full card-modern overflow-hidden"
               >
-                <div className={`relative flex flex-col items-center justify-center p-10 text-center bg-gradient-to-br ${service.color} overflow-hidden`}>
-                  {/* Animated background pattern */}
-                  <motion.div
-                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700"
-                    style={{
-                      backgroundImage: "radial-gradient(circle at 30% 50%, hsl(var(--primary) / 0.08) 0%, transparent 50%)",
-                    }}
+                {/* Service image */}
+                <div className="relative h-52 overflow-hidden">
+                  <motion.img
+                    src={serviceImages[service.slug] || servicesBg}
+                    alt={t(service.title, service.titleEn)}
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
-                  <motion.div
-                    whileHover={{ rotate: 10, scale: 1.1 }}
-                    transition={{ type: "spring", stiffness: 300 }}
-                    className="relative flex h-16 w-16 items-center justify-center rounded-2xl bg-primary/10 text-primary mb-4 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300 group-hover:shadow-lg group-hover:shadow-primary/20"
-                  >
-                    <service.icon className="h-8 w-8" />
-                  </motion.div>
-                  <h2 className="relative font-display text-xl font-bold">{t(service.title, service.titleEn)}</h2>
-                  <p className="relative mt-1 text-xs text-muted-foreground">{service.titleEn}</p>
+                  <div className="absolute inset-0 bg-gradient-to-t from-foreground/50 via-foreground/10 to-transparent" />
+                  <div className="absolute bottom-3 left-3 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/90 text-primary-foreground shadow-lg backdrop-blur-sm transition-transform duration-300 group-hover:scale-110">
+                    <service.icon className="h-6 w-6" />
+                  </div>
+                  <span className="absolute top-3 right-3 rounded-full bg-background/90 px-3 py-1 text-[10px] font-semibold uppercase tracking-wider text-foreground backdrop-blur-sm">
+                    {t(service.title.split(" ")[0], service.titleEn.split(" ")[0])}
+                  </span>
                 </div>
+
                 <div className="p-6 flex-1 flex flex-col">
-                  <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3">
+                  <h2 className="font-display text-xl font-bold">{t(service.title, service.titleEn)}</h2>
+                  <p className="mt-2 text-sm text-muted-foreground leading-relaxed line-clamp-3">
                     {service.intro}
                   </p>
+
+                  {/* Section count */}
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {service.sections.slice(0, 3).map((s) => (
+                      <span key={s.title} className="rounded-full bg-primary/8 px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-primary">
+                        {s.title.split(" ").slice(0, 2).join(" ")}
+                      </span>
+                    ))}
+                  </div>
+
                   <div className="mt-auto pt-4 flex items-center gap-2 text-sm font-semibold text-primary">
                     {t("Découvrir en détail", "View details")}
                     <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-2" />
@@ -167,7 +183,7 @@ const Services = () => {
                 whileInView="visible"
                 viewport={{ once: true }}
                 whileHover={{ y: -8, transition: { duration: 0.3 } }}
-                className="relative text-center rounded-2xl border border-border bg-card p-8 transition-all hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5"
+                className="relative text-center rounded-2xl border border-border bg-card p-8 transition-all hover:border-primary/30 hover:shadow-card-hover"
               >
                 <div className="absolute -top-4 left-1/2 -translate-x-1/2 flex h-8 w-8 items-center justify-center rounded-full bg-primary text-xs font-bold text-primary-foreground shadow-lg shadow-primary/30">
                   {i + 1}
@@ -197,16 +213,10 @@ const Services = () => {
             transition={{ duration: 0.7 }}
             className="relative overflow-hidden rounded-3xl bg-primary p-12 md:p-20 text-center"
           >
-            {/* Animated decoration */}
             <motion.div
               className="absolute top-0 right-0 h-64 w-64 rounded-full bg-primary-foreground/5 blur-[60px]"
               animate={{ x: [0, 30, 0], y: [0, -20, 0] }}
               transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-            />
-            <motion.div
-              className="absolute bottom-0 left-0 h-48 w-48 rounded-full bg-primary-foreground/5 blur-[60px]"
-              animate={{ x: [0, -20, 0], y: [0, 20, 0] }}
-              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
             />
             <h2 className="relative font-display text-3xl font-bold text-primary-foreground md:text-5xl">
               {t("Un besoin spécifique ?", "A specific need?")}
@@ -220,7 +230,7 @@ const Services = () => {
             <div className="relative mt-8 flex flex-wrap justify-center gap-4">
               <Link
                 to="/contact"
-                className="rounded-lg bg-background px-8 py-4 font-display text-sm font-semibold text-foreground transition-all hover:shadow-lg hover:-translate-y-0.5"
+                className="rounded-xl bg-background px-8 py-4 font-display text-sm font-semibold text-foreground transition-all hover:shadow-lg hover:-translate-y-0.5"
               >
                 {t("Nous contacter", "Contact us")}
               </Link>
@@ -228,7 +238,7 @@ const Services = () => {
                 href="https://wa.me/971508054220"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-lg border border-primary-foreground/30 px-8 py-4 font-display text-sm font-semibold text-primary-foreground transition-all hover:bg-primary-foreground/10"
+                className="rounded-xl border border-primary-foreground/30 px-8 py-4 font-display text-sm font-semibold text-primary-foreground transition-all hover:bg-primary-foreground/10"
               >
                 WhatsApp →
               </a>
