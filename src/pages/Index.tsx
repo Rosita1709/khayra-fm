@@ -15,7 +15,7 @@ import ambassade from "@/assets/partners/ambassade.jpeg";
 import partner6 from "@/assets/partners/partner6.png";
 import { useLanguage } from "@/contexts/LanguageContext";
 import ServicesSection from "@/components/ServicesSection";
-import ProductsShowcase from "@/components/ProductsShowcase";
+
 import RealisationsSection from "@/components/RealisationsSection";
 
 const fadeUp = {
