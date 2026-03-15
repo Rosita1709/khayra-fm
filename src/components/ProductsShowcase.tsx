@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { ExternalLink, Star } from "lucide-react";
+import { ExternalLink, Star, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 import hvacUnit from "@/assets/products/hvac-unit.webp";
 import ledPanel from "@/assets/products/led-panel.webp";
@@ -8,16 +9,6 @@ import electricalPanel from "@/assets/products/electrical-panel.webp";
 import smartThermostat from "@/assets/products/smart-thermostat.webp";
 import vrfSystem from "@/assets/products/vrf-system.webp";
 import ledDownlight from "@/assets/products/led-downlight.webp";
-
-const scaleIn = {
-  hidden: { opacity: 0, scale: 0.9, y: 20 },
-  visible: (i: number) => ({
-    opacity: 1,
-    scale: 1,
-    y: 0,
-    transition: { duration: 0.5, delay: i * 0.1, ease: "easeOut" as const },
-  }),
-};
 
 const ProductsShowcase = () => {
   const { t } = useLanguage();
@@ -92,48 +83,70 @@ const ProductsShowcase = () => {
   ];
 
   return (
-    <section className="py-28 bg-muted/30">
-      <div className="container mx-auto px-6">
+    <section className="py-28 relative overflow-hidden">
+      {/* Premium dark background */}
+      <div className="absolute inset-0" style={{ background: "var(--gradient-premium)" }} />
+      <motion.div
+        className="absolute top-1/3 right-0 h-96 w-96 rounded-full blur-[150px]"
+        style={{ background: "hsl(var(--primary) / 0.15)" }}
+        animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
+        transition={{ duration: 8, repeat: Infinity }}
+      />
+
+      <div className="container relative mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="text-center mb-16"
+          className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-16"
         >
-          <span className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">
-            {t("Équipements", "Equipment")}
-          </span>
-          <h2 className="mt-4 font-display text-4xl font-bold md:text-5xl">
-            {t("Produits ", "Products from our ")}<span className="text-gradient">{t("Partenaires", "Partners")}</span>
-          </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
-            {t(
-              "Nous installons et maintenons des équipements de qualité professionnelle provenant de nos partenaires de confiance.",
-              "We install and maintain professional quality equipment from our trusted partners."
-            )}
-          </p>
+          <div>
+            <span className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">
+              {t("Équipements", "Equipment")}
+            </span>
+            <h2 className="mt-4 font-display text-4xl font-bold text-primary-foreground md:text-5xl">
+              {t("Produits ", "Products from our ")}
+              <span className="text-gradient">{t("Partenaires", "Partners")}</span>
+            </h2>
+            <p className="mt-4 max-w-lg" style={{ color: "hsl(0 0% 100% / 0.6)" }}>
+              {t(
+                "Nous installons et maintenons des équipements de qualité professionnelle provenant de nos partenaires de confiance.",
+                "We install and maintain professional quality equipment from our trusted partners."
+              )}
+            </p>
+          </div>
+          <Link
+            to="/projets"
+            className="group inline-flex items-center gap-2 rounded-xl border border-primary/40 bg-primary/10 px-6 py-3 font-display text-sm font-semibold text-primary transition-all hover:bg-primary hover:text-primary-foreground hover:-translate-y-0.5 self-start sm:self-auto backdrop-blur-sm"
+          >
+            {t("Voir nos projets", "View our projects")}
+            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+          </Link>
         </motion.div>
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {products.map((product, i) => (
             <motion.div
               key={product.name}
-              custom={i}
-              variants={scaleIn}
-              initial="hidden"
-              whileInView="visible"
+              initial={{ opacity: 0, y: 30, scale: 0.95 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true }}
-              className="group card-modern overflow-hidden"
+              transition={{ duration: 0.5, delay: i * 0.08 }}
+              className="group relative overflow-hidden rounded-2xl border transition-all duration-500 hover:-translate-y-2 shine-effect"
+              style={{
+                background: "hsl(0 0% 100% / 0.05)",
+                borderColor: "hsl(0 0% 100% / 0.08)",
+              }}
             >
               {/* Image */}
-              <div className="relative h-56 overflow-hidden bg-muted">
-                <motion.img
+              <div className="relative h-52 overflow-hidden">
+                <img
                   src={product.img}
                   alt={product.name}
                   className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-foreground/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-t from-foreground/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 {product.badge && (
                   <span className="absolute top-3 left-3 rounded-full bg-primary px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-primary-foreground shadow-lg">
                     {product.badge}
@@ -142,21 +155,25 @@ const ProductsShowcase = () => {
               </div>
 
               {/* Content */}
-              <div className="p-6">
+              <div className="p-5">
                 <div className="flex items-start justify-between gap-2">
-                  <h3 className="font-display text-lg font-bold leading-tight">{product.name}</h3>
+                  <h3 className="font-display text-base font-bold leading-tight text-primary-foreground">
+                    {product.name}
+                  </h3>
                   <div className="flex gap-0.5 text-kfm-gold flex-shrink-0">
                     {[...Array(5)].map((_, j) => (
-                      <Star key={j} className="h-3 w-3 fill-current" />
+                      <Star key={j} className="h-2.5 w-2.5 fill-current" />
                     ))}
                   </div>
                 </div>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{product.desc}</p>
+                <p className="mt-2 text-xs leading-relaxed" style={{ color: "hsl(0 0% 100% / 0.5)" }}>
+                  {product.desc}
+                </p>
                 <a
                   href={product.partnerUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-4 inline-flex items-center gap-1.5 text-xs font-semibold text-primary transition-colors hover:text-accent"
+                  className="mt-4 inline-flex items-center gap-1.5 text-xs font-semibold text-primary transition-colors hover:text-kfm-glow"
                 >
                   {product.partner}
                   <ExternalLink className="h-3 w-3" />

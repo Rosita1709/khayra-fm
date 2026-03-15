@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import heroImg from "@/assets/hero-new.jpg";
-import { CheckCircle, TrendingUp, PiggyBank, Heart, Rocket, ArrowRight } from "lucide-react";
+import { CheckCircle, TrendingUp, PiggyBank, Heart, Rocket, ArrowRight, Play } from "lucide-react";
 import aboutBg from "@/assets/about-bg.webp";
 import visionBg from "@/assets/vision-bg.jpg";
 import valuesBg from "@/assets/values-bg.jpg";
@@ -16,6 +16,7 @@ import partner6 from "@/assets/partners/partner6.png";
 import { useLanguage } from "@/contexts/LanguageContext";
 import ServicesSection from "@/components/ServicesSection";
 import ProductsShowcase from "@/components/ProductsShowcase";
+import RealisationsSection from "@/components/RealisationsSection";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -67,7 +68,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* ===== HERO ===== */}
-      <section className="relative min-h-[90vh] flex items-center overflow-hidden">
+      <section className="relative min-h-[92vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
           <motion.img
             src={heroImg}
@@ -75,16 +76,23 @@ const Index = () => {
             className="h-full w-full object-cover"
             initial={{ scale: 1.15 }}
             animate={{ scale: 1 }}
-            transition={{ duration: 2, ease: "easeOut" }}
+            transition={{ duration: 2.5, ease: "easeOut" }}
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-foreground/70 via-foreground/50 to-foreground/30" />
+          <div className="absolute inset-0 bg-gradient-to-r from-foreground/80 via-foreground/55 to-foreground/25" />
         </div>
 
-        {/* Floating orbs */}
+        {/* Animated orbs */}
         <motion.div
-          className="absolute top-1/3 left-1/4 h-96 w-96 rounded-full bg-primary/10 blur-[150px]"
-          animate={{ scale: [1, 1.3, 1], opacity: [0.3, 0.6, 0.3] }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-1/4 left-1/3 h-[500px] w-[500px] rounded-full blur-[180px]"
+          style={{ background: "hsl(var(--primary) / 0.12)" }}
+          animate={{ scale: [1, 1.3, 1], opacity: [0.3, 0.5, 0.3] }}
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="absolute bottom-1/4 right-1/4 h-[300px] w-[300px] rounded-full blur-[120px]"
+          style={{ background: "hsl(var(--kfm-gold) / 0.08)" }}
+          animate={{ scale: [1, 1.2, 1], x: [0, 30, 0] }}
+          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
         />
 
         <div className="container relative mx-auto px-6 py-32">
@@ -102,7 +110,7 @@ const Index = () => {
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="font-display text-5xl font-bold leading-[1.1] tracking-tight md:text-7xl text-background"
+              className="font-display text-5xl font-bold leading-[1.08] tracking-tight md:text-7xl lg:text-8xl text-background"
             >
               Khayra{" "}
               <span className="text-gradient">Facility</span>
@@ -114,7 +122,7 @@ const Index = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.6 }}
-              className="mt-6 max-w-xl text-lg leading-relaxed text-background/80"
+              className="mt-6 max-w-xl text-lg leading-relaxed text-background/75"
             >
               {t(
                 "Khayra FM propose des services de Facilities Management digitalisés avec une application de GMAO et fournit des services et des solutions de qualité à une variété de clients dans différents secteurs.",
@@ -130,7 +138,7 @@ const Index = () => {
             >
               <Link
                 to="/services"
-                className="group rounded-xl bg-primary px-8 py-4 font-display text-sm font-semibold tracking-wide text-primary-foreground transition-all hover:shadow-lg hover:shadow-primary/30 hover:-translate-y-0.5"
+                className="group rounded-2xl bg-primary px-8 py-4 font-display text-sm font-semibold tracking-wide text-primary-foreground transition-all hover:shadow-xl hover:shadow-primary/30 hover:-translate-y-1"
               >
                 <span className="flex items-center gap-2">
                   {t("Nos services", "Our services")}
@@ -139,13 +147,13 @@ const Index = () => {
               </Link>
               <Link
                 to="/contact"
-                className="rounded-xl border border-background/30 bg-background/10 px-8 py-4 font-display text-sm font-semibold tracking-wide text-background backdrop-blur-sm transition-all hover:bg-background/20 hover:shadow-md"
+                className="rounded-2xl border border-background/25 bg-background/8 px-8 py-4 font-display text-sm font-semibold tracking-wide text-background backdrop-blur-md transition-all hover:bg-background/15 hover:shadow-lg hover:-translate-y-0.5"
               >
                 {t("Nous contacter", "Contact us")}
               </Link>
             </motion.div>
 
-            {/* Stats row in hero */}
+            {/* Stats row */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -163,15 +171,30 @@ const Index = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 1.2 + i * 0.1 }}
-                  className="rounded-xl border border-background/15 bg-background/8 px-5 py-4 text-center backdrop-blur-md"
+                  className="rounded-2xl border border-background/12 bg-background/6 px-5 py-4 text-center backdrop-blur-lg"
                 >
                   <div className="font-display text-2xl font-bold text-primary">{stat.value}</div>
-                  <div className="mt-0.5 text-xs tracking-wide text-background/70">{stat.label}</div>
+                  <div className="mt-0.5 text-xs tracking-wide text-background/60">{stat.label}</div>
                 </motion.div>
               ))}
             </motion.div>
           </div>
         </div>
+
+        {/* Scroll indicator */}
+        <motion.div
+          className="absolute bottom-8 left-1/2 -translate-x-1/2"
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 2, repeat: Infinity }}
+        >
+          <div className="h-10 w-6 rounded-full border-2 border-background/30 flex justify-center pt-2">
+            <motion.div
+              className="h-2 w-1 rounded-full bg-background/50"
+              animate={{ opacity: [0, 1, 0], y: [0, 8, 0] }}
+              transition={{ duration: 2, repeat: Infinity }}
+            />
+          </div>
+        </motion.div>
       </section>
 
       {/* ===== DES PROFESSIONNELS QUALIFIÉS ===== */}
@@ -185,25 +208,28 @@ const Index = () => {
               viewport={{ once: true, margin: "-100px" }}
               className="relative"
             >
-              <div className="overflow-hidden rounded-2xl shadow-elevated">
+              <div className="overflow-hidden rounded-3xl shadow-premium">
                 <motion.img
                   src={aboutBg}
                   alt={t("Équipe KFM", "KFM Team")}
-                  className="h-[480px] w-full object-cover"
+                  className="h-[500px] w-full object-cover"
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.7 }}
                 />
               </div>
+              {/* Floating badge */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.4 }}
-                className="absolute -bottom-6 -right-6 rounded-xl glow bg-primary p-6 font-display shadow-xl"
+                className="absolute -bottom-6 -right-6 rounded-2xl bg-primary p-6 font-display shadow-premium"
               >
                 <div className="text-3xl font-bold text-primary-foreground">GMAO</div>
                 <div className="text-sm text-primary-foreground/80">{t("Maintenance digitalisée", "Digitalized maintenance")}</div>
               </motion.div>
+              {/* Decorative line */}
+              <div className="absolute -top-4 -left-4 h-24 w-24 rounded-2xl border-2 border-primary/20" />
             </motion.div>
 
             <motion.div
@@ -264,14 +290,18 @@ const Index = () => {
       {/* ===== SERVICES ===== */}
       <ServicesSection />
 
+      {/* ===== RÉALISATIONS ===== */}
+      <RealisationsSection />
+
       {/* ===== NOTRE VISION ===== */}
-      <section className="relative py-24 overflow-hidden">
+      <section className="relative py-28 overflow-hidden">
         <div className="absolute inset-0">
           <img src={visionBg} alt="" className="h-full w-full object-cover" />
-          <div className="absolute inset-0 bg-background/85" />
+          <div className="absolute inset-0 bg-background/88" />
         </div>
         <motion.div
-          className="absolute top-1/2 right-0 h-80 w-80 rounded-full bg-primary/8 blur-[120px]"
+          className="absolute top-1/2 right-0 h-80 w-80 rounded-full blur-[120px]"
+          style={{ background: "hsl(var(--primary) / 0.08)" }}
           animate={{ scale: [1, 1.3, 1] }}
           transition={{ duration: 10, repeat: Infinity }}
         />
@@ -282,15 +312,25 @@ const Index = () => {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-100px" }}
-              className="overflow-hidden rounded-2xl shadow-elevated"
+              className="relative"
             >
-              <motion.img
-                src={visionBg}
-                alt={t("Technicien HVAC", "HVAC Technician")}
-                className="h-[400px] w-full object-cover"
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.7 }}
-              />
+              <div className="overflow-hidden rounded-3xl shadow-premium">
+                <motion.img
+                  src={visionBg}
+                  alt={t("Technicien HVAC", "HVAC Technician")}
+                  className="h-[420px] w-full object-cover"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.7 }}
+                />
+              </div>
+              {/* Play button overlay for premium feel */}
+              <motion.div
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex h-16 w-16 items-center justify-center rounded-full bg-primary/90 text-primary-foreground shadow-lg cursor-pointer"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Play className="h-6 w-6 ml-0.5" fill="currentColor" />
+              </motion.div>
             </motion.div>
             <motion.div
               variants={fadeRight}
@@ -314,6 +354,18 @@ const Index = () => {
                   "Whether for businesses, public institutions, shopping centers, or other organizations, KFM is a reliable partner for complete facility management."
                 )}
               </p>
+              {/* Trust indicators */}
+              <div className="mt-8 grid grid-cols-2 gap-4">
+                {[
+                  { num: "ISO", label: t("Normes certifiées", "Certified standards") },
+                  { num: "GMAO", label: t("Suivi digital", "Digital tracking") },
+                ].map((item) => (
+                  <div key={item.num} className="rounded-xl border border-border bg-card p-4">
+                    <div className="font-display text-lg font-bold text-primary">{item.num}</div>
+                    <div className="mt-1 text-xs text-muted-foreground">{item.label}</div>
+                  </div>
+                ))}
+              </div>
             </motion.div>
           </div>
         </div>
@@ -326,7 +378,7 @@ const Index = () => {
       <section className="relative py-28 overflow-hidden">
         <div className="absolute inset-0">
           <img src={valuesBg} alt="" className="h-full w-full object-cover" />
-          <div className="absolute inset-0 bg-background/92" />
+          <div className="absolute inset-0 bg-background/93" />
         </div>
         <div className="container relative mx-auto px-6">
           <motion.div
@@ -349,7 +401,7 @@ const Index = () => {
             </p>
           </motion.div>
 
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {values.map((value, i) => (
               <motion.div
                 key={value.title}
@@ -358,10 +410,10 @@ const Index = () => {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
-                whileHover={{ y: -8, transition: { duration: 0.3 } }}
-                className="group rounded-2xl border border-border bg-card p-8 text-center transition-all hover:border-primary/30 hover:shadow-card-hover"
+                whileHover={{ y: -10, transition: { duration: 0.3 } }}
+                className="group card-premium p-8 text-center shine-effect"
               >
-                <div className="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-2xl bg-primary/10 text-primary transition-all duration-500 group-hover:bg-primary group-hover:text-primary-foreground group-hover:shadow-lg group-hover:shadow-primary/20">
+                <div className="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-2xl bg-primary/10 text-primary transition-all duration-500 group-hover:bg-primary group-hover:text-primary-foreground group-hover:shadow-lg group-hover:shadow-primary/20 group-hover:rotate-3">
                   <value.icon className="h-8 w-8" />
                 </div>
                 <h3 className="font-display text-lg font-semibold">{value.title}</h3>
@@ -405,7 +457,7 @@ const Index = () => {
                 whileInView="visible"
                 viewport={{ once: true }}
                 whileHover={{ y: -4, transition: { duration: 0.2 } }}
-                className="flex h-28 items-center justify-center rounded-xl border border-border bg-background p-4 transition-all hover:border-primary/30 hover:shadow-card-hover"
+                className="flex h-28 items-center justify-center rounded-2xl border border-border bg-background p-4 transition-all hover:border-primary/30 hover:shadow-card-hover"
               >
                 <img
                   src={partner.src}
@@ -431,12 +483,19 @@ const Index = () => {
           >
             <div className="absolute inset-0">
               <img src={ctaBg} alt="" className="h-full w-full object-cover" />
-              <div className="absolute inset-0 bg-primary/85" />
+              <div className="absolute inset-0 bg-primary/88" />
             </div>
             <motion.div
-              className="absolute top-0 right-0 h-64 w-64 rounded-full bg-primary-foreground/5 blur-[80px]"
+              className="absolute top-0 right-0 h-64 w-64 rounded-full blur-[80px]"
+              style={{ background: "hsl(var(--primary-foreground) / 0.05)" }}
               animate={{ x: [0, 30, 0], y: [0, -20, 0] }}
               transition={{ duration: 8, repeat: Infinity }}
+            />
+            <motion.div
+              className="absolute bottom-0 left-0 h-48 w-48 rounded-full blur-[60px]"
+              style={{ background: "hsl(var(--kfm-gold) / 0.1)" }}
+              animate={{ x: [0, -20, 0], y: [0, 15, 0] }}
+              transition={{ duration: 10, repeat: Infinity }}
             />
             <h2 className="relative font-display text-3xl font-bold text-primary-foreground md:text-5xl">
               {t("Prêt à transformer vos espaces ?", "Ready to transform your spaces?")}
@@ -447,10 +506,10 @@ const Index = () => {
                 "Our team is ready to support you with your technical and maintenance projects in the UAE."
               )}
             </p>
-            <div className="relative mt-8 flex flex-wrap justify-center gap-4">
+            <div className="relative mt-10 flex flex-wrap justify-center gap-4">
               <Link
                 to="/contact"
-                className="rounded-xl bg-background px-8 py-4 font-display text-sm font-semibold text-foreground transition-all hover:shadow-lg hover:-translate-y-0.5"
+                className="rounded-2xl bg-background px-8 py-4 font-display text-sm font-semibold text-foreground transition-all hover:shadow-premium hover:-translate-y-1"
               >
                 {t("Nous contacter", "Contact us")}
               </Link>
@@ -458,7 +517,7 @@ const Index = () => {
                 href="https://wa.me/971508054220"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-xl border border-primary-foreground/30 px-8 py-4 font-display text-sm font-semibold text-primary-foreground transition-all hover:bg-primary-foreground/10"
+                className="rounded-2xl border border-primary-foreground/25 px-8 py-4 font-display text-sm font-semibold text-primary-foreground transition-all hover:bg-primary-foreground/10 hover:-translate-y-0.5"
               >
                 WhatsApp →
               </a>

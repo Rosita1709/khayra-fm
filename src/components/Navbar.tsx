@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Menu, X, Globe } from "lucide-react";
 import kfmLogo from "@/assets/kfm-logo.jpeg";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -8,7 +8,14 @@ import { useLanguage } from "@/contexts/LanguageContext";
 const Navbar = () => {
   const location = useLocation();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const { lang, setLang, t } = useLanguage();
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const navLinks = [
     { label: t("Accueil", "Home"), href: "/" },
@@ -51,10 +58,12 @@ const Navbar = () => {
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6 }}
-        className="sticky top-0 z-50 glass shadow-sm"
+        className={`sticky top-0 z-50 transition-all duration-300 ${
+          scrolled ? "glass shadow-elevated" : "glass shadow-sm"
+        }`}
       >
         <div className="container mx-auto flex items-center justify-between px-6 py-3">
-          <Link to="/">
+          <Link to="/" className="flex-shrink-0">
             <img src={kfmLogo} alt="KFM - Khayra Facilities Management" className="h-12 object-contain" />
           </Link>
 
@@ -64,7 +73,7 @@ const Navbar = () => {
               <Link
                 key={link.href}
                 to={link.href}
-                className={`px-4 py-2 rounded-lg text-sm font-semibold tracking-wide transition-all ${
+                className={`px-4 py-2 rounded-lg text-sm font-semibold tracking-wide transition-all duration-300 ${
                   location.pathname === link.href
                     ? "bg-primary/10 text-primary"
                     : "text-muted-foreground hover:text-foreground hover:bg-muted"
@@ -77,7 +86,6 @@ const Navbar = () => {
 
           {/* CTA + Lang toggle + mobile toggle */}
           <div className="flex items-center gap-3">
-            {/* Language toggle */}
             <button
               onClick={() => setLang(lang === "fr" ? "en" : "fr")}
               className="flex items-center gap-1.5 rounded-lg border border-border px-2.5 py-1.5 text-xs font-bold tracking-wide transition-all hover:border-primary/40 hover:bg-muted"
@@ -99,7 +107,7 @@ const Navbar = () => {
             </a>
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="lg:hidden p-2 rounded-lg hover:bg-muted"
+              className="lg:hidden p-2 rounded-lg hover:bg-muted transition-colors"
             >
               {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
@@ -120,7 +128,7 @@ const Navbar = () => {
                   key={link.href}
                   to={link.href}
                   onClick={() => setMobileOpen(false)}
-                  className={`block px-4 py-3 rounded-lg text-sm font-semibold ${
+                  className={`block px-4 py-3 rounded-lg text-sm font-semibold transition-colors ${
                     location.pathname === link.href
                       ? "bg-primary/10 text-primary"
                       : "text-muted-foreground hover:bg-muted"
