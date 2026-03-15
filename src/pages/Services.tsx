@@ -234,9 +234,9 @@ const Services = () => {
                 whileInView="visible"
                 viewport={{ once: true }}
                 whileHover={{ y: -8, transition: { duration: 0.3 } }}
-                className="relative text-center card-premium p-8"
+                className="relative text-center rounded-2xl border border-border bg-card p-8 pt-10 mt-4 transition-all duration-500 hover:border-primary/30 hover:shadow-card-hover"
               >
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 flex h-8 w-8 items-center justify-center rounded-full bg-primary text-xs font-bold text-primary-foreground shadow-lg shadow-primary/30">
+                <div className="absolute -top-5 left-1/2 -translate-x-1/2 flex h-10 w-10 items-center justify-center rounded-full bg-primary text-sm font-bold text-primary-foreground shadow-lg shadow-primary/30 z-10">
                   {i + 1}
                 </div>
                 <motion.div
