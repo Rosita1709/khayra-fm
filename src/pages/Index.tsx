@@ -373,11 +373,7 @@ const Index = () => {
 
 
       {/* ===== NOS VALEURS ===== */}
-      <section className="relative py-28 overflow-hidden">
-        <div className="absolute inset-0">
-          <img src={valuesBg} alt="" className="h-full w-full object-cover" />
-          <div className="absolute inset-0 bg-background/93" />
-        </div>
+      <section className="relative py-28 overflow-hidden bg-muted/40">
         <div className="container relative mx-auto px-6">
           <motion.div
             variants={fadeUp}
