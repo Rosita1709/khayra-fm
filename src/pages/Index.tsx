@@ -4,7 +4,7 @@ import heroImg from "@/assets/hero-new.jpg";
 import { CheckCircle, TrendingUp, PiggyBank, Heart, Rocket, ArrowRight, Play } from "lucide-react";
 import aboutBg from "@/assets/about-bg.webp";
 import visionBg from "@/assets/vision-bg.jpg";
-import valuesBg from "@/assets/values-bg.jpg";
+
 import ctaBg from "@/assets/cta-bg.jpg";
 
 import partner1 from "@/assets/partners/partner1.png";
