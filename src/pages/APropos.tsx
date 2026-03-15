@@ -52,7 +52,6 @@ const APropos = () => {
           <motion.img src={heroImg} alt="" className="h-full w-full object-cover opacity-40" initial={{ scale: 1.15 }} animate={{ scale: 1 }} transition={{ duration: 1.5 }} />
           <div className="absolute inset-0 bg-background/50" />
         </motion.div>
-        {/* Floating orbs */}
         <motion.div
           className="absolute top-20 right-1/4 h-64 w-64 rounded-full bg-primary/8 blur-[100px]"
           animate={{ y: [0, -30, 0], scale: [1, 1.2, 1] }}
@@ -84,14 +83,7 @@ const APropos = () => {
             className="grid grid-cols-3 gap-4 rounded-2xl border border-border bg-card p-6 shadow-xl"
           >
             {stats.map((stat, i) => (
-              <motion.div
-                key={stat.label}
-                custom={i}
-                variants={scaleIn}
-                initial="hidden"
-                animate="visible"
-                className="flex flex-col items-center text-center gap-2"
-              >
+              <motion.div key={stat.label} custom={i} variants={scaleIn} initial="hidden" animate="visible" className="flex flex-col items-center text-center gap-2">
                 <stat.icon className="h-6 w-6 text-primary" />
                 <div className="font-display text-3xl font-bold text-primary">{stat.value}</div>
                 <div className="text-sm text-muted-foreground">{stat.label}</div>
@@ -107,13 +99,7 @@ const APropos = () => {
           <div className="grid items-center gap-16 lg:grid-cols-2">
             <motion.div initial={{ opacity: 0, x: -60 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, ease: "easeOut" }} className="relative">
               <div className="overflow-hidden rounded-2xl shadow-xl">
-                <motion.img
-                  src={aboutBg}
-                  alt={t("Équipe KFM", "KFM Team")}
-                  className="h-[500px] w-full object-cover"
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.7 }}
-                />
+                <motion.img src={aboutBg} alt={t("Équipe KFM", "KFM Team")} className="h-[500px] w-full object-cover" whileHover={{ scale: 1.05 }} transition={{ duration: 0.7 }} />
               </div>
               <motion.div initial={{ opacity: 0, scale: 0.8 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.4 }}
                 className="absolute -bottom-6 -right-6 rounded-xl bg-primary p-6 font-display shadow-xl">
@@ -144,10 +130,7 @@ const APropos = () => {
                   "KFM relies on a qualified and experienced technical team covering multiple areas of expertise."
                 )}
               </p>
-              <motion.div
-                className="mt-6 rounded-xl border border-primary/20 bg-primary/5 px-6 py-4"
-                whileHover={{ borderColor: "hsl(var(--primary) / 0.4)" }}
-              >
+              <motion.div className="mt-6 rounded-xl border border-primary/20 bg-primary/5 px-6 py-4" whileHover={{ borderColor: "hsl(var(--primary) / 0.4)" }}>
                 <p className="text-sm font-medium leading-relaxed">
                   {t(
                     <>Chez KFM, le Facility Management ne se limite pas à l'entretien. Il s'agit d'une approche globale visant à garantir la <strong>performance</strong>, la <strong>sécurité</strong> et la <strong>durabilité</strong> des infrastructures.</>,
@@ -160,40 +143,18 @@ const APropos = () => {
         </div>
       </section>
 
-      {/* Vision section with parallax image */}
+      {/* Vision section */}
       <section className="relative py-28 overflow-hidden">
         <div className="absolute inset-0">
           <img src={visionBg} alt="" className="h-full w-full object-cover" />
           <div className="absolute inset-0 bg-background/85" />
         </div>
-        <motion.div
-          className="absolute bottom-0 right-0 h-80 w-80 rounded-full bg-primary/10 blur-[120px]"
-          animate={{ scale: [1, 1.3, 1] }}
-          transition={{ duration: 10, repeat: Infinity }}
-        />
         <div className="container relative mx-auto px-6">
           <div className="grid items-center gap-12 lg:grid-cols-2">
-            <motion.div
-              initial={{ opacity: 0, x: -60 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="overflow-hidden rounded-2xl shadow-xl"
-            >
-              <motion.img
-                src={visionBg}
-                alt={t("Technicien HVAC", "HVAC Technician")}
-                className="h-[400px] w-full object-cover"
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.7 }}
-              />
+            <motion.div initial={{ opacity: 0, x: -60 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="overflow-hidden rounded-2xl shadow-xl">
+              <motion.img src={visionBg} alt={t("Technicien HVAC", "HVAC Technician")} className="h-[400px] w-full object-cover" whileHover={{ scale: 1.05 }} transition={{ duration: 0.7 }} />
             </motion.div>
-            <motion.div
-              initial={{ opacity: 0, x: 60 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-            >
+            <motion.div initial={{ opacity: 0, x: 60 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
               <span className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">{t("Notre Vision", "Our Vision")}</span>
               <h2 className="mt-4 font-display text-3xl font-bold md:text-4xl">
                 {t("Excellence ", "Operational ")}<span className="text-gradient">{t("opérationnelle", "Excellence")}</span>
@@ -262,8 +223,8 @@ const APropos = () => {
             {pillars.map((pillar, i) => (
               <motion.div key={pillar.title} custom={i} variants={scaleIn} initial="hidden" whileInView="visible" viewport={{ once: true }}
                 whileHover={{ y: -8, transition: { duration: 0.3 } }}
-                className="group relative rounded-2xl border border-border bg-card p-8 text-center transition-all hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5">
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 flex h-8 w-8 items-center justify-center rounded-full bg-primary text-xs font-bold text-primary-foreground shadow-lg shadow-primary/30">
+                className="group relative rounded-2xl border border-border bg-card p-8 pt-10 text-center transition-all hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5">
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2 flex h-8 w-8 items-center justify-center rounded-full bg-primary text-xs font-bold text-primary-foreground shadow-lg shadow-primary/30 z-10">
                   {pillar.num}
                 </div>
                 <motion.div

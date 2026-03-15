@@ -1,21 +1,27 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import heroImg from "@/assets/hero-new.jpg";
-import { CheckCircle, TrendingUp, PiggyBank, Heart, Rocket, ArrowRight, Play } from "lucide-react";
+import { CheckCircle, TrendingUp, PiggyBank, Heart, Rocket, ArrowRight } from "lucide-react";
 import aboutBg from "@/assets/about-bg.webp";
 import visionBg from "@/assets/vision-bg.jpg";
-
 import ctaBg from "@/assets/cta-bg.jpg";
 
+// Client logos (they trust us)
 import partner1 from "@/assets/partners/partner1.png";
 import partner2 from "@/assets/partners/partner2.jpeg";
 import partner3 from "@/assets/partners/partner3.jpg";
 import economat from "@/assets/partners/economat.png";
 import ambassade from "@/assets/partners/ambassade.jpeg";
 import partner6 from "@/assets/partners/partner6.png";
+
+// Partner logos (we work with)
+import takyeef from "@/assets/partners/takyeef.png";
+import senben from "@/assets/partners/senben.png";
+import universalRbm from "@/assets/partners/universal-rbm.png";
+import mklights from "@/assets/partners/mklights.webp";
+
 import { useLanguage } from "@/contexts/LanguageContext";
 import ServicesSection from "@/components/ServicesSection";
-
 import RealisationsSection from "@/components/RealisationsSection";
 
 const fadeUp = {
@@ -46,13 +52,20 @@ const scaleIn = {
   }),
 };
 
-const partnerLogos = [
-  { src: partner1, name: "Partenaire" },
-  { src: partner2, name: "Partenaire" },
-  { src: partner3, name: "Partenaire" },
+const clientLogos = [
+  { src: partner1, name: "LLM Education" },
+  { src: partner2, name: "MBDA Systems" },
+  { src: partner3, name: "Huda Beauty" },
   { src: economat, name: "Économat des Armées" },
   { src: ambassade, name: "Ambassade de France" },
-  { src: partner6, name: "Partenaire" },
+  { src: partner6, name: "Ambassade du Sénégal" },
+];
+
+const partnerLogos = [
+  { src: takyeef, name: "Takyeef Factory", url: "https://www.takyeeffactory.com/" },
+  { src: senben, name: "Senben Lighting", url: "https://www.senbenlighting.com/" },
+  { src: universalRbm, name: "Universal RBM", url: "https://universal-rbm.com/" },
+  { src: mklights, name: "MK Lights", url: "https://www.mklights.com/" },
 ];
 
 const Index = () => {
@@ -87,12 +100,6 @@ const Index = () => {
           style={{ background: "hsl(var(--primary) / 0.12)" }}
           animate={{ scale: [1, 1.3, 1], opacity: [0.3, 0.5, 0.3] }}
           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <motion.div
-          className="absolute bottom-1/4 right-1/4 h-[300px] w-[300px] rounded-full blur-[120px]"
-          style={{ background: "hsl(var(--kfm-gold) / 0.08)" }}
-          animate={{ scale: [1, 1.2, 1], x: [0, 30, 0] }}
-          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
         />
 
         <div className="container relative mx-auto px-6 py-32">
@@ -217,7 +224,6 @@ const Index = () => {
                   transition={{ duration: 0.7 }}
                 />
               </div>
-              {/* Floating badge */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
@@ -228,7 +234,6 @@ const Index = () => {
                 <div className="text-3xl font-bold text-primary-foreground">GMAO</div>
                 <div className="text-sm text-primary-foreground/80">{t("Maintenance digitalisée", "Digitalized maintenance")}</div>
               </motion.div>
-              {/* Decorative line */}
               <div className="absolute -top-4 -left-4 h-24 w-24 rounded-2xl border-2 border-primary/20" />
             </motion.div>
 
@@ -299,12 +304,6 @@ const Index = () => {
           <img src={visionBg} alt="" className="h-full w-full object-cover" />
           <div className="absolute inset-0 bg-background/88" />
         </div>
-        <motion.div
-          className="absolute top-1/2 right-0 h-80 w-80 rounded-full blur-[120px]"
-          style={{ background: "hsl(var(--primary) / 0.08)" }}
-          animate={{ scale: [1, 1.3, 1] }}
-          transition={{ duration: 10, repeat: Infinity }}
-        />
         <div className="container relative mx-auto px-6">
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <motion.div
@@ -323,14 +322,6 @@ const Index = () => {
                   transition={{ duration: 0.7 }}
                 />
               </div>
-              {/* Play button overlay for premium feel */}
-              <motion.div
-                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex h-16 w-16 items-center justify-center rounded-full bg-primary/90 text-primary-foreground shadow-lg cursor-pointer"
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Play className="h-6 w-6 ml-0.5" fill="currentColor" />
-              </motion.div>
             </motion.div>
             <motion.div
               variants={fadeRight}
@@ -354,7 +345,6 @@ const Index = () => {
                   "Whether for businesses, public institutions, shopping centers, or other organizations, KFM is a reliable partner for complete facility management."
                 )}
               </p>
-              {/* Trust indicators */}
               <div className="mt-8 grid grid-cols-2 gap-4">
                 {[
                   { num: "ISO", label: t("Normes certifiées", "Certified standards") },
@@ -370,7 +360,6 @@ const Index = () => {
           </div>
         </div>
       </section>
-
 
       {/* ===== NOS VALEURS ===== */}
       <section className="relative py-28 overflow-hidden bg-muted/40">
@@ -405,9 +394,9 @@ const Index = () => {
                 whileInView="visible"
                 viewport={{ once: true }}
                 whileHover={{ y: -10, transition: { duration: 0.3 } }}
-                className="group card-premium p-8 text-center shine-effect"
+                className="group rounded-2xl border border-border bg-background p-8 text-center transition-all duration-500 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5"
               >
-                <div className="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-2xl bg-primary/10 text-primary transition-all duration-500 group-hover:bg-primary group-hover:text-primary-foreground group-hover:shadow-lg group-hover:shadow-primary/20 group-hover:rotate-3">
+                <div className="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-2xl bg-primary/10 text-primary transition-all duration-500 group-hover:bg-primary group-hover:text-primary-foreground group-hover:shadow-lg group-hover:shadow-primary/20">
                   <value.icon className="h-8 w-8" />
                 </div>
                 <h3 className="font-display text-lg font-semibold">{value.title}</h3>
@@ -418,7 +407,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* ===== NOS PARTENAIRES ===== */}
+      {/* ===== ILS NOUS FONT CONFIANCE (Clients) ===== */}
       <section className="py-24">
         <div className="container mx-auto px-6">
           <motion.div
@@ -431,18 +420,18 @@ const Index = () => {
           >
             <span className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">{t("Confiance", "Trust")}</span>
             <h2 className="mt-4 font-display text-3xl font-bold md:text-4xl">
-              {t("Nos ", "Our ")}<span className="text-gradient">{t("Partenaires", "Partners")}</span>
+              {t("Ils nous font ", "They trust ")}<span className="text-gradient">{t("confiance", "us")}</span>
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
               {t(
-                "Nous travaillons en étroite collaboration avec un réseau de partenaires de confiance qui partagent notre engagement envers l'excellence en Facility Management.",
-                "We work closely with a network of trusted partners who share our commitment to excellence in Facility Management."
+                "KFM intervient pour des villas haut de gamme, des immeubles résidentiels, des bâtiments commerciaux, des institutions et des industries aux Émirats.",
+                "KFM serves high-end villas, residential buildings, commercial buildings, institutions and industries in the UAE."
               )}
             </p>
           </motion.div>
 
           <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-6">
-            {partnerLogos.map((partner, i) => (
+            {clientLogos.map((client, i) => (
               <motion.div
                 key={i}
                 custom={i}
@@ -454,11 +443,54 @@ const Index = () => {
                 className="flex h-28 items-center justify-center rounded-2xl border border-border bg-background p-4 transition-all hover:border-primary/30 hover:shadow-card-hover"
               >
                 <img
-                  src={partner.src}
-                  alt={partner.name}
-                  className="max-h-16 max-w-full object-contain transition-all duration-500"
+                  src={client.src}
+                  alt={client.name}
+                  className="max-h-16 max-w-full object-contain"
                 />
               </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ===== NOS PARTENAIRES ===== */}
+      <section className="py-20 bg-muted/30">
+        <div className="container mx-auto px-6">
+          <motion.div
+            variants={fadeUp}
+            custom={0}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <span className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">{t("Partenaires", "Partners")}</span>
+            <h2 className="mt-4 font-display text-3xl font-bold md:text-4xl">
+              {t("Nos ", "Our ")}<span className="text-gradient">{t("Partenaires", "Partners")}</span>
+            </h2>
+          </motion.div>
+
+          <div className="grid grid-cols-2 gap-6 sm:grid-cols-4 max-w-3xl mx-auto">
+            {partnerLogos.map((partner, i) => (
+              <motion.a
+                key={partner.name}
+                href={partner.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                custom={i}
+                variants={scaleIn}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                whileHover={{ y: -4, transition: { duration: 0.2 } }}
+                className="flex h-28 items-center justify-center rounded-2xl border border-border bg-background p-4 transition-all hover:border-primary/30 hover:shadow-card-hover"
+              >
+                <img
+                  src={partner.src}
+                  alt={partner.name}
+                  className="max-h-16 max-w-full object-contain"
+                />
+              </motion.a>
             ))}
           </div>
         </div>
@@ -479,18 +511,6 @@ const Index = () => {
               <img src={ctaBg} alt="" className="h-full w-full object-cover" />
               <div className="absolute inset-0 bg-primary/88" />
             </div>
-            <motion.div
-              className="absolute top-0 right-0 h-64 w-64 rounded-full blur-[80px]"
-              style={{ background: "hsl(var(--primary-foreground) / 0.05)" }}
-              animate={{ x: [0, 30, 0], y: [0, -20, 0] }}
-              transition={{ duration: 8, repeat: Infinity }}
-            />
-            <motion.div
-              className="absolute bottom-0 left-0 h-48 w-48 rounded-full blur-[60px]"
-              style={{ background: "hsl(var(--kfm-gold) / 0.1)" }}
-              animate={{ x: [0, -20, 0], y: [0, 15, 0] }}
-              transition={{ duration: 10, repeat: Infinity }}
-            />
             <h2 className="relative font-display text-3xl font-bold text-primary-foreground md:text-5xl">
               {t("Prêt à transformer vos espaces ?", "Ready to transform your spaces?")}
             </h2>
