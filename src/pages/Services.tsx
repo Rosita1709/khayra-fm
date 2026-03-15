@@ -262,19 +262,18 @@ const Services = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
-            className="relative overflow-hidden rounded-3xl p-12 md:p-20 text-center"
-            style={{ background: "var(--gradient-premium)" }}
+            className="relative overflow-hidden rounded-3xl bg-primary p-12 md:p-20 text-center"
           >
             <motion.div
               className="absolute top-0 right-0 h-64 w-64 rounded-full blur-[80px]"
-              style={{ background: "hsl(var(--primary) / 0.15)" }}
+              style={{ background: "hsl(0 0% 100% / 0.1)" }}
               animate={{ x: [0, 30, 0], y: [0, -20, 0] }}
               transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
             />
             <h2 className="relative font-display text-3xl font-bold text-primary-foreground md:text-5xl">
               {t("Un besoin spécifique ?", "A specific need?")}
             </h2>
-            <p className="relative mx-auto mt-4 max-w-xl" style={{ color: "hsl(0 0% 100% / 0.7)" }}>
+            <p className="relative mx-auto mt-4 max-w-xl text-primary-foreground/70">
               {t(
                 "Nos experts analysent vos installations et vous proposent une solution adaptée sous 48h.",
                 "Our experts analyze your facilities and propose a tailored solution within 48 hours."

@@ -456,7 +456,7 @@ const Index = () => {
                 <img
                   src={partner.src}
                   alt={partner.name}
-                  className="max-h-16 max-w-full object-contain grayscale transition-all duration-500 hover:grayscale-0"
+                  className="max-h-16 max-w-full object-contain transition-all duration-500"
                 />
               </motion.div>
             ))}
