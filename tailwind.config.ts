@@ -55,6 +55,7 @@ export default {
           green: "hsl(var(--kfm-green))",
           teal: "hsl(var(--kfm-teal))",
           glow: "hsl(var(--kfm-glow))",
+          gold: "hsl(var(--kfm-gold))",
         },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
