@@ -1,9 +1,9 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Wind, Zap, Wrench, Paintbrush, Lightbulb, ShieldCheck, Eye, BarChart3, FileCheck, Users, Building2, Award } from "lucide-react";
+import { Wind, Zap, Wrench, Paintbrush, Lightbulb, ShieldCheck, Eye, BarChart3, FileCheck, Users, Building2, Award, Star, Handshake, Leaf, MessageSquare } from "lucide-react";
 import aboutBg from "@/assets/about-bg.webp";
 import heroImg from "@/assets/hero-light.webp";
-import visionBg from "@/assets/vision-bg.jpg";
 import teamVision from "@/assets/team-vision.jpg";
+import embassyHvac from "@/assets/projects/embassy-hvac-diagnostic.jpg";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useRef } from "react";
 
@@ -27,7 +27,7 @@ const APropos = () => {
   const stats = [
     { icon: Users, value: "50+", label: t("Techniciens", "Technicians") },
     { icon: Building2, value: "150+", label: t("Projets", "Projects") },
-    { icon: Award, value: "12+", label: t("Années", "Years") },
+    { icon: Award, value: "15+", label: t("Années d'expérience", "Years of experience") },
   ];
 
   const expertises = [
@@ -43,6 +43,21 @@ const APropos = () => {
     { icon: BarChart3, num: "02", title: "Performance", desc: t("Optimiser les systèmes techniques pour garantir un fonctionnement fiable et efficace.", "Optimizing technical systems to ensure reliable and efficient operation.") },
     { icon: Eye, num: "03", title: t("Transparence", "Transparency"), desc: t("Reporting clair, suivi des interventions, communication structurée avec nos clients.", "Clear reporting, intervention tracking, structured communication with our clients.") },
     { icon: FileCheck, num: "04", title: t("Sécurité & Conformité", "Safety & Compliance"), desc: t("Respect strict des réglementations locales et des standards techniques en vigueur aux Émirats Arabes Unis.", "Strict compliance with local regulations and technical standards in the United Arab Emirates.") },
+  ];
+
+  const coreValues = [
+    { icon: Star, title: t("Excellence Opérationnelle", "Operational Excellence"), desc: t("Nous visons les plus hauts standards dans chaque intervention.", "We strive for the highest standards in every task.") },
+    { icon: Handshake, title: t("Engagement Client", "Customer Commitment"), desc: t("Nous construisons des relations durables basées sur la confiance et la réactivité.", "We build long-term relationships based on trust and responsiveness.") },
+    { icon: Lightbulb, title: "Innovation", desc: t("Nous adoptons les technologies intelligentes pour améliorer les performances.", "We embrace smart technologies to improve performance.") },
+    { icon: MessageSquare, title: t("Transparence", "Transparency"), desc: t("Communication claire, reporting structuré et suivi constant.", "Clear communication, structured reporting and constant follow-up.") },
+    { icon: Leaf, title: t("Durabilité", "Sustainability"), desc: t("Nous promouvons les solutions éco-responsables et l'économie d'énergie.", "We promote energy-saving and eco-conscious solutions.") },
+  ];
+
+  const coreStrengths = [
+    { title: t("Expertise Technique", "Technical Expertise"), desc: t("Ingénieurs certifiés en HVAC, chambre froide, MEP, travaux civils et diagnostics.", "Certified engineers across HVAC, cold storage, MEP, civil works and diagnostics.") },
+    { title: t("Solutions Personnalisées", "Customized Solutions"), desc: t("Installations sur mesure adaptées aux contraintes et objectifs de durabilité du client.", "Tailor-made installations to fit client constraints and sustainability goals.") },
+    { title: t("Excellence en Gestion de Projet", "Project Management Excellence"), desc: t("Livraison dans les délais, dans le budget, avec une transparence totale.", "On-time, on-budget delivery with full transparency.") },
+    { title: t("Support Après-Vente", "Post-Sales Support"), desc: t("Contrats de maintenance avec SLA et reporting client régulier.", "SLA-backed maintenance contracts and client reporting.") },
   ];
 
   return (
@@ -69,7 +84,10 @@ const APropos = () => {
           </motion.h1>
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.25 }}
             className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
-            {t("KFM – Khayra Facilities Management, votre partenaire de confiance à Abu Dhabi.", "KFM – Khayra Facilities Management, your trusted partner in Abu Dhabi.")}
+            {t(
+              "KFM est votre partenaire de confiance pour des solutions complètes, innovantes et fiables en facility management aux EAU et au-delà.",
+              "KFM is your trusted partner in delivering comprehensive, innovative, and reliable facility management solutions across the UAE and beyond."
+            )}
           </motion.p>
         </motion.div>
       </section>
@@ -94,7 +112,7 @@ const APropos = () => {
         </div>
       </section>
 
-      {/* Présentation */}
+      {/* Présentation avec info fondateur */}
       <section className="py-24">
         <div className="container mx-auto px-6">
           <div className="grid items-center gap-16 lg:grid-cols-2">
@@ -115,27 +133,21 @@ const APropos = () => {
               </h2>
               <p className="mt-6 leading-relaxed text-muted-foreground">
                 {t(
-                  "KFM – Khayra Facilities Management est une société spécialisée en Facility Management basée à Abu Dhabi, aux Émirats Arabes Unis.",
-                  "KFM – Khayra Facilities Management is a company specializing in Facility Management based in Abu Dhabi, United Arab Emirates."
+                  "KFM – Khayra Facilities Management est une société spécialisée en Facility Management basée à Abu Dhabi, aux Émirats Arabes Unis. Fondée par M. Inadone Fall, un leader visionnaire avec plus de 15 ans d'expérience internationale, KFM a été créée avec la mission de transformer la gestion des installations grâce à la technologie, l'efficacité et une approche centrée sur le client.",
+                  "KFM – Khayra Facilities Management is a company specializing in Facility Management based in Abu Dhabi, UAE. Founded by Mr. Inadone Fall, a visionary leader with over 15 years of international experience, KFM was established with the mission of transforming the way facilities are managed—through technology, efficiency, and a client-centric approach."
                 )}
               </p>
               <p className="mt-4 leading-relaxed text-muted-foreground">
                 {t(
-                  "Nous accompagnons les propriétaires d'actifs immobiliers, les entreprises, les industries, les institutions et les résidences haut de gamme dans la gestion, la maintenance et l'optimisation technique de leurs bâtiments.",
-                  "We support real estate asset owners, businesses, industries, institutions and high-end residences in the management, maintenance and technical optimization of their buildings."
-                )}
-              </p>
-              <p className="mt-4 leading-relaxed text-muted-foreground">
-                {t(
-                  "KFM s'appuie sur une équipe technique qualifiée et expérimentée couvrant plusieurs domaines d'expertise.",
-                  "KFM relies on a qualified and experienced technical team covering multiple areas of expertise."
+                  "Nous sommes spécialisés dans la maintenance des bâtiments, la rénovation, les travaux civils et les services techniques, offrant des solutions sur mesure qui améliorent l'efficacité opérationnelle, la sécurité et la durabilité.",
+                  "We specialize in building maintenance, renovation, civil works, and technical services, offering tailor-made solutions that enhance operational efficiency, safety, and sustainability."
                 )}
               </p>
               <motion.div className="mt-6 rounded-xl border border-primary/20 bg-primary/5 px-6 py-4" whileHover={{ borderColor: "hsl(var(--primary) / 0.4)" }}>
                 <p className="text-sm font-medium leading-relaxed">
                   {t(
-                    <>Chez KFM, le Facility Management ne se limite pas à l'entretien. Il s'agit d'une approche globale visant à garantir la <strong>performance</strong>, la <strong>sécurité</strong> et la <strong>durabilité</strong> des infrastructures.</>,
-                    <>At KFM, Facility Management goes beyond maintenance. It is a comprehensive approach aimed at ensuring the <strong>performance</strong>, <strong>safety</strong> and <strong>sustainability</strong> of infrastructure.</>
+                    <>Notre stratégie digitale — soutenue par des systèmes GMAO avancés et un suivi en temps réel — garantit <strong>transparence</strong>, <strong>réactivité</strong> et <strong>suivi des performances</strong> à chaque étape.</>,
+                    <>Our digital-first strategy—supported by advanced CMMS systems and real-time monitoring—ensures <strong>transparency</strong>, <strong>responsiveness</strong>, and <strong>performance tracking</strong> at every stage.</>
                   )}
                 </p>
               </motion.div>
@@ -144,7 +156,32 @@ const APropos = () => {
         </div>
       </section>
 
-      {/* Vision section */}
+      {/* Core Strengths */}
+      <section className="py-24 bg-muted/40">
+        <div className="container mx-auto px-6">
+          <motion.div variants={fadeUp} custom={0} initial="hidden" whileInView="visible" viewport={{ once: true }} className="text-center mb-16">
+            <span className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">{t("Nos atouts", "Core Strengths")}</span>
+            <h2 className="mt-4 font-display text-3xl font-bold md:text-4xl">
+              {t("Pourquoi choisir ", "Why choose ")}<span className="text-gradient">KFM</span>{t(" ?", "?")}
+            </h2>
+          </motion.div>
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {coreStrengths.map((item, i) => (
+              <motion.div key={item.title} custom={i} variants={scaleIn} initial="hidden" whileInView="visible" viewport={{ once: true }}
+                whileHover={{ y: -8, transition: { duration: 0.3 } }}
+                className="rounded-2xl border border-border bg-card p-6 transition-all hover:shadow-xl hover:shadow-primary/10 hover:border-primary/30">
+                <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-primary-foreground font-display text-sm font-bold">
+                  {String(i + 1).padStart(2, "0")}
+                </div>
+                <h3 className="font-display text-base font-semibold">{item.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{item.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Vision section with real photo */}
       <section className="relative py-28 overflow-hidden">
         <div className="absolute inset-0">
           <img src={teamVision} alt="" className="h-full w-full object-cover" />
@@ -153,7 +190,7 @@ const APropos = () => {
         <div className="container relative mx-auto px-6">
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <motion.div initial={{ opacity: 0, x: -60 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="overflow-hidden rounded-2xl shadow-xl">
-              <motion.img src={teamVision} alt={t("Équipe KFM sur le terrain", "KFM Team on site")} className="h-[400px] w-full object-cover" whileHover={{ scale: 1.05 }} transition={{ duration: 0.7 }} />
+              <motion.img src={embassyHvac} alt={t("Technicien KFM diagnostic HVAC", "KFM Technician HVAC diagnostics")} className="h-[400px] w-full object-cover" whileHover={{ scale: 1.05 }} transition={{ duration: 0.7 }} />
             </motion.div>
             <motion.div initial={{ opacity: 0, x: 60 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
               <span className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">{t("Notre Vision", "Our Vision")}</span>
@@ -173,6 +210,42 @@ const APropos = () => {
                 )}
               </p>
             </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Core Values */}
+      <section className="py-24">
+        <div className="container mx-auto px-6">
+          <motion.div variants={fadeUp} custom={0} initial="hidden" whileInView="visible" viewport={{ once: true }} className="text-center mb-16">
+            <span className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">{t("Nos Valeurs", "Our Values")}</span>
+            <h2 className="mt-4 font-display text-3xl font-bold md:text-4xl">
+              {t("Ce qui nous ", "What ")}<span className="text-gradient">{t("anime", "drives us")}</span>
+            </h2>
+            <p className="mx-auto mt-4 max-w-3xl text-muted-foreground">
+              {t(
+                "Chez KFM, nous croyons que la productivité n'arrive jamais par hasard. C'est toujours le résultat d'un engagement envers l'excellence, d'une planification intelligente et d'un effort constant.",
+                "At KFM, we believe that productivity never happens by chance. It's always the result of a commitment to excellence, intelligent planning, and relentless effort."
+              )}
+            </p>
+          </motion.div>
+
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
+            {coreValues.map((value, i) => (
+              <motion.div key={value.title} custom={i} variants={scaleIn} initial="hidden" whileInView="visible" viewport={{ once: true }}
+                whileHover={{ y: -8, transition: { duration: 0.3 } }}
+                className="group rounded-2xl border border-border bg-card p-6 text-center transition-all hover:shadow-xl hover:shadow-primary/10 hover:border-primary/30">
+                <motion.div
+                  className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-primary"
+                  whileHover={{ rotate: 360 }}
+                  transition={{ duration: 0.6 }}
+                >
+                  <value.icon className="h-7 w-7" />
+                </motion.div>
+                <h3 className="font-display text-sm font-semibold">{value.title}</h3>
+                <p className="mt-2 text-xs leading-relaxed text-muted-foreground">{value.desc}</p>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
