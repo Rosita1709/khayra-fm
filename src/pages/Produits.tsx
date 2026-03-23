@@ -19,6 +19,7 @@ import villaReno5 from "@/assets/projects/villa-renovation-5.jpg";
 import sandwichPanel1 from "@/assets/projects/sandwich-panel-1.jpg";
 import sandwichPanel2 from "@/assets/projects/sandwich-panel-2.jpg";
 import sandwichPanel3 from "@/assets/projects/sandwich-panel-3.jpg";
+import terrainSport from "@/assets/projects/terrain-sport.jpg";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 50 },
@@ -106,6 +107,25 @@ const Produits = () => {
       ],
       result: t("Installation complète — Projet réel", "Full installation — Real project"),
       gallery: [sandwichPanel1, sandwichPanel2, sandwichPanel3],
+    },
+    {
+      img: terrainSport,
+      title: t("Aménagement Terrain de Sport", "Sports Field Development"),
+      location: "Abu Dhabi, UAE",
+      year: "2024",
+      category: t("Travaux Civils & Aménagement", "Civil Works & Landscaping"),
+      desc: t(
+        "Aménagement complet d'un terrain de sport avec gazon synthétique, structures d'ombrage et éclairage. Installation professionnelle incluant les travaux de terrassement et les finitions.",
+        "Complete sports field development with synthetic turf, shade structures and lighting. Professional installation including earthworks and finishing."
+      ),
+      scope: [
+        t("Installation gazon synthétique", "Synthetic turf installation"),
+        t("Structures d'ombrage (shade sails)", "Shade sail structures"),
+        t("Éclairage sportif LED", "LED sports lighting"),
+        t("Travaux de terrassement", "Earthworks"),
+        t("Clôtures et aménagements", "Fencing and landscaping"),
+      ],
+      result: t("Terrain livré — Projet réel", "Field delivered — Real project"),
     },
     {
       img: productMep,

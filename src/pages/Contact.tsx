@@ -115,7 +115,7 @@ const Contact = () => {
                     whileHover={{ x: 4 }}
                   >
                     <motion.div
-                      className="flex h-14 w-14 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground"
+                      className="flex h-14 w-14 items-center justify-center rounded-xl bg-primary text-primary-foreground"
                       whileHover={{ rotate: 10 }}
                     >
                       <contact.icon className="h-6 w-6" />
@@ -133,7 +133,7 @@ const Contact = () => {
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: 0.3 }}
                 >
-                  <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-primary text-primary-foreground">
                     <MapPin className="h-6 w-6" />
                   </div>
                   <div>
