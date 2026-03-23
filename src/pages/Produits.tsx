@@ -10,6 +10,14 @@ import productMep from "@/assets/product-mep.webp";
 import productInterior from "@/assets/product-interior.webp";
 import productCivil from "@/assets/product-civil.webp";
 import productEnergy from "@/assets/product-energy.webp";
+import villaReno1 from "@/assets/projects/villa-renovation-1.jpg";
+import villaReno2 from "@/assets/projects/villa-renovation-2.jpg";
+import villaReno3 from "@/assets/projects/villa-renovation-3.jpg";
+import villaReno4 from "@/assets/projects/villa-renovation-4.jpg";
+import villaReno5 from "@/assets/projects/villa-renovation-5.jpg";
+import sandwichPanel1 from "@/assets/projects/sandwich-panel-1.jpg";
+import sandwichPanel2 from "@/assets/projects/sandwich-panel-2.jpg";
+import sandwichPanel3 from "@/assets/projects/sandwich-panel-3.jpg";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 50 },

@@ -9,6 +9,8 @@ import real3 from "@/assets/realisation-3.jpg";
 import sandwichPanel1 from "@/assets/projects/sandwich-panel-1.jpg";
 import sandwichPanel2 from "@/assets/projects/sandwich-panel-2.jpg";
 import sandwichPanel3 from "@/assets/projects/sandwich-panel-3.jpg";
+import villaReno1 from "@/assets/projects/villa-renovation-1.jpg";
+import villaReno4 from "@/assets/projects/villa-renovation-4.jpg";
 
 const RealisationsSection = () => {
   const { t } = useLanguage();
@@ -29,18 +31,18 @@ const RealisationsSection = () => {
       result: t("Étanchéité renforcée", "Enhanced waterproofing"),
     },
     {
-      img: sandwichPanel3,
-      title: t("Sandwich Panel — Site portuaire", "Sandwich Panel — Port Site"),
+      img: villaReno4,
+      title: t("Rénovation Villa Privée — Façade", "Private Villa Renovation — Facade"),
       location: "Abu Dhabi",
-      category: t("Travaux Civils", "Civil Works"),
-      result: t("Installation complète", "Full installation"),
+      category: t("Travaux Civils & Rénovation", "Civil Works & Renovation"),
+      result: t("Transformation complète", "Complete transformation"),
     },
     {
-      img: real1,
-      title: t("Maintenance HVAC — Complexe Résidentiel", "HVAC Maintenance — Residential Complex"),
-      location: "Al Reem Island",
-      category: t("HVAC & Climatisation", "HVAC & Air Conditioning"),
-      result: t("Économie de 28%", "28% savings"),
+      img: villaReno1,
+      title: t("Villa — Travaux de réhabilitation", "Villa — Rehabilitation Works"),
+      location: "Abu Dhabi",
+      category: t("Travaux Civils & Rénovation", "Civil Works & Renovation"),
+      result: t("Rénovation réussie", "Successful renovation"),
     },
   ];
 
