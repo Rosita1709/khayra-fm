@@ -67,6 +67,43 @@ const partnerLogos = [
   { src: mklights, name: "MK Lights", url: "https://www.mklights.com/" },
 ];
 
+const CountUpStat = ({ end, suffix, label }: { end: number; suffix: string; label: string }) => {
+  const { count, ref } = useCountUp(end, 2000);
+  return (
+    <div ref={ref} className="text-center">
+      <motion.div
+        initial={{ opacity: 0, scale: 0.5 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.5 }}
+        className="font-display text-4xl font-bold text-primary md:text-5xl"
+      >
+        {count}{suffix}
+      </motion.div>
+      <div className="mt-2 text-sm tracking-wide text-background/60">{label}</div>
+    </div>
+  );
+};
+
+const StatsCounter = ({ t }: { t: (fr: string, en: string) => string }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 30 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.8, delay: 1.1 }}
+    className="mt-16 flex flex-wrap items-center justify-between gap-8"
+  >
+    <CountUpStat end={150} suffix="+" label={t("Projets", "Projects")} />
+    <div className="h-10 w-px bg-background/20 hidden md:block" />
+    <CountUpStat end={98} suffix="%" label={t("Satisfaction", "Satisfaction")} />
+    <div className="h-10 w-px bg-background/20 hidden md:block" />
+    <CountUpStat end={12} suffix="+" label={t("Années", "Years")} />
+    <div className="h-10 w-px bg-background/20 hidden md:block" />
+    <div className="text-center">
+      <div className="font-display text-4xl font-bold text-primary md:text-5xl">24/7</div>
+      <div className="mt-2 text-sm tracking-wide text-background/60">{t("Support", "Support")}</div>
+    </div>
+  </motion.div>
+);
+
 const Index = () => {
   const { t } = useLanguage();
 
