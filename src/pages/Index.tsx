@@ -159,31 +159,8 @@ const Index = () => {
               </Link>
             </motion.div>
 
-            {/* Stats row */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1.1 }}
-              className="mt-16 grid grid-cols-2 gap-3 md:grid-cols-4"
-            >
-              {[
-                { value: "150+", label: t("Projets", "Projects") },
-                { value: "98%", label: t("Satisfaction", "Satisfaction") },
-                { value: "12+", label: t("Années", "Years") },
-                { value: "24/7", label: t("Support", "Support") },
-              ].map((stat, i) => (
-                <motion.div
-                  key={stat.label}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 1.2 + i * 0.1 }}
-                  className="rounded-2xl border border-background/12 bg-background/6 px-5 py-4 text-center backdrop-blur-lg"
-                >
-                  <div className="font-display text-2xl font-bold text-primary">{stat.value}</div>
-                  <div className="mt-0.5 text-xs tracking-wide text-background/60">{stat.label}</div>
-                </motion.div>
-              ))}
-            </motion.div>
+            {/* Stats row - counting animation */}
+            <StatsCounter t={t} />
           </div>
         </div>
 
