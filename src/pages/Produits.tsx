@@ -109,6 +109,25 @@ const Produits = () => {
       gallery: [sandwichPanel1, sandwichPanel2, sandwichPanel3],
     },
     {
+      img: terrainSport,
+      title: t("Aménagement Terrain de Sport", "Sports Field Development"),
+      location: "Abu Dhabi, UAE",
+      year: "2024",
+      category: t("Travaux Civils & Aménagement", "Civil Works & Landscaping"),
+      desc: t(
+        "Aménagement complet d'un terrain de sport avec gazon synthétique, structures d'ombrage et éclairage. Installation professionnelle incluant les travaux de terrassement et les finitions.",
+        "Complete sports field development with synthetic turf, shade structures and lighting. Professional installation including earthworks and finishing."
+      ),
+      scope: [
+        t("Installation gazon synthétique", "Synthetic turf installation"),
+        t("Structures d'ombrage (shade sails)", "Shade sail structures"),
+        t("Éclairage sportif LED", "LED sports lighting"),
+        t("Travaux de terrassement", "Earthworks"),
+        t("Clôtures et aménagements", "Fencing and landscaping"),
+      ],
+      result: t("Terrain livré — Projet réel", "Field delivered — Real project"),
+    },
+    {
       img: productMep,
       title: t("Mise aux Normes MEP — Économat des Armées", "MEP Compliance — Économat des Armées"),
       location: "Abu Dhabi, UAE",

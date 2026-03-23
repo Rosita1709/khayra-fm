@@ -234,20 +234,20 @@ const Services = () => {
                 whileInView="visible"
                 viewport={{ once: true }}
                 whileHover={{ y: -8, transition: { duration: 0.3 } }}
-                className="relative text-center rounded-2xl border border-border bg-card p-8 pt-10 mt-4 transition-all duration-500 hover:border-primary/30 hover:shadow-card-hover"
+                className="relative text-center rounded-2xl bg-primary p-8 pt-10 mt-4 transition-all duration-500 hover:shadow-xl hover:shadow-primary/30"
               >
-                <div className="absolute -top-5 left-1/2 -translate-x-1/2 flex h-10 w-10 items-center justify-center rounded-full bg-primary text-sm font-bold text-primary-foreground shadow-lg shadow-primary/30 z-10">
+                <div className="absolute -top-5 left-1/2 -translate-x-1/2 flex h-10 w-10 items-center justify-center rounded-full bg-primary-foreground text-sm font-bold text-primary shadow-lg z-10">
                   {i + 1}
                 </div>
                 <motion.div
-                  className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-primary"
+                  className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary-foreground/20 text-primary-foreground"
                   whileHover={{ rotate: 360 }}
                   transition={{ duration: 0.6 }}
                 >
                   <step.icon className="h-7 w-7" />
                 </motion.div>
-                <h3 className="font-display text-lg font-semibold">{step.title}</h3>
-                <p className="mt-2 text-sm text-muted-foreground">{step.desc}</p>
+                <h3 className="font-display text-lg font-semibold text-primary-foreground">{step.title}</h3>
+                <p className="mt-2 text-sm text-primary-foreground/70">{step.desc}</p>
               </motion.div>
             ))}
           </div>
