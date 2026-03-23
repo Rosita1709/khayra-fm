@@ -10,6 +10,14 @@ import productMep from "@/assets/product-mep.webp";
 import productInterior from "@/assets/product-interior.webp";
 import productCivil from "@/assets/product-civil.webp";
 import productEnergy from "@/assets/product-energy.webp";
+import villaReno1 from "@/assets/projects/villa-renovation-1.jpg";
+import villaReno2 from "@/assets/projects/villa-renovation-2.jpg";
+import villaReno3 from "@/assets/projects/villa-renovation-3.jpg";
+import villaReno4 from "@/assets/projects/villa-renovation-4.jpg";
+import villaReno5 from "@/assets/projects/villa-renovation-5.jpg";
+import sandwichPanel1 from "@/assets/projects/sandwich-panel-1.jpg";
+import sandwichPanel2 from "@/assets/projects/sandwich-panel-2.jpg";
+import sandwichPanel3 from "@/assets/projects/sandwich-panel-3.jpg";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 50 },
@@ -59,23 +67,44 @@ const Produits = () => {
       result: t("Économie énergétique de 28% — Contrat reconduit", "28% energy savings — Contract renewed"),
     },
     {
-      img: productCivil,
+      img: villaReno4,
       title: t("Réhabilitation Villa Privée", "Private Villa Rehabilitation"),
-      location: "Saadiyat Island, Abu Dhabi",
+      location: "Abu Dhabi, UAE",
       year: "2024",
       category: t("Travaux Civils & Rénovation", "Civil Works & Renovation"),
       desc: t(
-        "Réhabilitation structurelle et esthétique d'une villa de 600m².",
-        "Structural and aesthetic rehabilitation of a 600m² villa."
+        "Réhabilitation structurelle et esthétique d'une villa privée. Travaux de façade, étanchéité et aménagements extérieurs.",
+        "Structural and aesthetic rehabilitation of a private villa. Facade works, waterproofing and exterior landscaping."
       ),
       scope: [
-        t("Renforcement structurel", "Structural reinforcement"),
+        t("Rénovation complète de la façade", "Complete facade renovation"),
         t("Étanchéité toiture & terrasses", "Roof & terrace waterproofing"),
         t("Réfection façades extérieures", "Exterior facade renovation"),
         t("Aménagement paysager", "Landscaping"),
-        t("Piscine & espace détente", "Pool & relaxation area"),
+        t("Échafaudage & travaux en hauteur", "Scaffolding & height works"),
       ],
-      result: t("Transformation complète en 4 mois", "Complete transformation in 4 months"),
+      result: t("Transformation complète — Projet réel", "Complete transformation — Real project"),
+      gallery: [villaReno1, villaReno2, villaReno3, villaReno4, villaReno5],
+    },
+    {
+      img: sandwichPanel1,
+      title: t("Installation Sandwich Panel", "Sandwich Panel Installation"),
+      location: "Abu Dhabi, UAE",
+      year: "2024",
+      category: t("Travaux Civils", "Civil Works"),
+      desc: t(
+        "Installation complète de panneaux sandwich incluant les travaux d'étanchéité sur un site portuaire à Abu Dhabi.",
+        "Complete sandwich panel installation including waterproofing works on a port site in Abu Dhabi."
+      ),
+      scope: [
+        t("Installation panneaux sandwich", "Sandwich panel installation"),
+        t("Travaux d'étanchéité", "Waterproofing works"),
+        t("Préparation du site", "Site preparation"),
+        t("Finitions & contrôle qualité", "Finishing & quality control"),
+        t("Livraison dans les délais", "On-time delivery"),
+      ],
+      result: t("Installation complète — Projet réel", "Full installation — Real project"),
+      gallery: [sandwichPanel1, sandwichPanel2, sandwichPanel3],
     },
     {
       img: productMep,
