@@ -5,6 +5,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import heroBg from "@/assets/hero-bg.webp";
 
 import productHvac from "@/assets/product-hvac.webp";
+import ambassadeFrance1 from "@/assets/projects/ambassade-france-1.jpg";
 import productLighting from "@/assets/product-lighting.webp";
 import productMep from "@/assets/product-mep.webp";
 import productInterior from "@/assets/product-interior.webp";
@@ -29,7 +30,7 @@ const Produits = () => {
 
   const projects = [
     {
-      img: productInterior,
+      img: ambassadeFrance1,
       title: t("Rénovation Ambassade de France", "French Embassy Renovation"),
       location: "Abu Dhabi, UAE",
       year: "2024",
