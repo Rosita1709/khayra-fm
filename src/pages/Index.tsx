@@ -108,10 +108,10 @@ const Index = () => {
   const { t } = useLanguage();
 
   const values = [
-    { icon: TrendingUp, title: t("Retour sur Investissement", "Return on Investment"), desc: t("Optimisation de la valeur de vos actifs immobiliers.", "Optimizing the value of your real estate assets.") },
+    { icon: TrendingUp, title: t("Excellence Opérationnelle", "Operational Excellence"), desc: t("Les plus hauts standards dans chaque intervention.", "The highest standards in every task.") },
     { icon: PiggyBank, title: t("Réduction des coûts", "Cost Reduction"), desc: t("Maintenance préventive et optimisation énergétique.", "Preventive maintenance and energy optimization.") },
-    { icon: Heart, title: t("Satisfaction client", "Client Satisfaction"), desc: t("Service d'excellence et écoute attentive.", "Service excellence and attentive listening.") },
-    { icon: Rocket, title: t("Productivité", "Productivity"), desc: t("Environnements de travail optimisés.", "Optimized work environments.") },
+    { icon: Heart, title: t("Engagement Client", "Customer Commitment"), desc: t("Relations durables basées sur la confiance et la réactivité.", "Long-term relationships based on trust and responsiveness.") },
+    { icon: Rocket, title: t("Innovation", "Innovation"), desc: t("Technologies intelligentes pour améliorer les performances.", "Smart technologies to improve performance.") },
   ];
 
   return (
