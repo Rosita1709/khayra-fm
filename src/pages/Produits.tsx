@@ -87,6 +87,26 @@ const Produits = () => {
       gallery: [villaReno1, villaReno2, villaReno3, villaReno4, villaReno5],
     },
     {
+      img: sandwichPanel1,
+      title: t("Installation Sandwich Panel", "Sandwich Panel Installation"),
+      location: "Abu Dhabi, UAE",
+      year: "2024",
+      category: t("Travaux Civils", "Civil Works"),
+      desc: t(
+        "Installation complète de panneaux sandwich incluant les travaux d'étanchéité sur un site portuaire à Abu Dhabi.",
+        "Complete sandwich panel installation including waterproofing works on a port site in Abu Dhabi."
+      ),
+      scope: [
+        t("Installation panneaux sandwich", "Sandwich panel installation"),
+        t("Travaux d'étanchéité", "Waterproofing works"),
+        t("Préparation du site", "Site preparation"),
+        t("Finitions & contrôle qualité", "Finishing & quality control"),
+        t("Livraison dans les délais", "On-time delivery"),
+      ],
+      result: t("Installation complète — Projet réel", "Full installation — Real project"),
+      gallery: [sandwichPanel1, sandwichPanel2, sandwichPanel3],
+    },
+    {
       img: productMep,
       title: t("Mise aux Normes MEP — Économat des Armées", "MEP Compliance — Économat des Armées"),
       location: "Abu Dhabi, UAE",
