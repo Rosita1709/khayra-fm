@@ -7,11 +7,19 @@ import real1 from "@/assets/realisation-1.jpg";
 import real2 from "@/assets/realisation-2.jpg";
 import real3 from "@/assets/realisation-3.jpg";
 import real4 from "@/assets/realisation-4.jpg";
+import sandwichPanel from "@/assets/projects/sandwich-panel-1.jpg";
 
 const RealisationsSection = () => {
   const { t } = useLanguage();
 
   const realisations = [
+    {
+      img: sandwichPanel,
+      title: t("Installation Sandwich Panel", "Sandwich Panel Installation"),
+      location: "Abu Dhabi",
+      category: t("Travaux Civils", "Civil Works"),
+      result: t("Livré avec succès", "Successfully delivered"),
+    },
     {
       img: real1,
       title: t("Maintenance HVAC — Complexe Résidentiel", "HVAC Maintenance — Residential Complex"),
@@ -32,13 +40,6 @@ const RealisationsSection = () => {
       location: "Abu Dhabi",
       category: t("Électricité & Plomberie", "Electrical & Plumbing"),
       result: t("Conformité 100%", "100% compliance"),
-    },
-    {
-      img: real4,
-      title: t("Audit Énergétique Bureau", "Office Energy Audit"),
-      location: "Corniche Road",
-      category: "Energy Saving",
-      result: t("Réduction de 35%", "35% reduction"),
     },
   ];
 
