@@ -263,8 +263,8 @@ const Index = () => {
               </h2>
               <p className="mt-6 leading-relaxed text-muted-foreground">
                 {t(
-                  "KFM est une entreprise spécialisée dans le facilities management, la création d'un environnement de travail optimisé. Avec une solide expérience, elle offre des solutions personnalisées et innovantes pour répondre aux besoins spécifiques de ses clients.",
-                  "KFM is a company specializing in facility management, creating optimized work environments. With solid experience, it offers personalized and innovative solutions to meet the specific needs of its clients."
+                  "KFM est votre partenaire de confiance pour des solutions complètes et innovantes en facility management. Fondée par M. Inadone Fall, un leader visionnaire avec plus de 15 ans d'expérience internationale.",
+                  "KFM is your trusted partner in delivering comprehensive and innovative facility management solutions. Founded by Mr. Inadone Fall, a visionary leader with over 15 years of international experience."
                 )}
               </p>
               <p className="mt-4 leading-relaxed text-muted-foreground">
