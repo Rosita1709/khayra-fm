@@ -95,7 +95,7 @@ const StatsCounter = ({ t }: { t: (fr: string, en: string) => string }) => (
     <div className="h-10 w-px bg-background/20 hidden md:block" />
     <CountUpStat end={98} suffix="%" label={t("Satisfaction", "Satisfaction")} />
     <div className="h-10 w-px bg-background/20 hidden md:block" />
-    <CountUpStat end={12} suffix="+" label={t("Années", "Years")} />
+    <CountUpStat end={15} suffix="+" label={t("Années", "Years")} />
     <div className="h-10 w-px bg-background/20 hidden md:block" />
     <div className="text-center">
       <div className="font-display text-4xl font-bold text-primary md:text-5xl">24/7</div>
