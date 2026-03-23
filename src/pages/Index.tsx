@@ -95,7 +95,7 @@ const StatsCounter = ({ t }: { t: (fr: string, en: string) => string }) => (
     <div className="h-10 w-px bg-background/20 hidden md:block" />
     <CountUpStat end={98} suffix="%" label={t("Satisfaction", "Satisfaction")} />
     <div className="h-10 w-px bg-background/20 hidden md:block" />
-    <CountUpStat end={12} suffix="+" label={t("Années", "Years")} />
+    <CountUpStat end={15} suffix="+" label={t("Années", "Years")} />
     <div className="h-10 w-px bg-background/20 hidden md:block" />
     <div className="text-center">
       <div className="font-display text-4xl font-bold text-primary md:text-5xl">24/7</div>
@@ -108,10 +108,10 @@ const Index = () => {
   const { t } = useLanguage();
 
   const values = [
-    { icon: TrendingUp, title: t("Retour sur Investissement", "Return on Investment"), desc: t("Optimisation de la valeur de vos actifs immobiliers.", "Optimizing the value of your real estate assets.") },
+    { icon: TrendingUp, title: t("Excellence Opérationnelle", "Operational Excellence"), desc: t("Les plus hauts standards dans chaque intervention.", "The highest standards in every task.") },
     { icon: PiggyBank, title: t("Réduction des coûts", "Cost Reduction"), desc: t("Maintenance préventive et optimisation énergétique.", "Preventive maintenance and energy optimization.") },
-    { icon: Heart, title: t("Satisfaction client", "Client Satisfaction"), desc: t("Service d'excellence et écoute attentive.", "Service excellence and attentive listening.") },
-    { icon: Rocket, title: t("Productivité", "Productivity"), desc: t("Environnements de travail optimisés.", "Optimized work environments.") },
+    { icon: Heart, title: t("Engagement Client", "Customer Commitment"), desc: t("Relations durables basées sur la confiance et la réactivité.", "Long-term relationships based on trust and responsiveness.") },
+    { icon: Rocket, title: t("Innovation", "Innovation"), desc: t("Technologies intelligentes pour améliorer les performances.", "Smart technologies to improve performance.") },
   ];
 
   return (
@@ -263,8 +263,8 @@ const Index = () => {
               </h2>
               <p className="mt-6 leading-relaxed text-muted-foreground">
                 {t(
-                  "KFM est une entreprise spécialisée dans le facilities management, la création d'un environnement de travail optimisé. Avec une solide expérience, elle offre des solutions personnalisées et innovantes pour répondre aux besoins spécifiques de ses clients.",
-                  "KFM is a company specializing in facility management, creating optimized work environments. With solid experience, it offers personalized and innovative solutions to meet the specific needs of its clients."
+                  "KFM est votre partenaire de confiance pour des solutions complètes et innovantes en facility management. Fondée par M. Inadone Fall, un leader visionnaire avec plus de 15 ans d'expérience internationale.",
+                  "KFM is your trusted partner in delivering comprehensive and innovative facility management solutions. Founded by Mr. Inadone Fall, a visionary leader with over 15 years of international experience."
                 )}
               </p>
               <p className="mt-4 leading-relaxed text-muted-foreground">

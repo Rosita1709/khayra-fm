@@ -1,16 +1,12 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { MapPin, Calendar, CheckCircle, ArrowRight } from "lucide-react";
+import { MapPin, Calendar, CheckCircle, ArrowRight, DollarSign, Clock } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import heroBg from "@/assets/hero-bg.webp";
 
-import productHvac from "@/assets/product-hvac.webp";
 import ambassadeFrance1 from "@/assets/projects/ambassade-france-1.jpg";
-import productLighting from "@/assets/product-lighting.webp";
-import productMep from "@/assets/product-mep.webp";
-import productInterior from "@/assets/product-interior.webp";
-import productCivil from "@/assets/product-civil.webp";
-import productEnergy from "@/assets/product-energy.webp";
+import embassyHvac from "@/assets/projects/embassy-hvac-diagnostic.jpg";
+import coldRoom from "@/assets/projects/cold-room.jpg";
 import villaReno1 from "@/assets/projects/villa-renovation-1.jpg";
 import villaReno2 from "@/assets/projects/villa-renovation-2.jpg";
 import villaReno3 from "@/assets/projects/villa-renovation-3.jpg";
@@ -32,188 +28,167 @@ const Produits = () => {
   const projects = [
     {
       img: ambassadeFrance1,
-      title: t("Rénovation Ambassade de France", "French Embassy Renovation"),
-      location: "Abu Dhabi, UAE",
+      title: t("Installation Système VRF — Containers Modulaires", "VRF System Installation — Modular Office Containers"),
+      location: t("Base Navale Française, Abu Dhabi", "French Naval Base, Abu Dhabi"),
       year: "2024",
-      category: t("Fit-Out & Design Intérieur", "Fit-Out & Interior Design"),
+      category: t("HVAC & Climatisation", "HVAC & Air Conditioning"),
+      client: t("Base Navale Française", "French Naval Base"),
       desc: t(
-        "Rénovation complète des espaces de réception et des bureaux de l'Ambassade de France à Abu Dhabi. Conception moderne respectant les normes diplomatiques, finitions haut de gamme et intégration de systèmes de sécurité avancés.",
-        "Complete renovation of reception areas and offices of the French Embassy in Abu Dhabi. Modern design respecting diplomatic standards, high-end finishes and advanced security systems integration."
+        "Étude thermique, conception et installation d'un système VRF sur mesure pour des bureaux en containers modulaires. Installation complète incluant 2 unités extérieures VRF (24HP) et 8 cassettes plafonnières, tuyauterie, isolation et charge en réfrigérant.",
+        "Technical site survey and thermal load calculations. Design and configuration of a customized VRF system suited for portable container offices. Supply, installation, and commissioning of 2 VRF outdoor units (24HP) and 8 ceiling cassette indoor units, piping, insulation, and refrigerant charge works."
       ),
       scope: [
-        t("Design intérieur sur mesure", "Custom interior design"),
-        t("Faux plafonds acoustiques", "Acoustic false ceilings"),
-        t("Menuiserie & mobilier premium", "Premium joinery & furniture"),
-        t("Éclairage architectural LED", "LED architectural lighting"),
-        t("Système de contrôle d'accès", "Access control system"),
+        t("Étude thermique et calculs de charge", "Technical site survey and thermal load calculations"),
+        t("2 unités extérieures VRF (24HP)", "2 VRF outdoor units (24HP)"),
+        t("8 cassettes plafonnières", "8 ceiling cassette indoor units"),
+        t("Tuyauterie, isolation et charge réfrigérant", "Piping, insulation and refrigerant charge"),
       ],
-      result: t("Livré en 3 mois — Satisfaction client 100%", "Delivered in 3 months — 100% client satisfaction"),
+      result: t("Livré dans les délais — Températures maintenues entre 18°C et 24°C en été", "Delivered under tight deadlines — Room temperatures maintained between 18°C and 24°C during peak summer"),
     },
     {
-      img: productHvac,
-      title: t("Maintenance HVAC — Complexe Résidentiel", "HVAC Maintenance — Residential Complex"),
-      location: "Al Reem Island, Abu Dhabi",
-      year: "2023",
+      img: embassyHvac,
+      title: t("Diagnostic HVAC & Retrofit VAV — Ambassade de France", "HVAC Diagnostics & VAV Retrofit — French Embassy"),
+      location: "Etihad Towers, Abu Dhabi",
+      year: "2024",
       category: t("HVAC & Climatisation", "HVAC & Air Conditioning"),
+      client: t("Ambassade de France", "French Embassy"),
+      value: "AED 35,000",
+      duration: t("Diagnostic 1 semaine, Installation 2 semaines", "Diagnostics 1 week, Installation 2 weeks"),
       desc: t(
-        "Contrat annuel de maintenance préventive et curative pour un complexe de 120 appartements.",
-        "Annual preventive and corrective maintenance contract for a 120-apartment complex."
+        "Audit de performance HVAC sur deux étages de bureaux administratifs. Identification des zones de flux d'air incohérentes et des pertes d'énergie. Remplacement des unités obsolètes par des terminaux VAV modernes.",
+        "HVAC performance audit across two floors of administrative office space. Identification of inconsistent airflow zones and energy losses. Replacement of outdated units with modern Variable Air Volume (VAV) terminals."
       ),
       scope: [
-        t("Audit initial de 48 unités HVAC", "Initial audit of 48 HVAC units"),
-        t("Remplacement de 32 FCU", "Replacement of 32 FCUs"),
-        t("Nettoyage ductwork complet", "Complete ductwork cleaning"),
-        t("Installation thermostats intelligents", "Smart thermostat installation"),
-        t("Réduction consommation de 28%", "28% consumption reduction"),
+        t("5 boîtiers VAV avec contrôleurs de zone", "5 VAV boxes with individual zone controllers"),
+        t("Équilibrage des conduits et isolation acoustique", "Ductwork balancing and acoustic insulation"),
+        t("Monitoring centralisé via interface BMS", "Centralized monitoring via building control interface"),
+        t("Amélioration de l'efficacité énergétique HVAC", "Increase in HVAC energy efficiency"),
       ],
-      result: t("Économie énergétique de 28% — Contrat reconduit", "28% energy savings — Contract renewed"),
+      result: t("Confort amélioré dans les bureaux diplomatiques sensibles", "Enhanced comfort and quiet operation in sensitive diplomatic offices"),
+    },
+    {
+      img: coldRoom,
+      title: t("Réhabilitation Chambre Froide — Restaurant", "Cold Room Refurbishment — Restaurant"),
+      location: "Abu Dhabi, UAE",
+      year: "2024",
+      category: t("HVAC & Réfrigération", "HVAC & Refrigeration"),
+      client: t("Base Navale Française", "French Naval Base"),
+      value: "AED 210,000",
+      duration: t("1 mois", "1 month"),
+      desc: t(
+        "Démantèlement complet de l'infrastructure frigorifique obsolète. Installation d'un sol antidérapant renforcé, d'une enveloppe thermique avec panneaux sandwich isolés de 150mm, et d'un nouveau système de condensation avec contrôle digital.",
+        "Full dismantling of outdated cold storage infrastructure. Installation of heavy-duty anti-slip flooring, thermal envelope upgrade with 150mm insulated sandwich panels, and new condensing unit with digital control."
+      ),
+      scope: [
+        t("Dalle béton renforcée et sol antidérapant", "Reinforced concrete slab and anti-slip flooring"),
+        t("Panneaux sandwich isolés 150mm", "150mm insulated sandwich panels"),
+        t("Nouveau groupe de condensation avec contrôle digital", "New condensing unit and evaporator with digital control"),
+        t("Test de charge jusqu'à 2 000 kg", "Load testing for palletized goods up to 2,000 kg"),
+      ],
+      result: t("+35% volume de stockage — Conforme HACCP & ESMA", "+35% usable storage volume — HACCP & ESMA compliant"),
     },
     {
       img: villaReno4,
-      title: t("Réhabilitation Villa Privée", "Private Villa Rehabilitation"),
-      location: "Abu Dhabi, UAE",
+      title: t("Rénovation Villas — Palm Jumeirah", "Villas Renovation — Palm Jumeirah"),
+      location: "Palm Jumeirah, Dubai",
       year: "2024",
       category: t("Travaux Civils & Rénovation", "Civil Works & Renovation"),
+      client: t("Client Privé", "Private Client"),
+      duration: t("2 mois", "2 months"),
       desc: t(
-        "Réhabilitation structurelle et esthétique d'une villa privée. Travaux de façade, étanchéité et aménagements extérieurs.",
-        "Structural and aesthetic rehabilitation of a private villa. Facade works, waterproofing and exterior landscaping."
+        "Maintenance et réhabilitation complètes de deux villas de luxe à Palm Jumeirah. Peinture intérieure et extérieure, réparation de fissures structurelles, maintenance préventive et mise à niveau des finitions.",
+        "Comprehensive maintenance and refurbishment of two luxury villas on Palm Jumeirah. Full internal & external painting works, structural crack repair, preventive maintenance and finishing upgrades."
       ),
       scope: [
-        t("Rénovation complète de la façade", "Complete facade renovation"),
-        t("Étanchéité toiture & terrasses", "Roof & terrace waterproofing"),
-        t("Réfection façades extérieures", "Exterior facade renovation"),
-        t("Aménagement paysager", "Landscaping"),
-        t("Échafaudage & travaux en hauteur", "Scaffolding & height works"),
+        t("Peinture intérieure et extérieure complète", "Full internal & external painting works"),
+        t("Réparation de fissures structurelles", "Structural crack repair and surface treatment"),
+        t("Maintenance préventive", "Preventive maintenance and finishing upgrades"),
+        t("Restauration des façades", "Restoration of façade and interior surfaces"),
       ],
-      result: t("Transformation complète — Projet réel", "Complete transformation — Real project"),
+      result: t("Apparence premium restaurée — Durée de vie prolongée", "Restored premium appearance and extended lifecycle"),
       gallery: [villaReno1, villaReno2, villaReno3, villaReno4, villaReno5],
     },
     {
-      img: sandwichPanel1,
-      title: t("Installation Sandwich Panel", "Sandwich Panel Installation"),
-      location: "Abu Dhabi, UAE",
-      year: "2024",
-      category: t("Travaux Civils", "Civil Works"),
-      desc: t(
-        "Installation complète de panneaux sandwich incluant les travaux d'étanchéité sur un site portuaire à Abu Dhabi.",
-        "Complete sandwich panel installation including waterproofing works on a port site in Abu Dhabi."
-      ),
-      scope: [
-        t("Installation panneaux sandwich", "Sandwich panel installation"),
-        t("Travaux d'étanchéité", "Waterproofing works"),
-        t("Préparation du site", "Site preparation"),
-        t("Finitions & contrôle qualité", "Finishing & quality control"),
-        t("Livraison dans les délais", "On-time delivery"),
-      ],
-      result: t("Installation complète — Projet réel", "Full installation — Real project"),
-      gallery: [sandwichPanel1, sandwichPanel2, sandwichPanel3],
-    },
-    {
       img: terrainSport,
-      title: t("Aménagement Terrain de Sport", "Sports Field Development"),
+      title: t("Terrain de Football — Lycée Louis Massignon", "Football Soccer Field — Lycée Louis Massignon"),
       location: "Abu Dhabi, UAE",
       year: "2024",
       category: t("Travaux Civils & Aménagement", "Civil Works & Landscaping"),
+      client: "Lycée Louis Massignon",
+      value: "AED 100,000",
+      duration: t("3 semaines", "3 weeks"),
       desc: t(
-        "Aménagement complet d'un terrain de sport avec gazon synthétique, structures d'ombrage et éclairage. Installation professionnelle incluant les travaux de terrassement et les finitions.",
-        "Complete sports field development with synthetic turf, shade structures and lighting. Professional installation including earthworks and finishing."
+        "Création complète d'un terrain de football pour l'école Lycée Louis Massignon à Abu Dhabi. Installation de gazon synthétique, éclairage LED puissant, clôtures et filets PVC.",
+        "Complete creation of a football soccer field for Lycée Louis Massignon school in Abu Dhabi. Supply and installation of artificial grass, powerful LED flood lights, fencing and PVC net."
       ),
       scope: [
-        t("Installation gazon synthétique", "Synthetic turf installation"),
-        t("Structures d'ombrage (shade sails)", "Shade sail structures"),
-        t("Éclairage sportif LED", "LED sports lighting"),
-        t("Travaux de terrassement", "Earthworks"),
-        t("Clôtures et aménagements", "Fencing and landscaping"),
+        t("Gazon synthétique 40mm", "Artificial Grass 40mm thickness"),
+        t("Éclairage LED 200W outdoor", "200W LED flood light outdoor"),
+        t("Buts de football et clôtures", "Football goal and double fence door"),
+        t("Filet PVC tout autour du terrain", "PVC net installed all around the field"),
       ],
-      result: t("Terrain livré — Projet réel", "Field delivered — Real project"),
+      result: t("100% précision de nivellement — Satisfaction client totale", "100% surface leveling accuracy — Full client satisfaction"),
     },
     {
-      img: productMep,
-      title: t("Mise aux Normes MEP — Économat des Armées", "MEP Compliance — Économat des Armées"),
-      location: "Abu Dhabi, UAE",
-      year: "2023",
-      category: t("Électricité & Plomberie", "Electrical & Plumbing"),
-      desc: t(
-        "Mise aux normes complète des installations électriques et de plomberie.",
-        "Complete compliance upgrade of electrical and plumbing installations."
-      ),
-      scope: [
-        t("Remplacement 12 tableaux électriques", "Replacement of 12 electrical panels"),
-        t("Modernisation réseau plomberie", "Plumbing network modernization"),
-        t("Détection de fuites IoT", "IoT leak detection"),
-        t("Mise en conformité sécurité incendie", "Fire safety compliance"),
-        t("Documentation technique complète", "Complete technical documentation"),
-      ],
-      result: t("Conformité 100% aux normes UAE", "100% UAE standards compliance"),
-    },
-    {
-      img: productEnergy,
-      title: t("Audit Énergétique & Optimisation", "Energy Audit & Optimization"),
-      location: "Corniche Road, Abu Dhabi",
+      img: sandwichPanel1,
+      title: t("Remplacement Panneaux Sandwich Toiture", "Roof Sandwich Panel Replacement"),
+      location: t("Base Navale, Abu Dhabi", "Naval Base, Abu Dhabi"),
       year: "2024",
-      category: "Energy Saving",
+      category: t("Travaux Civils", "Civil Works"),
+      client: t("Base Militaire Française", "French Military Base"),
+      value: "AED 250,000",
+      duration: t("2 mois", "2 months"),
       desc: t(
-        "Audit énergétique complet d'un immeuble de bureaux de 15 étages.",
-        "Complete energy audit of a 15-story office building."
+        "Évaluation complète de l'état de la toiture et cartographie des dommages. Retrait sécurisé de tous les anciens panneaux sandwich et installation de nouveaux panneaux sandwich isolés PU haute performance.",
+        "Comprehensive roof condition assessment and damage mapping. Safe removal of all old sandwich panels. Supply and installation of new customized high-performance PU-core insulated sandwich panels."
       ),
       scope: [
-        t("Audit thermique par caméra IR", "Thermal audit with IR camera"),
-        t("Conversion LED intégrale", "Complete LED conversion"),
-        t("Optimisation programmation HVAC", "HVAC scheduling optimization"),
-        t("Isolation thermique façades", "Facade thermal insulation"),
-        t("Rapport & plan d'action 5 ans", "Report & 5-year action plan"),
+        t("Retrait sécurisé des anciens panneaux", "Safe removal of all old sandwich panels"),
+        t("Panneaux sandwich isolés PU haute performance", "High-performance PU-core insulated sandwich panels"),
+        t("Installation de flashings et joints étanches", "Flashing and waterproof sealing for joints"),
+        t("Inspection et renforcement de la structure", "Structural inspection and reinforcement"),
       ],
-      result: t("Réduction de 35% des coûts énergétiques", "35% energy cost reduction"),
+      result: t("Efficacité thermique restaurée — Risques de fuite éliminés", "Restored thermal efficiency — Eliminated all water leakage risks"),
+      gallery: [sandwichPanel1, sandwichPanel2, sandwichPanel3],
     },
     {
-      img: productLighting,
-      title: t("Éclairage Smart — Centre Commercial", "Smart Lighting — Shopping Center"),
-      location: "Khalifa City, Abu Dhabi",
-      year: "2023",
-      category: t("Éclairage & Solutions Smart", "Lighting & Smart Solutions"),
+      img: villaReno1,
+      title: t("Rénovation Complète Appartement — Saadiyat Island", "Full Apartment Renovation — Saadiyat Island"),
+      location: "Saadiyat Island, Abu Dhabi",
+      year: "2024",
+      category: t("Rénovation & Fit-Out", "Renovation & Fit-Out"),
+      client: t("Client Privé (Résidentiel Haut de Gamme)", "Private Client (High-End Residential)"),
       desc: t(
-        "Déploiement d'un système d'éclairage intelligent sur 8 000m² de surface commerciale.",
-        "Deployment of an intelligent lighting system across 8,000m² of commercial space."
+        "Transformation complète d'un appartement avec démolition de cloisons pour créer un espace cuisine ouvert, modification de salles de bain, installation de revêtements de sol SPC, remplacement des accessoires électriques, thermostat intelligent et habillage des placards.",
+        "Complete apartment transformation with demolition of internal partition wall for open-plan kitchen, bathroom modifications, SPC flooring installation, full replacement of electrical accessories, smart thermostat and built-in wardrobe wrapping."
       ),
       scope: [
-        t("1 200 luminaires LED installés", "1,200 LED luminaires installed"),
-        t("Capteurs de présence & luminosité", "Presence & light sensors"),
-        t("Système de pilotage centralisé", "Centralized control system"),
-        t("Éclairage d'urgence conforme", "Compliant emergency lighting"),
-        t("Application de monitoring", "Monitoring application"),
+        t("Démolition cloison pour cuisine ouverte", "Demolition of internal wall for open-plan kitchen"),
+        t("Modification et mise à niveau salles de bain", "Bathroom modifications and upgrades"),
+        t("Revêtement sol SPC sur carrelage existant", "SPC flooring over existing tiles"),
+        t("Thermostat intelligent (domotique)", "Smart thermostat (home automation)"),
       ],
-      result: t("Économie de 42% sur l'éclairage", "42% lighting cost savings"),
+      result: t("Espace moderne et fonctionnel — Valeur du bien augmentée", "Modern functional living space — Increased property value"),
     },
   ];
 
   const stats = [
     { value: "150+", label: t("Projets Réalisés", "Completed Projects") },
     { value: "98%", label: t("Clients Satisfaits", "Satisfied Clients") },
-    { value: "12+", label: t("Années d'Expérience", "Years of Experience") },
+    { value: "15+", label: t("Années d'Expérience", "Years of Experience") },
     { value: "35%", label: t("Économie Moyenne", "Average Savings") },
   ];
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Hero with background */}
+      {/* Hero */}
       <section className="relative py-32 overflow-hidden min-h-[50vh] flex items-center">
         <div className="absolute inset-0">
-          <motion.img
-            src={heroBg}
-            alt=""
-            className="h-full w-full object-cover"
-            initial={{ scale: 1.15 }}
-            animate={{ scale: 1 }}
-            transition={{ duration: 1.5, ease: "easeOut" }}
-          />
+          <motion.img src={heroBg} alt="" className="h-full w-full object-cover" initial={{ scale: 1.15 }} animate={{ scale: 1 }} transition={{ duration: 1.5, ease: "easeOut" }} />
           <div className="absolute inset-0 bg-background/80 backdrop-blur-[2px]" />
           <div className="absolute inset-0 bg-gradient-to-b from-primary/10 via-transparent to-background" />
         </div>
-        <motion.div
-          className="absolute top-1/3 right-1/4 h-64 w-64 rounded-full bg-primary/10 blur-[100px]"
-          animate={{ scale: [1, 1.2, 1] }}
-          transition={{ duration: 6, repeat: Infinity }}
-        />
+        <motion.div className="absolute top-1/3 right-1/4 h-64 w-64 rounded-full bg-primary/10 blur-[100px]" animate={{ scale: [1, 1.2, 1] }} transition={{ duration: 6, repeat: Infinity }} />
         <div className="container relative mx-auto px-6 text-center">
           <motion.span initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}
             className="mb-4 inline-block rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-xs font-medium tracking-widest uppercase text-primary">
@@ -233,7 +208,7 @@ const Produits = () => {
         </div>
       </section>
 
-      {/* Stats bar */}
+      {/* Stats */}
       <section className="relative -mt-8 z-10">
         <div className="container mx-auto px-6">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.4 }}
@@ -257,22 +232,11 @@ const Produits = () => {
               {/* Image */}
               <motion.div initial={{ opacity: 0, x: i % 2 === 0 ? -60 : 60 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: "-80px" }} transition={{ duration: 0.8, ease: "easeOut" }}
                 className={`relative group overflow-hidden rounded-2xl shadow-xl ${i % 2 === 1 ? "lg:order-2" : ""}`}>
-                <motion.img
-                  src={project.img}
-                  alt={project.title}
-                  className="h-[420px] w-full object-cover"
-                  whileHover={{ scale: 1.08 }}
-                  transition={{ duration: 0.7 }}
-                />
+                <motion.img src={project.img} alt={project.title} className="h-[420px] w-full object-cover" whileHover={{ scale: 1.08 }} transition={{ duration: 0.7 }} />
                 <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 via-transparent to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <motion.span
-                    className="inline-block rounded-full bg-primary px-3 py-1 text-xs font-semibold text-primary-foreground"
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.3 }}
-                  >
+                  <motion.span className="inline-block rounded-full bg-primary px-3 py-1 text-xs font-semibold text-primary-foreground"
+                    initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.3 }}>
                     {project.category}
                   </motion.span>
                 </div>
@@ -288,11 +252,20 @@ const Produits = () => {
               {/* Content */}
               <motion.div initial={{ opacity: 0, x: i % 2 === 0 ? 60 : -60 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: "-80px" }} transition={{ duration: 0.8, ease: "easeOut" }}
                 className={i % 2 === 1 ? "lg:order-1" : ""}>
-                <div className="flex items-center gap-4 text-xs text-muted-foreground mb-3">
+                <div className="flex flex-wrap items-center gap-3 text-xs text-muted-foreground mb-3">
                   <span className="flex items-center gap-1.5"><MapPin className="h-3.5 w-3.5 text-primary" />{project.location}</span>
                   <span className="flex items-center gap-1.5"><Calendar className="h-3.5 w-3.5 text-primary" />{project.year}</span>
+                  {(project as any).value && (
+                    <span className="flex items-center gap-1.5"><DollarSign className="h-3.5 w-3.5 text-primary" />{(project as any).value}</span>
+                  )}
+                  {(project as any).duration && (
+                    <span className="flex items-center gap-1.5"><Clock className="h-3.5 w-3.5 text-primary" />{(project as any).duration}</span>
+                  )}
                 </div>
-                <h2 className="font-display text-3xl font-bold md:text-4xl">{project.title}</h2>
+                <h2 className="font-display text-2xl font-bold md:text-3xl">{project.title}</h2>
+                {(project as any).client && (
+                  <p className="mt-1 text-sm font-medium text-primary">{t("Client : ", "Client: ")}{(project as any).client}</p>
+                )}
                 <p className="mt-4 leading-relaxed text-muted-foreground">{project.desc}</p>
                 <div className="mt-6">
                   <h4 className="text-sm font-semibold uppercase tracking-wider text-primary mb-3">{t("Périmètre du projet", "Project scope")}</h4>
@@ -311,6 +284,16 @@ const Produits = () => {
                     <span className="text-sm font-semibold">{project.result}</span>
                   </div>
                 </motion.div>
+
+                {/* Gallery thumbnails */}
+                {(project as any).gallery && (
+                  <div className="mt-4 flex gap-2 overflow-x-auto">
+                    {(project as any).gallery.slice(0, 4).map((img: string, gi: number) => (
+                      <motion.img key={gi} src={img} alt="" className="h-16 w-20 rounded-lg object-cover border border-border flex-shrink-0 hover:border-primary/50 transition-colors"
+                        whileHover={{ scale: 1.1 }} />
+                    ))}
+                  </div>
+                )}
               </motion.div>
             </motion.div>
           ))}
@@ -322,11 +305,7 @@ const Produits = () => {
         <div className="container mx-auto px-6">
           <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}
             className="relative overflow-hidden rounded-3xl bg-primary p-12 md:p-20 text-center">
-            <motion.div
-              className="absolute top-0 right-0 h-64 w-64 rounded-full bg-primary-foreground/5 blur-[60px]"
-              animate={{ x: [0, 30, 0], y: [0, -20, 0] }}
-              transition={{ duration: 8, repeat: Infinity }}
-            />
+            <motion.div className="absolute top-0 right-0 h-64 w-64 rounded-full bg-primary-foreground/5 blur-[60px]" animate={{ x: [0, 30, 0], y: [0, -20, 0] }} transition={{ duration: 8, repeat: Infinity }} />
             <h2 className="relative font-display text-3xl font-bold text-primary-foreground md:text-5xl">
               {t("Votre projet est le prochain ?", "Is your project next?")}
             </h2>
