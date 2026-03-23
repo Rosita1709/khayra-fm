@@ -67,23 +67,24 @@ const Produits = () => {
       result: t("Économie énergétique de 28% — Contrat reconduit", "28% energy savings — Contract renewed"),
     },
     {
-      img: productCivil,
+      img: villaReno4,
       title: t("Réhabilitation Villa Privée", "Private Villa Rehabilitation"),
-      location: "Saadiyat Island, Abu Dhabi",
+      location: "Abu Dhabi, UAE",
       year: "2024",
       category: t("Travaux Civils & Rénovation", "Civil Works & Renovation"),
       desc: t(
-        "Réhabilitation structurelle et esthétique d'une villa de 600m².",
-        "Structural and aesthetic rehabilitation of a 600m² villa."
+        "Réhabilitation structurelle et esthétique d'une villa privée. Travaux de façade, étanchéité et aménagements extérieurs.",
+        "Structural and aesthetic rehabilitation of a private villa. Facade works, waterproofing and exterior landscaping."
       ),
       scope: [
-        t("Renforcement structurel", "Structural reinforcement"),
+        t("Rénovation complète de la façade", "Complete facade renovation"),
         t("Étanchéité toiture & terrasses", "Roof & terrace waterproofing"),
         t("Réfection façades extérieures", "Exterior facade renovation"),
         t("Aménagement paysager", "Landscaping"),
-        t("Piscine & espace détente", "Pool & relaxation area"),
+        t("Échafaudage & travaux en hauteur", "Scaffolding & height works"),
       ],
-      result: t("Transformation complète en 4 mois", "Complete transformation in 4 months"),
+      result: t("Transformation complète — Projet réel", "Complete transformation — Real project"),
+      gallery: [villaReno1, villaReno2, villaReno3, villaReno4, villaReno5],
     },
     {
       img: productMep,
