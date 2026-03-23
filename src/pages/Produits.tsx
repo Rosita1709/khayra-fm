@@ -19,6 +19,7 @@ import villaReno5 from "@/assets/projects/villa-renovation-5.jpg";
 import sandwichPanel1 from "@/assets/projects/sandwich-panel-1.jpg";
 import sandwichPanel2 from "@/assets/projects/sandwich-panel-2.jpg";
 import sandwichPanel3 from "@/assets/projects/sandwich-panel-3.jpg";
+import terrainSport from "@/assets/projects/terrain-sport.jpg";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 50 },
