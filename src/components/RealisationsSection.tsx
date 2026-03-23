@@ -6,19 +6,34 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import real1 from "@/assets/realisation-1.jpg";
 import real2 from "@/assets/realisation-2.jpg";
 import real3 from "@/assets/realisation-3.jpg";
-import real4 from "@/assets/realisation-4.jpg";
-import sandwichPanel from "@/assets/projects/sandwich-panel-1.jpg";
+import sandwichPanel1 from "@/assets/projects/sandwich-panel-1.jpg";
+import sandwichPanel2 from "@/assets/projects/sandwich-panel-2.jpg";
+import sandwichPanel3 from "@/assets/projects/sandwich-panel-3.jpg";
 
 const RealisationsSection = () => {
   const { t } = useLanguage();
 
   const realisations = [
     {
-      img: sandwichPanel,
-      title: t("Installation Sandwich Panel", "Sandwich Panel Installation"),
+      img: sandwichPanel1,
+      title: t("Installation Sandwich Panel — Vue d'ensemble", "Sandwich Panel Installation — Overview"),
       location: "Abu Dhabi",
       category: t("Travaux Civils", "Civil Works"),
       result: t("Livré avec succès", "Successfully delivered"),
+    },
+    {
+      img: sandwichPanel2,
+      title: t("Sandwich Panel — Travaux d'étanchéité", "Sandwich Panel — Waterproofing Works"),
+      location: "Abu Dhabi",
+      category: t("Travaux Civils", "Civil Works"),
+      result: t("Étanchéité renforcée", "Enhanced waterproofing"),
+    },
+    {
+      img: sandwichPanel3,
+      title: t("Sandwich Panel — Site portuaire", "Sandwich Panel — Port Site"),
+      location: "Abu Dhabi",
+      category: t("Travaux Civils", "Civil Works"),
+      result: t("Installation complète", "Full installation"),
     },
     {
       img: real1,
@@ -26,20 +41,6 @@ const RealisationsSection = () => {
       location: "Al Reem Island",
       category: t("HVAC & Climatisation", "HVAC & Air Conditioning"),
       result: t("Économie de 28%", "28% savings"),
-    },
-    {
-      img: real2,
-      title: t("Rénovation Villa Saadiyat", "Saadiyat Villa Renovation"),
-      location: "Saadiyat Island",
-      category: t("Design Intérieur", "Interior Design"),
-      result: t("Livré en 4 mois", "Delivered in 4 months"),
-    },
-    {
-      img: real3,
-      title: t("Mise aux Normes MEP", "MEP Compliance Upgrade"),
-      location: "Abu Dhabi",
-      category: t("Électricité & Plomberie", "Electrical & Plumbing"),
-      result: t("Conformité 100%", "100% compliance"),
     },
   ];
 
