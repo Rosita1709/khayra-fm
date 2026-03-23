@@ -21,8 +21,6 @@ import universalRbm from "@/assets/partners/universal-rbm.png";
 import mklights from "@/assets/partners/mklights.webp";
 
 import { useLanguage } from "@/contexts/LanguageContext";
-import ServicesSection from "@/components/ServicesSection";
-import RealisationsSection from "@/components/RealisationsSection";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
