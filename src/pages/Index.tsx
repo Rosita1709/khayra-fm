@@ -365,13 +365,13 @@ const Index = () => {
                 whileInView="visible"
                 viewport={{ once: true }}
                 whileHover={{ y: -10, transition: { duration: 0.3 } }}
-                className="group rounded-2xl bg-primary p-8 text-center transition-all duration-500 hover:shadow-xl hover:shadow-primary/30 hover:-translate-y-1"
+                className="group rounded-2xl border border-border bg-card p-8 text-center transition-all duration-500 hover:shadow-xl hover:shadow-primary/10 hover:border-primary/30"
               >
-                <div className="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-2xl bg-primary-foreground/20 text-primary-foreground">
+                <div className="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-2xl bg-primary/10 text-primary">
                   <value.icon className="h-8 w-8" />
                 </div>
-                <h3 className="font-display text-lg font-semibold text-primary-foreground">{value.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-primary-foreground/70">{value.desc}</p>
+                <h3 className="font-display text-lg font-semibold">{value.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{value.desc}</p>
               </motion.div>
             ))}
           </div>
