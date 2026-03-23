@@ -3,6 +3,7 @@ import { Wind, Zap, Wrench, Paintbrush, Lightbulb, ShieldCheck, Eye, BarChart3, 
 import aboutBg from "@/assets/about-bg.webp";
 import heroImg from "@/assets/hero-light.webp";
 import visionBg from "@/assets/vision-bg.jpg";
+import teamVision from "@/assets/team-vision.jpg";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useRef } from "react";
 
