@@ -290,11 +290,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* ===== SERVICES ===== */}
-      <ServicesSection />
-
-      {/* ===== RÉALISATIONS ===== */}
-      <RealisationsSection />
 
       {/* ===== NOTRE VISION ===== */}
       <section className="relative py-28 overflow-hidden">

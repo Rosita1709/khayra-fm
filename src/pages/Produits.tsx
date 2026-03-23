@@ -30,7 +30,7 @@ const Produits = () => {
 
   const projects = [
     {
-      img: productInterior,
+      img: ambassadeFrance1,
       title: t("Rénovation Ambassade de France", "French Embassy Renovation"),
       location: "Abu Dhabi, UAE",
       year: "2024",

@@ -147,13 +147,13 @@ const APropos = () => {
       {/* Vision section */}
       <section className="relative py-28 overflow-hidden">
         <div className="absolute inset-0">
-          <img src={visionBg} alt="" className="h-full w-full object-cover" />
+          <img src={teamVision} alt="" className="h-full w-full object-cover" />
           <div className="absolute inset-0 bg-background/85" />
         </div>
         <div className="container relative mx-auto px-6">
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <motion.div initial={{ opacity: 0, x: -60 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="overflow-hidden rounded-2xl shadow-xl">
-              <motion.img src={visionBg} alt={t("Technicien HVAC", "HVAC Technician")} className="h-[400px] w-full object-cover" whileHover={{ scale: 1.05 }} transition={{ duration: 0.7 }} />
+              <motion.img src={teamVision} alt={t("Équipe KFM sur le terrain", "KFM Team on site")} className="h-[400px] w-full object-cover" whileHover={{ scale: 1.05 }} transition={{ duration: 0.7 }} />
             </motion.div>
             <motion.div initial={{ opacity: 0, x: 60 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
               <span className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">{t("Notre Vision", "Our Vision")}</span>
