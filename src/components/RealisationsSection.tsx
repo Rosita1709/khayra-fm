@@ -6,8 +6,9 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import real1 from "@/assets/realisation-1.jpg";
 import real2 from "@/assets/realisation-2.jpg";
 import real3 from "@/assets/realisation-3.jpg";
-import real4 from "@/assets/realisation-4.jpg";
-import sandwichPanel from "@/assets/projects/sandwich-panel-1.jpg";
+import sandwichPanel1 from "@/assets/projects/sandwich-panel-1.jpg";
+import sandwichPanel2 from "@/assets/projects/sandwich-panel-2.jpg";
+import sandwichPanel3 from "@/assets/projects/sandwich-panel-3.jpg";
 
 const RealisationsSection = () => {
   const { t } = useLanguage();
