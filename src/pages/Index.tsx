@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import heroImg from "@/assets/hero-new.jpg";
 import { CheckCircle, TrendingUp, PiggyBank, Heart, Rocket, ArrowRight } from "lucide-react";
+import { useCountUp } from "@/hooks/useCountUp";
 import aboutBg from "@/assets/about-bg.webp";
 import visionBg from "@/assets/vision-bg.jpg";
 import ctaBg from "@/assets/cta-bg.jpg";
