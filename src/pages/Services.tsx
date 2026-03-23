@@ -38,7 +38,8 @@ const Services = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Hero */}
+
+      {/* Hero — inchangé */}
       <section className="relative py-32 overflow-hidden min-h-[50vh] flex items-center">
         <div className="absolute inset-0">
           <motion.img
@@ -102,62 +103,30 @@ const Services = () => {
         </div>
       </section>
 
-      {/* Services cards */}
+      {/* ── SERVICES — deux blocs séparés, alternés ── */}
       <section className="py-24">
         <div className="container mx-auto px-6">
-          {/* Featured first service */}
+
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="mb-8"
+            className="mb-16 text-center"
           >
-            {(() => {
-              const service = servicesData[0];
-              const Icon = service.icon;
-              return (
-                <Link
-                  to={`/services/${service.slug}`}
-                  className="group card-premium flex flex-col lg:flex-row"
-                >
-                  <div className="relative lg:w-3/5 h-64 lg:h-80 overflow-hidden">
-                    <img
-                      src={serviceImages[service.slug] || servicesBg}
-                      alt={t(service.title, service.titleEn)}
-                      className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-r from-foreground/40 via-foreground/10 to-transparent" />
-                    <div className="absolute top-4 left-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary text-primary-foreground shadow-lg">
-                      <Icon className="h-7 w-7" />
-                    </div>
-                  </div>
-                  <div className="lg:w-2/5 p-8 lg:p-10 flex flex-col justify-center">
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {service.sections.slice(0, 3).map((s) => (
-                        <span key={s.title} className="rounded-full bg-primary/8 px-3 py-1 text-[10px] font-semibold uppercase tracking-wider text-primary">
-                          {s.title.split(" ").slice(0, 2).join(" ")}
-                        </span>
-                      ))}
-                    </div>
-                    <h2 className="font-display text-2xl font-bold lg:text-3xl">{t(service.title, service.titleEn)}</h2>
-                    <p className="mt-3 text-sm leading-relaxed text-muted-foreground line-clamp-3">
-                      {service.intro}
-                    </p>
-                    <div className="mt-6 flex items-center gap-2 text-sm font-semibold text-primary">
-                      {t("Découvrir en détail", "View details")}
-                      <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-2" />
-                    </div>
-                  </div>
-                </Link>
-              );
-            })()}
+            <span className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">
+              {t("Nos expertises", "Our expertise")}
+            </span>
+            <h2 className="mt-4 font-display text-4xl font-bold md:text-5xl">
+              {t("Nos ", "Our ")}<span className="text-gradient">{t("Solutions", "Solutions")}</span>
+            </h2>
           </motion.div>
 
-          {/* Remaining services grid */}
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {servicesData.slice(1).map((service, i) => {
+          <div className="flex flex-col gap-16">
+            {servicesData.map((service, i) => {
               const Icon = service.icon;
+              const isEven = i % 2 === 0;
+
               return (
                 <motion.div
                   key={service.slug}
@@ -165,35 +134,76 @@ const Services = () => {
                   variants={fadeUp}
                   initial="hidden"
                   whileInView="visible"
-                  viewport={{ once: true }}
+                  viewport={{ once: true, margin: "-80px" }}
+                  className={`flex flex-col gap-6 lg:gap-8 ${
+                    isEven ? "lg:flex-row" : "lg:flex-row-reverse"
+                  } items-stretch`}
                 >
-                  <Link
-                    to={`/services/${service.slug}`}
-                    className="group flex flex-col h-full card-premium shine-effect"
-                  >
-                    <div className="relative h-48 overflow-hidden">
+                  {/* ── Bloc IMAGE ── */}
+                  <div className="lg:w-1/2 rounded-3xl overflow-hidden shadow-xl">
+                    <div className="relative w-full h-72 lg:h-full min-h-[320px]">
                       <img
                         src={serviceImages[service.slug] || servicesBg}
                         alt={t(service.title, service.titleEn)}
-                        className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        className="w-full h-full object-cover"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-foreground/50 via-foreground/10 to-transparent" />
-                      <div className="absolute bottom-3 left-3 flex h-11 w-11 items-center justify-center rounded-xl bg-primary/90 text-primary-foreground shadow-lg backdrop-blur-sm transition-transform duration-300 group-hover:scale-110">
-                        <Icon className="h-5 w-5" />
+                      {/* Numéro */}
+                      <div className="absolute top-5 left-5 flex h-10 w-10 items-center justify-center rounded-full bg-primary text-sm font-bold text-primary-foreground shadow-lg font-display">
+                        0{i + 1}
                       </div>
+                      {/* Icône service */}
+                      <div className="absolute bottom-5 right-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-primary text-primary-foreground shadow-lg">
+                        <Icon className="h-6 w-6" />
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* ── Bloc TEXTE ── */}
+                  <Link
+                    to={`/services/${service.slug}`}
+                    className="group lg:w-1/2 rounded-3xl border border-border bg-card p-8 lg:p-10 flex flex-col justify-center shadow-sm hover:shadow-xl hover:shadow-primary/10 hover:border-primary/30 transition-all duration-500"
+                  >
+                    {/* Tags */}
+                    <div className="flex flex-wrap gap-2 mb-5">
+                      {service.sections.slice(0, 3).map((s) => (
+                        <span
+                          key={s.title}
+                          className="rounded-full bg-primary/8 px-3 py-1 text-[10px] font-semibold uppercase tracking-wider text-primary"
+                        >
+                          {s.title.split(" ").slice(0, 2).join(" ")}
+                        </span>
+                      ))}
                     </div>
 
-                    <div className="p-6 flex-1 flex flex-col">
-                      <h2 className="font-display text-lg font-bold">{t(service.title, service.titleEn)}</h2>
-                      <p className="mt-2 text-sm text-muted-foreground leading-relaxed line-clamp-3">
-                        {service.intro}
-                      </p>
-                      <div className="mt-auto pt-4 flex items-center gap-2 text-sm font-semibold text-primary">
-                        {t("Découvrir", "Discover")}
-                        <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-2" />
-                      </div>
+                    {/* Titre */}
+                    <h2 className="font-display text-2xl font-bold lg:text-3xl">
+                      {t(service.title, service.titleEn)}
+                    </h2>
+
+                    {/* Intro */}
+                    <p className="mt-4 text-sm leading-relaxed text-muted-foreground line-clamp-3">
+                      {service.intro}
+                    </p>
+
+                    {/* Points clés */}
+                    {service.sections[0]?.items?.length > 0 && (
+                      <ul className="mt-6 space-y-2">
+                        {service.sections[0].items.slice(0, 3).map((item) => (
+                          <li key={item} className="flex items-center gap-2.5 text-sm text-muted-foreground">
+                            <span className="h-1.5 w-1.5 rounded-full bg-primary flex-shrink-0" />
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+
+                    {/* CTA */}
+                    <div className="mt-8 flex items-center gap-2 font-display text-sm font-semibold text-primary">
+                      {t("Découvrir en détail", "View details")}
+                      <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-2" />
                     </div>
                   </Link>
+
                 </motion.div>
               );
             })}
@@ -201,7 +211,7 @@ const Services = () => {
         </div>
       </section>
 
-      {/* Process */}
+      {/* Process — inchangé */}
       <section className="relative py-24 overflow-hidden">
         <div className="absolute inset-0 bg-muted/40" />
         <motion.div
@@ -223,7 +233,6 @@ const Services = () => {
               {t("Notre ", "Our ")}<span className="text-gradient">{t("Processus", "Process")}</span>
             </h2>
           </motion.div>
-
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {processSteps.map((step, i) => (
               <motion.div
@@ -236,7 +245,7 @@ const Services = () => {
                 whileHover={{ y: -8, transition: { duration: 0.3 } }}
                 className="relative text-center rounded-2xl border border-border bg-card p-8 pt-10 mt-4 transition-all duration-500 hover:shadow-xl hover:shadow-primary/10 hover:border-primary/30"
               >
-                <div className="absolute -top-5 left-1/2 -translate-x-1/2 flex h-10 w-10 items-center justify-center rounded-full bg-primary text-sm font-bold text-primary-foreground shadow-lg z-10">
+                <div className="absolute -top-5 left-1/2 -translate-x-1/2 flex h-10 w-10 items-center justify-center rounded-full bg-primary text-sm font-bold text-primary-foreground shadow-lg z-10 font-display">
                   {i + 1}
                 </div>
                 <motion.div
@@ -254,7 +263,7 @@ const Services = () => {
         </div>
       </section>
 
-      {/* CTA */}
+      {/* CTA — inchangé */}
       <section className="py-24">
         <div className="container mx-auto px-6">
           <motion.div
@@ -282,7 +291,7 @@ const Services = () => {
             <div className="relative mt-10 flex flex-wrap justify-center gap-4">
               <Link
                 to="/contact"
-                className="rounded-2xl bg-primary px-8 py-4 font-display text-sm font-semibold text-primary-foreground transition-all hover:shadow-lg hover:-translate-y-1"
+                className="rounded-2xl bg-background px-8 py-4 font-display text-sm font-semibold text-foreground transition-all hover:shadow-premium hover:-translate-y-1"
               >
                 {t("Nous contacter", "Contact us")}
               </Link>
@@ -290,7 +299,7 @@ const Services = () => {
                 href="https://wa.me/971508054220"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-2xl border border-primary-foreground/20 px-8 py-4 font-display text-sm font-semibold text-primary-foreground transition-all hover:bg-primary-foreground/10"
+                className="rounded-2xl border border-primary-foreground/25 px-8 py-4 font-display text-sm font-semibold text-primary-foreground transition-all hover:bg-primary-foreground/10 hover:-translate-y-0.5"
               >
                 WhatsApp →
               </a>
@@ -298,6 +307,7 @@ const Services = () => {
           </motion.div>
         </div>
       </section>
+
     </div>
   );
 };

@@ -1,74 +1,158 @@
 import { Link } from "react-router-dom";
 import kfmLogo from "@/assets/kfm-logo.jpeg";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { Mail, Phone, MapPin, ArrowRight } from "lucide-react";
+import { Mail, Phone, MapPin, ArrowUpRight } from "lucide-react";
 
 const Footer = () => {
   const { t } = useLanguage();
 
+  const navLinks = [
+    { to: "/", label: t("Accueil", "Home") },
+    { to: "/a-propos", label: t("À Propos", "About") },
+    { to: "/projets", label: t("Projets", "Projects") },
+    { to: "/services", label: t("Nos Services", "Our Services") },
+    { to: "/contact", label: "Contact" },
+  ];
+
+  const serviceLinks = [
+    { to: "/services/hvac", label: t("HVAC & Climatisation", "HVAC & Air Conditioning") },
+    { to: "/services/mep", label: t("Électricité & Plomberie", "Electrical & Plumbing") },
+    { to: "/services/travaux-civils", label: t("Travaux Civils", "Civil Works") },
+    { to: "/services/design-interieur", label: t("Design Intérieur", "Interior Design") },
+    { to: "/services/energy-saving", label: "Energy Saving" },
+  ];
+
   return (
-    <footer className="bg-white text-gray-800 border-t border-gray-200">
-      <div className="container mx-auto px-6 pt-16 pb-8">
-        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
-          {/* Logo & description */}
+    <footer className="bg-background border-t-2 border-primary">
+      <div className="container mx-auto px-6 pt-16 pb-0">
+
+        {/* Main grid */}
+        <div className="grid gap-14 md:grid-cols-2 lg:grid-cols-4 pb-14">
+
+          {/* Brand */}
           <div>
-            <img src={kfmLogo} alt="KFM" className="h-12 object-contain rounded-lg" />
-            <p className="mt-4 text-sm leading-relaxed text-gray-500">
-              Khayra Facilities Management — Abu Dhabi, UAE.{" "}
-              {t("Solutions premium de Facility Management.", "Premium Facility Management solutions.")}
+            <img
+              src={kfmLogo}
+              alt="KFM"
+              className="h-12 object-contain mb-6"
+            />
+            <p className="text-sm leading-relaxed text-muted-foreground max-w-[260px] mb-7">
+              {t(
+                "Khayra Facilities Management — solutions d'excellence pour la gestion et la valorisation de vos espaces à Abu Dhabi.",
+                "Khayra Facilities Management — excellence in facility management across Abu Dhabi and beyond."
+              )}
             </p>
-            <div className="mt-5 flex gap-3">
-              <a href="mailto:contact@khayrafm.com" className="flex h-9 w-9 items-center justify-center rounded-lg bg-gray-100 text-gray-600 transition-all hover:bg-gray-200">
-                <Mail className="h-4 w-4" />
-              </a>
-              <a href="tel:+971508054220" className="flex h-9 w-9 items-center justify-center rounded-lg bg-gray-100 text-gray-600 transition-all hover:bg-gray-200">
-                <Phone className="h-4 w-4" />
-              </a>
-              <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" className="flex h-9 w-9 items-center justify-center rounded-lg bg-gray-100 text-gray-600 transition-all hover:bg-gray-200">
-                <MapPin className="h-4 w-4" />
-              </a>
+
+            {/* Green accent bar — same style as site */}
+            <div className="w-9 h-[3px] rounded-full bg-primary mb-7" />
+
+            {/* Icon buttons */}
+            <div className="flex gap-2.5">
+              {[
+                { href: "mailto:contact@khayrafm.com", icon: <Mail className="h-3.5 w-3.5" /> },
+                { href: "tel:+971508054220", icon: <Phone className="h-3.5 w-3.5" /> },
+                { href: "https://maps.google.com", icon: <MapPin className="h-3.5 w-3.5" />, external: true },
+              ].map((item, i) => (
+                <a
+                  key={i}
+                  href={item.href}
+                  target={item.external ? "_blank" : undefined}
+                  rel={item.external ? "noopener noreferrer" : undefined}
+                  className="flex h-9 w-9 items-center justify-center rounded-xl border border-primary text-primary transition-all hover:bg-primary hover:text-primary-foreground"
+                >
+                  {item.icon}
+                </a>
+              ))}
             </div>
           </div>
 
           {/* Navigation */}
           <div>
-            <h4 className="font-display font-semibold mb-4 text-gray-900">Navigation</h4>
-            <ul className="space-y-2.5 text-sm text-gray-500">
-              <li><Link to="/" className="hover:text-gray-900 transition-colors flex items-center gap-1.5"><ArrowRight className="h-3 w-3" />{t("Accueil", "Home")}</Link></li>
-              <li><Link to="/a-propos" className="hover:text-gray-900 transition-colors flex items-center gap-1.5"><ArrowRight className="h-3 w-3" />{t("À Propos", "About")}</Link></li>
-              <li><Link to="/projets" className="hover:text-gray-900 transition-colors flex items-center gap-1.5"><ArrowRight className="h-3 w-3" />{t("Projets", "Projects")}</Link></li>
-              <li><Link to="/services" className="hover:text-gray-900 transition-colors flex items-center gap-1.5"><ArrowRight className="h-3 w-3" />{t("Nos Services", "Our Services")}</Link></li>
-              <li><Link to="/contact" className="hover:text-gray-900 transition-colors flex items-center gap-1.5"><ArrowRight className="h-3 w-3" />Contact</Link></li>
+            <span className="text-xs font-semibold uppercase tracking-[0.3em] text-primary block mb-5">
+              Navigation
+            </span>
+            <ul className="space-y-3">
+              {navLinks.map((link) => (
+                <li key={link.to}>
+                  <Link
+                    to={link.to}
+                    className="flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-primary"
+                  >
+                    <span className="inline-block w-3.5 h-px bg-primary opacity-60 flex-shrink-0" />
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
           {/* Services */}
           <div>
-            <h4 className="font-display font-semibold mb-4 text-gray-900">Services</h4>
-            <ul className="space-y-2.5 text-sm text-gray-500">
-              <li><Link to="/services/hvac" className="hover:text-gray-900 transition-colors">{t("HVAC & Climatisation", "HVAC & Air Conditioning")}</Link></li>
-              <li><Link to="/services/mep" className="hover:text-gray-900 transition-colors">{t("Électricité & Plomberie", "Electrical & Plumbing")}</Link></li>
-              <li><Link to="/services/travaux-civils" className="hover:text-gray-900 transition-colors">{t("Travaux Civils", "Civil Works")}</Link></li>
-              <li><Link to="/services/design-interieur" className="hover:text-gray-900 transition-colors">{t("Design Intérieur", "Interior Design")}</Link></li>
-              <li><Link to="/services/energy-saving" className="hover:text-gray-900 transition-colors">Energy Saving</Link></li>
+            <span className="text-xs font-semibold uppercase tracking-[0.3em] text-primary block mb-5">
+              Services
+            </span>
+            <ul className="space-y-3">
+              {serviceLinks.map((link) => (
+                <li key={link.to}>
+                  <Link
+                    to={link.to}
+                    className="flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-primary"
+                  >
+                    <span className="inline-block w-3.5 h-px bg-primary opacity-60 flex-shrink-0" />
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
           {/* Contact */}
           <div>
-            <h4 className="font-display font-semibold mb-4 text-gray-900">Contact</h4>
-            <ul className="space-y-2.5 text-sm text-gray-500">
-              <li className="flex items-center gap-2"><Mail className="h-3.5 w-3.5 flex-shrink-0" />contact@khayrafm.com</li>
-              <li className="flex items-center gap-2"><Phone className="h-3.5 w-3.5 flex-shrink-0" />+971 50 805 4220</li>
-              <li className="flex items-start gap-2"><MapPin className="h-3.5 w-3.5 flex-shrink-0 mt-0.5" />10 Floor, Corniche Building, Al HISN, Abu Dhabi, UAE</li>
+            <span className="text-xs font-semibold uppercase tracking-[0.3em] text-primary block mb-5">
+              Contact
+            </span>
+            <ul className="space-y-4">
+              {[
+                { icon: <Mail className="h-3.5 w-3.5 flex-shrink-0 mt-0.5" />, content: "contact@khayrafm.com", href: "mailto:contact@khayrafm.com" },
+                { icon: <Phone className="h-3.5 w-3.5 flex-shrink-0 mt-0.5" />, content: "+971 50 805 4220", href: "tel:+971508054220" },
+                { icon: <MapPin className="h-3.5 w-3.5 flex-shrink-0 mt-0.5" />, content: "10th Floor, Corniche Building\nAl Hisn, Abu Dhabi, UAE" },
+              ].map((item, i) => (
+                <li key={i} className="flex items-start gap-2.5">
+                  <span className="text-primary">{item.icon}</span>
+                  {item.href ? (
+                    <a
+                      href={item.href}
+                      className="text-sm text-muted-foreground transition-colors hover:text-primary leading-relaxed"
+                    >
+                      {item.content}
+                    </a>
+                  ) : (
+                    <span className="text-sm text-muted-foreground leading-relaxed whitespace-pre-line">
+                      {item.content}
+                    </span>
+                  )}
+                </li>
+              ))}
             </ul>
+
+            <Link
+              to="/contact"
+              className="mt-7 inline-flex items-center gap-1.5 font-display text-xs font-semibold uppercase tracking-[0.14em] text-primary border-b border-primary pb-0.5 transition-all hover:text-primary/70 hover:border-primary/70"
+            >
+              {t("Nous contacter", "Get in touch")}
+              <ArrowUpRight className="h-3 w-3" />
+            </Link>
           </div>
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-10 border-t border-gray-200 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-gray-400">
-          <span>© 2026 KFM – Khayra Facilities Management. {t("Tous droits réservés.", "All rights reserved.")}</span>
-          <span className="text-xs">Abu Dhabi, {t("Émirats Arabes Unis", "United Arab Emirates")}</span>
+        <div className="border-t border-border py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
+          <span className="text-xs text-muted-foreground tracking-wide">
+            © 2026 KFM — Khayra Facilities Management. {t("Tous droits réservés.", "All rights reserved.")}
+          </span>
+          <span className="text-xs text-muted-foreground uppercase tracking-[0.1em]">
+            Abu Dhabi · {t("Émirats Arabes Unis", "United Arab Emirates")}
+          </span>
         </div>
       </div>
     </footer>
