@@ -191,16 +191,16 @@ const APropos = () => {
             {expertises.map((item, i) => (
               <motion.div key={item.title} custom={i} variants={scaleIn} initial="hidden" whileInView="visible" viewport={{ once: true }}
                 whileHover={{ y: -8, transition: { duration: 0.3 } }}
-                className="group rounded-2xl bg-primary p-8 transition-all hover:shadow-xl hover:shadow-primary/30">
+                className="group rounded-2xl border border-border bg-card p-8 transition-all hover:shadow-xl hover:shadow-primary/10 hover:border-primary/30">
                 <motion.div
-                  className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary-foreground/20 text-primary-foreground"
+                  className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-primary"
                   whileHover={{ rotate: 360 }}
                   transition={{ duration: 0.6 }}
                 >
                   <item.icon className="h-7 w-7" />
                 </motion.div>
-                <h3 className="font-display text-lg font-semibold text-primary-foreground">{item.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-primary-foreground/70">{item.desc}</p>
+                <h3 className="font-display text-lg font-semibold">{item.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{item.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -224,19 +224,19 @@ const APropos = () => {
             {pillars.map((pillar, i) => (
               <motion.div key={pillar.title} custom={i} variants={scaleIn} initial="hidden" whileInView="visible" viewport={{ once: true }}
                 whileHover={{ y: -8, transition: { duration: 0.3 } }}
-                className="group relative rounded-2xl bg-primary p-8 pt-10 text-center transition-all hover:shadow-xl hover:shadow-primary/30">
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 flex h-8 w-8 items-center justify-center rounded-full bg-primary-foreground text-xs font-bold text-primary shadow-lg z-10">
+                className="group relative rounded-2xl border border-border bg-card p-8 pt-10 text-center transition-all hover:shadow-xl hover:shadow-primary/10 hover:border-primary/30">
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2 flex h-8 w-8 items-center justify-center rounded-full bg-primary text-xs font-bold text-primary-foreground shadow-lg z-10">
                   {pillar.num}
                 </div>
                 <motion.div
-                  className="mx-auto mb-4 mt-2 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary-foreground/20 text-primary-foreground"
+                  className="mx-auto mb-4 mt-2 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-primary"
                   whileHover={{ rotate: 360 }}
                   transition={{ duration: 0.6 }}
                 >
                   <pillar.icon className="h-7 w-7" />
                 </motion.div>
-                <h4 className="font-display text-lg font-semibold text-primary-foreground">{pillar.title}</h4>
-                <p className="mt-3 text-sm leading-relaxed text-primary-foreground/70">{pillar.desc}</p>
+                <h4 className="font-display text-lg font-semibold">{pillar.title}</h4>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{pillar.desc}</p>
               </motion.div>
             ))}
           </div>
