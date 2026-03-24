@@ -269,16 +269,18 @@ const APropos = () => {
             {expertises.map((item, i) => (
               <motion.div key={item.title} custom={i} variants={scaleIn} initial="hidden" whileInView="visible" viewport={{ once: true }}
                 whileHover={{ y: -8, transition: { duration: 0.3 } }}
-                className="group rounded-2xl border border-border bg-card p-8 transition-all hover:shadow-xl hover:shadow-primary/10 hover:border-primary/30">
-                <motion.div
-                  className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-primary"
-                  whileHover={{ rotate: 360 }}
-                  transition={{ duration: 0.6 }}
-                >
-                  <item.icon className="h-7 w-7" />
-                </motion.div>
-                <h3 className="font-display text-lg font-semibold">{item.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{item.desc}</p>
+                className="group rounded-2xl border border-border bg-card overflow-hidden transition-all hover:shadow-xl hover:shadow-primary/10 hover:border-primary/30">
+                <div className="relative h-44 overflow-hidden">
+                  <img src={item.img} alt={item.title} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-foreground/50 via-transparent to-transparent" />
+                  <div className="absolute bottom-3 left-3 flex h-10 w-10 items-center justify-center rounded-xl bg-primary/90 text-primary-foreground shadow-lg backdrop-blur-sm">
+                    <item.icon className="h-5 w-5" />
+                  </div>
+                </div>
+                <div className="p-6">
+                  <h3 className="font-display text-lg font-semibold">{item.title}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{item.desc}</p>
+                </div>
               </motion.div>
             ))}
           </div>
