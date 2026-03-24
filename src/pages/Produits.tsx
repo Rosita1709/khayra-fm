@@ -28,7 +28,7 @@ const Produits = () => {
 
   const projects = [
     {
-      img: ambassadeFrance1,
+      img: vrfContainers,
       title: t("Installation Système VRF — Containers Modulaires", "VRF System Installation — Modular Office Containers"),
       location: t("Base Navale Française, Abu Dhabi", "French Naval Base, Abu Dhabi"),
       year: "2024",
