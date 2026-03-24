@@ -4,6 +4,11 @@ import aboutBg from "@/assets/about-bg.webp";
 import heroImg from "@/assets/hero-light.webp";
 import teamVision from "@/assets/team-vision.jpg";
 import embassyHvac from "@/assets/projects/embassy-hvac-diagnostic.jpg";
+import productHvac from "@/assets/product-hvac.webp";
+import productMep from "@/assets/product-mep.webp";
+import productCivil from "@/assets/product-civil.webp";
+import productInterior from "@/assets/product-interior.webp";
+import productEnergy from "@/assets/product-energy.webp";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useRef } from "react";
 
@@ -31,11 +36,11 @@ const APropos = () => {
   ];
 
   const expertises = [
-    { icon: Wind, title: t("HVAC & Climatisation", "HVAC & Air Conditioning"), desc: t("Gestion complète des systèmes de climatisation : installation, maintenance, optimisation des performances et amélioration de l'efficacité énergétique.", "Complete management of air conditioning systems: installation, maintenance, performance optimization and energy efficiency improvement.") },
-    { icon: Zap, title: "MEP (Mechanical, Electrical & Plumbing)", desc: t("Supervision et maintenance des systèmes électriques, hydrauliques et mécaniques essentiels au bon fonctionnement des bâtiments.", "Supervision and maintenance of electrical, hydraulic and mechanical systems essential to building operations.") },
-    { icon: Wrench, title: t("Travaux Civils & Rénovation", "Civil Works & Renovation"), desc: t("Modernisation d'espaces résidentiels et commerciaux, rénovation complète, transformations techniques et amélioration des finitions.", "Modernization of residential and commercial spaces, complete renovation, technical transformations and finishing improvements.") },
-    { icon: Paintbrush, title: t("Design Intérieur & Aménagement", "Interior Design & Fit-Out"), desc: t("Optimisation des espaces, solutions esthétiques et fonctionnelles, exécution clé en main.", "Space optimization, aesthetic and functional solutions, turnkey execution.") },
-    { icon: Lightbulb, title: "Energy Saving & Optimization", desc: t("Audit énergétique, réduction des consommations, amélioration des performances techniques et durabilité des équipements.", "Energy audit, consumption reduction, technical performance improvement and equipment sustainability.") },
+    { icon: Wind, img: productHvac, title: t("HVAC & Climatisation", "HVAC & Air Conditioning"), desc: t("Gestion complète des systèmes de climatisation : installation, maintenance, optimisation des performances et amélioration de l'efficacité énergétique.", "Complete management of air conditioning systems: installation, maintenance, performance optimization and energy efficiency improvement.") },
+    { icon: Zap, img: productMep, title: "MEP (Mechanical, Electrical & Plumbing)", desc: t("Supervision et maintenance des systèmes électriques, hydrauliques et mécaniques essentiels au bon fonctionnement des bâtiments.", "Supervision and maintenance of electrical, hydraulic and mechanical systems essential to building operations.") },
+    { icon: Wrench, img: productCivil, title: t("Travaux Civils & Rénovation", "Civil Works & Renovation"), desc: t("Modernisation d'espaces résidentiels et commerciaux, rénovation complète, transformations techniques et amélioration des finitions.", "Modernization of residential and commercial spaces, complete renovation, technical transformations and finishing improvements.") },
+    { icon: Paintbrush, img: productInterior, title: t("Design Intérieur & Aménagement", "Interior Design & Fit-Out"), desc: t("Optimisation des espaces, solutions esthétiques et fonctionnelles, exécution clé en main.", "Space optimization, aesthetic and functional solutions, turnkey execution.") },
+    { icon: Lightbulb, img: productEnergy, title: "Energy Saving & Optimization", desc: t("Audit énergétique, réduction des consommations, amélioration des performances techniques et durabilité des équipements.", "Energy audit, consumption reduction, technical performance improvement and equipment sustainability.") },
   ];
 
   const pillars = [
@@ -264,16 +269,18 @@ const APropos = () => {
             {expertises.map((item, i) => (
               <motion.div key={item.title} custom={i} variants={scaleIn} initial="hidden" whileInView="visible" viewport={{ once: true }}
                 whileHover={{ y: -8, transition: { duration: 0.3 } }}
-                className="group rounded-2xl border border-border bg-card p-8 transition-all hover:shadow-xl hover:shadow-primary/10 hover:border-primary/30">
-                <motion.div
-                  className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-primary"
-                  whileHover={{ rotate: 360 }}
-                  transition={{ duration: 0.6 }}
-                >
-                  <item.icon className="h-7 w-7" />
-                </motion.div>
-                <h3 className="font-display text-lg font-semibold">{item.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{item.desc}</p>
+                className="group rounded-2xl border border-border bg-card overflow-hidden transition-all hover:shadow-xl hover:shadow-primary/10 hover:border-primary/30">
+                <div className="relative h-44 overflow-hidden">
+                  <img src={item.img} alt={item.title} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-foreground/50 via-transparent to-transparent" />
+                  <div className="absolute bottom-3 left-3 flex h-10 w-10 items-center justify-center rounded-xl bg-primary/90 text-primary-foreground shadow-lg backdrop-blur-sm">
+                    <item.icon className="h-5 w-5" />
+                  </div>
+                </div>
+                <div className="p-6">
+                  <h3 className="font-display text-lg font-semibold">{item.title}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{item.desc}</p>
+                </div>
               </motion.div>
             ))}
           </div>
