@@ -122,7 +122,7 @@ const Services = () => {
             </h2>
           </motion.div>
 
-          <div className="flex flex-col gap-12">
+          <div className="flex flex-col gap-10">
             {servicesData.map((service, i) => {
               const Icon = service.icon;
               const isEven = i % 2 === 0;
@@ -135,36 +135,28 @@ const Services = () => {
                   initial="hidden"
                   whileInView="visible"
                   viewport={{ once: true, margin: "-80px" }}
-                  className={`flex flex-col gap-6 lg:gap-8 ${
+                  
+                 
+                  className={`flex flex-col gap-8 lg:gap-12 ${
                     isEven ? "lg:flex-row" : "lg:flex-row-reverse"
-                  } items-stretch`}
+                  } items-center`}
                 >
                   {/* ── Bloc IMAGE ── */}
-                  <div className="lg:w-1/2 rounded-2xl overflow-hidden shadow-xl">
-                    <div className="relative w-full h-56 lg:h-full min-h-[260px]">
-                      <img
-                        src={serviceImages[service.slug] || servicesBg}
-                        alt={t(service.title, service.titleEn)}
-                        className="w-full h-full object-cover"
-                      />
-                      {/* Numéro */}
-                      <div className="absolute top-5 left-5 flex h-10 w-10 items-center justify-center rounded-full bg-primary text-sm font-bold text-primary-foreground shadow-lg font-display">
-                        0{i + 1}
-                      </div>
-                      {/* Icône service */}
-                      <div className="absolute bottom-5 right-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-primary text-primary-foreground shadow-lg">
-                        <Icon className="h-6 w-6" />
-                      </div>
-                    </div>
+                  <div className="lg:w-[45%] w-full rounded-2xl overflow-hidden shadow-md">
+                    <img
+                      src={serviceImages[service.slug] || servicesBg}
+                      alt={t(service.title, service.titleEn)}
+                      className="w-full h-auto object-cover"
+                    />
                   </div>
 
                   {/* ── Bloc TEXTE ── */}
                   <Link
                     to={`/services/${service.slug}`}
-                    className="group lg:w-1/2 rounded-2xl border border-border bg-card p-6 lg:p-8 flex flex-col justify-center shadow-sm hover:shadow-xl hover:shadow-primary/10 hover:border-primary/30 transition-all duration-500"
+                    className="group lg:w-[55%] w-full flex flex-col"
                   >
                     {/* Tags */}
-                    <div className="flex flex-wrap gap-2 mb-5">
+                    <div className="flex flex-wrap gap-2 mb-3">
                       {service.sections.slice(0, 3).map((s) => (
                         <span
                           key={s.title}
@@ -181,16 +173,16 @@ const Services = () => {
                     </h2>
 
                     {/* Intro */}
-                    <p className="mt-4 text-sm leading-relaxed text-muted-foreground line-clamp-3">
+                    <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
                       {service.intro}
                     </p>
 
                     {/* Points clés */}
                     {service.sections[0]?.items?.length > 0 && (
-                      <ul className="mt-6 space-y-2">
-                        {service.sections[0].items.slice(0, 3).map((item) => (
-                          <li key={item} className="flex items-center gap-2.5 text-sm text-muted-foreground">
-                            <span className="h-1.5 w-1.5 rounded-full bg-primary flex-shrink-0" />
+                      <ul className="mt-4 space-y-2">
+                        {service.sections[0].items.slice(0, 4).map((item) => (
+                          <li key={item} className="flex items-center gap-2 text-sm text-muted-foreground">
+                            <ArrowRight className="h-3.5 w-3.5 text-primary flex-shrink-0" />
                             {item}
                           </li>
                         ))}
@@ -198,7 +190,7 @@ const Services = () => {
                     )}
 
                     {/* CTA */}
-                    <div className="mt-8 flex items-center gap-2 font-display text-sm font-semibold text-primary">
+                    <div className="mt-6 flex items-center gap-2 font-display text-sm font-semibold text-primary">
                       {t("Découvrir en détail", "View details")}
                       <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-2" />
                     </div>
