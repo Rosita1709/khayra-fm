@@ -4,7 +4,7 @@ import heroImg from "@/assets/hero-new.jpg";
 import { CheckCircle, TrendingUp, PiggyBank, Heart, Rocket, ArrowRight } from "lucide-react";
 import { useCountUp } from "@/hooks/useCountUp";
 import aboutBg from "@/assets/about-bg.webp";
-import visionBg from "@/assets/vision-bg.jpg";
+
 import ctaBg from "@/assets/cta-bg.jpg";
 
 // Client logos (they trust us)
