@@ -140,8 +140,8 @@ const Services = () => {
                   } items-stretch`}
                 >
                   {/* ── Bloc IMAGE ── */}
-                  <div className="lg:w-1/2 rounded-3xl overflow-hidden shadow-xl">
-                    <div className="relative w-full h-72 lg:h-full min-h-[320px]">
+                  <div className="lg:w-1/2 rounded-2xl overflow-hidden shadow-xl">
+                    <div className="relative w-full h-56 lg:h-full min-h-[260px]">
                       <img
                         src={serviceImages[service.slug] || servicesBg}
                         alt={t(service.title, service.titleEn)}
