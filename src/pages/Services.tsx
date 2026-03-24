@@ -161,7 +161,7 @@ const Services = () => {
                   {/* ── Bloc TEXTE ── */}
                   <Link
                     to={`/services/${service.slug}`}
-                    className="group lg:w-1/2 rounded-3xl border border-border bg-card p-8 lg:p-10 flex flex-col justify-center shadow-sm hover:shadow-xl hover:shadow-primary/10 hover:border-primary/30 transition-all duration-500"
+                    className="group lg:w-1/2 rounded-2xl border border-border bg-card p-6 lg:p-8 flex flex-col justify-center shadow-sm hover:shadow-xl hover:shadow-primary/10 hover:border-primary/30 transition-all duration-500"
                   >
                     {/* Tags */}
                     <div className="flex flex-wrap gap-2 mb-5">
