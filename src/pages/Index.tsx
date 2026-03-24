@@ -4,7 +4,7 @@ import heroImg from "@/assets/hero-new.jpg";
 import { CheckCircle, TrendingUp, PiggyBank, Heart, Rocket, ArrowRight } from "lucide-react";
 import { useCountUp } from "@/hooks/useCountUp";
 import aboutBg from "@/assets/about-bg.webp";
-import visionBg from "@/assets/vision-bg.jpg";
+
 import ctaBg from "@/assets/cta-bg.jpg";
 
 // Client logos (they trust us)
@@ -306,68 +306,6 @@ const Index = () => {
       </section>
 
 
-      {/* ===== NOTRE VISION ===== */}
-      <section className="relative py-28 overflow-hidden">
-        <div className="absolute inset-0">
-          <img src={visionBg} alt="" className="h-full w-full object-cover" />
-          <div className="absolute inset-0 bg-background/88" />
-        </div>
-        <div className="container relative mx-auto px-6">
-          <div className="grid items-center gap-12 lg:grid-cols-2">
-            <motion.div
-              variants={fadeLeft}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-100px" }}
-              className="relative"
-            >
-              <div className="overflow-hidden rounded-3xl shadow-premium">
-                <motion.img
-                  src={visionBg}
-                  alt={t("Technicien HVAC", "HVAC Technician")}
-                  className="h-[420px] w-full object-cover"
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.7 }}
-                />
-              </div>
-            </motion.div>
-            <motion.div
-              variants={fadeRight}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-100px" }}
-            >
-              <span className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">{t("Notre Vision", "Our Vision")}</span>
-              <h2 className="mt-4 font-display text-3xl font-bold md:text-4xl">
-                {t("Excellence ", "Operational ")}<span className="text-gradient">{t("opérationnelle", "Excellence")}</span>
-              </h2>
-              <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
-                {t(
-                  "L'objectif principal de KFM est d'assurer le bon fonctionnement des installations de ses clients, en veillant à ce qu'elles soient entretenues de manière optimale, sécurisées et conformes aux normes réglementaires.",
-                  "KFM's main objective is to ensure the smooth operation of its clients' facilities, ensuring they are optimally maintained, secure, and compliant with regulatory standards."
-                )}
-              </p>
-              <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
-                {t(
-                  "Que ce soit pour des entreprises, des institutions publiques, des centres commerciaux ou d'autres organisations, KFM est un partenaire fiable pour la gestion complète des installations.",
-                  "Whether for businesses, public institutions, shopping centers, or other organizations, KFM is a reliable partner for complete facility management."
-                )}
-              </p>
-              <div className="mt-8 grid grid-cols-2 gap-4">
-                {[
-                  { num: "ISO", label: t("Normes certifiées", "Certified standards") },
-                  { num: "GMAO", label: t("Suivi digital", "Digital tracking") },
-                ].map((item) => (
-                  <div key={item.num} className="rounded-xl border border-border bg-card p-4">
-                    <div className="font-display text-lg font-bold text-primary">{item.num}</div>
-                    <div className="mt-1 text-xs text-muted-foreground">{item.label}</div>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
 
       {/* ===== NOS VALEURS ===== */}
       <section className="relative py-28 overflow-hidden bg-muted/40">
