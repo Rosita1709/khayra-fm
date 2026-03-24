@@ -189,8 +189,8 @@ const APropos = () => {
         </div>
         <div className="container relative mx-auto px-6">
           <div className="grid items-center gap-12 lg:grid-cols-2">
-            <motion.div initial={{ opacity: 0, x: -60 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="overflow-hidden rounded-2xl shadow-xl">
-              <motion.img src={embassyHvac} alt={t("Technicien KFM diagnostic HVAC", "KFM Technician HVAC diagnostics")} className="h-[400px] w-full object-cover" whileHover={{ scale: 1.05 }} transition={{ duration: 0.7 }} />
+             <motion.div initial={{ opacity: 0, x: -60 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="overflow-hidden rounded-2xl shadow-xl">
+               <motion.img src={teamVision} alt={t("Équipe KFM en tenue", "KFM Team in uniform")} className="h-[400px] w-full object-cover" whileHover={{ scale: 1.05 }} transition={{ duration: 0.7 }} />
             </motion.div>
             <motion.div initial={{ opacity: 0, x: 60 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
               <span className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">{t("Notre Vision", "Our Vision")}</span>
