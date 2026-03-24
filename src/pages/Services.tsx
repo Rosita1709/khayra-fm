@@ -122,7 +122,7 @@ const Services = () => {
             </h2>
           </motion.div>
 
-          <div className="flex flex-col gap-16">
+          <div className="flex flex-col gap-12">
             {servicesData.map((service, i) => {
               const Icon = service.icon;
               const isEven = i % 2 === 0;
@@ -140,8 +140,8 @@ const Services = () => {
                   } items-stretch`}
                 >
                   {/* ── Bloc IMAGE ── */}
-                  <div className="lg:w-1/2 rounded-3xl overflow-hidden shadow-xl">
-                    <div className="relative w-full h-72 lg:h-full min-h-[320px]">
+                  <div className="lg:w-1/2 rounded-2xl overflow-hidden shadow-xl">
+                    <div className="relative w-full h-56 lg:h-full min-h-[260px]">
                       <img
                         src={serviceImages[service.slug] || servicesBg}
                         alt={t(service.title, service.titleEn)}
@@ -161,7 +161,7 @@ const Services = () => {
                   {/* ── Bloc TEXTE ── */}
                   <Link
                     to={`/services/${service.slug}`}
-                    className="group lg:w-1/2 rounded-3xl border border-border bg-card p-8 lg:p-10 flex flex-col justify-center shadow-sm hover:shadow-xl hover:shadow-primary/10 hover:border-primary/30 transition-all duration-500"
+                    className="group lg:w-1/2 rounded-2xl border border-border bg-card p-6 lg:p-8 flex flex-col justify-center shadow-sm hover:shadow-xl hover:shadow-primary/10 hover:border-primary/30 transition-all duration-500"
                   >
                     {/* Tags */}
                     <div className="flex flex-wrap gap-2 mb-5">
