@@ -122,7 +122,7 @@ const Services = () => {
             </h2>
           </motion.div>
 
-          <div className="flex flex-col gap-16">
+          <div className="flex flex-col gap-12">
             {servicesData.map((service, i) => {
               const Icon = service.icon;
               const isEven = i % 2 === 0;
