@@ -4,6 +4,11 @@ import aboutBg from "@/assets/about-bg.webp";
 import heroImg from "@/assets/hero-light.webp";
 import teamVision from "@/assets/team-vision.jpg";
 import embassyHvac from "@/assets/projects/embassy-hvac-diagnostic.jpg";
+import productHvac from "@/assets/product-hvac.webp";
+import productMep from "@/assets/product-mep.webp";
+import productCivil from "@/assets/product-civil.webp";
+import productInterior from "@/assets/product-interior.webp";
+import productEnergy from "@/assets/product-energy.webp";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useRef } from "react";
 
