@@ -38,8 +38,8 @@ const Footer = () => {
             />
             <p className="text-sm leading-relaxed text-muted-foreground max-w-[260px] mb-7">
               {t(
-                "Khayra Facilities Management — solutions d'excellence pour la gestion et la valorisation de vos espaces à Abu Dhabi.",
-                "Khayra Facilities Management — excellence in facility management across Abu Dhabi and beyond."
+                "Khayra Facilities Management, solutions d'excellence pour la gestion et la valorisation de vos espaces à Abu Dhabi.",
+                "Khayra Facilities Management, excellence in facility management across Abu Dhabi and beyond."
               )}
             </p>
 
