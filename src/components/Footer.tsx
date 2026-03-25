@@ -95,9 +95,8 @@ const Footer = () => {
                 <li key={link.to}>
                   <Link
                     to={link.to}
-                    className="flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-primary"
+                    className="text-sm text-muted-foreground transition-colors hover:text-primary"
                   >
-                    <span className="inline-block w-3.5 h-px bg-primary opacity-60 flex-shrink-0" />
                     {link.label}
                   </Link>
                 </li>
