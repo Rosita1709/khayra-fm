@@ -200,21 +200,6 @@ const Index = () => {
             <StatsCounter t={t} />
           </div>
         </div>
-
-        {/* Scroll indicator */}
-        <motion.div
-          className="absolute bottom-8 left-1/2 -translate-x-1/2"
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-        >
-          <div className="h-10 w-6 rounded-full border-2 border-background/30 flex justify-center pt-2">
-            <motion.div
-              className="h-2 w-1 rounded-full bg-background/50"
-              animate={{ opacity: [0, 1, 0], y: [0, 8, 0] }}
-              transition={{ duration: 2, repeat: Infinity }}
-            />
-          </div>
-        </motion.div>
       </section>
 
       {/* ===== DES PROFESSIONNELS QUALIFIÉS ===== */}
