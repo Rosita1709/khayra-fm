@@ -44,7 +44,7 @@ const Footer = () => {
             </p>
 
             {/* Green accent bar — same style as site */}
-            <div className="w-9 h-[3px] rounded-full bg-primary mb-7" />
+            
 
             {/* Icon buttons */}
             <div className="flex gap-2.5">
