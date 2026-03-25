@@ -44,7 +44,7 @@ const Footer = () => {
             </p>
 
             {/* Green accent bar — same style as site */}
-            <div className="w-9 h-[3px] rounded-full bg-primary mb-7" />
+            
 
             {/* Icon buttons */}
             <div className="flex gap-2.5">
@@ -76,9 +76,8 @@ const Footer = () => {
                 <li key={link.to}>
                   <Link
                     to={link.to}
-                    className="flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-primary"
+                    className="text-sm text-muted-foreground transition-colors hover:text-primary"
                   >
-                    <span className="inline-block w-3.5 h-px bg-primary opacity-60 flex-shrink-0" />
                     {link.label}
                   </Link>
                 </li>
@@ -96,9 +95,8 @@ const Footer = () => {
                 <li key={link.to}>
                   <Link
                     to={link.to}
-                    className="flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-primary"
+                    className="text-sm text-muted-foreground transition-colors hover:text-primary"
                   >
-                    <span className="inline-block w-3.5 h-px bg-primary opacity-60 flex-shrink-0" />
                     {link.label}
                   </Link>
                 </li>
