@@ -135,10 +135,9 @@ const Footer = () => {
 
             <Link
               to="/contact"
-              className="mt-7 inline-flex items-center gap-1.5 font-display text-xs font-semibold uppercase tracking-[0.14em] text-primary border-b border-primary pb-0.5 transition-all hover:text-primary/70 hover:border-primary/70"
+              className="mt-7 inline-flex items-center font-display text-xs font-semibold uppercase tracking-[0.14em] text-primary border-b border-primary pb-0.5 transition-all hover:text-primary/70 hover:border-primary/70"
             >
               {t("Nous contacter", "Get in touch")}
-              <ArrowUpRight className="h-3 w-3" />
             </Link>
           </div>
         </div>
