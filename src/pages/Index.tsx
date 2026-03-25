@@ -237,17 +237,6 @@ const Index = () => {
                   transition={{ duration: 0.7 }}
                 />
               </div>
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.4 }}
-                className="absolute -bottom-6 -right-6 rounded-2xl bg-primary p-6 font-display shadow-premium"
-              >
-                <div className="text-3xl font-bold text-primary-foreground">GMAO</div>
-                <div className="text-sm text-primary-foreground/80">{t("Maintenance digitalisée", "Digitalized maintenance")}</div>
-              </motion.div>
-              <div className="absolute -top-4 -left-4 h-24 w-24 rounded-2xl border-2 border-primary/20" />
             </motion.div>
 
             <motion.div
