@@ -146,7 +146,7 @@ const Index = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="mb-6 inline-block rounded-full border border-primary/40 bg-primary/15 px-5 py-2 text-xs font-semibold tracking-widest uppercase text-primary backdrop-blur-sm"
             >
-              Facility Management — Abu Dhabi, UAE
+              Facility Management, Abu Dhabi, UAE
             </motion.span>
 
             <motion.h1
