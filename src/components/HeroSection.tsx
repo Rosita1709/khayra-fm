@@ -19,7 +19,7 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
           >
             <span className="mb-6 inline-block rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-xs font-medium tracking-widest uppercase text-primary">
-              Facility Management — Abu Dhabi, UAE
+              Facility Management, Abu Dhabi, UAE
             </span>
           </motion.div>
 

@@ -18,28 +18,28 @@ const RealisationsSection = () => {
   const realisations = [
     {
       img: sandwichPanel1,
-      title: t("Installation Sandwich Panel — Vue d'ensemble", "Sandwich Panel Installation — Overview"),
+      title: t("Installation Sandwich Panel : Vue d'ensemble", "Sandwich Panel Installation : Overview"),
       location: "Abu Dhabi",
       category: t("Travaux Civils", "Civil Works"),
       result: t("Livré avec succès", "Successfully delivered"),
     },
     {
       img: sandwichPanel2,
-      title: t("Sandwich Panel — Travaux d'étanchéité", "Sandwich Panel — Waterproofing Works"),
+      title: t("Sandwich Panel : Travaux d'étanchéité", "Sandwich Panel : Waterproofing Works"),
       location: "Abu Dhabi",
       category: t("Travaux Civils", "Civil Works"),
       result: t("Étanchéité renforcée", "Enhanced waterproofing"),
     },
     {
       img: villaReno4,
-      title: t("Rénovation Villa Privée — Façade", "Private Villa Renovation — Facade"),
+      title: t("Rénovation Villa Privée : Façade", "Private Villa Renovation : Facade"),
       location: "Abu Dhabi",
       category: t("Travaux Civils & Rénovation", "Civil Works & Renovation"),
       result: t("Transformation complète", "Complete transformation"),
     },
     {
       img: villaReno1,
-      title: t("Villa — Travaux de réhabilitation", "Villa — Rehabilitation Works"),
+      title: t("Villa : Travaux de réhabilitation", "Villa : Rehabilitation Works"),
       location: "Abu Dhabi",
       category: t("Travaux Civils & Rénovation", "Civil Works & Renovation"),
       result: t("Rénovation réussie", "Successful renovation"),

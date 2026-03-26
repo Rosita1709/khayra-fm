@@ -29,7 +29,7 @@ const Produits = () => {
   const projects = [
     {
       img: vrfContainers,
-      title: t("Installation Système VRF — Containers Modulaires", "VRF System Installation — Modular Office Containers"),
+      title: t("Installation Système VRF : Containers Modulaires", "VRF System Installation : Modular Office Containers"),
       location: t("Base Navale Française, Abu Dhabi", "French Naval Base, Abu Dhabi"),
       year: "2024",
       category: t("HVAC & Climatisation", "HVAC & Air Conditioning"),
@@ -44,11 +44,11 @@ const Produits = () => {
         t("8 cassettes plafonnières", "8 ceiling cassette indoor units"),
         t("Tuyauterie, isolation et charge réfrigérant", "Piping, insulation and refrigerant charge"),
       ],
-      result: t("Livré dans les délais — Températures maintenues entre 18°C et 24°C en été", "Delivered under tight deadlines — Room temperatures maintained between 18°C and 24°C during peak summer"),
+      result: t("Livré dans les délais : Températures maintenues entre 18°C et 24°C en été", "Delivered under tight deadlines : Room temperatures maintained between 18°C and 24°C during peak summer"),
     },
     {
       img: embassyHvac,
-      title: t("Diagnostic HVAC & Retrofit VAV — Ambassade de France", "HVAC Diagnostics & VAV Retrofit — French Embassy"),
+      title: t("Diagnostic HVAC & Retrofit VAV : Ambassade de France", "HVAC Diagnostics & VAV Retrofit : French Embassy"),
       location: "Etihad Towers, Abu Dhabi",
       year: "2024",
       category: t("HVAC & Climatisation", "HVAC & Air Conditioning"),
@@ -69,7 +69,7 @@ const Produits = () => {
     },
     {
       img: coldRoom,
-      title: t("Réhabilitation Chambre Froide — Restaurant", "Cold Room Refurbishment — Restaurant"),
+      title: t("Réhabilitation Chambre Froide : Restaurant", "Cold Room Refurbishment : Restaurant"),
       location: "Abu Dhabi, UAE",
       year: "2024",
       category: t("HVAC & Réfrigération", "HVAC & Refrigeration"),
@@ -86,11 +86,11 @@ const Produits = () => {
         t("Nouveau groupe de condensation avec contrôle digital", "New condensing unit and evaporator with digital control"),
         t("Test de charge jusqu'à 2 000 kg", "Load testing for palletized goods up to 2,000 kg"),
       ],
-      result: t("+35% volume de stockage — Conforme HACCP & ESMA", "+35% usable storage volume — HACCP & ESMA compliant"),
+      result: t("+35% volume de stockage : Conforme HACCP & ESMA", "+35% usable storage volume : HACCP & ESMA compliant"),
     },
     {
       img: villaReno4,
-      title: t("Rénovation Villas — Palm Jumeirah", "Villas Renovation — Palm Jumeirah"),
+      title: t("Rénovation Villas : Palm Jumeirah", "Villas Renovation : Palm Jumeirah"),
       location: "Palm Jumeirah, Dubai",
       year: "2024",
       category: t("Travaux Civils & Rénovation", "Civil Works & Renovation"),
@@ -106,12 +106,12 @@ const Produits = () => {
         t("Maintenance préventive", "Preventive maintenance and finishing upgrades"),
         t("Restauration des façades", "Restoration of façade and interior surfaces"),
       ],
-      result: t("Apparence premium restaurée — Durée de vie prolongée", "Restored premium appearance and extended lifecycle"),
+      result: t("Apparence premium restaurée : Durée de vie prolongée", "Restored premium appearance and extended lifecycle"),
       gallery: [villaReno1, villaReno2, villaReno3, villaReno4, villaReno5],
     },
     {
       img: terrainSport,
-      title: t("Terrain de Football — Lycée Louis Massignon", "Football Soccer Field — Lycée Louis Massignon"),
+      title: t("Terrain de Football : Lycée Louis Massignon", "Football Soccer Field : Lycée Louis Massignon"),
       location: "Abu Dhabi, UAE",
       year: "2024",
       category: t("Travaux Civils & Aménagement", "Civil Works & Landscaping"),
@@ -128,7 +128,7 @@ const Produits = () => {
         t("Buts de football et clôtures", "Football goal and double fence door"),
         t("Filet PVC tout autour du terrain", "PVC net installed all around the field"),
       ],
-      result: t("100% précision de nivellement — Satisfaction client totale", "100% surface leveling accuracy — Full client satisfaction"),
+      result: t("100% précision de nivellement : Satisfaction client totale", "100% surface leveling accuracy : Full client satisfaction"),
     },
     {
       img: sandwichPanel1,
@@ -149,12 +149,12 @@ const Produits = () => {
         t("Installation de flashings et joints étanches", "Flashing and waterproof sealing for joints"),
         t("Inspection et renforcement de la structure", "Structural inspection and reinforcement"),
       ],
-      result: t("Efficacité thermique restaurée — Risques de fuite éliminés", "Restored thermal efficiency — Eliminated all water leakage risks"),
+      result: t("Efficacité thermique restaurée : Risques de fuite éliminés", "Restored thermal efficiency : Eliminated all water leakage risks"),
       gallery: [sandwichPanel1, sandwichPanel2, sandwichPanel3],
     },
     {
       img: villaReno1,
-      title: t("Rénovation Complète Appartement — Saadiyat Island", "Full Apartment Renovation — Saadiyat Island"),
+      title: t("Rénovation Complète Appartement : Saadiyat Island", "Full Apartment Renovation : Saadiyat Island"),
       location: "Saadiyat Island, Abu Dhabi",
       year: "2024",
       category: t("Rénovation & Fit-Out", "Renovation & Fit-Out"),
@@ -169,7 +169,7 @@ const Produits = () => {
         t("Revêtement sol SPC sur carrelage existant", "SPC flooring over existing tiles"),
         t("Thermostat intelligent (domotique)", "Smart thermostat (home automation)"),
       ],
-      result: t("Espace moderne et fonctionnel — Valeur du bien augmentée", "Modern functional living space — Increased property value"),
+      result: t("Espace moderne et fonctionnel : Valeur du bien augmentée", "Modern functional living space : Increased property value"),
     },
   ];
 
