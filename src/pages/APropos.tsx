@@ -1,5 +1,22 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Wind, Zap, Wrench, Paintbrush, Lightbulb, ShieldCheck, Eye, BarChart3, FileCheck, Users, Building2, Award, Star, Handshake, Leaf, MessageSquare } from "lucide-react";
+import {
+  Wind,
+  Zap,
+  Wrench,
+  Paintbrush,
+  Lightbulb,
+  ShieldCheck,
+  Eye,
+  BarChart3,
+  FileCheck,
+  Users,
+  Building2,
+  Award,
+  Star,
+  Handshake,
+  Leaf,
+  MessageSquare,
+} from "lucide-react";
 import aboutBg from "@/assets/about-bg.webp";
 import heroImg from "@/assets/hero-light.webp";
 import teamVision from "@/assets/team-vision.jpg";
@@ -32,37 +49,168 @@ const APropos = () => {
   const stats = [
     { icon: Users, value: "50+", label: t("Techniciens", "Technicians") },
     { icon: Building2, value: "150+", label: t("Projets", "Projects") },
-    { icon: Award, value: "15+", label: t("Années d'expérience", "Years of experience") },
+    { icon: Award, value: "20+", label: t("Années d'expérience", "Years of experience") },
   ];
 
   const expertises = [
-    { icon: Wind, img: productHvac, title: t("HVAC & Climatisation", "HVAC & Air Conditioning"), desc: t("Gestion complète des systèmes de climatisation : installation, maintenance, optimisation des performances et amélioration de l'efficacité énergétique.", "Complete management of air conditioning systems: installation, maintenance, performance optimization and energy efficiency improvement.") },
-    { icon: Zap, img: productMep, title: "MEP (Mechanical, Electrical & Plumbing)", desc: t("Supervision et maintenance des systèmes électriques, hydrauliques et mécaniques essentiels au bon fonctionnement des bâtiments.", "Supervision and maintenance of electrical, hydraulic and mechanical systems essential to building operations.") },
-    { icon: Wrench, img: productCivil, title: t("Travaux Civils & Rénovation", "Civil Works & Renovation"), desc: t("Modernisation d'espaces résidentiels et commerciaux, rénovation complète, transformations techniques et amélioration des finitions.", "Modernization of residential and commercial spaces, complete renovation, technical transformations and finishing improvements.") },
-    { icon: Paintbrush, img: productInterior, title: t("Design Intérieur & Aménagement", "Interior Design & Fit-Out"), desc: t("Optimisation des espaces, solutions esthétiques et fonctionnelles, exécution clé en main.", "Space optimization, aesthetic and functional solutions, turnkey execution.") },
-    { icon: Lightbulb, img: productEnergy, title: "Energy Saving & Optimization", desc: t("Audit énergétique, réduction des consommations, amélioration des performances techniques et durabilité des équipements.", "Energy audit, consumption reduction, technical performance improvement and equipment sustainability.") },
+    {
+      icon: Wind,
+      img: productHvac,
+      title: t("HVAC & Climatisation", "HVAC & Air Conditioning"),
+      desc: t(
+        "Gestion complète des systèmes de climatisation : installation, maintenance, optimisation des performances et amélioration de l'efficacité énergétique.",
+        "Complete management of air conditioning systems: installation, maintenance, performance optimization and energy efficiency improvement.",
+      ),
+    },
+    {
+      icon: Zap,
+      img: productMep,
+      title: "MEP (Mechanical, Electrical & Plumbing)",
+      desc: t(
+        "Supervision et maintenance des systèmes électriques, hydrauliques et mécaniques essentiels au bon fonctionnement des bâtiments.",
+        "Supervision and maintenance of electrical, hydraulic and mechanical systems essential to building operations.",
+      ),
+    },
+    {
+      icon: Wrench,
+      img: productCivil,
+      title: t("Travaux Civils & Rénovation", "Civil Works & Renovation"),
+      desc: t(
+        "Modernisation d'espaces résidentiels et commerciaux, rénovation complète, transformations techniques et amélioration des finitions.",
+        "Modernization of residential and commercial spaces, complete renovation, technical transformations and finishing improvements.",
+      ),
+    },
+    {
+      icon: Paintbrush,
+      img: productInterior,
+      title: t("Design Intérieur & Aménagement", "Interior Design & Fit-Out"),
+      desc: t(
+        "Optimisation des espaces, solutions esthétiques et fonctionnelles, exécution clé en main.",
+        "Space optimization, aesthetic and functional solutions, turnkey execution.",
+      ),
+    },
+    {
+      icon: Lightbulb,
+      img: productEnergy,
+      title: "Energy Saving & Optimization",
+      desc: t(
+        "Audit énergétique, réduction des consommations, amélioration des performances techniques et durabilité des équipements.",
+        "Energy audit, consumption reduction, technical performance improvement and equipment sustainability.",
+      ),
+    },
   ];
 
   const pillars = [
-    { icon: ShieldCheck, num: "01", title: t("Prévention", "Prevention"), desc: t("Mettre en place des plans de maintenance structurés afin de limiter les interruptions et prolonger la durée de vie des équipements.", "Implementing structured maintenance plans to limit interruptions and extend equipment lifespan.") },
-    { icon: BarChart3, num: "02", title: "Performance", desc: t("Optimiser les systèmes techniques pour garantir un fonctionnement fiable et efficace.", "Optimizing technical systems to ensure reliable and efficient operation.") },
-    { icon: Eye, num: "03", title: t("Transparence", "Transparency"), desc: t("Reporting clair, suivi des interventions, communication structurée avec nos clients.", "Clear reporting, intervention tracking, structured communication with our clients.") },
-    { icon: FileCheck, num: "04", title: t("Sécurité & Conformité", "Safety & Compliance"), desc: t("Respect strict des réglementations locales et des standards techniques en vigueur aux Émirats Arabes Unis.", "Strict compliance with local regulations and technical standards in the United Arab Emirates.") },
+    {
+      icon: ShieldCheck,
+      num: "01",
+      title: t("Prévention", "Prevention"),
+      desc: t(
+        "Mettre en place des plans de maintenance structurés afin de limiter les interruptions et prolonger la durée de vie des équipements.",
+        "Implementing structured maintenance plans to limit interruptions and extend equipment lifespan.",
+      ),
+    },
+    {
+      icon: BarChart3,
+      num: "02",
+      title: "Performance",
+      desc: t(
+        "Optimiser les systèmes techniques pour garantir un fonctionnement fiable et efficace.",
+        "Optimizing technical systems to ensure reliable and efficient operation.",
+      ),
+    },
+    {
+      icon: Eye,
+      num: "03",
+      title: t("Transparence", "Transparency"),
+      desc: t(
+        "Reporting clair, suivi des interventions, communication structurée avec nos clients.",
+        "Clear reporting, intervention tracking, structured communication with our clients.",
+      ),
+    },
+    {
+      icon: FileCheck,
+      num: "04",
+      title: t("Sécurité & Conformité", "Safety & Compliance"),
+      desc: t(
+        "Respect strict des réglementations locales et des standards techniques en vigueur aux Émirats Arabes Unis.",
+        "Strict compliance with local regulations and technical standards in the United Arab Emirates.",
+      ),
+    },
   ];
 
   const coreValues = [
-    { icon: Star, title: t("Excellence Opérationnelle", "Operational Excellence"), desc: t("Nous visons les plus hauts standards dans chaque intervention.", "We strive for the highest standards in every task.") },
-    { icon: Handshake, title: t("Engagement Client", "Customer Commitment"), desc: t("Nous construisons des relations durables basées sur la confiance et la réactivité.", "We build long-term relationships based on trust and responsiveness.") },
-    { icon: Lightbulb, title: "Innovation", desc: t("Nous adoptons les technologies intelligentes pour améliorer les performances.", "We embrace smart technologies to improve performance.") },
-    { icon: MessageSquare, title: t("Transparence", "Transparency"), desc: t("Communication claire, reporting structuré et suivi constant.", "Clear communication, structured reporting and constant follow-up.") },
-    { icon: Leaf, title: t("Durabilité", "Sustainability"), desc: t("Nous promouvons les solutions éco-responsables et l'économie d'énergie.", "We promote energy-saving and eco-conscious solutions.") },
+    {
+      icon: Star,
+      title: t("Excellence Opérationnelle", "Operational Excellence"),
+      desc: t(
+        "Nous visons les plus hauts standards dans chaque intervention.",
+        "We strive for the highest standards in every task.",
+      ),
+    },
+    {
+      icon: Handshake,
+      title: t("Engagement Client", "Customer Commitment"),
+      desc: t(
+        "Nous construisons des relations durables basées sur la confiance et la réactivité.",
+        "We build long-term relationships based on trust and responsiveness.",
+      ),
+    },
+    {
+      icon: Lightbulb,
+      title: "Innovation",
+      desc: t(
+        "Nous adoptons les technologies intelligentes pour améliorer les performances.",
+        "We embrace smart technologies to improve performance.",
+      ),
+    },
+    {
+      icon: MessageSquare,
+      title: t("Transparence", "Transparency"),
+      desc: t(
+        "Communication claire, reporting structuré et suivi constant.",
+        "Clear communication, structured reporting and constant follow-up.",
+      ),
+    },
+    {
+      icon: Leaf,
+      title: t("Durabilité", "Sustainability"),
+      desc: t(
+        "Nous promouvons les solutions éco-responsables et l'économie d'énergie.",
+        "We promote energy-saving and eco-conscious solutions.",
+      ),
+    },
   ];
 
   const coreStrengths = [
-    { title: t("Expertise Technique", "Technical Expertise"), desc: t("Ingénieurs certifiés en HVAC, chambre froide, MEP, travaux civils et diagnostics.", "Certified engineers across HVAC, cold storage, MEP, civil works and diagnostics.") },
-    { title: t("Solutions Personnalisées", "Customized Solutions"), desc: t("Installations sur mesure adaptées aux contraintes et objectifs de durabilité du client.", "Tailor-made installations to fit client constraints and sustainability goals.") },
-    { title: t("Excellence en Gestion de Projet", "Project Management Excellence"), desc: t("Livraison dans les délais, dans le budget, avec une transparence totale.", "On-time, on-budget delivery with full transparency.") },
-    { title: t("Support Après-Vente", "Post-Sales Support"), desc: t("Contrats de maintenance avec SLA et reporting client régulier.", "SLA-backed maintenance contracts and client reporting.") },
+    {
+      title: t("Expertise Technique", "Technical Expertise"),
+      desc: t(
+        "Ingénieurs certifiés en HVAC, chambre froide, MEP, travaux civils et diagnostics.",
+        "Certified engineers across HVAC, cold storage, MEP, civil works and diagnostics.",
+      ),
+    },
+    {
+      title: t("Solutions Personnalisées", "Customized Solutions"),
+      desc: t(
+        "Installations sur mesure adaptées aux contraintes et objectifs de durabilité du client.",
+        "Tailor-made installations to fit client constraints and sustainability goals.",
+      ),
+    },
+    {
+      title: t("Excellence en Gestion de Projet", "Project Management Excellence"),
+      desc: t(
+        "Livraison dans les délais, dans le budget, avec une transparence totale.",
+        "On-time, on-budget delivery with full transparency.",
+      ),
+    },
+    {
+      title: t("Support Après-Vente", "Post-Sales Support"),
+      desc: t(
+        "Contrats de maintenance avec SLA et reporting client régulier.",
+        "SLA-backed maintenance contracts and client reporting.",
+      ),
+    },
   ];
 
   return (
@@ -70,7 +218,14 @@ const APropos = () => {
       {/* Hero with parallax */}
       <section ref={heroRef} className="relative py-32 overflow-hidden min-h-[55vh] flex items-center">
         <motion.div className="absolute inset-0" style={{ y: heroY }}>
-          <motion.img src={heroImg} alt="" className="h-full w-full object-cover opacity-40" initial={{ scale: 1.15 }} animate={{ scale: 1 }} transition={{ duration: 1.5 }} />
+          <motion.img
+            src={heroImg}
+            alt=""
+            className="h-full w-full object-cover opacity-40"
+            initial={{ scale: 1.15 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 1.5 }}
+          />
           <div className="absolute inset-0 bg-background/50" />
         </motion.div>
         <motion.div
@@ -79,19 +234,32 @@ const APropos = () => {
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
         />
         <motion.div style={{ opacity: heroOpacity }} className="container relative mx-auto px-6 text-center">
-          <motion.span initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}
-            className="mb-4 inline-block rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-xs font-medium tracking-widest uppercase text-primary">
+          <motion.span
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="mb-4 inline-block rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-xs font-medium tracking-widest uppercase text-primary"
+          >
             {t("Qui sommes-nous", "Who we are")}
           </motion.span>
-          <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.1 }}
-            className="font-display text-5xl font-bold md:text-6xl">
-            {t("À ", "")}<span className="text-gradient">{t("Propos", "About")}</span>
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.1 }}
+            className="font-display text-5xl font-bold md:text-6xl"
+          >
+            {t("À ", "")}
+            <span className="text-gradient">{t("Propos", "About")}</span>
           </motion.h1>
-          <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.25 }}
-            className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.25 }}
+            className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground"
+          >
             {t(
               "KFM est votre partenaire de confiance pour des solutions complètes, innovantes et fiables en facility management aux EAU et au-delà.",
-              "KFM is your trusted partner in delivering comprehensive, innovative, and reliable facility management solutions across the UAE and beyond."
+              "KFM is your trusted partner in delivering comprehensive, innovative, and reliable facility management solutions across the UAE and beyond.",
             )}
           </motion.p>
         </motion.div>
@@ -107,7 +275,14 @@ const APropos = () => {
             className="grid grid-cols-3 gap-4 rounded-2xl border border-border bg-card p-6 shadow-xl"
           >
             {stats.map((stat, i) => (
-              <motion.div key={stat.label} custom={i} variants={scaleIn} initial="hidden" animate="visible" className="flex flex-col items-center text-center gap-2">
+              <motion.div
+                key={stat.label}
+                custom={i}
+                variants={scaleIn}
+                initial="hidden"
+                animate="visible"
+                className="flex flex-col items-center text-center gap-2"
+              >
                 <stat.icon className="h-6 w-6 text-primary" />
                 <div className="font-display text-3xl font-bold text-primary">{stat.value}</div>
                 <div className="text-sm text-muted-foreground">{stat.label}</div>
@@ -121,38 +296,73 @@ const APropos = () => {
       <section className="py-24">
         <div className="container mx-auto px-6">
           <div className="grid items-center gap-16 lg:grid-cols-2">
-            <motion.div initial={{ opacity: 0, x: -60 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, ease: "easeOut" }} className="relative">
+            <motion.div
+              initial={{ opacity: 0, x: -60 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="relative"
+            >
               <div className="overflow-hidden rounded-2xl shadow-xl">
-                <motion.img src={aboutBg} alt={t("Équipe KFM", "KFM Team")} className="h-[500px] w-full object-cover" whileHover={{ scale: 1.05 }} transition={{ duration: 0.7 }} />
+                <motion.img
+                  src={aboutBg}
+                  alt={t("Équipe KFM", "KFM Team")}
+                  className="h-[500px] w-full object-cover"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.7 }}
+                />
               </div>
-              <motion.div initial={{ opacity: 0, scale: 0.8 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.4 }}
-                className="absolute -bottom-6 -right-6 rounded-xl bg-primary p-6 font-display shadow-xl">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+                className="absolute -bottom-6 -right-6 rounded-xl bg-primary p-6 font-display shadow-xl"
+              >
                 <div className="text-3xl font-bold text-primary-foreground">Abu Dhabi</div>
-                <div className="text-sm text-primary-foreground/80">{t("Émirats Arabes Unis", "United Arab Emirates")}</div>
+                <div className="text-sm text-primary-foreground/80">
+                  {t("Émirats Arabes Unis", "United Arab Emirates")}
+                </div>
               </motion.div>
             </motion.div>
 
-            <motion.div initial={{ opacity: 0, x: 60 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, ease: "easeOut" }}>
+            <motion.div
+              initial={{ opacity: 0, x: 60 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+            >
               <h2 className="font-display text-3xl font-bold md:text-4xl">
                 KFM Khayra <span className="text-gradient">Facilities Management</span>
               </h2>
               <p className="mt-6 leading-relaxed text-muted-foreground">
                 {t(
                   "KFM Khayra Facilities Management est une société spécialisée en Facility Management basée à Abu Dhabi, aux Émirats Arabes Unis. Fondée par M. Inadone Fall, un leader visionnaire avec plus de 15 ans d'expérience internationale, KFM a été créée avec la mission de transformer la gestion des installations grâce à la technologie, l'efficacité et une approche centrée sur le client.",
-                  "KFM Khayra Facilities Management is a company specializing in Facility Management based in Abu Dhabi, UAE. Founded by Mr. Inadone Fall, a visionary leader with over 15 years of international experience, KFM was established with the mission of transforming the way facilities are managed through technology, efficiency, and a client-centric approach."
+                  "KFM Khayra Facilities Management is a company specializing in Facility Management based in Abu Dhabi, UAE. Founded by Mr. Inadone Fall, a visionary leader with over 15 years of international experience, KFM was established with the mission of transforming the way facilities are managed through technology, efficiency, and a client-centric approach.",
                 )}
               </p>
               <p className="mt-4 leading-relaxed text-muted-foreground">
                 {t(
                   "Nous sommes spécialisés dans la maintenance des bâtiments, la rénovation, les travaux civils et les services techniques, offrant des solutions sur mesure qui améliorent l'efficacité opérationnelle, la sécurité et la durabilité.",
-                  "We specialize in building maintenance, renovation, civil works, and technical services, offering tailor-made solutions that enhance operational efficiency, safety, and sustainability."
+                  "We specialize in building maintenance, renovation, civil works, and technical services, offering tailor-made solutions that enhance operational efficiency, safety, and sustainability.",
                 )}
               </p>
-              <motion.div className="mt-6 rounded-xl border border-primary/20 bg-primary/5 px-6 py-4" whileHover={{ borderColor: "hsl(var(--primary) / 0.4)" }}>
+              <motion.div
+                className="mt-6 rounded-xl border border-primary/20 bg-primary/5 px-6 py-4"
+                whileHover={{ borderColor: "hsl(var(--primary) / 0.4)" }}
+              >
                 <p className="text-sm font-medium leading-relaxed">
                   {t(
-                    <>Notre stratégie digitale , soutenue par des systèmes GMAO avancés et un suivi en temps réel , garantit <strong>transparence</strong>, <strong>réactivité</strong> et <strong>suivi des performances</strong> à chaque étape.</>,
-                    <>Our digital-first strategy, supported by advanced CMMS systems and real-time monitoring, ensures <strong>transparency</strong>, <strong>responsiveness</strong>, and <strong>performance tracking</strong> at every stage.</>
+                    <>
+                      Notre stratégie digitale , soutenue par des systèmes GMAO avancés et un suivi en temps réel ,
+                      garantit <strong>transparence</strong>, <strong>réactivité</strong> et{" "}
+                      <strong>suivi des performances</strong> à chaque étape.
+                    </>,
+                    <>
+                      Our digital-first strategy, supported by advanced CMMS systems and real-time monitoring, ensures{" "}
+                      <strong>transparency</strong>, <strong>responsiveness</strong>, and{" "}
+                      <strong>performance tracking</strong> at every stage.
+                    </>,
                   )}
                 </p>
               </motion.div>
@@ -164,17 +374,35 @@ const APropos = () => {
       {/* Core Strengths */}
       <section className="py-24 bg-muted/40">
         <div className="container mx-auto px-6">
-          <motion.div variants={fadeUp} custom={0} initial="hidden" whileInView="visible" viewport={{ once: true }} className="text-center mb-16">
-            <span className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">{t("Nos atouts", "Core Strengths")}</span>
+          <motion.div
+            variants={fadeUp}
+            custom={0}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <span className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">
+              {t("Nos atouts", "Core Strengths")}
+            </span>
             <h2 className="mt-4 font-display text-3xl font-bold md:text-4xl">
-              {t("Pourquoi choisir ", "Why choose ")}<span className="text-gradient">KFM</span>{t(" ?", "?")}
+              {t("Pourquoi choisir ", "Why choose ")}
+              <span className="text-gradient">KFM</span>
+              {t(" ?", "?")}
             </h2>
           </motion.div>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {coreStrengths.map((item, i) => (
-              <motion.div key={item.title} custom={i} variants={scaleIn} initial="hidden" whileInView="visible" viewport={{ once: true }}
+              <motion.div
+                key={item.title}
+                custom={i}
+                variants={scaleIn}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
                 whileHover={{ y: -8, transition: { duration: 0.3 } }}
-                className="rounded-2xl border border-border bg-card p-6 transition-all hover:shadow-xl hover:shadow-primary/10 hover:border-primary/30">
+                className="rounded-2xl border border-border bg-card p-6 transition-all hover:shadow-xl hover:shadow-primary/10 hover:border-primary/30"
+              >
                 <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-primary-foreground font-display text-sm font-bold">
                   {String(i + 1).padStart(2, "0")}
                 </div>
@@ -194,24 +422,44 @@ const APropos = () => {
         </div>
         <div className="container relative mx-auto px-6">
           <div className="grid items-center gap-12 lg:grid-cols-2">
-             <motion.div initial={{ opacity: 0, x: -60 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="overflow-hidden rounded-2xl shadow-xl">
-               <motion.img src={teamVision} alt={t("Équipe KFM en tenue", "KFM Team in uniform")} className="h-[400px] w-full object-cover" whileHover={{ scale: 1.05 }} transition={{ duration: 0.7 }} />
+            <motion.div
+              initial={{ opacity: 0, x: -60 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="overflow-hidden rounded-2xl shadow-xl"
+            >
+              <motion.img
+                src={teamVision}
+                alt={t("Équipe KFM en tenue", "KFM Team in uniform")}
+                className="h-[400px] w-full object-cover"
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.7 }}
+              />
             </motion.div>
-            <motion.div initial={{ opacity: 0, x: 60 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
-              <span className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">{t("Notre Vision", "Our Vision")}</span>
+            <motion.div
+              initial={{ opacity: 0, x: 60 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+            >
+              <span className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">
+                {t("Notre Vision", "Our Vision")}
+              </span>
               <h2 className="mt-4 font-display text-3xl font-bold md:text-4xl">
-                {t("Excellence ", "Operational ")}<span className="text-gradient">{t("opérationnelle", "Excellence")}</span>
+                {t("Excellence ", "Operational ")}
+                <span className="text-gradient">{t("opérationnelle", "Excellence")}</span>
               </h2>
               <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
                 {t(
                   "L'objectif principal de KFM est d'assurer le bon fonctionnement des installations de ses clients, en veillant à ce qu'elles soient entretenues de manière optimale, sécurisées et conformes aux normes réglementaires.",
-                  "KFM's main objective is to ensure the smooth operation of its clients' facilities, ensuring they are optimally maintained, secure, and compliant with regulatory standards."
+                  "KFM's main objective is to ensure the smooth operation of its clients' facilities, ensuring they are optimally maintained, secure, and compliant with regulatory standards.",
                 )}
               </p>
               <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
                 {t(
                   "Que ce soit pour des entreprises, des institutions publiques, des centres commerciaux ou d'autres organisations, KFM est un partenaire fiable pour la gestion complète des installations.",
-                  "Whether for businesses, public institutions, shopping centers, or other organizations, KFM is a reliable partner for complete facility management."
+                  "Whether for businesses, public institutions, shopping centers, or other organizations, KFM is a reliable partner for complete facility management.",
                 )}
               </p>
             </motion.div>
@@ -222,24 +470,41 @@ const APropos = () => {
       {/* Core Values */}
       <section className="py-24">
         <div className="container mx-auto px-6">
-          <motion.div variants={fadeUp} custom={0} initial="hidden" whileInView="visible" viewport={{ once: true }} className="text-center mb-16">
-            <span className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">{t("Nos Valeurs", "Our Values")}</span>
+          <motion.div
+            variants={fadeUp}
+            custom={0}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <span className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">
+              {t("Nos Valeurs", "Our Values")}
+            </span>
             <h2 className="mt-4 font-display text-3xl font-bold md:text-4xl">
-              {t("Ce qui nous ", "What ")}<span className="text-gradient">{t("anime", "drives us")}</span>
+              {t("Ce qui nous ", "What ")}
+              <span className="text-gradient">{t("anime", "drives us")}</span>
             </h2>
             <p className="mx-auto mt-4 max-w-3xl text-muted-foreground">
               {t(
                 "Chez KFM, nous croyons que la productivité n'arrive jamais par hasard. C'est toujours le résultat d'un engagement envers l'excellence, d'une planification intelligente et d'un effort constant.",
-                "At KFM, we believe that productivity never happens by chance. It's always the result of a commitment to excellence, intelligent planning, and relentless effort."
+                "At KFM, we believe that productivity never happens by chance. It's always the result of a commitment to excellence, intelligent planning, and relentless effort.",
               )}
             </p>
           </motion.div>
 
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
             {coreValues.map((value, i) => (
-              <motion.div key={value.title} custom={i} variants={scaleIn} initial="hidden" whileInView="visible" viewport={{ once: true }}
+              <motion.div
+                key={value.title}
+                custom={i}
+                variants={scaleIn}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
                 whileHover={{ y: -8, transition: { duration: 0.3 } }}
-                className="group rounded-2xl border border-border bg-card p-6 text-center transition-all hover:shadow-xl hover:shadow-primary/10 hover:border-primary/30">
+                className="group rounded-2xl border border-border bg-card p-6 text-center transition-all hover:shadow-xl hover:shadow-primary/10 hover:border-primary/30"
+              >
                 <motion.div
                   className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-primary"
                   whileHover={{ rotate: 360 }}
@@ -258,20 +523,41 @@ const APropos = () => {
       {/* Domaines d'expertise */}
       <section className="py-24 bg-muted/50">
         <div className="container mx-auto px-6">
-          <motion.div variants={fadeUp} custom={0} initial="hidden" whileInView="visible" viewport={{ once: true }} className="text-center mb-16">
-            <span className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">{t("Expertise", "Expertise")}</span>
+          <motion.div
+            variants={fadeUp}
+            custom={0}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <span className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">
+              {t("Expertise", "Expertise")}
+            </span>
             <h2 className="mt-4 font-display text-3xl font-bold md:text-4xl">
-              {t("Nos domaines d'", "Our areas of ")}<span className="text-gradient">{t("expertise", "expertise")}</span>
+              {t("Nos domaines d'", "Our areas of ")}
+              <span className="text-gradient">{t("expertise", "expertise")}</span>
             </h2>
           </motion.div>
 
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {expertises.map((item, i) => (
-              <motion.div key={item.title} custom={i} variants={scaleIn} initial="hidden" whileInView="visible" viewport={{ once: true }}
+              <motion.div
+                key={item.title}
+                custom={i}
+                variants={scaleIn}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
                 whileHover={{ y: -8, transition: { duration: 0.3 } }}
-                className="group rounded-2xl border border-border bg-card overflow-hidden transition-all hover:shadow-xl hover:shadow-primary/10 hover:border-primary/30">
+                className="group rounded-2xl border border-border bg-card overflow-hidden transition-all hover:shadow-xl hover:shadow-primary/10 hover:border-primary/30"
+              >
                 <div className="relative h-44 overflow-hidden">
-                  <img src={item.img} alt={item.title} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                  <img
+                    src={item.img}
+                    alt={item.title}
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
                   <div className="absolute inset-0 bg-gradient-to-t from-foreground/50 via-transparent to-transparent" />
                   <div className="absolute bottom-3 left-3 flex h-10 w-10 items-center justify-center rounded-xl bg-primary/90 text-primary-foreground shadow-lg backdrop-blur-sm">
                     <item.icon className="h-5 w-5" />
@@ -290,21 +576,41 @@ const APropos = () => {
       {/* Notre Approche */}
       <section className="py-24">
         <div className="container mx-auto px-6">
-          <motion.div variants={fadeUp} custom={0} initial="hidden" whileInView="visible" viewport={{ once: true }} className="text-center mb-16">
-            <span className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">{t("Méthodologie", "Methodology")}</span>
+          <motion.div
+            variants={fadeUp}
+            custom={0}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <span className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">
+              {t("Méthodologie", "Methodology")}
+            </span>
             <h2 className="mt-4 font-display text-3xl font-bold md:text-4xl">
-              {t("Notre ", "Our ")}<span className="text-gradient">{t("Approche", "Approach")}</span>
+              {t("Notre ", "Our ")}
+              <span className="text-gradient">{t("Approche", "Approach")}</span>
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
-              {t("Notre approche repose sur quatre piliers fondamentaux :", "Our approach is based on four fundamental pillars:")}
+              {t(
+                "Notre approche repose sur quatre piliers fondamentaux :",
+                "Our approach is based on four fundamental pillars:",
+              )}
             </p>
           </motion.div>
 
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {pillars.map((pillar, i) => (
-              <motion.div key={pillar.title} custom={i} variants={scaleIn} initial="hidden" whileInView="visible" viewport={{ once: true }}
+              <motion.div
+                key={pillar.title}
+                custom={i}
+                variants={scaleIn}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
                 whileHover={{ y: -8, transition: { duration: 0.3 } }}
-                className="group relative rounded-2xl border border-border bg-card p-8 pt-10 text-center transition-all hover:shadow-xl hover:shadow-primary/10 hover:border-primary/30">
+                className="group relative rounded-2xl border border-border bg-card p-8 pt-10 text-center transition-all hover:shadow-xl hover:shadow-primary/10 hover:border-primary/30"
+              >
                 <div className="absolute -top-4 left-1/2 -translate-x-1/2 flex h-8 w-8 items-center justify-center rounded-full bg-primary text-xs font-bold text-primary-foreground shadow-lg z-10">
                   {pillar.num}
                 </div>
