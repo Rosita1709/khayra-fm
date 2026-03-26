@@ -100,7 +100,7 @@ const AboutSection = () => {
           transition={{ duration: 0.7 }}
           className="mt-20"
         >
-          <h3 className="mb-10 text-center font-display text-2xl font-bold">Notre Approche</h3>
+          <h3 className="mb-10 text-center font-display text-lg font-bold">Notre Approche</h3>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {[
               { num: "01", title: "Prévention", desc: "Plans de maintenance structurés pour limiter les interruptions et prolonger la durée de vie des équipements." },

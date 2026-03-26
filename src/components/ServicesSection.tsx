@@ -136,7 +136,7 @@ const ServicesSection = () => {
                   </span>
                 ))}
               </div>
-              <h3 className="font-display text-2xl font-bold">
+              <h3 className="font-display text-lg font-bold">
                 {t(services[0].titleFr, services[0].titleEn)}
               </h3>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">

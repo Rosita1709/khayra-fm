@@ -104,7 +104,7 @@ const ClientsSection = () => {
           transition={{ duration: 0.7 }}
           className="mt-16"
         >
-          <h3 className="font-display text-xl font-semibold mb-6">
+          <h3 className="font-display text-lg font-semibold mb-6">
             {t("Ils nous font confiance", "They trust us")}
           </h3>
 
