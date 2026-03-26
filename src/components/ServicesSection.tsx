@@ -83,7 +83,7 @@ const ServicesSection = () => {
             <span className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">
               {t("Notre expertise", "Our expertise")}
             </span>
-            <h2 className="mt-4 font-display text-4xl font-bold md:text-5xl">
+            <h2 className="mt-4 font-display text-3xl font-bold md:text-4xl">
               {t("Nos ", "Our ")}<span className="text-gradient">{t("Services", "Services")}</span>
             </h2>
             <p className="mt-4 max-w-lg text-muted-foreground">

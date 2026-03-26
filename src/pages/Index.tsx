@@ -75,7 +75,7 @@ const CountUpStat = ({ end, suffix, label }: { end: number; suffix: string; labe
         initial={{ opacity: 0, scale: 0.5 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5 }}
-        className="font-display text-4xl font-bold text-primary md:text-5xl"
+        className="font-display text-3xl font-bold text-primary md:text-4xl"
       >
         {count}{suffix}
       </motion.div>
@@ -98,7 +98,7 @@ const StatsCounter = ({ t }: { t: (fr: string, en: string) => string }) => (
     <CountUpStat end={15} suffix="+" label={t("Années", "Years")} />
     <div className="h-10 w-px bg-background/20 hidden md:block" />
     <div className="text-center">
-      <div className="font-display text-4xl font-bold text-primary md:text-5xl">24/7</div>
+      <div className="font-display text-3xl font-bold text-primary md:text-4xl">24/7</div>
       <div className="mt-2 text-sm tracking-wide text-background/60">{t("Support", "Support")}</div>
     </div>
   </motion.div>
@@ -153,7 +153,7 @@ const Index = () => {
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="font-display text-5xl font-bold leading-[1.08] tracking-tight md:text-7xl lg:text-8xl text-background"
+              className="font-display text-5xl font-bold leading-tight tracking-tight md:text-6xl text-background"
             >
               Khayra{" "}
               <span className="text-gradient">Facility</span>
@@ -231,7 +231,7 @@ const Index = () => {
               viewport={{ once: true, margin: "-100px" }}
             >
               <span className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">{t("À propos", "About")}</span>
-              <h2 className="mt-4 font-display text-4xl font-bold md:text-5xl">
+              <h2 className="mt-4 font-display text-3xl font-bold md:text-4xl">
                 {t("Des professionnels qualifiés pour vos ", "Qualified professionals for your ")}
                 <span className="text-gradient">{t("travaux", "projects")}</span>
               </h2>
@@ -293,7 +293,7 @@ const Index = () => {
             className="mb-16 text-center"
           >
             <span className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">{t("Ce qui nous anime", "What drives us")}</span>
-            <h2 className="mt-4 font-display text-4xl font-bold md:text-5xl">
+            <h2 className="mt-4 font-display text-3xl font-bold md:text-4xl">
               {t("Nos ", "Our ")}<span className="text-gradient">{t("Valeurs", "Values")}</span>
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">

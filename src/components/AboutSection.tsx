@@ -35,7 +35,7 @@ const AboutSection = () => {
             transition={{ duration: 0.8 }}
           >
             <span className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">À propos</span>
-            <h2 className="mt-4 font-display text-4xl font-bold md:text-5xl">
+            <h2 className="mt-4 font-display text-3xl font-bold md:text-4xl">
               Des professionnels qualifiés pour vos{" "}
               <span className="text-gradient">travaux</span>
             </h2>

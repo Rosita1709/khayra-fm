@@ -60,7 +60,7 @@ const RealisationsSection = () => {
             <span className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">
               Portfolio
             </span>
-            <h2 className="mt-4 font-display text-4xl font-bold md:text-5xl">
+            <h2 className="mt-4 font-display text-3xl font-bold md:text-4xl">
               {t("Nos ", "Our ")}
               <span className="text-gradient">{t("Réalisations", "Projects")}</span>
             </h2>
@@ -104,7 +104,7 @@ const RealisationsSection = () => {
                 </div>
               </div>
               <div className="p-5">
-                <h3 className="font-display text-sm font-bold leading-tight line-clamp-2">
+                <h3 className="font-display text-base font-bold leading-tight line-clamp-2">
                   {item.title}
                 </h3>
                 <div className="mt-2 flex items-center gap-1.5 text-xs text-muted-foreground">
