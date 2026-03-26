@@ -322,7 +322,7 @@ const Produits = () => {
               </Link>
               <a href="https://wa.me/971508054220" target="_blank" rel="noopener noreferrer"
                 className="rounded-lg border border-primary-foreground/30 px-8 py-4 font-display text-sm font-semibold text-primary-foreground transition-all hover:bg-primary-foreground/10">
-                WhatsApp →
+                WhatsApp
               </a>
             </div>
           </motion.div>

@@ -453,7 +453,7 @@ const Index = () => {
                 rel="noopener noreferrer"
                 className="rounded-2xl border border-primary-foreground/25 px-8 py-4 font-display text-sm font-semibold text-primary-foreground transition-all hover:bg-primary-foreground/10 hover:-translate-y-0.5"
               >
-                WhatsApp →
+                WhatsApp
               </a>
             </div>
           </motion.div>
