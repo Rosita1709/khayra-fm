@@ -302,7 +302,7 @@ const Services = () => {
               animate={{ x: [0, 30, 0], y: [0, -20, 0] }}
               transition={{ duration: 8, repeat: Infinity }}
             />
-            <h2 className="relative font-display text-3xl font-bold text-primary-foreground md:text-5xl">
+            <h2 className="relative font-display text-3xl font-bold text-primary-foreground md:text-4xl">
               {t("Un besoin spécifique ?", "A specific need?")}
             </h2>
             <p className="relative mx-auto mt-4 max-w-xl text-primary-foreground/80">
@@ -324,7 +324,7 @@ const Services = () => {
                 rel="noopener noreferrer"
                 className="rounded-lg border border-primary-foreground/30 px-8 py-4 font-display text-sm font-semibold text-primary-foreground transition-all hover:bg-primary-foreground/10"
               >
-                WhatsApp →
+                WhatsApp
               </a>
             </div>
           </motion.div>

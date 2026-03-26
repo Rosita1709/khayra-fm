@@ -36,7 +36,7 @@ const ValuesSection = () => {
           className="mb-16 text-center"
         >
           <span className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">Ce qui nous anime</span>
-          <h2 className="mt-4 font-display text-4xl font-bold md:text-5xl">
+          <h2 className="mt-4 font-display text-3xl font-bold md:text-4xl">
             Nos <span className="text-gradient">Valeurs</span>
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">

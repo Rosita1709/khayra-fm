@@ -105,7 +105,7 @@ const ProductsShowcase = () => {
             <span className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">
               {t("Équipements", "Equipment")}
             </span>
-            <h2 className="mt-4 font-display text-4xl font-bold text-primary-foreground md:text-5xl">
+            <h2 className="mt-4 font-display text-3xl font-bold text-primary-foreground md:text-4xl">
               {t("Produits ", "Products from our ")}
               <span className="text-gradient">{t("Partenaires", "Partners")}</span>
             </h2>

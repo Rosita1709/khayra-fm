@@ -75,9 +75,10 @@ const CountUpStat = ({ end, suffix, label }: { end: number; suffix: string; labe
         initial={{ opacity: 0, scale: 0.5 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5 }}
-        className="font-display text-4xl font-bold text-primary md:text-5xl"
+        className="font-display text-3xl font-bold text-primary md:text-4xl"
       >
-        {count}{suffix}
+        {count}
+        {suffix}
       </motion.div>
       <div className="mt-2 text-sm tracking-wide text-background/60">{label}</div>
     </div>
@@ -95,10 +96,10 @@ const StatsCounter = ({ t }: { t: (fr: string, en: string) => string }) => (
     <div className="h-10 w-px bg-background/20 hidden md:block" />
     <CountUpStat end={98} suffix="%" label={t("Satisfaction", "Satisfaction")} />
     <div className="h-10 w-px bg-background/20 hidden md:block" />
-    <CountUpStat end={15} suffix="+" label={t("Années", "Years")} />
+    <CountUpStat end={20} suffix="+" label={t("Années", "Years")} />
     <div className="h-10 w-px bg-background/20 hidden md:block" />
     <div className="text-center">
-      <div className="font-display text-4xl font-bold text-primary md:text-5xl">24/7</div>
+      <div className="font-display text-3xl font-bold text-primary md:text-4xl">24/7</div>
       <div className="mt-2 text-sm tracking-wide text-background/60">{t("Support", "Support")}</div>
     </div>
   </motion.div>
@@ -108,10 +109,32 @@ const Index = () => {
   const { t } = useLanguage();
 
   const values = [
-    { icon: TrendingUp, title: t("Excellence Opérationnelle", "Operational Excellence"), desc: t("Les plus hauts standards dans chaque intervention.", "The highest standards in every task.") },
-    { icon: PiggyBank, title: t("Réduction des coûts", "Cost Reduction"), desc: t("Maintenance préventive et optimisation énergétique.", "Preventive maintenance and energy optimization.") },
-    { icon: Heart, title: t("Engagement Client", "Customer Commitment"), desc: t("Relations durables basées sur la confiance et la réactivité.", "Long-term relationships based on trust and responsiveness.") },
-    { icon: Rocket, title: t("Innovation", "Innovation"), desc: t("Technologies intelligentes pour améliorer les performances.", "Smart technologies to improve performance.") },
+    {
+      icon: TrendingUp,
+      title: t("Excellence Opérationnelle", "Operational Excellence"),
+      desc: t("Les plus hauts standards dans chaque intervention.", "The highest standards in every task."),
+    },
+    {
+      icon: PiggyBank,
+      title: t("Réduction des coûts", "Cost Reduction"),
+      desc: t("Maintenance préventive et optimisation énergétique.", "Preventive maintenance and energy optimization."),
+    },
+    {
+      icon: Heart,
+      title: t("Engagement Client", "Customer Commitment"),
+      desc: t(
+        "Relations durables basées sur la confiance et la réactivité.",
+        "Long-term relationships based on trust and responsiveness.",
+      ),
+    },
+    {
+      icon: Rocket,
+      title: t("Innovation", "Innovation"),
+      desc: t(
+        "Technologies intelligentes pour améliorer les performances.",
+        "Smart technologies to improve performance.",
+      ),
+    },
   ];
 
   return (
@@ -146,17 +169,16 @@ const Index = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="mb-6 inline-block rounded-full border border-primary/40 bg-primary/15 px-5 py-2 text-xs font-semibold tracking-widest uppercase text-primary backdrop-blur-sm"
             >
-              Facility Management — Abu Dhabi, UAE
+              Facility Management, Abu Dhabi, UAE
             </motion.span>
 
             <motion.h1
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="font-display text-5xl font-bold leading-[1.08] tracking-tight md:text-7xl lg:text-8xl text-background"
+              className="font-display text-5xl font-bold leading-tight tracking-tight md:text-6xl text-background"
             >
-              Khayra{" "}
-              <span className="text-gradient">Facility</span>
+              Khayra <span className="text-gradient">Facility</span>
               <br />
               Management
             </motion.h1>
@@ -169,7 +191,7 @@ const Index = () => {
             >
               {t(
                 "Khayra FM propose des services de Facilities Management digitalisés avec une application de GMAO et fournit des services et des solutions de qualité à une variété de clients dans différents secteurs.",
-                "Khayra FM provides digitalized Facility Management services with a CMMS application and delivers quality services and solutions to a variety of clients across different sectors."
+                "Khayra FM provides digitalized Facility Management services with a CMMS application and delivers quality services and solutions to a variety of clients across different sectors.",
               )}
             </motion.p>
 
@@ -230,26 +252,31 @@ const Index = () => {
               whileInView="visible"
               viewport={{ once: true, margin: "-100px" }}
             >
-              <span className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">{t("À propos", "About")}</span>
-              <h2 className="mt-4 font-display text-4xl font-bold md:text-5xl">
+              <span className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">
+                {t("À propos", "About")}
+              </span>
+              <h2 className="mt-4 font-display text-3xl font-bold md:text-4xl">
                 {t("Des professionnels qualifiés pour vos ", "Qualified professionals for your ")}
                 <span className="text-gradient">{t("travaux", "projects")}</span>
               </h2>
               <p className="mt-6 leading-relaxed text-muted-foreground">
                 {t(
                   "KFM est votre partenaire de confiance pour des solutions complètes et innovantes en facility management. Fondée par M. Inadone Fall, un leader visionnaire avec plus de 15 ans d'expérience internationale.",
-                  "KFM is your trusted partner in delivering comprehensive and innovative facility management solutions. Founded by Mr. Inadone Fall, a visionary leader with over 15 years of international experience."
+                  "KFM is your trusted partner in delivering comprehensive and innovative facility management solutions. Founded by Mr. Inadone Fall, a visionary leader with over 15 years of international experience.",
                 )}
               </p>
               <p className="mt-4 leading-relaxed text-muted-foreground">
                 {t(
                   "KFM offre une surveillance en temps réel des actifs grâce à la GMAO. Cela encourage la confiance, la croissance et des avantages durables pour nos parties prenantes.",
-                  "KFM provides real-time asset monitoring through CMMS. This fosters trust, growth, and sustainable benefits for our stakeholders."
+                  "KFM provides real-time asset monitoring through CMMS. This fosters trust, growth, and sustainable benefits for our stakeholders.",
                 )}
               </p>
               <ul className="mt-6 space-y-3">
                 {[
-                  t("Maintenance préventive et curative des équipements", "Preventive and corrective equipment maintenance"),
+                  t(
+                    "Maintenance préventive et curative des équipements",
+                    "Preventive and corrective equipment maintenance",
+                  ),
                   t("Gestion des installations techniques", "Technical facilities management"),
                   t("Gestion des espaces de travail", "Workspace management"),
                 ].map((item, i) => (
@@ -279,8 +306,6 @@ const Index = () => {
         </div>
       </section>
 
-
-
       {/* ===== NOS VALEURS ===== */}
       <section className="relative py-28 overflow-hidden bg-muted/40">
         <div className="container relative mx-auto px-6">
@@ -292,14 +317,17 @@ const Index = () => {
             viewport={{ once: true }}
             className="mb-16 text-center"
           >
-            <span className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">{t("Ce qui nous anime", "What drives us")}</span>
-            <h2 className="mt-4 font-display text-4xl font-bold md:text-5xl">
-              {t("Nos ", "Our ")}<span className="text-gradient">{t("Valeurs", "Values")}</span>
+            <span className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">
+              {t("Ce qui nous anime", "What drives us")}
+            </span>
+            <h2 className="mt-4 font-display text-3xl font-bold md:text-4xl">
+              {t("Nos ", "Our ")}
+              <span className="text-gradient">{t("Valeurs", "Values")}</span>
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
               {t(
                 "Elles définissent notre identité, notre culture et la manière dont nous interagissons avec nos clients et nos collaborateurs.",
-                "They define our identity, our culture, and the way we interact with our clients and collaborators."
+                "They define our identity, our culture, and the way we interact with our clients and collaborators.",
               )}
             </p>
           </motion.div>
@@ -338,14 +366,17 @@ const Index = () => {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <span className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">{t("Confiance", "Trust")}</span>
+            <span className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">
+              {t("Confiance", "Trust")}
+            </span>
             <h2 className="mt-4 font-display text-3xl font-bold md:text-4xl">
-              {t("Ils nous font ", "They trust ")}<span className="text-gradient">{t("confiance", "us")}</span>
+              {t("Ils nous font ", "They trust ")}
+              <span className="text-gradient">{t("confiance", "us")}</span>
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
               {t(
                 "KFM intervient pour des villas haut de gamme, des immeubles résidentiels, des bâtiments commerciaux, des institutions et des industries aux Émirats.",
-                "KFM serves high-end villas, residential buildings, commercial buildings, institutions and industries in the UAE."
+                "KFM serves high-end villas, residential buildings, commercial buildings, institutions and industries in the UAE.",
               )}
             </p>
           </motion.div>
@@ -362,11 +393,7 @@ const Index = () => {
                 whileHover={{ y: -4, transition: { duration: 0.2 } }}
                 className="flex h-28 items-center justify-center rounded-2xl border border-border bg-background p-4 transition-all hover:border-primary/30 hover:shadow-card-hover"
               >
-                <img
-                  src={client.src}
-                  alt={client.name}
-                  className="max-h-16 max-w-full object-contain"
-                />
+                <img src={client.src} alt={client.name} className="max-h-16 max-w-full object-contain" />
               </motion.div>
             ))}
           </div>
@@ -384,9 +411,12 @@ const Index = () => {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <span className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">{t("Partenaires", "Partners")}</span>
+            <span className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">
+              {t("Partenaires", "Partners")}
+            </span>
             <h2 className="mt-4 font-display text-3xl font-bold md:text-4xl">
-              {t("Nos ", "Our ")}<span className="text-gradient">{t("Partenaires", "Partners")}</span>
+              {t("Nos ", "Our ")}
+              <span className="text-gradient">{t("Partenaires", "Partners")}</span>
             </h2>
           </motion.div>
 
@@ -405,11 +435,7 @@ const Index = () => {
                 whileHover={{ y: -4, transition: { duration: 0.2 } }}
                 className="flex h-28 items-center justify-center rounded-2xl border border-border bg-background p-4 transition-all hover:border-primary/30 hover:shadow-card-hover"
               >
-                <img
-                  src={partner.src}
-                  alt={partner.name}
-                  className="max-h-16 max-w-full object-contain"
-                />
+                <img src={partner.src} alt={partner.name} className="max-h-16 max-w-full object-contain" />
               </motion.a>
             ))}
           </div>
@@ -431,13 +457,13 @@ const Index = () => {
               <img src={ctaBg} alt="" className="h-full w-full object-cover" />
               <div className="absolute inset-0 bg-primary/88" />
             </div>
-            <h2 className="relative font-display text-3xl font-bold text-primary-foreground md:text-5xl">
+            <h2 className="relative font-display text-3xl font-bold text-primary-foreground md:text-4xl">
               {t("Prêt à transformer vos espaces ?", "Ready to transform your spaces?")}
             </h2>
             <p className="relative mx-auto mt-4 max-w-xl text-primary-foreground/80">
               {t(
                 "Notre équipe est prête à vous accompagner pour vos projets techniques et de maintenance aux Émirats.",
-                "Our team is ready to support you with your technical and maintenance projects in the UAE."
+                "Our team is ready to support you with your technical and maintenance projects in the UAE.",
               )}
             </p>
             <div className="relative mt-10 flex flex-wrap justify-center gap-4">
@@ -453,7 +479,7 @@ const Index = () => {
                 rel="noopener noreferrer"
                 className="rounded-2xl border border-primary-foreground/25 px-8 py-4 font-display text-sm font-semibold text-primary-foreground transition-all hover:bg-primary-foreground/10 hover:-translate-y-0.5"
               >
-                WhatsApp →
+                WhatsApp
               </a>
             </div>
           </motion.div>
