@@ -74,7 +74,7 @@ const Contact = () => {
         <div className="container mx-auto px-6">
           <div className="grid gap-16 lg:grid-cols-2">
             <motion.div initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
-              <h2 className="font-display text-3xl font-bold">
+              <h2 className="font-display text-3xl font-bold md:text-4xl">
                 {t("Parlons de votre ", "Let's discuss your ")}
                 <span className="text-gradient">{t("projet", "project")}</span>
               </h2>

@@ -247,7 +247,7 @@ const APropos = () => {
                 >
                   <value.icon className="h-7 w-7" />
                 </motion.div>
-                <h3 className="font-display text-sm font-semibold">{value.title}</h3>
+                <h3 className="font-display text-base font-semibold">{value.title}</h3>
                 <p className="mt-2 text-xs leading-relaxed text-muted-foreground">{value.desc}</p>
               </motion.div>
             ))}

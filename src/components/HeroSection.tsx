@@ -27,7 +27,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.5 }}
-            className="font-display text-5xl font-bold leading-tight tracking-tight md:text-7xl text-foreground"
+            className="font-display text-5xl font-bold leading-tight tracking-tight md:text-6xl text-foreground"
           >
             Khayra{" "}
             <span className="text-gradient">Facility</span>

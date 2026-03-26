@@ -15,7 +15,7 @@ const ContactSection = () => {
             transition={{ duration: 0.7 }}
           >
             <span className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">Parlons ensemble</span>
-            <h2 className="mt-4 font-display text-4xl font-bold md:text-5xl">
+            <h2 className="mt-4 font-display text-3xl font-bold md:text-4xl">
               Prêt à <span className="text-gradient">transformer</span> vos espaces ?
             </h2>
             <p className="mt-6 max-w-md text-muted-foreground">

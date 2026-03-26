@@ -64,7 +64,7 @@ const ClientsSection = () => {
           <span className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">
             {t("Nos interventions", "Our interventions")}
           </span>
-          <h2 className="mt-4 font-display text-4xl font-bold md:text-5xl">
+          <h2 className="mt-4 font-display text-3xl font-bold md:text-4xl">
             {t("Nos ", "Our ")}<span className="text-gradient">{t("Clients", "Clients")}</span>
           </h2>
           <p className="mt-4 max-w-lg text-muted-foreground">
@@ -104,7 +104,7 @@ const ClientsSection = () => {
           transition={{ duration: 0.7 }}
           className="mt-16"
         >
-          <h3 className="font-display text-xl font-semibold mb-6">
+          <h3 className="font-display text-lg font-semibold mb-6">
             {t("Ils nous font confiance", "They trust us")}
           </h3>
 

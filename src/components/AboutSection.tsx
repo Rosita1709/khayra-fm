@@ -35,7 +35,7 @@ const AboutSection = () => {
             transition={{ duration: 0.8 }}
           >
             <span className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">À propos</span>
-            <h2 className="mt-4 font-display text-4xl font-bold md:text-5xl">
+            <h2 className="mt-4 font-display text-3xl font-bold md:text-4xl">
               Des professionnels qualifiés pour vos{" "}
               <span className="text-gradient">travaux</span>
             </h2>
@@ -100,7 +100,7 @@ const AboutSection = () => {
           transition={{ duration: 0.7 }}
           className="mt-20"
         >
-          <h3 className="mb-10 text-center font-display text-2xl font-bold">Notre Approche</h3>
+          <h3 className="mb-10 text-center font-display text-lg font-bold">Notre Approche</h3>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {[
               { num: "01", title: "Prévention", desc: "Plans de maintenance structurés pour limiter les interruptions et prolonger la durée de vie des équipements." },
