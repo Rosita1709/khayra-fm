@@ -431,7 +431,7 @@ const Index = () => {
               <img src={ctaBg} alt="" className="h-full w-full object-cover" />
               <div className="absolute inset-0 bg-primary/88" />
             </div>
-            <h2 className="relative font-display text-3xl font-bold text-primary-foreground md:text-5xl">
+            <h2 className="relative font-display text-3xl font-bold text-primary-foreground md:text-4xl">
               {t("Prêt à transformer vos espaces ?", "Ready to transform your spaces?")}
             </h2>
             <p className="relative mx-auto mt-4 max-w-xl text-primary-foreground/80">

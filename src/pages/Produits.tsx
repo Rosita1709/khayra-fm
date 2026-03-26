@@ -307,7 +307,7 @@ const Produits = () => {
           <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}
             className="relative overflow-hidden rounded-3xl bg-primary p-12 md:p-20 text-center">
             <motion.div className="absolute top-0 right-0 h-64 w-64 rounded-full bg-primary-foreground/5 blur-[60px]" animate={{ x: [0, 30, 0], y: [0, -20, 0] }} transition={{ duration: 8, repeat: Infinity }} />
-            <h2 className="relative font-display text-3xl font-bold text-primary-foreground md:text-5xl">
+            <h2 className="relative font-display text-3xl font-bold text-primary-foreground md:text-4xl">
               {t("Votre projet est le prochain ?", "Is your project next?")}
             </h2>
             <p className="relative mx-auto mt-4 max-w-xl text-primary-foreground/80">
