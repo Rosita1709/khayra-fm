@@ -145,7 +145,7 @@ const Footer = () => {
         {/* Bottom bar */}
         <div className="border-t border-border py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
           <span className="text-xs text-muted-foreground tracking-wide">
-            © 2026 KFM — Khayra Facilities Management. {t("Tous droits réservés.", "All rights reserved.")}
+            © 2026 KFM, Khayra Facilities Management. {t("Tous droits réservés.", "All rights reserved.")}
           </span>
           <span className="text-xs text-muted-foreground uppercase tracking-[0.1em]">
             Abu Dhabi · {t("Émirats Arabes Unis", "United Arab Emirates")}

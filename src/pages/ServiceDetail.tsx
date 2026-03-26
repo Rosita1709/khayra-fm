@@ -108,7 +108,7 @@ const ServiceDetail = () => {
               rel="noopener noreferrer"
               className="rounded-2xl border border-background/25 bg-background/8 px-6 py-3 font-display text-sm font-semibold text-background backdrop-blur-sm transition-all hover:bg-background/15"
             >
-              WhatsApp →
+              WhatsApp
             </a>
           </motion.div>
         </div>
