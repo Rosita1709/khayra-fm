@@ -138,8 +138,8 @@ const APropos = () => {
               </h2>
               <p className="mt-6 leading-relaxed text-muted-foreground">
                 {t(
-                  "KFM – Khayra Facilities Management est une société spécialisée en Facility Management basée à Abu Dhabi, aux Émirats Arabes Unis. Fondée par M. Inadone Fall, un leader visionnaire avec plus de 15 ans d'expérience internationale, KFM a été créée avec la mission de transformer la gestion des installations grâce à la technologie, l'efficacité et une approche centrée sur le client.",
-                  "KFM – Khayra Facilities Management is a company specializing in Facility Management based in Abu Dhabi, UAE. Founded by Mr. Inadone Fall, a visionary leader with over 15 years of international experience, KFM was established with the mission of transforming the way facilities are managed—through technology, efficiency, and a client-centric approach."
+                  "KFM Khayra Facilities Management est une société spécialisée en Facility Management basée à Abu Dhabi, aux Émirats Arabes Unis. Fondée par M. Inadone Fall, un leader visionnaire avec plus de 15 ans d'expérience internationale, KFM a été créée avec la mission de transformer la gestion des installations grâce à la technologie, l'efficacité et une approche centrée sur le client.",
+                  "KFM Khayra Facilities Management is a company specializing in Facility Management based in Abu Dhabi, UAE. Founded by Mr. Inadone Fall, a visionary leader with over 15 years of international experience, KFM was established with the mission of transforming the way facilities are managed through technology, efficiency, and a client-centric approach."
                 )}
               </p>
               <p className="mt-4 leading-relaxed text-muted-foreground">
@@ -151,8 +151,8 @@ const APropos = () => {
               <motion.div className="mt-6 rounded-xl border border-primary/20 bg-primary/5 px-6 py-4" whileHover={{ borderColor: "hsl(var(--primary) / 0.4)" }}>
                 <p className="text-sm font-medium leading-relaxed">
                   {t(
-                    <>Notre stratégie digitale — soutenue par des systèmes GMAO avancés et un suivi en temps réel — garantit <strong>transparence</strong>, <strong>réactivité</strong> et <strong>suivi des performances</strong> à chaque étape.</>,
-                    <>Our digital-first strategy—supported by advanced CMMS systems and real-time monitoring—ensures <strong>transparency</strong>, <strong>responsiveness</strong>, and <strong>performance tracking</strong> at every stage.</>
+                    <>Notre stratégie digitale , soutenue par des systèmes GMAO avancés et un suivi en temps réel , garantit <strong>transparence</strong>, <strong>réactivité</strong> et <strong>suivi des performances</strong> à chaque étape.</>,
+                    <>Our digital-first strategy, supported by advanced CMMS systems and real-time monitoring, ensures <strong>transparency</strong>, <strong>responsiveness</strong>, and <strong>performance tracking</strong> at every stage.</>
                   )}
                 </p>
               </motion.div>
