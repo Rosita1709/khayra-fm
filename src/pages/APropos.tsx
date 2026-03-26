@@ -134,7 +134,7 @@ const APropos = () => {
 
             <motion.div initial={{ opacity: 0, x: 60 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, ease: "easeOut" }}>
               <h2 className="font-display text-3xl font-bold md:text-4xl">
-                KFM – Khayra <span className="text-gradient">Facilities Management</span>
+                KFM Khayra <span className="text-gradient">Facilities Management</span>
               </h2>
               <p className="mt-6 leading-relaxed text-muted-foreground">
                 {t(
