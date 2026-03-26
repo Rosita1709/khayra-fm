@@ -36,18 +36,17 @@ const AboutSection = () => {
           >
             <span className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">À propos</span>
             <h2 className="mt-4 font-display text-3xl font-bold md:text-4xl">
-              Des professionnels qualifiés pour vos{" "}
-              <span className="text-gradient">travaux</span>
+              Des professionnels qualifiés pour vos <span className="text-gradient">travaux</span>
             </h2>
             <p className="mt-6 leading-relaxed text-muted-foreground">
-              KFM est une entreprise spécialisée dans le facilities management basée à Abu Dhabi. 
-              Avec une solide expérience dans le secteur, elle offre des solutions personnalisées 
-              et innovantes pour répondre aux besoins spécifiques de ses clients.
+              KFM est une entreprise spécialisée dans le facilities management basée à Abu Dhabi. Avec une solide
+              expérience dans le secteur, elle offre des solutions personnalisées et innovantes pour répondre aux
+              besoins spécifiques de ses clients.
             </p>
             <p className="mt-4 leading-relaxed text-muted-foreground">
-              KFM offre une surveillance en temps réel des actifs grâce à la gestion de la maintenance 
-              assistée par ordinateur (GMAO). Cela encourage la confiance, la croissance et des 
-              avantages durables pour nos parties prenantes.
+              KFM offre une surveillance en temps réel des actifs grâce à la gestion de la maintenance assistée par
+              ordinateur (GMAO). Cela encourage la confiance, la croissance et des avantages durables pour nos parties
+              prenantes.
             </p>
 
             <ul className="mt-6 space-y-3">
@@ -78,16 +77,16 @@ const AboutSection = () => {
             <h2 className="mt-4 font-display text-3xl font-bold md:text-4xl">
               Excellence <span className="text-gradient">opérationnelle</span>
             </h2>
-            <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
-              L'objectif principal de KFM est d'assurer le bon fonctionnement des installations de ses clients, 
-              en veillant à ce qu'elles soient entretenues de manière optimale, sécurisées et conformes aux 
-              normes réglementaires. Grâce à notre approche axée sur la qualité et le service client, KFM est 
-              reconnue pour son professionnalisme et sa capacité à offrir une excellence opérationnelle.
+            <p className="mt-6 leading-relaxed text-muted-foreground">
+              L'objectif principal de KFM est d'assurer le bon fonctionnement des installations de ses clients, en
+              veillant à ce qu'elles soient entretenues de manière optimale, sécurisées et conformes aux normes
+              réglementaires. Grâce à notre approche axée sur la qualité et le service client, KFM est reconnue pour son
+              professionnalisme et sa capacité à offrir une excellence opérationnelle.
             </p>
             <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
-              Que ce soit pour des entreprises, des institutions publiques, des centres commerciaux ou d'autres 
-              organisations, KFM est un partenaire fiable et de confiance pour la gestion complète et efficace 
-              des installations aux Émirats Arabes Unis.
+              Que ce soit pour des entreprises, des institutions publiques, des centres commerciaux ou d'autres
+              organisations, KFM est un partenaire fiable et de confiance pour la gestion complète et efficace des
+              installations aux Émirats Arabes Unis.
             </p>
           </div>
         </motion.div>
@@ -103,10 +102,26 @@ const AboutSection = () => {
           <h3 className="mb-10 text-center font-display text-lg font-bold">Notre Approche</h3>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {[
-              { num: "01", title: "Prévention", desc: "Plans de maintenance structurés pour limiter les interruptions et prolonger la durée de vie des équipements." },
-              { num: "02", title: "Performance", desc: "Optimisation des systèmes techniques pour garantir un fonctionnement fiable et efficace." },
-              { num: "03", title: "Transparence", desc: "Reporting clair, suivi des interventions, communication structurée avec nos clients." },
-              { num: "04", title: "Sécurité", desc: "Respect strict des réglementations locales et des standards techniques en vigueur aux EAU." },
+              {
+                num: "01",
+                title: "Prévention",
+                desc: "Plans de maintenance structurés pour limiter les interruptions et prolonger la durée de vie des équipements.",
+              },
+              {
+                num: "02",
+                title: "Performance",
+                desc: "Optimisation des systèmes techniques pour garantir un fonctionnement fiable et efficace.",
+              },
+              {
+                num: "03",
+                title: "Transparence",
+                desc: "Reporting clair, suivi des interventions, communication structurée avec nos clients.",
+              },
+              {
+                num: "04",
+                title: "Sécurité",
+                desc: "Respect strict des réglementations locales et des standards techniques en vigueur aux EAU.",
+              },
             ].map((item, i) => (
               <motion.div
                 key={item.title}
