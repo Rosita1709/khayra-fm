@@ -153,7 +153,7 @@ const Produits = () => {
       gallery: [sandwichPanel1, sandwichPanel2, sandwichPanel3],
     },
     {
-      img: villaReno1,
+      img: saadiyatProject,
       title: t("Rénovation Complète Appartement : Saadiyat Island", "Full Apartment Renovation : Saadiyat Island"),
       location: "Saadiyat Island, Abu Dhabi",
       year: "2024",
