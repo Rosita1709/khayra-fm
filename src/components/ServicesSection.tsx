@@ -61,6 +61,16 @@ const services = [
     shortEn: "Energy cost reduction and performance improvement.",
     highlights: ["LED Conversion", "Energy Audit", "Smart Controls"],
   },
+  {
+    icon: SprayCan,
+    slug: "nettoyage",
+    img: productCleaning,
+    titleFr: "Nettoyage Industriel & Vitres",
+    titleEn: "Industrial & Window Cleaning",
+    shortFr: "Services complets de nettoyage industriel et de vitres pour tous types d'environnements.",
+    shortEn: "Complete industrial and window cleaning services for all types of environments.",
+    highlights: ["Deep Cleaning", "Window Cleaning", "Maintenance"],
+  },
 ];
 
 const ServicesSection = () => {
