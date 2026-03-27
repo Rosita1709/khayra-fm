@@ -100,6 +100,15 @@ const APropos = () => {
         "Energy audit, consumption reduction, technical performance improvement and equipment sustainability.",
       ),
     },
+    {
+      icon: SprayCan,
+      img: productCleaning,
+      title: t("Nettoyage Industriel & Vitres", "Industrial & Window Cleaning"),
+      desc: t(
+        "Services complets de nettoyage industriel et de nettoyage de vitres pour environnements résidentiels, commerciaux et industriels.",
+        "Complete industrial and window cleaning services for residential, commercial and industrial environments.",
+      ),
+    },
   ];
 
   const pillars = [
