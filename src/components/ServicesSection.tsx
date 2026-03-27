@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Wind, Zap, Wrench, Paintbrush, Lightbulb, ArrowRight } from "lucide-react";
+import { Wind, Zap, Wrench, Paintbrush, Lightbulb, SprayCan, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 
