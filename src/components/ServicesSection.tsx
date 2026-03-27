@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Wind, Zap, Wrench, Paintbrush, Lightbulb, ArrowRight } from "lucide-react";
+import { Wind, Zap, Wrench, Paintbrush, Lightbulb, SprayCan, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -8,6 +8,7 @@ import productMep from "@/assets/product-mep.webp";
 import productCivil from "@/assets/product-civil.webp";
 import productInterior from "@/assets/product-interior.webp";
 import productEnergy from "@/assets/product-energy.webp";
+import productCleaning from "@/assets/product-cleaning.jpg";
 
 const services = [
   {
@@ -59,6 +60,16 @@ const services = [
     shortFr: "Réduction des coûts énergétiques et amélioration des performances.",
     shortEn: "Energy cost reduction and performance improvement.",
     highlights: ["LED Conversion", "Energy Audit", "Smart Controls"],
+  },
+  {
+    icon: SprayCan,
+    slug: "nettoyage",
+    img: productCleaning,
+    titleFr: "Nettoyage Industriel & Vitres",
+    titleEn: "Industrial & Window Cleaning",
+    shortFr: "Services complets de nettoyage industriel et de vitres pour tous types d'environnements.",
+    shortEn: "Complete industrial and window cleaning services for all types of environments.",
+    highlights: ["Deep Cleaning", "Window Cleaning", "Maintenance"],
   },
 ];
 

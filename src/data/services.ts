@@ -1,4 +1,4 @@
-import { Wind, Zap, Wrench, Paintbrush, Lightbulb } from "lucide-react";
+import { Wind, Zap, Wrench, Paintbrush, Lightbulb, SprayCan } from "lucide-react";
 
 export interface ServiceSubSection {
   title: string;
@@ -326,6 +326,47 @@ export const servicesData: ServiceData[] = [
       "Prolongation de la durée de vie des équipements",
       "Diminution de l'empreinte énergétique",
       "Valorisation de l'actif immobilier",
+    ],
+  },
+  {
+    slug: "nettoyage",
+    icon: SprayCan,
+    title: "Nettoyage Industriel & Vitres",
+    titleEn: "Industrial & Window Cleaning",
+    intro: "Khayra Facility Management propose des services complets de nettoyage industriel et de nettoyage de vitres, adaptés aux environnements résidentiels, commerciaux et industriels. Notre objectif est de garantir des espaces propres, sûrs et valorisés, tout en respectant les exigences opérationnelles de chaque site.",
+    color: "from-cyan-500/20 to-teal-500/20",
+    sections: [
+      {
+        title: "Nettoyage Industriel",
+        intro: "Nous intervenons avec des équipes formées et des méthodes adaptées aux contraintes techniques :",
+        items: [
+          "Nettoyage en profondeur des entrepôts, usines et ateliers",
+          "Dépoussiérage et dégraissage des surfaces techniques",
+          "Nettoyage des sols, murs, plafonds et zones difficiles d'accès",
+          "Entretien des locaux techniques et zones de service",
+          "Nettoyage après travaux ou maintenance",
+          "Gestion des déchets et assainissement des espaces",
+        ],
+      },
+      {
+        title: "Nettoyage de Vitres",
+        intro: "Des solutions professionnelles pour tous types de vitrages :",
+        items: [
+          "Nettoyage intérieur et extérieur des vitrages",
+          "Nettoyage de façades vitrées et vitrines commerciales",
+          "Nettoyage des cloisons en verre (bureaux)",
+          "Entretien des cadres, rails et rebords",
+          "Intervention sur vitres en hauteur (selon accessibilité)",
+          "Nettoyage ponctuel ou contrat d'entretien régulier",
+        ],
+      },
+    ],
+    engagement: [
+      "Équipes formées et équipées",
+      "Produits professionnels et écologiques",
+      "Flexibilité : ponctuel ou contrat régulier",
+      "Respect des normes de sécurité",
+      "Résultat garanti et contrôle qualité",
     ],
   },
 ];
