@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import kfmLogo from "@/assets/kfm-logo.jpeg";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { Mail, Phone, MapPin, ArrowUpRight } from "lucide-react";
+import { Mail, Phone, MapPin } from "lucide-react";
 
 const Footer = () => {
   const { t } = useLanguage();
