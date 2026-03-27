@@ -4,7 +4,7 @@ import { ArrowLeft, ArrowRight, CheckCircle2, Phone, Mail } from "lucide-react";
 import { servicesData } from "@/data/services";
 import { useLanguage } from "@/contexts/LanguageContext";
 
-import productHvac from "@/assets/product-hvac.webp";
+import productHvac from "@/assets/hvac-detail-bg.png";
 import productMep from "@/assets/product-mep.webp";
 import productCivil from "@/assets/product-civil.webp";
 import productInterior from "@/assets/product-interior.webp";

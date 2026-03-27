@@ -7,7 +7,7 @@ import heroBg from "@/assets/hero-bg.webp";
 import ambassadeFrance1 from "@/assets/projects/ambassade-france-1.jpg";
 import embassyHvac from "@/assets/projects/embassy-hvac-diagnostic.jpg";
 import coldRoom from "@/assets/projects/cold-room-real.jpg";
-import vrfContainers from "@/assets/projects/vrf-containers.jpg";
+import vrfContainers from "@/assets/projects/vrv-installation.png";
 import villaReno1 from "@/assets/projects/villa-renovation-1.jpg";
 import villaReno2 from "@/assets/projects/villa-renovation-2.jpg";
 import villaReno3 from "@/assets/projects/villa-renovation-3.jpg";
@@ -17,6 +17,7 @@ import sandwichPanel1 from "@/assets/projects/sandwich-panel-1.jpg";
 import sandwichPanel2 from "@/assets/projects/sandwich-panel-2.jpg";
 import sandwichPanel3 from "@/assets/projects/sandwich-panel-3.jpg";
 import terrainSport from "@/assets/projects/terrain-sport.jpg";
+import saadiyatProject from "@/assets/projects/saadiyat-project.jpg";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 50 },
@@ -153,7 +154,7 @@ const Produits = () => {
       gallery: [sandwichPanel1, sandwichPanel2, sandwichPanel3],
     },
     {
-      img: villaReno1,
+      img: saadiyatProject,
       title: t("Rénovation Complète Appartement : Saadiyat Island", "Full Apartment Renovation : Saadiyat Island"),
       location: "Saadiyat Island, Abu Dhabi",
       year: "2024",
