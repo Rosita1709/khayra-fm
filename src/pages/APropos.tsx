@@ -26,6 +26,8 @@ import productMep from "@/assets/product-mep.webp";
 import productCivil from "@/assets/product-civil.webp";
 import productInterior from "@/assets/product-interior.webp";
 import productEnergy from "@/assets/product-energy.webp";
+import productCleaning from "@/assets/product-cleaning.jpg";
+import { SprayCan } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useRef } from "react";
 
