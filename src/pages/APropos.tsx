@@ -26,6 +26,8 @@ import productMep from "@/assets/product-mep.webp";
 import productCivil from "@/assets/product-civil.webp";
 import productInterior from "@/assets/product-interior.webp";
 import productEnergy from "@/assets/product-energy.webp";
+import productCleaning from "@/assets/product-cleaning.jpg";
+import { SprayCan } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useRef } from "react";
 
@@ -96,6 +98,15 @@ const APropos = () => {
       desc: t(
         "Audit énergétique, réduction des consommations, amélioration des performances techniques et durabilité des équipements.",
         "Energy audit, consumption reduction, technical performance improvement and equipment sustainability.",
+      ),
+    },
+    {
+      icon: SprayCan,
+      img: productCleaning,
+      title: t("Nettoyage Industriel & Vitres", "Industrial & Window Cleaning"),
+      desc: t(
+        "Services complets de nettoyage industriel et de nettoyage de vitres pour environnements résidentiels, commerciaux et industriels.",
+        "Complete industrial and window cleaning services for residential, commercial and industrial environments.",
       ),
     },
   ];
