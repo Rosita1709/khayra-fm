@@ -1,4 +1,4 @@
-import { Wind, Zap, Wrench, Paintbrush, Lightbulb } from "lucide-react";
+import { Wind, Zap, Wrench, Paintbrush, Lightbulb, SprayCan } from "lucide-react";
 
 export interface ServiceSubSection {
   title: string;
