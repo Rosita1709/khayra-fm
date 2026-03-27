@@ -7,7 +7,7 @@ import heroBg from "@/assets/hero-bg.webp";
 import ambassadeFrance1 from "@/assets/projects/ambassade-france-1.jpg";
 import embassyHvac from "@/assets/projects/embassy-hvac-diagnostic.jpg";
 import coldRoom from "@/assets/projects/cold-room-real.jpg";
-import vrfContainers from "@/assets/projects/vrf-containers.jpg";
+import vrfContainers from "@/assets/projects/vrv-installation.png";
 import villaReno1 from "@/assets/projects/villa-renovation-1.jpg";
 import villaReno2 from "@/assets/projects/villa-renovation-2.jpg";
 import villaReno3 from "@/assets/projects/villa-renovation-3.jpg";
