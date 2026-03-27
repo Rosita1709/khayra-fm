@@ -8,6 +8,7 @@ import productMep from "@/assets/product-mep.webp";
 import productCivil from "@/assets/product-civil.webp";
 import productInterior from "@/assets/product-interior.webp";
 import productEnergy from "@/assets/product-energy.webp";
+import productCleaning from "@/assets/product-cleaning.jpg";
 
 const services = [
   {
