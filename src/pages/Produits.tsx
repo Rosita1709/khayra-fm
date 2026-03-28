@@ -1,6 +1,7 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
-import { MapPin, Calendar, CheckCircle, ArrowRight, DollarSign, Clock } from "lucide-react";
+import { useState } from "react";
+import { MapPin, Calendar, CheckCircle, ArrowRight, DollarSign, Clock, ChevronLeft, ChevronRight } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import heroBg from "@/assets/hero-bg.webp";
 
