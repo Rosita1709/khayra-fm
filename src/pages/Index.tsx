@@ -31,6 +31,7 @@ const fadeUp = {
   }),
 };
 
+const scaleIn = {
   hidden: { opacity: 0, scale: 0.8 },
   visible: (i: number) => ({
     opacity: 1,
