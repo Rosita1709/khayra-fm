@@ -223,85 +223,90 @@ const Index = () => {
         </div>
       </section>
 
-      {/* ===== DES PROFESSIONNELS QUALIFIÉS ===== */}
+      {/* ===== POURQUOI CHOISIR KFM ===== */}
       <section className="py-28">
         <div className="container mx-auto px-6">
-          <div className="grid items-center gap-16 lg:grid-cols-2">
-            <motion.div
-              variants={fadeLeft}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-100px" }}
-              className="relative"
-            >
-              <div className="overflow-hidden rounded-3xl shadow-premium">
-                <motion.img
-                  src={aboutBg}
-                  alt={t("Équipe KFM", "KFM Team")}
-                  className="h-[500px] w-full object-cover"
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.7 }}
-                />
-              </div>
-            </motion.div>
+          <motion.div
+            variants={fadeUp}
+            custom={0}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="mb-16 text-center"
+          >
+            <span className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">
+              {t("Votre partenaire de confiance", "Your trusted partner")}
+            </span>
+            <h2 className="mt-4 font-display text-3xl font-bold md:text-4xl">
+              {t("Pourquoi choisir ", "Why choose ")}
+              <span className="text-gradient">KFM</span> ?
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
+              {t(
+                "Plus de 20 ans d'expérience, des équipes certifiées et une approche digitalisée pour une gestion optimale de vos installations aux Émirats.",
+                "Over 20 years of experience, certified teams and a digitalized approach for optimal management of your facilities in the UAE.",
+              )}
+            </p>
+          </motion.div>
 
-            <motion.div
-              variants={fadeRight}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-100px" }}
-            >
-              <span className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">
-                {t("À propos", "About")}
-              </span>
-              <h2 className="mt-4 font-display text-3xl font-bold md:text-4xl">
-                {t("Des professionnels qualifiés pour vos ", "Qualified professionals for your ")}
-                <span className="text-gradient">{t("travaux", "projects")}</span>
-              </h2>
-              <p className="mt-6 leading-relaxed text-muted-foreground">
-                {t(
-                  "KFM est votre partenaire de confiance pour des solutions complètes et innovantes en facility management. Fondée par M. Inadone Fall, un leader visionnaire avec plus de 15 ans d'expérience internationale.",
-                  "KFM is your trusted partner in delivering comprehensive and innovative facility management solutions. Founded by Mr. Inadone Fall, a visionary leader with over 15 years of international experience.",
-                )}
-              </p>
-              <p className="mt-4 leading-relaxed text-muted-foreground">
-                {t(
-                  "KFM offre une surveillance en temps réel des actifs grâce à la GMAO. Cela encourage la confiance, la croissance et des avantages durables pour nos parties prenantes.",
-                  "KFM provides real-time asset monitoring through CMMS. This fosters trust, growth, and sustainable benefits for our stakeholders.",
-                )}
-              </p>
-              <ul className="mt-6 space-y-3">
-                {[
-                  t(
-                    "Maintenance préventive et curative des équipements",
-                    "Preventive and corrective equipment maintenance",
-                  ),
-                  t("Gestion des installations techniques", "Technical facilities management"),
-                  t("Gestion des espaces de travail", "Workspace management"),
-                ].map((item, i) => (
-                  <motion.li
-                    key={item}
-                    custom={i}
-                    variants={fadeUp}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true }}
-                    className="flex items-center gap-3"
-                  >
-                    <CheckCircle className="h-5 w-5 flex-shrink-0 text-primary" />
-                    <span className="text-sm">{item}</span>
-                  </motion.li>
-                ))}
-              </ul>
-              <Link
-                to="/a-propos"
-                className="mt-8 inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3 font-display text-sm font-semibold text-primary-foreground transition-all hover:glow hover:-translate-y-0.5"
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              {
+                icon: Award,
+                title: t("20+ ans d'expérience", "20+ years of experience"),
+                desc: t("Un savoir-faire éprouvé dans le facility management à l'international.", "Proven expertise in facility management internationally."),
+              },
+              {
+                icon: Shield,
+                title: t("Qualité garantie", "Guaranteed quality"),
+                desc: t("Techniciens certifiés, équipements professionnels et normes strictes.", "Certified technicians, professional equipment and strict standards."),
+              },
+              {
+                icon: Clock,
+                title: t("Réactivité 24/7", "24/7 Responsiveness"),
+                desc: t("Intervention rapide et support continu pour vos urgences.", "Fast intervention and continuous support for your emergencies."),
+              },
+              {
+                icon: Headphones,
+                title: t("Suivi digitalisé", "Digitalized tracking"),
+                desc: t("GMAO intégrée pour un suivi en temps réel de toutes les interventions.", "Integrated CMMS for real-time tracking of all interventions."),
+              },
+            ].map((item, i) => (
+              <motion.div
+                key={item.title}
+                custom={i}
+                variants={scaleIn}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                whileHover={{ y: -10, transition: { duration: 0.3 } }}
+                className="group rounded-2xl border border-border bg-card p-8 text-center transition-all duration-500 hover:shadow-xl hover:shadow-primary/10 hover:border-primary/30"
               >
-                {t("En savoir plus", "Learn more")}
-                <ArrowRight className="h-4 w-4" />
-              </Link>
-            </motion.div>
+                <div className="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-2xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+                  <item.icon className="h-8 w-8" />
+                </div>
+                <h3 className="font-display text-lg font-semibold">{item.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{item.desc}</p>
+              </motion.div>
+            ))}
           </div>
+
+          <motion.div
+            variants={fadeUp}
+            custom={2}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="mt-12 text-center"
+          >
+            <Link
+              to="/a-propos"
+              className="group inline-flex items-center gap-2 rounded-xl bg-primary px-8 py-4 font-display text-sm font-semibold text-primary-foreground transition-all hover:glow hover:-translate-y-0.5"
+            >
+              {t("Découvrir KFM", "Discover KFM")}
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </Link>
+          </motion.div>
         </div>
       </section>
 
