@@ -24,8 +24,120 @@ const fadeUp = {
   hidden: { opacity: 0, y: 50 },
   visible: (i: number) => ({ opacity: 1, y: 0, transition: { duration: 0.6, delay: i * 0.12 } }),
 };
+const ProjectCard = ({ project, index: i, t }: { project: any; index: number; t: (fr: string, en: string) => string }) => {
+  const images = project.gallery || [project.img];
+  const [currentImg, setCurrentImg] = useState(0);
 
-const Produits = () => {
+  const next = () => setCurrentImg((prev: number) => (prev + 1) % images.length);
+  const prev = () => setCurrentImg((prev: number) => (prev - 1 + images.length) % images.length);
+
+  return (
+    <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true, margin: "-80px" }} transition={{ duration: 0.5 }}
+      className="grid items-center gap-12 lg:grid-cols-2">
+      {/* Image with carousel */}
+      <motion.div initial={{ opacity: 0, x: i % 2 === 0 ? -60 : 60 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: "-80px" }} transition={{ duration: 0.8, ease: "easeOut" }}
+        className={`relative group overflow-hidden rounded-2xl shadow-xl ${i % 2 === 1 ? "lg:order-2" : ""}`}>
+        <div className="relative h-[420px]">
+          <AnimatePresence mode="wait">
+            <motion.img
+              key={currentImg}
+              src={images[currentImg]}
+              alt={project.title}
+              className="h-full w-full object-cover absolute inset-0"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.4 }}
+            />
+          </AnimatePresence>
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 via-transparent to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 p-6">
+          <motion.span className="inline-block rounded-full bg-primary px-3 py-1 text-xs font-semibold text-primary-foreground"
+            initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.3 }}>
+            {project.category}
+          </motion.span>
+        </div>
+        <motion.div initial={{ opacity: 0, scale: 0.8 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.4 }}
+          className="absolute top-4 right-4 rounded-xl bg-card/95 backdrop-blur-sm border border-border px-4 py-2 shadow-lg">
+          <div className="flex items-center gap-2 text-xs font-semibold text-primary">
+            <CheckCircle className="h-3.5 w-3.5" />
+            {t("Terminé", "Completed")}
+          </div>
+        </motion.div>
+
+        {/* Navigation arrows */}
+        {images.length > 1 && (
+          <>
+            <button onClick={prev} className="absolute left-3 top-1/2 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full bg-card/80 backdrop-blur-sm border border-border text-foreground shadow-lg opacity-0 group-hover:opacity-100 transition-opacity hover:bg-card">
+              <ChevronLeft className="h-5 w-5" />
+            </button>
+            <button onClick={next} className="absolute right-3 top-1/2 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full bg-card/80 backdrop-blur-sm border border-border text-foreground shadow-lg opacity-0 group-hover:opacity-100 transition-opacity hover:bg-card">
+              <ChevronRight className="h-5 w-5" />
+            </button>
+            {/* Dots */}
+            <div className="absolute bottom-16 left-1/2 -translate-x-1/2 flex gap-1.5">
+              {images.map((_: string, idx: number) => (
+                <button key={idx} onClick={() => setCurrentImg(idx)}
+                  className={`h-2 rounded-full transition-all ${idx === currentImg ? "w-6 bg-primary" : "w-2 bg-background/60"}`} />
+              ))}
+            </div>
+          </>
+        )}
+      </motion.div>
+
+      {/* Content */}
+      <motion.div initial={{ opacity: 0, x: i % 2 === 0 ? 60 : -60 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: "-80px" }} transition={{ duration: 0.8, ease: "easeOut" }}
+        className={i % 2 === 1 ? "lg:order-1" : ""}>
+        <div className="flex flex-wrap items-center gap-3 text-xs text-muted-foreground mb-3">
+          <span className="flex items-center gap-1.5"><MapPin className="h-3.5 w-3.5 text-primary" />{project.location}</span>
+          <span className="flex items-center gap-1.5"><Calendar className="h-3.5 w-3.5 text-primary" />{project.year}</span>
+          {project.value && (
+            <span className="flex items-center gap-1.5"><DollarSign className="h-3.5 w-3.5 text-primary" />{project.value}</span>
+          )}
+          {project.duration && (
+            <span className="flex items-center gap-1.5"><Clock className="h-3.5 w-3.5 text-primary" />{project.duration}</span>
+          )}
+        </div>
+        <h2 className="font-display text-2xl font-bold md:text-3xl">{project.title}</h2>
+        {project.client && (
+          <p className="mt-1 text-sm font-medium text-primary">{t("Client : ", "Client: ")}{project.client}</p>
+        )}
+        <p className="mt-4 leading-relaxed text-muted-foreground">{project.desc}</p>
+        <div className="mt-6">
+          <h4 className="text-sm font-semibold uppercase tracking-wider text-primary mb-3">{t("Périmètre du projet", "Project scope")}</h4>
+          <ul className="space-y-2">
+            {project.scope.map((item: string, j: number) => (
+              <motion.li key={item} custom={j} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="flex items-start gap-2.5 text-sm">
+                <ArrowRight className="h-4 w-4 mt-0.5 flex-shrink-0 text-primary" />{item}
+              </motion.li>
+            ))}
+          </ul>
+        </div>
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.3 }}
+          className="mt-6 rounded-xl border border-primary/20 bg-primary/5 px-5 py-3">
+          <div className="flex items-center gap-2">
+            <CheckCircle className="h-4 w-4 text-primary flex-shrink-0" />
+            <span className="text-sm font-semibold">{project.result}</span>
+          </div>
+        </motion.div>
+
+        {/* Gallery thumbnails */}
+        {images.length > 1 && (
+          <div className="mt-4 flex gap-2 overflow-x-auto pb-1">
+            {images.map((img: string, gi: number) => (
+              <motion.img key={gi} src={img} alt="" onClick={() => setCurrentImg(gi)}
+                className={`h-16 w-20 rounded-lg object-cover border-2 flex-shrink-0 cursor-pointer transition-all ${gi === currentImg ? "border-primary shadow-md" : "border-border hover:border-primary/50"}`}
+                whileHover={{ scale: 1.05 }} />
+            ))}
+          </div>
+        )}
+      </motion.div>
+    </motion.div>
+  );
+};
+
+
   const { t } = useLanguage();
 
   const projects = [
