@@ -177,7 +177,7 @@ const Produits = () => {
   const stats = [
     { value: "150+", label: t("Projets Réalisés", "Completed Projects") },
     { value: "98%", label: t("Clients Satisfaits", "Satisfied Clients") },
-    { value: "15+", label: t("Années d'Expérience", "Years of Experience") },
+    { value: "20+", label: t("Années d'Expérience", "Years of Experience") },
     { value: "35%", label: t("Économie Moyenne", "Average Savings") },
   ];
 
