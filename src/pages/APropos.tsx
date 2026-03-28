@@ -227,7 +227,7 @@ const APropos = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero with parallax */}
-      <section ref={heroRef} className="relative py-32 overflow-hidden min-h-[55vh] flex items-center">
+      <section ref={heroRef} className="relative py-20 overflow-hidden min-h-[40vh] flex items-center">
         <motion.div className="absolute inset-0" style={{ y: heroY }}>
           <motion.img
             src={heroImg}

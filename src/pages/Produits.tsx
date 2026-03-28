@@ -184,7 +184,7 @@ const Produits = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero */}
-      <section className="relative py-32 overflow-hidden min-h-[50vh] flex items-center">
+      <section className="relative py-20 overflow-hidden min-h-[40vh] flex items-center">
         <div className="absolute inset-0">
           <motion.img src={heroBg} alt="" className="h-full w-full object-cover" initial={{ scale: 1.15 }} animate={{ scale: 1 }} transition={{ duration: 1.5, ease: "easeOut" }} />
           <div className="absolute inset-0 bg-background/80 backdrop-blur-[2px]" />
