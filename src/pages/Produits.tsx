@@ -137,7 +137,7 @@ const ProjectCard = ({ project, index: i, t }: { project: any; index: number; t:
   );
 };
 
-
+const Produits = () => {
   const { t } = useLanguage();
 
   const projects = [
