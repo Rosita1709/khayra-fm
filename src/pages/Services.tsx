@@ -42,7 +42,7 @@ const Services = () => {
     <div className="min-h-screen bg-background">
 
       {/* Hero — same style as Produits */}
-      <section className="relative py-32 overflow-hidden min-h-[50vh] flex items-center">
+      <section className="relative py-20 overflow-hidden min-h-[40vh] flex items-center">
         <div className="absolute inset-0">
           <motion.img
             src={servicesBg}

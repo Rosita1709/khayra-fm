@@ -15,7 +15,7 @@ const Contact = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero with background */}
-      <section className="relative py-32 overflow-hidden min-h-[45vh] flex items-center">
+      <section className="relative py-20 overflow-hidden min-h-[35vh] flex items-center">
         <div className="absolute inset-0">
           <motion.img
             src={ctaBg}
