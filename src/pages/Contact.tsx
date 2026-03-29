@@ -1,10 +1,60 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Send, Clock, Shield } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import ctaBg from "@/assets/cta-bg.jpg";
 
+
+interface FormData {
+  nom: string;
+  email: string;
+  sujet: string;
+  message: string;
+}
+
+type Status = null | "loading" | "success" | "error";
+
 const Contact = () => {
   const { t } = useLanguage();
+
+
+
+  const [form, setForm] = useState<FormData>({
+    nom: "",
+    email: "",
+    sujet: "",
+    message: "",
+  });
+
+  const [status, setStatus] = useState<Status>(null);
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus("loading");
+
+    try {
+      const res = await fetch("http://localhost:3000/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      const data = await res.json();
+      if (data.success) {
+        setStatus("success");
+        setForm({ nom: "", email: "", sujet: "", message: "" });
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
+  };
 
   const features = [
     { icon: Clock, text: t("Réponse sous 24h", "Response within 24h") },
@@ -21,6 +71,7 @@ const Contact = () => {
             src={ctaBg}
             alt=""
             className="h-full w-full object-cover"
+
             initial={{ scale: 1.15 }}
             animate={{ scale: 1 }}
             transition={{ duration: 1.5, ease: "easeOut" }}
@@ -171,41 +222,63 @@ const Contact = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.2 }}
               className="relative space-y-5 rounded-2xl border border-border bg-card p-8 shadow-lg overflow-hidden"
-              onSubmit={(e) => e.preventDefault()}
+              onSubmit={handleSubmit}
             >
               {/* Background decoration */}
               <div className="absolute -top-20 -right-20 h-40 w-40 rounded-full bg-primary/5 blur-[60px]" />
               <div className="grid relative gap-5 sm:grid-cols-2">
                 <motion.div initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.3 }}>
                   <label className="mb-2 block text-sm font-medium text-muted-foreground">{t("Nom", "Name")}</label>
-                  <input type="text" placeholder={t("Votre nom", "Your name")} className="w-full rounded-lg border border-border bg-muted px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground/50 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-all" />
+                  <input type="text" name="nom" value={form.nom} onChange={handleChange} required placeholder={t("Votre nom", "Your name")} className="w-full rounded-lg border border-border bg-muted px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground/50 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-all" />
                 </motion.div>
                 <motion.div initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.4 }}>
                   <label className="mb-2 block text-sm font-medium text-muted-foreground">Email</label>
-                  <input type="email" placeholder={t("votre@email.com", "your@email.com")} className="w-full rounded-lg border border-border bg-muted px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground/50 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-all" />
+                  <input type="email" name="email" value={form.email} onChange={handleChange} required placeholder={t("votre@email.com", "your@email.com")} className="w-full rounded-lg border border-border bg-muted px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground/50 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-all" />
                 </motion.div>
               </div>
               <motion.div className="relative" initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.5 }}>
                 <label className="mb-2 block text-sm font-medium text-muted-foreground">{t("Sujet", "Subject")}</label>
-                <input type="text" placeholder={t("Sujet de votre message", "Subject of your message")} className="w-full rounded-lg border border-border bg-muted px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground/50 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-all" />
+                <input type="text" name="sujet" value={form.sujet} onChange={handleChange} required placeholder={t("Sujet de votre message", "Subject of your message")} className="w-full rounded-lg border border-border bg-muted px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground/50 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-all" />
               </motion.div>
               <motion.div className="relative" initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.6 }}>
                 <label className="mb-2 block text-sm font-medium text-muted-foreground">Message</label>
-                <textarea rows={5} placeholder={t("Décrivez votre projet...", "Describe your project...")} className="w-full resize-none rounded-lg border border-border bg-muted px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground/50 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-all" />
+                <textarea name="message" value={form.message} onChange={handleChange} rows={5} placeholder={t("Décrivez votre projet...", "Describe your project...")} className="w-full resize-none rounded-lg border border-border bg-muted px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground/50 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-all" />
               </motion.div>
+
+              {status === "success" && (
+                <motion.p
+                  initial={{ opacity: 0, y: 5 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="text-center text-sm text-green-500"
+                >
+                  {t("Message envoyé avec succès !", "Message sent successfully!")}
+                </motion.p>
+              )}
+              {status === "error" && (
+                <motion.p
+                  initial={{ opacity: 0, y: 5 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="text-center text-sm text-red-500"
+                >
+                  {t("Erreur lors de l'envoi.", "Error sending message.")}
+                </motion.p>
+              )}
               <motion.button
                 type="submit"
-                className="relative w-full rounded-lg bg-primary py-3.5 font-display text-sm font-semibold text-primary-foreground transition-all hover:glow hover:bg-primary/90"
+                disabled={status === "loading"}
+                className="relative w-full rounded-lg bg-primary py-3.5 font-display text-sm font-semibold text-primary-foreground transition-all hover:glow hover:bg-primary/90 disabled:opacity-60 disabled:cursor-not-allowed"
                 initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.7 }}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
+                whileHover={{ scale: status === "loading" ? 1 : 1.02 }}
+                whileTap={{ scale: status === "loading" ? 1 : 0.98 }}
               >
                 <span className="flex items-center justify-center gap-2">
                   <Send className="h-4 w-4" />
-                  {t("Envoyer le message", "Send message")}
+                  {status === "loading"
+                    ? t("Envoi en cours...", "Sending...")
+                    : t("Envoyer le message", "Send message")}
                 </span>
               </motion.button>
             </motion.form>
