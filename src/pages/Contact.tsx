@@ -203,7 +203,7 @@ const Contact = () => {
                 className="mt-10 overflow-hidden rounded-2xl border border-border shadow-lg"
               >
                 <iframe
-                  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=Corniche+Building,+Al+Hisn,+Abu+Dhabi,+UAE&zoom=16"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3631.2!2d54.3475!3d24.4935!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5e440f723ef2b7%3A0x5c0987abbb484849!2sAl%20Hisn%2C%20Abu%20Dhabi%20-%20United%20Arab%20Emirates!5e0!3m2!1sen!2s!4v1700000000000!5m2!1sen!2s"
                   width="100%"
                   height="220"
                   style={{ border: 0 }}
