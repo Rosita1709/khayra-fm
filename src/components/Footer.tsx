@@ -20,6 +20,7 @@ const Footer = () => {
     { to: "/services/travaux-civils", label: t("Travaux Civils", "Civil Works") },
     { to: "/services/design-interieur", label: t("Design Intérieur", "Interior Design") },
     { to: "/services/energy-saving", label: "Energy Saving" },
+    { to: "/services/nettoyage", label: t("Nettoyage Industriel & Vitres", "Industrial & Window Cleaning") },
   ];
 
   return (
