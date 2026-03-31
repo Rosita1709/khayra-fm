@@ -83,7 +83,7 @@ const AboutSection = () => {
               réglementaires. Grâce à notre approche axée sur la qualité et le service client, KFM est reconnue pour son
               professionnalisme et sa capacité à offrir une excellence opérationnelle.
             </p>
-            <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
+            <p className="mt-4 leading-relaxed text-muted-foreground">
               Que ce soit pour des entreprises, des institutions publiques, des centres commerciaux ou d'autres
               organisations, KFM est un partenaire fiable et de confiance pour la gestion complète et efficace des
               installations aux Émirats Arabes Unis.
