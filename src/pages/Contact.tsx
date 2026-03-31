@@ -203,7 +203,7 @@ const Contact = () => {
                 className="mt-10 overflow-hidden rounded-2xl border border-border shadow-lg"
               >
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3631.8!2d54.35!3d24.49!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjTCsDI5JzI0LjAiTiA1NMKwMjEnMDAuMCJF!5e0!3m2!1sen!2sae!4v1"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3631.5!2d54.3489!3d24.4928!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5e665e1b5b5b5b%3A0x1b5b5b5b5b5b5b5b!2sCorniche%20Building%2C%20Al%20Hisn%2C%20Abu%20Dhabi!5e0!3m2!1sen!2sae!4v1"
                   width="100%"
                   height="220"
                   style={{ border: 0 }}
