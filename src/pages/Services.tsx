@@ -167,9 +167,9 @@ const Services = () => {
                     {service.sections.slice(0, 3).map((s) => (
                       <span
                         key={s.title}
-                        className="rounded-full bg-primary/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-wider text-primary"
+                        className="rounded-full bg-primary/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-primary"
                       >
-                        {s.title.split(" ").slice(0, 2).join(" ")}
+                        {s.title}
                       </span>
                     ))}
                   </div>
