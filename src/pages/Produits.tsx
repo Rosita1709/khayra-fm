@@ -51,6 +51,18 @@ const ProjectCard = ({ project, index: i, t }: { project: any; index: number; t:
               transition={{ duration: 0.4 }}
             />
           </AnimatePresence>
+          {/* Before/After label */}
+          {beforeCount > 0 && (
+            <div className="absolute top-4 left-4 z-10">
+              <span className={`rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-wider shadow-lg ${
+                currentImg < beforeCount
+                  ? "bg-amber-500 text-white"
+                  : "bg-emerald-500 text-white"
+              }`}>
+                {currentImg < beforeCount ? t("Avant", "Before") : t("Après", "After")}
+              </span>
+            </div>
+          )}
         </div>
         <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 via-transparent to-transparent" />
         <div className="absolute bottom-0 left-0 right-0 p-6">
