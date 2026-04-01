@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import {
-  ShieldCheck, Settings, ClipboardCheck, Headphones, ArrowRight, CheckCircle, Star,
+  ShieldCheck, Settings, ClipboardCheck, Headphones, ArrowRight, CheckCircle,
 } from "lucide-react";
 import { servicesData } from "@/data/services";
 import { useLanguage } from "@/contexts/LanguageContext";
