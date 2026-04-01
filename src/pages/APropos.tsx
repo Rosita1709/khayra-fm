@@ -467,7 +467,7 @@ const APropos = () => {
                   "KFM's main objective is to ensure the smooth operation of its clients' facilities, ensuring they are optimally maintained, secure, and compliant with regulatory standards.",
                 )}
               </p>
-              <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
+              <p className="mt-4 leading-relaxed text-muted-foreground">
                 {t(
                   "Que ce soit pour des entreprises, des institutions publiques, des centres commerciaux ou d'autres organisations, KFM est un partenaire fiable pour la gestion complète des installations.",
                   "Whether for businesses, public institutions, shopping centers, or other organizations, KFM is a reliable partner for complete facility management.",
