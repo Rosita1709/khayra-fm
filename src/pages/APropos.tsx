@@ -461,7 +461,7 @@ const APropos = () => {
                 {t("Excellence ", "Operational ")}
                 <span className="text-gradient">{t("opérationnelle", "Excellence")}</span>
               </h2>
-              <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
+              <p className="mt-6 leading-relaxed text-muted-foreground">
                 {t(
                   "L'objectif principal de KFM est d'assurer le bon fonctionnement des installations de ses clients, en veillant à ce qu'elles soient entretenues de manière optimale, sécurisées et conformes aux normes réglementaires.",
                   "KFM's main objective is to ensure the smooth operation of its clients' facilities, ensuring they are optimally maintained, secure, and compliant with regulatory standards.",
