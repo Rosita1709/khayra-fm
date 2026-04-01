@@ -154,7 +154,11 @@ const ServiceDetail = () => {
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true }}
-                        className="flex items-start gap-3 text-sm group"
+                        className={`flex items-start gap-3 text-sm group ${
+                          section.items.length % 2 !== 0 && j === section.items.length - 1
+                            ? "sm:col-span-2"
+                            : ""
+                        }`}
                       >
                         <ArrowRight className="mt-0.5 h-4 w-4 flex-shrink-0 text-primary transition-transform group-hover:translate-x-1" />
                         <span className="text-muted-foreground">{item}</span>
