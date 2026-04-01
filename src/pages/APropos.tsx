@@ -344,12 +344,12 @@ const APropos = () => {
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
               <h2 className="font-display text-3xl font-bold md:text-4xl">
-                KFM Khayra <span className="text-gradient">Facilities Management</span>
+                KFM - <span className="text-gradient">Khayra Facilities Management</span>
               </h2>
               <p className="mt-6 leading-relaxed text-muted-foreground">
                 {t(
-                  "KFM Khayra Facilities Management est une société spécialisée en Facility Management basée à Abu Dhabi, aux Émirats Arabes Unis. Fondée par M. Inadone Fall, un leader visionnaire avec plus de 20 ans d'expérience internationale, KFM a été créée avec la mission de transformer la gestion des installations grâce à la technologie, l'efficacité et une approche centrée sur le client.",
-                  "KFM Khayra Facilities Management is a company specializing in Facility Management based in Abu Dhabi, UAE. Founded by Mr. Inadone Fall, a visionary leader with over 20 years of international experience, KFM was established with the mission of transforming the way facilities are managed through technology, efficiency, and a client-centric approach.",
+                  "KFM est une société spécialisée en Facility Management basée à Abu Dhabi, aux Émirats Arabes Unis. Fondée par M. Inadone Fall, un leader visionnaire avec plus de 20 ans d'expérience internationale, KFM a été créée avec la mission de transformer la gestion des installations grâce à la technologie, l'efficacité et une approche centrée sur le client.",
+                  "KFM is a company specializing in Facility Management based in Abu Dhabi, UAE. Founded by Mr. Inadone Fall, a visionary leader with over 20 years of international experience, KFM was established with the mission of transforming the way facilities are managed through technology, efficiency, and a client-centric approach.",
                 )}
               </p>
               <p className="mt-4 leading-relaxed text-muted-foreground">
@@ -461,13 +461,13 @@ const APropos = () => {
                 {t("Excellence ", "Operational ")}
                 <span className="text-gradient">{t("opérationnelle", "Excellence")}</span>
               </h2>
-              <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
+              <p className="mt-6 leading-relaxed text-muted-foreground">
                 {t(
                   "L'objectif principal de KFM est d'assurer le bon fonctionnement des installations de ses clients, en veillant à ce qu'elles soient entretenues de manière optimale, sécurisées et conformes aux normes réglementaires.",
                   "KFM's main objective is to ensure the smooth operation of its clients' facilities, ensuring they are optimally maintained, secure, and compliant with regulatory standards.",
                 )}
               </p>
-              <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
+              <p className="mt-4 leading-relaxed text-muted-foreground">
                 {t(
                   "Que ce soit pour des entreprises, des institutions publiques, des centres commerciaux ou d'autres organisations, KFM est un partenaire fiable pour la gestion complète des installations.",
                   "Whether for businesses, public institutions, shopping centers, or other organizations, KFM is a reliable partner for complete facility management.",
