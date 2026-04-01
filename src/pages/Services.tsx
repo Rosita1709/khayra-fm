@@ -161,7 +161,7 @@ const Services = () => {
                       <Icon className="h-6 w-6 text-primary" />
                     </motion.div>
 
-                    {/* Bottom label */}
+                     {/* Bottom label */}
                     <div className="absolute bottom-0 left-0 right-0 p-6">
                       <motion.div
                         className="inline-flex items-center gap-2 rounded-full bg-primary/90 backdrop-blur-sm px-4 py-2 shadow-lg"
@@ -170,7 +170,7 @@ const Services = () => {
                         viewport={{ once: true }}
                         transition={{ delay: 0.4 }}
                       >
-                        <Star className="h-3.5 w-3.5 text-primary-foreground fill-primary-foreground" />
+                        <Icon className="h-3.5 w-3.5 text-primary-foreground" />
                         <span className="text-xs font-semibold text-primary-foreground tracking-wide">
                           {t(service.title, service.titleEn)}
                         </span>
