@@ -8,7 +8,10 @@ import Contact from './contact.model.js';
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.use(cors());
+app.use(cors({
+  origin: 'https://www.khayrafm.com',
+  methods: ['POST'],
+}));
 app.use(express.json());
 
 // Connexion DB + démarrage serveur
