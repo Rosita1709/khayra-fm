@@ -203,7 +203,7 @@ const Contact = () => {
                 className="mt-10 overflow-hidden rounded-2xl border border-border shadow-lg"
               >
                 <iframe
-                  src="https://maps.google.com/maps?q=24.4900,54.3500&t=&z=18&ie=UTF8&iwloc=&output=embed"
+                  src="https://maps.google.com/maps?q=24.4867,54.3544&t=&z=18&ie=UTF8&iwloc=&output=embed"
                   width="100%"
                   height="220"
                   style={{ border: 0 }}
