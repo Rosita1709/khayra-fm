@@ -22,7 +22,7 @@ app.use(cors({
 }));
 
 
-app.options('*', cors());
+app.options('/{*path}', cors());
 
 app.use(express.json());
 
