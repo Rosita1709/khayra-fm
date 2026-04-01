@@ -26,6 +26,7 @@ const fadeUp = {
 };
 const ProjectCard = ({ project, index: i, t }: { project: any; index: number; t: (fr: string, en: string) => string }) => {
   const images = project.gallery || [project.img];
+  const beforeCount = project.beforeCount || 0;
   const [currentImg, setCurrentImg] = useState(0);
 
   const next = () => setCurrentImg((prev: number) => (prev + 1) % images.length);
