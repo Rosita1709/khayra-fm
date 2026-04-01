@@ -222,6 +222,7 @@ const Produits = () => {
       ],
       result: t("Apparence premium restaurée : Durée de vie prolongée", "Restored premium appearance and extended lifecycle"),
       gallery: [villaReno1, villaReno2, villaReno3, villaReno4, villaReno5],
+      beforeCount: 2,
     },
     {
       img: terrainSport,
