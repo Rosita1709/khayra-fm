@@ -10,7 +10,8 @@ const PORT = process.env.PORT || 3000;
 
 app.use(cors({
   origin: 'https://www.khayrafm.com',
-  methods: ['POST'],
+  methods: ['GET', 'POST', 'OPTIONS'],
+  allowedHeaders: ['Content-Type'],
 }));
 app.use(express.json());
 
