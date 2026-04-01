@@ -216,8 +216,7 @@ const Services = () => {
                   {/* Key points with cards */}
                   {service.sections[0]?.items?.length > 0 && (
                     <div className="mt-7">
-                      <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-4 flex items-center gap-2">
-                        <span className="h-px w-6 bg-primary" />
+                      <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-4">
                         {t("Points clés", "Key points")}
                       </h4>
                       <div className="grid gap-2.5 sm:grid-cols-2">
