@@ -164,7 +164,7 @@ const Index = () => {
             className="h-full w-full object-cover"
             initial={{ scale: 1.2, filter: "brightness(0.3)" }}
             animate={{ scale: 1, filter: "brightness(1)" }}
-            transition={{ duration: 2, ease: [0.25, 0.46, 0.45, 0.94] }}
+            transition={{ duration: 2, ease: "easeOut" }}
           />
           <div className="absolute inset-0 bg-gradient-to-r from-foreground/80 via-foreground/55 to-foreground/25" />
         </motion.div>
@@ -197,7 +197,7 @@ const Index = () => {
             <motion.h1
               initial={{ opacity: 0, y: 50, filter: "blur(8px)" }}
               animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-              transition={{ duration: 1, delay: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
+              transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
               className="font-display text-5xl font-bold leading-tight tracking-tight md:text-6xl text-background"
             >
               <motion.span
@@ -514,7 +514,7 @@ const Index = () => {
             initial={{ opacity: 0, y: 60, scale: 0.95 }}
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
             viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
             className="relative overflow-hidden rounded-3xl p-12 md:p-20 text-center"
           >
             <div className="absolute inset-0">
