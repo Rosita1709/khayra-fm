@@ -244,7 +244,7 @@ const Produits = () => {
       ],
       result: t("Apparence premium restaurée : Durée de vie prolongée", "Restored premium appearance and extended lifecycle"),
       gallery: [villaReno1, villaReno2, villaReno3, villaReno4, villaReno5],
-      beforeCount: 2,
+      beforeCount: 3,
     },
     {
       img: terrainSport,
@@ -287,7 +287,7 @@ const Produits = () => {
         t("Inspection et renforcement de la structure", "Structural inspection and reinforcement"),
       ],
       result: t("Efficacité thermique restaurée : Risques de fuite éliminés", "Restored thermal efficiency : Eliminated all water leakage risks"),
-      gallery: [sandwichPanel1, sandwichPanel2, sandwichPanel3],
+      gallery: [sandwichPanel2, sandwichPanel1, sandwichPanel3],
       beforeCount: 1,
     },
     {
