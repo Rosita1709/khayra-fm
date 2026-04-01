@@ -24,7 +24,7 @@ export const servicesData: ServiceData[] = [
     icon: Wind,
     title: "HVAC & Climatisation",
     titleEn: "HVAC & Air Conditioning",
-    intro: "Chez KFM, Khayra Facilities Management, nous proposons des solutions complètes en chauffage, ventilation et climatisation adaptées aux conditions climatiques exigeantes des Émirats Arabes Unis. Nos services couvrent l'ensemble du cycle de vie des systèmes HVAC : installation, maintenance, optimisation et amélioration de la qualité de l'air.",
+    intro: "Chez KFM, nous proposons des solutions complètes en chauffage, ventilation et climatisation adaptées aux conditions climatiques exigeantes des Émirats Arabes Unis. Nos services couvrent l'ensemble du cycle de vie des systèmes HVAC : installation, maintenance, optimisation et amélioration de la qualité de l'air.",
     color: "from-sky-500/20 to-blue-500/20",
     sections: [
       {
@@ -93,7 +93,7 @@ export const servicesData: ServiceData[] = [
     icon: Zap,
     title: "Électricité & Plomberie (MEP)",
     titleEn: "Electrical & Plumbing (MEP)",
-    intro: "Chez KFM, Khayra Facilities Management, nous assurons la gestion, l'installation et la maintenance des systèmes électriques et de plomberie essentiels au bon fonctionnement des bâtiments. Nos interventions respectent les normes techniques en vigueur aux Émirats Arabes Unis et garantissent sécurité, fiabilité et performance.",
+    intro: "Chez KFM, nous assurons la gestion, l'installation et la maintenance des systèmes électriques et de plomberie essentiels au bon fonctionnement des bâtiments. Nos interventions respectent les normes techniques en vigueur aux Émirats Arabes Unis et garantissent sécurité, fiabilité et performance.",
     color: "from-amber-500/20 to-orange-500/20",
     sections: [
       {
@@ -155,7 +155,7 @@ export const servicesData: ServiceData[] = [
     icon: Wrench,
     title: "Travaux Civils & Rénovation",
     titleEn: "Civil Works & Renovation",
-    intro: "Chez KFM, Khayra Facilities Management, nous réalisons des projets de rénovation et de travaux civils pour des villas, immeubles résidentiels, espaces commerciaux et installations techniques aux Émirats Arabes Unis. Nous intervenons avec une approche structurée, garantissant qualité d'exécution, respect des délais et conformité aux standards locaux.",
+    intro: "Chez KFM, nous réalisons des projets de rénovation et de travaux civils pour des villas, immeubles résidentiels, espaces commerciaux et installations techniques aux Émirats Arabes Unis. Nous intervenons avec une approche structurée, garantissant qualité d'exécution, respect des délais et conformité aux standards locaux.",
     color: "from-stone-500/20 to-zinc-500/20",
     sections: [
       {
@@ -226,7 +226,7 @@ export const servicesData: ServiceData[] = [
     icon: Paintbrush,
     title: "Design Intérieur & Fit-Out",
     titleEn: "Interior Design & Fit-Out",
-    intro: "Chez KFM, Khayra Facilities Management, nous concevons et réalisons des espaces intérieurs alliant esthétique, fonctionnalité et durabilité. Nous accompagnons nos clients résidentiels et commerciaux dans la transformation complète de leurs espaces, avec une approche structurée allant du concept initial à l'exécution finale.",
+    intro: "Chez KFM, nous concevons et réalisons des espaces intérieurs alliant esthétique, fonctionnalité et durabilité. Nous accompagnons nos clients résidentiels et commerciaux dans la transformation complète de leurs espaces, avec une approche structurée allant du concept initial à l'exécution finale.",
     color: "from-rose-500/20 to-pink-500/20",
     sections: [
       {
@@ -288,7 +288,7 @@ export const servicesData: ServiceData[] = [
     icon: Lightbulb,
     title: "Energy Saving & Optimisation",
     titleEn: "Energy Efficiency Solutions",
-    intro: "Chez KFM, Khayra Facilities Management, nous aidons nos clients à réduire leurs coûts énergétiques tout en améliorant la performance globale de leurs installations. Dans un contexte climatique exigeant comme celui des Émirats Arabes Unis, l'optimisation énergétique est un levier stratégique pour maîtriser les dépenses d'exploitation et prolonger la durée de vie des équipements.",
+    intro: "Chez KFM, nous aidons nos clients à réduire leurs coûts énergétiques tout en améliorant la performance globale de leurs installations. Dans un contexte climatique exigeant comme celui des Émirats Arabes Unis, l'optimisation énergétique est un levier stratégique pour maîtriser les dépenses d'exploitation et prolonger la durée de vie des équipements.",
     color: "from-emerald-500/20 to-green-500/20",
     sections: [
       {
@@ -337,7 +337,7 @@ export const servicesData: ServiceData[] = [
     icon: SprayCan,
     title: "Nettoyage Industriel & Vitres",
     titleEn: "Industrial & Window Cleaning",
-    intro: "Khayra Facility Management propose des services complets de nettoyage industriel et de nettoyage de vitres, adaptés aux environnements résidentiels, commerciaux et industriels. Notre objectif est de garantir des espaces propres, sûrs et valorisés, tout en respectant les exigences opérationnelles de chaque site.",
+    intro: "KFM propose des services complets de nettoyage industriel et de nettoyage de vitres, adaptés aux environnements résidentiels, commerciaux et industriels. Notre objectif est de garantir des espaces propres, sûrs et valorisés, tout en respectant les exigences opérationnelles de chaque site.",
     color: "from-cyan-500/20 to-teal-500/20",
     sections: [
       {
