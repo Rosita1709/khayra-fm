@@ -26,6 +26,7 @@ const fadeUp = {
 };
 const ProjectCard = ({ project, index: i, t }: { project: any; index: number; t: (fr: string, en: string) => string }) => {
   const images = project.gallery || [project.img];
+  const beforeCount = project.beforeCount || 0;
   const [currentImg, setCurrentImg] = useState(0);
 
   const next = () => setCurrentImg((prev: number) => (prev + 1) % images.length);
@@ -50,6 +51,18 @@ const ProjectCard = ({ project, index: i, t }: { project: any; index: number; t:
               transition={{ duration: 0.4 }}
             />
           </AnimatePresence>
+          {/* Before/After label */}
+          {beforeCount > 0 && (
+            <div className="absolute top-4 left-4 z-10">
+              <span className={`rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-wider shadow-lg ${
+                currentImg < beforeCount
+                  ? "bg-amber-500 text-white"
+                  : "bg-emerald-500 text-white"
+              }`}>
+                {currentImg < beforeCount ? t("Avant", "Before") : t("Après", "After")}
+              </span>
+            </div>
+          )}
         </div>
         <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 via-transparent to-transparent" />
         <div className="absolute bottom-0 left-0 right-0 p-6">
@@ -126,9 +139,18 @@ const ProjectCard = ({ project, index: i, t }: { project: any; index: number; t:
         {images.length > 1 && (
           <div className="mt-4 flex gap-2 overflow-x-auto pb-1">
             {images.map((img: string, gi: number) => (
-              <motion.img key={gi} src={img} alt="" onClick={() => setCurrentImg(gi)}
-                className={`h-16 w-20 rounded-lg object-cover border-2 flex-shrink-0 cursor-pointer transition-all ${gi === currentImg ? "border-primary shadow-md" : "border-border hover:border-primary/50"}`}
-                whileHover={{ scale: 1.05 }} />
+              <div key={gi} className="relative flex-shrink-0 cursor-pointer" onClick={() => setCurrentImg(gi)}>
+                <motion.img src={img} alt=""
+                  className={`h-16 w-20 rounded-lg object-cover border-2 transition-all ${gi === currentImg ? "border-primary shadow-md" : "border-border hover:border-primary/50"}`}
+                  whileHover={{ scale: 1.05 }} />
+                {beforeCount > 0 && (
+                  <span className={`absolute -top-1.5 -right-1.5 rounded-full px-1.5 py-0.5 text-[8px] font-bold uppercase leading-none shadow ${
+                    gi < beforeCount ? "bg-amber-500 text-white" : "bg-emerald-500 text-white"
+                  }`}>
+                    {gi < beforeCount ? t("Av.", "Bef.") : t("Ap.", "Aft.")}
+                  </span>
+                )}
+              </div>
             ))}
           </div>
         )}
@@ -222,6 +244,7 @@ const Produits = () => {
       ],
       result: t("Apparence premium restaurée : Durée de vie prolongée", "Restored premium appearance and extended lifecycle"),
       gallery: [villaReno1, villaReno2, villaReno3, villaReno4, villaReno5],
+      beforeCount: 2,
     },
     {
       img: terrainSport,
@@ -265,6 +288,7 @@ const Produits = () => {
       ],
       result: t("Efficacité thermique restaurée : Risques de fuite éliminés", "Restored thermal efficiency : Eliminated all water leakage risks"),
       gallery: [sandwichPanel1, sandwichPanel2, sandwichPanel3],
+      beforeCount: 1,
     },
     {
       img: saadiyatProject,
