@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import {
-  ShieldCheck, Settings, ClipboardCheck, Headphones, ArrowRight, CheckCircle, Star,
+  ShieldCheck, Settings, ClipboardCheck, Headphones, ArrowRight, CheckCircle,
 } from "lucide-react";
 import { servicesData } from "@/data/services";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -161,7 +161,7 @@ const Services = () => {
                       <Icon className="h-6 w-6 text-primary" />
                     </motion.div>
 
-                    {/* Bottom label */}
+                     {/* Bottom label */}
                     <div className="absolute bottom-0 left-0 right-0 p-6">
                       <motion.div
                         className="inline-flex items-center gap-2 rounded-full bg-primary/90 backdrop-blur-sm px-4 py-2 shadow-lg"
@@ -170,7 +170,7 @@ const Services = () => {
                         viewport={{ once: true }}
                         transition={{ delay: 0.4 }}
                       >
-                        <Star className="h-3.5 w-3.5 text-primary-foreground fill-primary-foreground" />
+                        <Icon className="h-3.5 w-3.5 text-primary-foreground" />
                         <span className="text-xs font-semibold text-primary-foreground tracking-wide">
                           {t(service.title, service.titleEn)}
                         </span>
@@ -187,7 +187,7 @@ const Services = () => {
                   transition={{ duration: 0.9, ease: "easeOut" }}
                   className={!isEven ? "lg:order-1" : ""}
                 >
-                  {/* Tags */}
+                  {/* Section categories */}
                   <div className="flex flex-wrap items-center gap-2 mb-4">
                     {service.sections.slice(0, 3).map((s, si) => (
                       <motion.span
@@ -196,7 +196,7 @@ const Services = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.1 * si }}
-                        className="rounded-full border border-primary/20 bg-primary/8 px-3.5 py-1.5 text-[11px] font-semibold uppercase tracking-wider text-primary"
+                        className="rounded-lg border border-border bg-card px-3 py-1.5 text-[11px] font-medium text-muted-foreground shadow-sm"
                       >
                         {s.title}
                       </motion.span>
