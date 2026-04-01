@@ -23,7 +23,7 @@ import mklights from "@/assets/partners/mklights.webp";
 
 import { useLanguage } from "@/contexts/LanguageContext";
 
-const customEase = [0.25, 0.46, 0.45, 0.94] as const;
+
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
