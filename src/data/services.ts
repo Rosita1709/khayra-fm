@@ -371,6 +371,7 @@ export const servicesData: ServiceData[] = [
       "Flexibilité : ponctuel ou contrat régulier",
       "Respect des normes de sécurité",
       "Résultat garanti et contrôle qualité",
+      "Intervention rapide sur site",
     ],
   },
 ];
