@@ -218,6 +218,7 @@ export const servicesData: ServiceData[] = [
       "Respect des normes locales",
       "Finitions soignées",
       "Transparence et suivi structuré",
+      "Garantie de satisfaction client",
     ],
   },
   {
