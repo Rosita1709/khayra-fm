@@ -187,7 +187,7 @@ const Services = () => {
                   transition={{ duration: 0.9, ease: "easeOut" }}
                   className={!isEven ? "lg:order-1" : ""}
                 >
-                  {/* Tags */}
+                  {/* Section categories */}
                   <div className="flex flex-wrap items-center gap-2 mb-4">
                     {service.sections.slice(0, 3).map((s, si) => (
                       <motion.span
@@ -196,7 +196,7 @@ const Services = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.1 * si }}
-                        className="rounded-full border border-primary/20 bg-primary/8 px-3.5 py-1.5 text-[11px] font-semibold uppercase tracking-wider text-primary"
+                        className="rounded-lg border border-border bg-card px-3 py-1.5 text-[11px] font-medium text-muted-foreground shadow-sm"
                       >
                         {s.title}
                       </motion.span>
