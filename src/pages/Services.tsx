@@ -207,7 +207,7 @@ const Services = () => {
                     {t(service.title, service.titleEn)}
                   </h2>
 
-                  <div className="mt-2 h-1 w-16 rounded-full bg-gradient-to-r from-primary to-primary/40" />
+                  
 
                   <p className="mt-5 leading-relaxed text-muted-foreground text-[15px]">
                     {service.intro}
