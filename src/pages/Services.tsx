@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import {
-  ShieldCheck, Settings, ClipboardCheck, Headphones, ArrowRight, CheckCircle,
+  ShieldCheck, Settings, ClipboardCheck, Headphones, ArrowRight, CheckCircle, Star,
 } from "lucide-react";
 import { servicesData } from "@/data/services";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -41,7 +41,7 @@ const Services = () => {
   return (
     <div className="min-h-screen bg-background">
 
-      {/* Hero — same style as Produits */}
+      {/* Hero */}
       <section className="relative py-20 overflow-hidden min-h-[40vh] flex items-center">
         <div className="absolute inset-0">
           <motion.img
@@ -101,11 +101,12 @@ const Services = () => {
         </div>
       </section>
 
-      {/* ── SERVICES — alternating layout like Produits ── */}
+      {/* ── SERVICES ── */}
       <section className="py-24">
-        <div className="container mx-auto px-6 space-y-28">
+        <div className="container mx-auto px-6 space-y-32">
           {servicesData.map((service, i) => {
             const Icon = service.icon;
+            const isEven = i % 2 === 0;
 
             return (
               <motion.div
@@ -114,96 +115,127 @@ const Services = () => {
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true, margin: "-80px" }}
                 transition={{ duration: 0.5 }}
-                className="grid items-center gap-12 lg:grid-cols-2"
+                className="grid items-center gap-14 lg:grid-cols-2"
               >
                 {/* Image */}
                 <motion.div
-                  initial={{ opacity: 0, x: i % 2 === 0 ? -60 : 60 }}
+                  initial={{ opacity: 0, x: isEven ? -80 : 80 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true, margin: "-80px" }}
-                  transition={{ duration: 0.8, ease: "easeOut" }}
-                  className={`relative group overflow-hidden rounded-2xl shadow-xl ${i % 2 === 1 ? "lg:order-2" : ""}`}
+                  transition={{ duration: 0.9, ease: "easeOut" }}
+                  className={`relative group ${!isEven ? "lg:order-2" : ""}`}
                 >
-                  <motion.img
-                    src={serviceImages[service.slug] || servicesBg}
-                    alt={t(service.title, service.titleEn)}
-                    className="h-[420px] w-full object-cover"
-                    whileHover={{ scale: 1.08 }}
-                    transition={{ duration: 0.7 }}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 via-transparent to-transparent" />
-                  <div className="absolute bottom-0 left-0 right-0 p-6">
-                    <motion.span
-                      className="inline-block rounded-full bg-primary px-3 py-1 text-xs font-semibold text-primary-foreground"
-                      initial={{ opacity: 0, y: 10 }}
-                      whileInView={{ opacity: 1, y: 0 }}
+                  {/* Decorative accent behind image */}
+                  <div className="absolute -inset-3 rounded-3xl bg-gradient-to-br from-primary/15 via-primary/5 to-transparent blur-sm -z-10" />
+                  
+                  <div className="relative overflow-hidden rounded-2xl shadow-2xl shadow-foreground/10">
+                    <motion.img
+                      src={serviceImages[service.slug] || servicesBg}
+                      alt={t(service.title, service.titleEn)}
+                      className="h-[440px] w-full object-cover"
+                      whileHover={{ scale: 1.06 }}
+                      transition={{ duration: 0.7 }}
+                    />
+                    {/* Overlay gradient */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 via-foreground/20 to-transparent" />
+                    
+                    {/* Service number */}
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
                       viewport={{ once: true }}
-                      transition={{ delay: 0.3 }}
+                      transition={{ duration: 0.5, delay: 0.3, type: "spring" }}
+                      className="absolute top-5 left-5 flex h-11 w-11 items-center justify-center rounded-xl bg-primary font-display text-lg font-bold text-primary-foreground shadow-lg"
                     >
-                      {t(service.title, service.titleEn)}
-                    </motion.span>
+                      {String(i + 1).padStart(2, "0")}
+                    </motion.div>
+
+                    {/* Icon badge */}
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.5, delay: 0.4 }}
+                      className="absolute top-5 right-5 flex h-12 w-12 items-center justify-center rounded-xl bg-card/95 backdrop-blur-sm border border-border shadow-lg"
+                    >
+                      <Icon className="h-6 w-6 text-primary" />
+                    </motion.div>
+
+                    {/* Bottom label */}
+                    <div className="absolute bottom-0 left-0 right-0 p-6">
+                      <motion.div
+                        className="inline-flex items-center gap-2 rounded-full bg-primary/90 backdrop-blur-sm px-4 py-2 shadow-lg"
+                        initial={{ opacity: 0, y: 10 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.4 }}
+                      >
+                        <Star className="h-3.5 w-3.5 text-primary-foreground fill-primary-foreground" />
+                        <span className="text-xs font-semibold text-primary-foreground tracking-wide">
+                          {t(service.title, service.titleEn)}
+                        </span>
+                      </motion.div>
+                    </div>
                   </div>
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.4 }}
-                    className="absolute top-4 right-4 flex h-12 w-12 items-center justify-center rounded-xl bg-card/95 backdrop-blur-sm border border-border shadow-lg"
-                  >
-                    <Icon className="h-6 w-6 text-primary" />
-                  </motion.div>
                 </motion.div>
 
                 {/* Content */}
                 <motion.div
-                  initial={{ opacity: 0, x: i % 2 === 0 ? 60 : -60 }}
+                  initial={{ opacity: 0, x: isEven ? 80 : -80 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true, margin: "-80px" }}
-                  transition={{ duration: 0.8, ease: "easeOut" }}
-                  className={i % 2 === 1 ? "lg:order-1" : ""}
+                  transition={{ duration: 0.9, ease: "easeOut" }}
+                  className={!isEven ? "lg:order-1" : ""}
                 >
                   {/* Tags */}
-                  <div className="flex flex-wrap items-center gap-2 mb-3">
-                    {service.sections.slice(0, 3).map((s) => (
-                      <span
+                  <div className="flex flex-wrap items-center gap-2 mb-4">
+                    {service.sections.slice(0, 3).map((s, si) => (
+                      <motion.span
                         key={s.title}
-                        className="rounded-full bg-primary/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-primary"
+                        initial={{ opacity: 0, y: 10 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.1 * si }}
+                        className="rounded-full border border-primary/20 bg-primary/8 px-3.5 py-1.5 text-[11px] font-semibold uppercase tracking-wider text-primary"
                       >
                         {s.title}
-                      </span>
+                      </motion.span>
                     ))}
                   </div>
 
-                  <h2 className="font-display text-2xl font-bold md:text-3xl">
+                  <h2 className="font-display text-3xl font-bold md:text-4xl leading-tight">
                     {t(service.title, service.titleEn)}
                   </h2>
 
-                  <p className="mt-4 leading-relaxed text-muted-foreground">
+                  <div className="mt-2 h-1 w-16 rounded-full bg-gradient-to-r from-primary to-primary/40" />
+
+                  <p className="mt-5 leading-relaxed text-muted-foreground text-[15px]">
                     {service.intro}
                   </p>
 
-                  {/* Key points */}
+                  {/* Key points with cards */}
                   {service.sections[0]?.items?.length > 0 && (
-                    <div className="mt-6">
-                      <h4 className="text-sm font-semibold uppercase tracking-wider text-primary mb-3">
+                    <div className="mt-7">
+                      <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-4 flex items-center gap-2">
+                        <span className="h-px w-6 bg-primary" />
                         {t("Points clés", "Key points")}
                       </h4>
-                      <ul className="space-y-2">
-                        {service.sections[0].items.slice(0, 5).map((item, j) => (
-                          <motion.li
+                      <div className="grid gap-2.5 sm:grid-cols-2">
+                        {service.sections[0].items.slice(0, 4).map((item, j) => (
+                          <motion.div
                             key={item}
                             custom={j}
                             variants={fadeUp}
                             initial="hidden"
                             whileInView="visible"
                             viewport={{ once: true }}
-                            className="flex items-start gap-2.5 text-sm"
+                            className="flex items-start gap-3 rounded-xl border border-border/60 bg-card/50 p-3 text-sm transition-all hover:border-primary/20 hover:shadow-sm"
                           >
-                            <ArrowRight className="h-4 w-4 mt-0.5 flex-shrink-0 text-primary" />
-                            {item}
-                          </motion.li>
+                            <CheckCircle className="h-4 w-4 mt-0.5 flex-shrink-0 text-primary" />
+                            <span className="text-muted-foreground text-[13px]">{item}</span>
+                          </motion.div>
                         ))}
-                      </ul>
+                      </div>
                     </div>
                   )}
 
@@ -214,10 +246,12 @@ const Services = () => {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ delay: 0.3 }}
-                      className="mt-6 rounded-xl border border-primary/20 bg-primary/5 px-5 py-3"
+                      className="mt-6 rounded-xl bg-gradient-to-r from-primary/8 to-primary/3 border border-primary/15 px-5 py-3.5"
                     >
-                      <div className="flex items-center gap-2">
-                        <CheckCircle className="h-4 w-4 text-primary flex-shrink-0" />
+                      <div className="flex items-center gap-2.5">
+                        <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-primary/15">
+                          <CheckCircle className="h-4 w-4 text-primary" />
+                        </div>
                         <span className="text-sm font-semibold">{service.engagement[0]}</span>
                       </div>
                     </motion.div>
@@ -226,7 +260,7 @@ const Services = () => {
                   {/* CTA */}
                   <Link
                     to={`/services/${service.slug}`}
-                    className="group mt-6 inline-flex items-center gap-2 font-display text-sm font-semibold text-primary"
+                    className="group mt-7 inline-flex items-center gap-2.5 rounded-xl bg-primary/8 border border-primary/20 px-6 py-3 font-display text-sm font-semibold text-primary transition-all hover:bg-primary hover:text-primary-foreground hover:-translate-y-0.5 hover:shadow-lg"
                   >
                     {t("Découvrir en détail", "View details")}
                     <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-2" />
@@ -258,6 +292,12 @@ const Services = () => {
             <h2 className="mt-4 font-display text-3xl font-bold md:text-4xl">
               {t("Notre ", "Our ")}<span className="text-gradient">{t("Processus", "Process")}</span>
             </h2>
+            <p className="mt-4 mx-auto max-w-lg text-muted-foreground">
+              {t(
+                "Une approche structurée pour garantir des résultats d'excellence à chaque intervention.",
+                "A structured approach to ensure excellent results with every intervention."
+              )}
+            </p>
           </motion.div>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {processSteps.map((step, i) => (
@@ -303,6 +343,11 @@ const Services = () => {
               className="absolute top-0 right-0 h-64 w-64 rounded-full bg-primary-foreground/5 blur-[60px]"
               animate={{ x: [0, 30, 0], y: [0, -20, 0] }}
               transition={{ duration: 8, repeat: Infinity }}
+            />
+            <motion.div
+              className="absolute bottom-0 left-0 h-48 w-48 rounded-full bg-primary-foreground/5 blur-[50px]"
+              animate={{ x: [0, -20, 0], y: [0, 15, 0] }}
+              transition={{ duration: 6, repeat: Infinity }}
             />
             <h2 className="relative font-display text-3xl font-bold text-primary-foreground md:text-4xl">
               {t("Un besoin spécifique ?", "A specific need?")}
