@@ -8,24 +8,23 @@ import Contact from './contact.model.js';
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+
 app.use(cors({
-  origin: 'https://www.khayrafm.com',
+  origin: [
+    'https://www.khayrafm.com',
+    'https://khayrafm.com',      
+    'http://localhost:5173',     
+    'http://localhost:3000'
+  ],
   methods: ['GET', 'POST', 'OPTIONS'],
   allowedHeaders: ['Content-Type'],
+  credentials: true
 }));
-app.use(express.json());
 
-// Connexion DB + démarrage serveur
-sequelize.sync({ alter: true })
-  .then(() => {
-    console.log('Base de donnees connectee');
-    app.listen(PORT, () => {
-      console.log(`Serveur KFM demarre sur le port ${PORT}`);
-    });
-  })
-  .catch((err) => {
-    console.error('Erreur connexion base de donnees:', err);
-  });
+
+app.options('*', cors());
+
+app.use(express.json());
 
 app.post('/contact', async (req, res) => {
   const { nom, email, sujet, message } = req.body;
@@ -38,10 +37,7 @@ app.post('/contact', async (req, res) => {
   }
 
   try {
-    // 1. Sauvegarder en base de donnees
     await Contact.create({ nom, email, sujet, message });
-
-    // 2. Envoyer l'email
     await envoyerEmail(nom, email, sujet, message);
 
     res.json({
@@ -56,3 +52,15 @@ app.post('/contact', async (req, res) => {
     });
   }
 });
+
+
+sequelize.sync({ alter: true })
+  .then(() => {
+    console.log('Base de donnees connectee');
+    app.listen(PORT, () => {
+      console.log(`Serveur KFM demarre sur le port ${PORT}`);
+    });
+  })
+  .catch((err) => {
+    console.error('Erreur connexion base de donnees:', err);
+  });
