@@ -1,8 +1,9 @@
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { Link } from "react-router-dom";
 import heroImg from "@/assets/hero-new.jpg";
 import { TrendingUp, PiggyBank, Heart, Rocket, ArrowRight, Shield, Clock, Headphones, Award } from "lucide-react";
 import { useCountUp } from "@/hooks/useCountUp";
+import { useRef } from "react";
 
 import ctaBg from "@/assets/cta-bg.jpg";
 
@@ -22,22 +23,43 @@ import mklights from "@/assets/partners/mklights.webp";
 
 import { useLanguage } from "@/contexts/LanguageContext";
 
+
+
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, delay: i * 0.15, ease: "easeOut" as const },
+    transition: { duration: 0.7, delay: i * 0.12, ease: "easeOut" as const },
   }),
 };
 
-const scaleIn = {
-  hidden: { opacity: 0, scale: 0.8 },
-  visible: (i: number) => ({
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
     opacity: 1,
+    transition: { staggerChildren: 0.1, delayChildren: 0.2 },
+  },
+};
+
+const staggerItem = {
+  hidden: { opacity: 0, y: 30, scale: 0.95 },
+  visible: {
+    opacity: 1,
+    y: 0,
     scale: 1,
-    transition: { duration: 0.5, delay: i * 0.1, ease: "easeOut" as const },
-  }),
+    transition: { duration: 0.5, ease: "easeOut" as const },
+  },
+};
+
+const slideInLeft = {
+  hidden: { opacity: 0, x: -60 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: "easeOut" as const } },
+};
+
+const slideInRight = {
+  hidden: { opacity: 0, x: 60 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: "easeOut" as const } },
 };
 
 const clientLogos = [
@@ -96,6 +118,11 @@ const StatsCounter = ({ t }: { t: (fr: string, en: string) => string }) => (
 
 const Index = () => {
   const { t } = useLanguage();
+  const heroRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
+  const heroY = useTransform(scrollYProgress, [0, 1], [0, 200]);
+  const heroOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+  const heroScale = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
 
   const values = [
     {
@@ -128,19 +155,19 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* ===== HERO ===== */}
-      <section className="relative min-h-[92vh] flex items-center overflow-hidden">
-        <div className="absolute inset-0">
+      {/* ===== HERO with parallax ===== */}
+      <section ref={heroRef} className="relative min-h-[92vh] flex items-center overflow-hidden">
+        <motion.div className="absolute inset-0" style={{ y: heroY, scale: heroScale }}>
           <motion.img
             src={heroImg}
             alt=""
             className="h-full w-full object-cover"
-            initial={{ scale: 1.15 }}
-            animate={{ scale: 1 }}
-            transition={{ duration: 2.5, ease: "easeOut" }}
+            initial={{ scale: 1.2, filter: "brightness(0.3)" }}
+            animate={{ scale: 1, filter: "brightness(1)" }}
+            transition={{ duration: 2, ease: "easeOut" }}
           />
           <div className="absolute inset-0 bg-gradient-to-r from-foreground/80 via-foreground/55 to-foreground/25" />
-        </div>
+        </motion.div>
 
         {/* Animated orbs */}
         <motion.div
@@ -149,33 +176,59 @@ const Index = () => {
           animate={{ scale: [1, 1.3, 1], opacity: [0.3, 0.5, 0.3] }}
           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
         />
+        <motion.div
+          className="absolute bottom-1/4 right-1/4 h-[300px] w-[300px] rounded-full blur-[150px]"
+          style={{ background: "hsl(var(--primary) / 0.08)" }}
+          animate={{ scale: [1.2, 1, 1.2], opacity: [0.2, 0.4, 0.2], x: [0, 30, 0] }}
+          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+        />
 
-        <div className="container relative mx-auto px-6 py-32">
+        <motion.div style={{ opacity: heroOpacity }} className="container relative mx-auto px-6 py-32">
           <div className="max-w-3xl">
             <motion.span
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
+              animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              transition={{ duration: 0.8, delay: 0.3 }}
               className="mb-6 inline-block rounded-full border border-primary/40 bg-primary/15 px-5 py-2 text-xs font-semibold tracking-widest uppercase text-primary backdrop-blur-sm"
             >
               Facility Management, Abu Dhabi, UAE
             </motion.span>
 
             <motion.h1
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
+              initial={{ opacity: 0, y: 50, filter: "blur(8px)" }}
+              animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
               className="font-display text-5xl font-bold leading-tight tracking-tight md:text-6xl text-background"
             >
-              Khayra <span className="text-gradient">Facility</span>
+              <motion.span
+                initial={{ opacity: 0, x: -30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.6 }}
+              >
+                Khayra{" "}
+              </motion.span>
+              <motion.span
+                className="text-gradient"
+                initial={{ opacity: 0, x: -30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.75 }}
+              >
+                Facility
+              </motion.span>
               <br />
-              Management
+              <motion.span
+                initial={{ opacity: 0, x: -30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.9 }}
+              >
+                Management
+              </motion.span>
             </motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.6 }}
+              transition={{ duration: 0.7, delay: 1.1 }}
               className="mt-6 max-w-xl text-lg leading-relaxed text-background/75"
             >
               {t(
@@ -187,7 +240,7 @@ const Index = () => {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.8 }}
+              transition={{ duration: 0.6, delay: 1.3 }}
               className="mt-10 flex flex-wrap gap-4"
             >
               <Link
@@ -207,21 +260,21 @@ const Index = () => {
               </Link>
             </motion.div>
 
-            {/* Stats row - counting animation */}
+            {/* Stats row */}
             <StatsCounter t={t} />
           </div>
-        </div>
+        </motion.div>
       </section>
 
       {/* ===== POURQUOI CHOISIR KFM ===== */}
-      <section className="py-28">
+      <section className="py-28 overflow-hidden">
         <div className="container mx-auto px-6">
           <motion.div
             variants={fadeUp}
             custom={0}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: "-100px" }}
             className="mb-16 text-center"
           >
             <span className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">
@@ -239,7 +292,13 @@ const Index = () => {
             </p>
           </motion.div>
 
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+            className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4"
+          >
             {[
               {
                 icon: Award,
@@ -261,25 +320,24 @@ const Index = () => {
                 title: t("Suivi digitalisé", "Digitalized tracking"),
                 desc: t("GMAO intégrée pour un suivi en temps réel de toutes les interventions.", "Integrated CMMS for real-time tracking of all interventions."),
               },
-            ].map((item, i) => (
+            ].map((item) => (
               <motion.div
                 key={item.title}
-                custom={i}
-                variants={scaleIn}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                whileHover={{ y: -10, transition: { duration: 0.3 } }}
+                variants={staggerItem}
+                whileHover={{ y: -10, transition: { duration: 0.3, ease: "easeOut" } }}
                 className="group rounded-2xl border border-border bg-card p-8 text-center transition-all duration-500 hover:shadow-xl hover:shadow-primary/10 hover:border-primary/30"
               >
-                <div className="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-2xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+                <motion.div
+                  className="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-2xl bg-primary/10 text-primary transition-colors duration-500 group-hover:bg-primary group-hover:text-primary-foreground"
+                  whileHover={{ rotate: [0, -10, 10, 0], transition: { duration: 0.5 } }}
+                >
                   <item.icon className="h-8 w-8" />
-                </div>
+                </motion.div>
                 <h3 className="font-display text-lg font-semibold">{item.title}</h3>
                 <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{item.desc}</p>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
 
           <motion.div
             variants={fadeUp}
@@ -302,13 +360,19 @@ const Index = () => {
 
       {/* ===== NOS VALEURS ===== */}
       <section className="relative py-28 overflow-hidden bg-muted/40">
+        <motion.div
+          className="absolute -top-20 -right-20 h-[400px] w-[400px] rounded-full blur-[150px]"
+          style={{ background: "hsl(var(--primary) / 0.06)" }}
+          animate={{ scale: [1, 1.2, 1], x: [0, 20, 0] }}
+          transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+        />
         <div className="container relative mx-auto px-6">
           <motion.div
             variants={fadeUp}
             custom={0}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: "-100px" }}
             className="mb-16 text-center"
           >
             <span className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">
@@ -326,38 +390,42 @@ const Index = () => {
             </p>
           </motion.div>
 
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {values.map((value, i) => (
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+            className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4"
+          >
+            {values.map((value) => (
               <motion.div
                 key={value.title}
-                custom={i}
-                variants={scaleIn}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                whileHover={{ y: -10, transition: { duration: 0.3 } }}
+                variants={staggerItem}
+                whileHover={{ y: -10, transition: { duration: 0.3, ease: "easeOut" } }}
                 className="group rounded-2xl border border-border bg-card p-8 text-center transition-all duration-500 hover:shadow-xl hover:shadow-primary/10 hover:border-primary/30"
               >
-                <div className="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-2xl bg-primary/10 text-primary">
+                <motion.div
+                  className="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-2xl bg-primary/10 text-primary"
+                  whileHover={{ scale: 1.15, rotate: 5, transition: { duration: 0.3 } }}
+                >
                   <value.icon className="h-8 w-8" />
-                </div>
+                </motion.div>
                 <h3 className="font-display text-lg font-semibold">{value.title}</h3>
                 <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{value.desc}</p>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* ===== ILS NOUS FONT CONFIANCE (Clients) ===== */}
-      <section className="py-24">
+      <section className="py-24 overflow-hidden">
         <div className="container mx-auto px-6">
           <motion.div
-            variants={fadeUp}
-            custom={0}
+            variants={slideInLeft}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: "-100px" }}
             className="text-center mb-12"
           >
             <span className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">
@@ -375,34 +443,35 @@ const Index = () => {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-6">
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-60px" }}
+            className="grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-6"
+          >
             {clientLogos.map((client, i) => (
               <motion.div
                 key={i}
-                custom={i}
-                variants={scaleIn}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                whileHover={{ y: -4, transition: { duration: 0.2 } }}
+                variants={staggerItem}
+                whileHover={{ y: -6, scale: 1.05, transition: { duration: 0.25 } }}
                 className="flex h-28 items-center justify-center rounded-2xl border border-border bg-background p-4 transition-all hover:border-primary/30 hover:shadow-card-hover"
               >
                 <img src={client.src} alt={client.name} className="max-h-16 max-w-full object-contain" />
               </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* ===== NOS PARTENAIRES ===== */}
-      <section className="py-20 bg-muted/30">
+      <section className="py-20 bg-muted/30 overflow-hidden">
         <div className="container mx-auto px-6">
           <motion.div
-            variants={fadeUp}
-            custom={0}
+            variants={slideInRight}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: "-100px" }}
             className="text-center mb-12"
           >
             <span className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">
@@ -414,25 +483,27 @@ const Index = () => {
             </h2>
           </motion.div>
 
-          <div className="grid grid-cols-2 gap-6 sm:grid-cols-4 max-w-3xl mx-auto">
-            {partnerLogos.map((partner, i) => (
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-60px" }}
+            className="grid grid-cols-2 gap-6 sm:grid-cols-4 max-w-3xl mx-auto"
+          >
+            {partnerLogos.map((partner) => (
               <motion.a
                 key={partner.name}
                 href={partner.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                custom={i}
-                variants={scaleIn}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                whileHover={{ y: -4, transition: { duration: 0.2 } }}
+                variants={staggerItem}
+                whileHover={{ y: -6, scale: 1.05, transition: { duration: 0.25 } }}
                 className="flex h-28 items-center justify-center rounded-2xl border border-border bg-background p-4 transition-all hover:border-primary/30 hover:shadow-card-hover"
               >
                 <img src={partner.src} alt={partner.name} className="max-h-16 max-w-full object-contain" />
               </motion.a>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -440,27 +511,50 @@ const Index = () => {
       <section className="py-24">
         <div className="container mx-auto px-6">
           <motion.div
-            variants={fadeUp}
-            custom={0}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
+            initial={{ opacity: 0, y: 60, scale: 0.95 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
             className="relative overflow-hidden rounded-3xl p-12 md:p-20 text-center"
           >
             <div className="absolute inset-0">
               <img src={ctaBg} alt="" className="h-full w-full object-cover" />
               <div className="absolute inset-0 bg-primary/88" />
             </div>
-            <h2 className="relative font-display text-3xl font-bold text-primary-foreground md:text-4xl">
+            <motion.div
+              className="absolute top-0 left-0 h-full w-full"
+              style={{ background: "linear-gradient(135deg, hsl(var(--primary) / 0.3), transparent 60%)" }}
+              animate={{ opacity: [0.5, 0.8, 0.5] }}
+              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+            />
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2, duration: 0.6 }}
+              className="relative font-display text-3xl font-bold text-primary-foreground md:text-4xl"
+            >
               {t("Prêt à transformer vos espaces ?", "Ready to transform your spaces?")}
-            </h2>
-            <p className="relative mx-auto mt-4 max-w-xl text-primary-foreground/80">
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.35, duration: 0.6 }}
+              className="relative mx-auto mt-4 max-w-xl text-primary-foreground/80"
+            >
               {t(
                 "Notre équipe est prête à vous accompagner pour vos projets techniques et de maintenance aux Émirats.",
                 "Our team is ready to support you with your technical and maintenance projects in the UAE.",
               )}
-            </p>
-            <div className="relative mt-10 flex flex-wrap justify-center gap-4">
+            </motion.p>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.5, duration: 0.6 }}
+              className="relative mt-10 flex flex-wrap justify-center gap-4"
+            >
               <Link
                 to="/contact"
                 className="rounded-2xl bg-background px-8 py-4 font-display text-sm font-semibold text-foreground transition-all hover:shadow-premium hover:-translate-y-1"
@@ -475,7 +569,7 @@ const Index = () => {
               >
                 WhatsApp
               </a>
-            </div>
+            </motion.div>
           </motion.div>
         </div>
       </section>
