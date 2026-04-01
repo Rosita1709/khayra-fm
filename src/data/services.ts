@@ -147,6 +147,7 @@ export const servicesData: ServiceData[] = [
       "Solutions durables",
       "Coordination avec les autres corps de métier (HVAC, civil, fit-out)",
       "Reporting professionnel",
+      "Disponibilité et réactivité 24/7",
     ],
   },
   {
