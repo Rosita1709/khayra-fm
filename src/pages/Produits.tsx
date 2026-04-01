@@ -266,6 +266,7 @@ const Produits = () => {
       ],
       result: t("Efficacité thermique restaurée : Risques de fuite éliminés", "Restored thermal efficiency : Eliminated all water leakage risks"),
       gallery: [sandwichPanel1, sandwichPanel2, sandwichPanel3],
+      beforeCount: 1,
     },
     {
       img: saadiyatProject,
