@@ -329,6 +329,7 @@ export const servicesData: ServiceData[] = [
       "Prolongation de la durée de vie des équipements",
       "Diminution de l'empreinte énergétique",
       "Valorisation de l'actif immobilier",
+      "Suivi et reporting des économies réalisées",
     ],
   },
   {
