@@ -147,6 +147,7 @@ export const servicesData: ServiceData[] = [
       "Solutions durables",
       "Coordination avec les autres corps de métier (HVAC, civil, fit-out)",
       "Reporting professionnel",
+      "Disponibilité et réactivité 24/7",
     ],
   },
   {
@@ -217,6 +218,7 @@ export const servicesData: ServiceData[] = [
       "Respect des normes locales",
       "Finitions soignées",
       "Transparence et suivi structuré",
+      "Garantie de satisfaction client",
     ],
   },
   {
@@ -278,6 +280,7 @@ export const servicesData: ServiceData[] = [
       "Matériaux adaptés au climat UAE",
       "Finitions de qualité",
       "Livraison clé en main",
+      "Respect des délais convenus",
     ],
   },
   {
@@ -326,6 +329,7 @@ export const servicesData: ServiceData[] = [
       "Prolongation de la durée de vie des équipements",
       "Diminution de l'empreinte énergétique",
       "Valorisation de l'actif immobilier",
+      "Suivi et reporting des économies réalisées",
     ],
   },
   {
@@ -367,6 +371,7 @@ export const servicesData: ServiceData[] = [
       "Flexibilité : ponctuel ou contrat régulier",
       "Respect des normes de sécurité",
       "Résultat garanti et contrôle qualité",
+      "Intervention rapide sur site",
     ],
   },
 ];
