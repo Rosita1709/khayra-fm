@@ -5,7 +5,7 @@ import { TrendingUp, PiggyBank, Heart, Rocket, ArrowRight, Shield, Clock, Headph
 import { useCountUp } from "@/hooks/useCountUp";
 import { useRef } from "react";
 
-import ctaBg from "@/assets/cta-bg.jpg";
+import ctaBg from "@/assets/cta-bg.webp";
 
 // Client logos (they trust us)
 import partner1 from "@/assets/partners/partner1.png";
@@ -22,6 +22,7 @@ import universalRbm from "@/assets/partners/universal-rbm.png";
 import mklights from "@/assets/partners/mklights.webp";
 
 import { useLanguage } from "@/contexts/LanguageContext";
+import SEO from "@/components/SEO";
 
 
 
@@ -155,6 +156,12 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="Facility Management Senegal | KFM"
+        description="KFM, votre partenaire en Facility Management au Senegal. Nettoyage, securite, maintenance et services aux entreprises."
+        keywords="facility management senegal, facility management dakar, KFM, Khayra"
+        url="https://khayrafm.com"
+      />
       {/* ===== HERO with parallax ===== */}
       <section ref={heroRef} className="relative min-h-[92vh] flex items-center overflow-hidden">
         <motion.div className="absolute inset-0" style={{ y: heroY, scale: heroScale }}>

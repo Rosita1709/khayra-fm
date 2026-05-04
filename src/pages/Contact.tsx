@@ -2,8 +2,8 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Send, Clock, Shield } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
-import ctaBg from "@/assets/cta-bg.jpg";
-
+import ctaBg from "@/assets/cta-bg.webp";
+import SEO from "@/components/SEO";
 
 interface FormData {
   nom: string;
@@ -14,10 +14,26 @@ interface FormData {
 
 type Status = null | "loading" | "success" | "error";
 
+const localBusiness = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: 'KFM - Khayra Facility Management',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: '10th Floor, Corniche Building, Al Hisn',
+    addressLocality: 'Abu Dhabi',
+    addressCountry: 'AE'
+  },
+  telephone: '+971508054220',
+  email: 'contact@khayrafm.com',
+  openingHours: 'Mo-Fr 08:00-18:00',
+  url: 'https://khayrafm.com',
+  areaServed: ['AE'],
+  sameAs: ['https://www.linkedin.com/company/kfm']
+};
+
 const Contact = () => {
   const { t } = useLanguage();
-
-
 
   const [form, setForm] = useState<FormData>({
     nom: "",
@@ -64,6 +80,17 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="Contacter KFM | Devis Facility Management"
+        description="Contactez KFM pour un devis rapide. Abu Dhabi, UAE. Reponse sous 24h. Facility Management sur mesure."
+        keywords="contact KFM, devis facility management, KFM Abu Dhabi"
+        url="https://khayrafm.com/contact"
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusiness) }}
+      />
+
       {/* Hero with background */}
       <section className="relative py-20 overflow-hidden min-h-[35vh] flex items-center">
         <div className="absolute inset-0">
@@ -71,7 +98,6 @@ const Contact = () => {
             src={ctaBg}
             alt=""
             className="h-full w-full object-cover"
-
             initial={{ scale: 1.15 }}
             animate={{ scale: 1 }}
             transition={{ duration: 1.5, ease: "easeOut" }}
@@ -98,7 +124,6 @@ const Contact = () => {
               "Our team is ready to support you with your technical and maintenance projects."
             )}
           </motion.p>
-          {/* Feature pills */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -194,7 +219,6 @@ const Contact = () => {
                 </motion.div>
               </div>
 
-              {/* Map embed */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -203,7 +227,7 @@ const Contact = () => {
                 className="mt-10 overflow-hidden rounded-2xl border border-border shadow-lg"
               >
                 <iframe
-                 src="https://maps.google.com/maps?q=Corniche+Building,+Al+Hisn,+Abu+Dhabi,+UAE&t=&z=17&ie=UTF8&iwloc=&output=embed"
+                  src="https://maps.google.com/maps?q=Corniche+Building,+Al+Hisn,+Abu+Dhabi,+UAE&t=&z=17&ie=UTF8&iwloc=&output=embed"
                   width="100%"
                   height="220"
                   style={{ border: 0 }}
@@ -224,7 +248,6 @@ const Contact = () => {
               className="relative space-y-5 rounded-2xl border border-border bg-card p-8 shadow-lg overflow-hidden"
               onSubmit={handleSubmit}
             >
-              {/* Background decoration */}
               <div className="absolute -top-20 -right-20 h-40 w-40 rounded-full bg-primary/5 blur-[60px]" />
               <div className="grid relative gap-5 sm:grid-cols-2">
                 <motion.div initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.3 }}>
@@ -246,20 +269,12 @@ const Contact = () => {
               </motion.div>
 
               {status === "success" && (
-                <motion.p
-                  initial={{ opacity: 0, y: 5 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="text-center text-sm text-green-500"
-                >
+                <motion.p initial={{ opacity: 0, y: 5 }} animate={{ opacity: 1, y: 0 }} className="text-center text-sm text-green-500">
                   {t("Message envoyé avec succès !", "Message sent successfully!")}
                 </motion.p>
               )}
               {status === "error" && (
-                <motion.p
-                  initial={{ opacity: 0, y: 5 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="text-center text-sm text-red-500"
-                >
+                <motion.p initial={{ opacity: 0, y: 5 }} animate={{ opacity: 1, y: 0 }} className="text-center text-sm text-red-500">
                   {t("Erreur lors de l'envoi.", "Error sending message.")}
                 </motion.p>
               )}

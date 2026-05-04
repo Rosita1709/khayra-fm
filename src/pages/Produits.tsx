@@ -6,9 +6,9 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import heroBg from "@/assets/hero-bg.webp";
 
 import ambassadeFrance1 from "@/assets/projects/ambassade-france-1.jpg";
-import embassyHvac from "@/assets/projects/embassy-hvac-diagnostic.jpg";
+import embassyHvac from "@/assets/projects/embassy-hvac-diagnostic.webp";
 import coldRoom from "@/assets/projects/cold-room-real.jpg";
-import vrfContainers from "@/assets/projects/vrv-installation.png";
+import vrfContainers from "@/assets/projects/vrv-installation.webp";
 import villaReno1 from "@/assets/projects/villa-renovation-1.jpg";
 import villaReno2 from "@/assets/projects/villa-renovation-2.jpg";
 import villaReno3 from "@/assets/projects/villa-renovation-3.jpg";
@@ -16,15 +16,32 @@ import villaReno4 from "@/assets/projects/villa-renovation-4.jpg";
 import villaReno5 from "@/assets/projects/villa-renovation-5.jpg";
 import sandwichPanel1 from "@/assets/projects/sandwich-panel-1.jpg";
 import sandwichPanel2 from "@/assets/projects/sandwich-panel-2.jpg";
-import sandwichPanel3 from "@/assets/projects/sandwich-panel-3.jpg";
+import sandwichPanel3 from "@/assets/projects/sandwich-panel-3.webp";
 import terrainSport from "@/assets/projects/terrain-sport.jpg";
 import saadiyatProject from "@/assets/projects/saadiyat-project.jpg";
+
+import SEO from "@/components/SEO";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 50 },
   visible: (i: number) => ({ opacity: 1, y: 0, transition: { duration: 0.6, delay: i * 0.12 } }),
 };
-const ProjectCard = ({ project, index: i, t }: { project: any; index: number; t: (fr: string, en: string) => string }) => {
+interface Project {
+  img?: string;
+  title: string;
+  location?: string;
+  year?: string;
+  category?: string;
+  client?: string;
+  value?: string;
+  duration?: string;
+  desc: string;
+  scope: string[];
+  result?: string;
+  gallery?: string[];
+  beforeCount?: number;
+}
+const ProjectCard = ({ project, index: i, t }: { project: Project; index: number; t: (fr: string, en: string) => string }) => {
   const images = project.gallery || [project.img];
   const beforeCount = project.beforeCount || 0;
   const [currentImg, setCurrentImg] = useState(0);
@@ -320,6 +337,12 @@ const Produits = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="Nos Projets | References KFM Abu Dhabi"
+        description="Decouvrez les projets realises par KFM : HVAC, renovation, travaux civils et facility management a Abu Dhabi et aux Emirats."
+        keywords="projets KFM, references facility management Abu Dhabi, realisations KFM UAE"
+        url="https://khayrafm.com/projets"
+      />
       {/* Hero */}
       <section className="relative py-20 overflow-hidden min-h-[40vh] flex items-center">
         <div className="absolute inset-0">

@@ -20,16 +20,18 @@ import {
 import aboutBg from "@/assets/about-bg.webp";
 import heroImg from "@/assets/hero-light.webp";
 import teamVision from "@/assets/team-vision.jpg";
-import embassyHvac from "@/assets/projects/embassy-hvac-diagnostic.jpg";
+import embassyHvac from "@/assets/projects/embassy-hvac-diagnostic.webp";
 import productHvac from "@/assets/product-hvac.webp";
 import productMep from "@/assets/product-mep.webp";
 import productCivil from "@/assets/product-civil.webp";
 import productInterior from "@/assets/product-interior.webp";
 import productEnergy from "@/assets/product-energy.webp";
-import productCleaning from "@/assets/product-cleaning.jpg";
+import productCleaning from "@/assets/product-cleaning.webp";
 import { SprayCan } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useRef } from "react";
+import SEO from "@/components/SEO";
+
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -226,6 +228,12 @@ const APropos = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="A propos de KFM | Facility Management Abu Dhabi"
+        description="Decouvrez KFM, expert en Facility Management a Abu Dhabi. Notre mission, nos valeurs et notre equipe. 20+ ans d'experience."
+        keywords="KFM Khayra, facility management Abu Dhabi, a propos KFM"
+        url="https://khayrafm.com/a-propos"
+      />
       {/* Hero with parallax */}
       <section ref={heroRef} className="relative py-20 overflow-hidden min-h-[40vh] flex items-center">
         <motion.div className="absolute inset-0" style={{ y: heroY }}>

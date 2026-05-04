@@ -12,7 +12,9 @@ import productMep from "@/assets/product-mep.webp";
 import productCivil from "@/assets/product-civil.webp";
 import productInterior from "@/assets/product-interior.webp";
 import productEnergy from "@/assets/product-energy.webp";
-import productCleaning from "@/assets/product-cleaning.jpg";
+import productCleaning from "@/assets/product-cleaning.webp";
+
+import SEO from "@/components/SEO";
 
 const serviceImages: Record<string, string> = {
   hvac: productHvac,
@@ -40,6 +42,13 @@ const Services = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="Nos Services | Facility Management - KFM"
+        description="Decouvrez tous les services KFM : HVAC, nettoyage industriel, travaux civils, MEP et gestion des installations a Abu Dhabi."
+        keywords="services facility management, nettoyage industriel Abu Dhabi, HVAC UAE, MEP Abu Dhabi"
+        url="https://khayrafm.com/services"
+      />
+
 
       {/* Hero */}
       <section className="relative py-20 overflow-hidden min-h-[40vh] flex items-center">
