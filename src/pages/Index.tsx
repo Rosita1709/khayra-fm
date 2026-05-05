@@ -117,6 +117,25 @@ const StatsCounter = ({ t }: { t: (fr: string, en: string) => string }) => (
   </motion.div>
 );
 
+const organization = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'KFM - Khayra Facility Management',
+  url: 'https://www.khayrafm.com',
+  logo: 'https://www.khayrafm.com/kfm-logo.jpeg',
+  telephone: '+971508054220',
+  email: 'contact@khayrafm.com',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: '10th Floor, Corniche Building, Al Hisn',
+    addressLocality: 'Abu Dhabi',
+    addressCountry: 'AE'
+  },
+  areaServed: ['AE'],
+  description: 'KFM, expert en Facility Management a Abu Dhabi. HVAC, renovation, travaux civils et services techniques.',
+  sameAs: ['https://www.linkedin.com/company/kfm']
+};
+
 const Index = () => {
   const { t } = useLanguage();
   const heroRef = useRef<HTMLDivElement>(null);
@@ -162,6 +181,10 @@ const Index = () => {
         keywords="facility management senegal, facility management dakar, KFM, Khayra"
         url="https://khayrafm.com"
       />
+      <script
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{ __html: JSON.stringify(organization) }}
+/>
       {/* ===== HERO with parallax ===== */}
       <section ref={heroRef} className="relative min-h-[92vh] flex items-center overflow-hidden">
         <motion.div className="absolute inset-0" style={{ y: heroY, scale: heroScale }}>

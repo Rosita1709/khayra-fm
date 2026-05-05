@@ -29,6 +29,23 @@ const fadeUp = {
   hidden: { opacity: 0, y: 50 },
   visible: (i: number) => ({ opacity: 1, y: 0, transition: { duration: 0.6, delay: i * 0.12 } }),
 };
+const servicesSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Facility Management Abu Dhabi',
+  serviceType: 'Facility Management',
+  provider: {
+    '@type': 'Organization',
+    name: 'KFM - Khayra Facility Management',
+    url: 'https://www.khayrafm.com'
+  },
+  areaServed: {
+    '@type': 'Place',
+    name: 'Abu Dhabi, United Arab Emirates'
+  },
+  description: 'HVAC, nettoyage industriel, travaux civils, MEP et gestion des installations a Abu Dhabi.',
+  url: 'https://www.khayrafm.com/services'
+};
 
 const Services = () => {
   const { t } = useLanguage();
@@ -47,8 +64,12 @@ const Services = () => {
         description="Decouvrez tous les services KFM : HVAC, nettoyage industriel, travaux civils, MEP et gestion des installations a Abu Dhabi."
         keywords="services facility management, nettoyage industriel Abu Dhabi, HVAC UAE, MEP Abu Dhabi"
         url="https://khayrafm.com/services"
+        
       />
-
+      <script
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesSchema) }}
+/>
 
       {/* Hero */}
       <section className="relative py-20 overflow-hidden min-h-[40vh] flex items-center">
