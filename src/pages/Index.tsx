@@ -1,6 +1,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Link } from "react-router-dom";
 import heroImg from "@/assets/hero-new.jpg";
+import heroVideoAsset from "@/assets/videokfm.mp4.asset.json";
 import { TrendingUp, PiggyBank, Heart, Rocket, ArrowRight, Shield, Clock, Headphones, Award } from "lucide-react";
 import { useCountUp } from "@/hooks/useCountUp";
 import { useRef } from "react";
@@ -185,16 +186,17 @@ const Index = () => {
   type="application/ld+json"
   dangerouslySetInnerHTML={{ __html: JSON.stringify(organization) }}
 />
-      {/* ===== HERO with parallax ===== */}
+      {/* ===== HERO with parallax video ===== */}
       <section ref={heroRef} className="relative min-h-[92vh] flex items-center overflow-hidden">
         <motion.div className="absolute inset-0" style={{ y: heroY, scale: heroScale }}>
-          <motion.img
-            src={heroImg}
-            alt=""
+          <video
+            src={heroVideoAsset.url}
+            autoPlay
+            loop
+            muted
+            playsInline
             className="h-full w-full object-cover"
-            initial={{ scale: 1.2, filter: "brightness(0.3)" }}
-            animate={{ scale: 1, filter: "brightness(1)" }}
-            transition={{ duration: 2, ease: "easeOut" }}
+            poster={heroImg}
           />
           <div className="absolute inset-0 bg-gradient-to-r from-foreground/80 via-foreground/55 to-foreground/25" />
         </motion.div>
