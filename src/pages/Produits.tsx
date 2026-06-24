@@ -286,25 +286,6 @@ const ProjectCard = ({ project, index: i, t }: { project: Project; index: number
           </div>
         </motion.div>
 
-        {/* Gallery thumbnails */}
-        {images.length > 1 && (
-          <div className="mt-4 flex gap-2 overflow-x-auto pb-1">
-            {images.map((img: string, gi: number) => (
-              <div key={gi} className="relative flex-shrink-0 cursor-pointer" onClick={() => setCurrentImg(gi)}>
-                <motion.img src={img} alt=""
-                  className={`h-16 w-20 rounded-lg object-cover border-2 transition-all ${gi === currentImg ? "border-primary shadow-md" : "border-border hover:border-primary/50"}`}
-                  whileHover={{ scale: 1.05 }} />
-                {beforeCount > 0 && (
-                  <span className={`absolute -top-1.5 -right-1.5 rounded-full px-1.5 py-0.5 text-[8px] font-bold uppercase leading-none shadow ${
-                    gi < beforeCount ? "bg-amber-500 text-white" : "bg-emerald-500 text-white"
-                  }`}>
-                    {gi < beforeCount ? t("Av.", "Bef.") : t("Ap.", "Aft.")}
-                  </span>
-                )}
-              </div>
-            ))}
-          </div>
-        )}
       </motion.div>
     </motion.div>
   );
