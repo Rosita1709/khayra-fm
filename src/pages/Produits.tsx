@@ -20,7 +20,141 @@ import sandwichPanel3 from "@/assets/projects/sandwich-panel-3.webp";
 import terrainSport from "@/assets/projects/terrain-sport.jpg";
 import saadiyatProject from "@/assets/projects/saadiyat-project.jpg";
 
+import mauritaniaCanopy1 from "@/assets/projects/mauritania/canopy-1.png.asset.json";
+import mauritaniaCanopy2 from "@/assets/projects/mauritania/canopy-2.png.asset.json";
+import mauritaniaChiller1 from "@/assets/projects/mauritania/chiller-1.mp4.asset.json";
+import mauritaniaChiller2 from "@/assets/projects/mauritania/chiller-2.mp4.asset.json";
+import mauritaniaChiller3 from "@/assets/projects/mauritania/chiller-3.mp4.asset.json";
+
 import SEO from "@/components/SEO";
+
+const MauritaniaEmbassyProject = ({ t }: { t: (fr: string, en: string) => string }) => {
+  const canopyImages = [mauritaniaCanopy1.url, mauritaniaCanopy2.url];
+  const chillerVideos = [mauritaniaChiller1.url, mauritaniaChiller2.url, mauritaniaChiller3.url];
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-80px" }}
+      transition={{ duration: 0.6 }}
+      className="space-y-12"
+    >
+      {/* Header */}
+      <div className="max-w-3xl">
+        <div className="flex flex-wrap items-center gap-3 text-xs text-muted-foreground mb-3">
+          <span className="flex items-center gap-1.5"><MapPin className="h-3.5 w-3.5 text-primary" />Abu Dhabi, UAE</span>
+          <span className="flex items-center gap-1.5"><Calendar className="h-3.5 w-3.5 text-primary" />2025</span>
+        </div>
+        <span className="inline-block rounded-full bg-primary px-3 py-1 text-xs font-semibold text-primary-foreground mb-3">
+          {t("Travaux Civils & HVAC", "Civil Works & HVAC")}
+        </span>
+        <h2 className="font-display text-2xl font-bold md:text-3xl">
+          {t("Ambassade de Mauritanie à Abu Dhabi", "Embassy of Mauritania in Abu Dhabi")}
+        </h2>
+        <p className="mt-1 text-sm font-medium text-primary">
+          {t("Client : Ambassade de Mauritanie", "Client: Embassy of Mauritania")}
+        </p>
+      </div>
+
+      {/* Part 1: Parking garage / canopy structure */}
+      <div className="rounded-2xl border border-border bg-card p-6 md:p-8 shadow-sm">
+        <h3 className="font-display text-xl font-bold mb-2">
+          {t("Garage 4 voitures & Structure de Toiture", "4-Car Parking Garage & Roof Structure")}
+        </h3>
+        <p className="text-muted-foreground leading-relaxed mb-4">
+          {t(
+            "Fourniture et installation d'un garage de stationnement pour 4 voitures comprenant structure en acier, travaux civils et toiture étanche.",
+            "Supply and installation of a 4-car parking garage including steel structure, civil works, and waterproof roofing."
+          )}
+        </p>
+        <ul className="space-y-2 mb-6">
+          {[
+            t("Tubes GI : 6\" x 4mm, 2\" x 2.5mm, 2\" x 2mm", "GI Pipes: 6\" x 4mm, 2\" x 2.5mm, 2\" x 2mm"),
+            t("Structure en acier galvanisé sur mesure", "Custom galvanized steel structure"),
+            t("Toiture étanche haute résistance", "High-resistance waterproof roofing"),
+            t("Panneaux décoratifs en métal découpé au laser", "Laser-cut decorative metal panels"),
+          ].map((item) => (
+            <li key={item} className="flex items-start gap-2.5 text-sm">
+              <ArrowRight className="h-4 w-4 mt-0.5 flex-shrink-0 text-primary" />{item}
+            </li>
+          ))}
+        </ul>
+
+        {/* Horizontal scroll gallery */}
+        <div className="-mx-6 md:-mx-8 px-6 md:px-8 overflow-x-auto scrollbar-thin snap-x snap-mandatory">
+          <div className="flex gap-4 pb-2">
+            {canopyImages.map((src, idx) => (
+              <div key={idx} className="snap-start flex-shrink-0 w-[85%] sm:w-[60%] md:w-[48%] lg:w-[40%]">
+                <div className="relative h-72 md:h-96 overflow-hidden rounded-xl shadow-md group">
+                  <img src={src} alt={`Mauritania Embassy canopy ${idx + 1}`}
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Part 2: Chiller installation */}
+      <div className="rounded-2xl border border-border bg-card p-6 md:p-8 shadow-sm">
+        <h3 className="font-display text-xl font-bold mb-2">
+          {t("Installation Chiller SABCON 3 Tonnes", "SABCON 3 Ton Chiller Installation")}
+        </h3>
+        <p className="text-muted-foreground leading-relaxed mb-4">
+          {t(
+            "Fourniture, installation et mise en service d'un système complet de refroidissement d'eau potable avec chiller SABCON 3 tonnes.",
+            "Supply, installation and commissioning of a complete potable water cooling system with SABCON 3 ton chiller."
+          )}
+        </p>
+        <ul className="space-y-2 mb-6">
+          {[
+            t("Fourniture et mise en service du chiller SABCON 3 tonnes", "Supply and commissioning of SABCON 3 Ton Water Chiller"),
+            t("Pompe de circulation 0.75 HP pour eau potable", "0.75 HP circulation pump suitable for potable water"),
+            t("Tuyauterie de circulation 1 pouce avec raccords, coudes et tés", "1 inch circulation piping including fittings, elbows and tees"),
+            t("Vannes d'isolement, filtre Y, clapet anti-retour et unions", "Isolation valves, Y-strainer, non-return valve and unions"),
+            t("Isolation des tuyaux apparents", "Pipe insulation for exposed piping"),
+            t("Raccordement électrique : MCB / isolateur, câblage et câblage de contrôle", "Electrical connection: MCB / isolator, cabling, termination and control wiring"),
+            t("Supports chiller, plots anti-vibration, colliers et consommables", "Chiller support, anti-vibration pads, clamps, fixing materials and installation consumables"),
+          ].map((item) => (
+            <li key={item} className="flex items-start gap-2.5 text-sm">
+              <ArrowRight className="h-4 w-4 mt-0.5 flex-shrink-0 text-primary" />{item}
+            </li>
+          ))}
+        </ul>
+
+        {/* Horizontal scroll video gallery */}
+        <div className="-mx-6 md:-mx-8 px-6 md:px-8 overflow-x-auto scrollbar-thin snap-x snap-mandatory">
+          <div className="flex gap-4 pb-2">
+            {chillerVideos.map((src, idx) => (
+              <div key={idx} className="snap-start flex-shrink-0 w-[85%] sm:w-[60%] md:w-[48%] lg:w-[40%]">
+                <div className="relative h-72 md:h-96 overflow-hidden rounded-xl shadow-md bg-black">
+                  <video
+                    src={src}
+                    controls
+                    playsInline
+                    preload="metadata"
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+        className="rounded-xl border border-primary/20 bg-primary/5 px-5 py-3 max-w-3xl">
+        <div className="flex items-center gap-2">
+          <CheckCircle className="h-4 w-4 text-primary flex-shrink-0" />
+          <span className="text-sm font-semibold">
+            {t("Projet livré avec succès pour l'Ambassade de Mauritanie", "Project successfully delivered for the Embassy of Mauritania")}
+          </span>
+        </div>
+      </motion.div>
+    </motion.div>
+  );
+};
 
 const fadeUp = {
   hidden: { opacity: 0, y: 50 },
