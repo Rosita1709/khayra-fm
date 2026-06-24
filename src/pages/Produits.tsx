@@ -522,6 +522,7 @@ const Produits = () => {
       {/* Projects */}
       <section className="py-24">
         <div className="container mx-auto px-6 space-y-28">
+          <MauritaniaEmbassyProject t={t} />
           {projects.map((project, i) => (
             <ProjectCard key={project.title} project={project} index={i} t={t} />
           ))}
