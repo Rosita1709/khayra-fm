@@ -20,7 +20,7 @@ import sandwichPanel3 from "@/assets/projects/sandwich-panel-3.webp";
 import terrainSport from "@/assets/projects/terrain-sport.jpg";
 import saadiyatProject from "@/assets/projects/saadiyat-project.jpg";
 import mauritaniaCanopy1 from "@/assets/projects/mauritania/canopy-1.png";
-import mauritaniaCanopy2 from "@/assets/projects/mauritania/canopy-2.png";
+
 
 import SEO from "@/components/SEO";
 
@@ -96,7 +96,6 @@ const MediaCarousel = ({
 const MauritaniaEmbassyProject = ({ t }: { t: (fr: string, en: string) => string }) => {
   const canopyItems = [
     { type: "image" as const, src: mauritaniaCanopy1 },
-    { type: "image" as const, src: mauritaniaCanopy2 },
   ];
   const chillerItems = [
     { type: "video" as const, src: "/videos/chiller-1.mp4" },
@@ -164,7 +163,7 @@ const MauritaniaEmbassyProject = ({ t }: { t: (fr: string, en: string) => string
         </div>
         <div className="lg:order-1">
           <h3 className="font-display text-xl font-bold mb-2">
-            {t("Installation Chiller SABCON 3 Tonnes", "SABCON 3 Ton Chiller Installation")}
+            {t("Installation d'un système complet de refroidissement", "Installation of a complete cooling system")}
           </h3>
           <p className="text-muted-foreground leading-relaxed mb-4">
             {t(
