@@ -24,12 +24,84 @@ import mauritaniaCanopy2 from "@/assets/projects/mauritania/canopy-2.png";
 
 import SEO from "@/components/SEO";
 
+const MediaCarousel = ({
+  items,
+  alt,
+}: {
+  items: { type: "image" | "video"; src: string }[];
+  alt: string;
+}) => {
+  const [current, setCurrent] = useState(0);
+  const next = () => setCurrent((p) => (p + 1) % items.length);
+  const prev = () => setCurrent((p) => (p - 1 + items.length) % items.length);
+
+  return (
+    <div className="relative group overflow-hidden rounded-2xl shadow-xl">
+      <div className="relative h-[320px] sm:h-[400px] md:h-[480px] bg-black">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={current}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.4 }}
+            className="absolute inset-0"
+          >
+            {items[current].type === "image" ? (
+              <img src={items[current].src} alt={`${alt} ${current + 1}`} className="h-full w-full object-cover" />
+            ) : (
+              <video
+                src={items[current].src}
+                controls
+                playsInline
+                preload="metadata"
+                className="h-full w-full object-contain bg-black"
+              />
+            )}
+          </motion.div>
+        </AnimatePresence>
+        {items.length > 1 && (
+          <>
+            <button
+              onClick={prev}
+              aria-label="Previous"
+              className="absolute left-3 top-1/2 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full bg-card/80 backdrop-blur-sm border border-border text-foreground shadow-lg opacity-0 group-hover:opacity-100 transition-opacity hover:bg-card z-10"
+            >
+              <ChevronLeft className="h-5 w-5" />
+            </button>
+            <button
+              onClick={next}
+              aria-label="Next"
+              className="absolute right-3 top-1/2 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full bg-card/80 backdrop-blur-sm border border-border text-foreground shadow-lg opacity-0 group-hover:opacity-100 transition-opacity hover:bg-card z-10"
+            >
+              <ChevronRight className="h-5 w-5" />
+            </button>
+            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-1.5 z-10">
+              {items.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setCurrent(idx)}
+                  aria-label={`Go to ${idx + 1}`}
+                  className={`h-2 rounded-full transition-all ${idx === current ? "w-6 bg-primary" : "w-2 bg-background/60"}`}
+                />
+              ))}
+            </div>
+          </>
+        )}
+      </div>
+    </div>
+  );
+};
+
 const MauritaniaEmbassyProject = ({ t }: { t: (fr: string, en: string) => string }) => {
-  const canopyImages = [mauritaniaCanopy1, mauritaniaCanopy2];
-  const chillerVideos = [
-    "/videos/chiller-1.mp4",
-    "/videos/chiller-2.mp4",
-    "/videos/chiller-3.mp4"
+  const canopyItems = [
+    { type: "image" as const, src: mauritaniaCanopy1 },
+    { type: "image" as const, src: mauritaniaCanopy2 },
+  ];
+  const chillerItems = [
+    { type: "video" as const, src: "/videos/chiller-1.mp4" },
+    { type: "video" as const, src: "/videos/chiller-2.mp4" },
+    { type: "video" as const, src: "/videos/chiller-3.mp4" },
   ];
 
   return (
@@ -58,88 +130,63 @@ const MauritaniaEmbassyProject = ({ t }: { t: (fr: string, en: string) => string
       </div>
 
       {/* Part 1: Parking garage / canopy structure */}
-      <div className="rounded-2xl border border-border bg-card p-6 md:p-8 shadow-sm">
-        <h3 className="font-display text-xl font-bold mb-2">
-          {t("Garage 4 voitures & Structure de Toiture", "4-Car Parking Garage & Roof Structure")}
-        </h3>
-        <p className="text-muted-foreground leading-relaxed mb-4">
-          {t(
-            "Fourniture et installation d'un garage de stationnement pour 4 voitures comprenant structure en acier, travaux civils et toiture étanche.",
-            "Supply and installation of a 4-car parking garage including steel structure, civil works, and waterproof roofing."
-          )}
-        </p>
-        <ul className="space-y-2 mb-6">
-          {[
-            t("Tubes GI : 6\" x 4mm, 2\" x 2.5mm, 2\" x 2mm", "GI Pipes: 6\" x 4mm, 2\" x 2.5mm, 2\" x 2mm"),
-            t("Structure en acier galvanisé sur mesure", "Custom galvanized steel structure"),
-            t("Toiture étanche haute résistance", "High-resistance waterproof roofing"),
-            t("Panneaux décoratifs en métal découpé au laser", "Laser-cut decorative metal panels"),
-          ].map((item) => (
-            <li key={item} className="flex items-start gap-2.5 text-sm">
-              <ArrowRight className="h-4 w-4 mt-0.5 flex-shrink-0 text-primary" />{item}
-            </li>
-          ))}
-        </ul>
-
-        {/* Horizontal scroll gallery */}
-        <div className="-mx-6 md:-mx-8 px-6 md:px-8 overflow-x-auto scrollbar-thin snap-x snap-mandatory">
-          <div className="flex gap-4 pb-2">
-            {canopyImages.map((src, idx) => (
-              <div key={idx} className="snap-start flex-shrink-0 w-[85%] sm:w-[60%] md:w-[48%] lg:w-[40%]">
-                <div className="relative h-72 md:h-96 overflow-hidden rounded-xl shadow-md group">
-                  <img src={src} alt={`Mauritania Embassy canopy ${idx + 1}`}
-                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                </div>
-              </div>
+      <div className="grid items-center gap-12 lg:grid-cols-2">
+        <MediaCarousel items={canopyItems} alt="Mauritania Embassy canopy" />
+        <div>
+          <h3 className="font-display text-xl font-bold mb-2">
+            {t("Garage 4 voitures & Structure de Toiture", "4-Car Parking Garage & Roof Structure")}
+          </h3>
+          <p className="text-muted-foreground leading-relaxed mb-4">
+            {t(
+              "Fourniture et installation d'un garage de stationnement pour 4 voitures comprenant structure en acier, travaux civils et toiture étanche.",
+              "Supply and installation of a 4-car parking garage including steel structure, civil works, and waterproof roofing."
+            )}
+          </p>
+          <ul className="space-y-2">
+            {[
+              t("Tubes GI : 6\" x 4mm, 2\" x 2.5mm, 2\" x 2mm", "GI Pipes: 6\" x 4mm, 2\" x 2.5mm, 2\" x 2mm"),
+              t("Structure en acier galvanisé sur mesure", "Custom galvanized steel structure"),
+              t("Toiture étanche haute résistance", "High-resistance waterproof roofing"),
+              t("Panneaux décoratifs en métal découpé au laser", "Laser-cut decorative metal panels"),
+            ].map((item) => (
+              <li key={item} className="flex items-start gap-2.5 text-sm">
+                <ArrowRight className="h-4 w-4 mt-0.5 flex-shrink-0 text-primary" />{item}
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </div>
 
       {/* Part 2: Chiller installation */}
-      <div className="rounded-2xl border border-border bg-card p-6 md:p-8 shadow-sm">
-        <h3 className="font-display text-xl font-bold mb-2">
-          {t("Installation Chiller SABCON 3 Tonnes", "SABCON 3 Ton Chiller Installation")}
-        </h3>
-        <p className="text-muted-foreground leading-relaxed mb-4">
-          {t(
-            "Fourniture, installation et mise en service d'un système complet de refroidissement d'eau potable avec chiller SABCON 3 tonnes.",
-            "Supply, installation and commissioning of a complete potable water cooling system with SABCON 3 ton chiller."
-          )}
-        </p>
-        <ul className="space-y-2 mb-6">
-          {[
-            t("Fourniture et mise en service du chiller SABCON 3 tonnes", "Supply and commissioning of SABCON 3 Ton Water Chiller"),
-            t("Pompe de circulation 0.75 HP pour eau potable", "0.75 HP circulation pump suitable for potable water"),
-            t("Tuyauterie de circulation 1 pouce avec raccords, coudes et tés", "1 inch circulation piping including fittings, elbows and tees"),
-            t("Vannes d'isolement, filtre Y, clapet anti-retour et unions", "Isolation valves, Y-strainer, non-return valve and unions"),
-            t("Isolation des tuyaux apparents", "Pipe insulation for exposed piping"),
-            t("Raccordement électrique : MCB / isolateur, câblage et câblage de contrôle", "Electrical connection: MCB / isolator, cabling, termination and control wiring"),
-            t("Supports chiller, plots anti-vibration, colliers et consommables", "Chiller support, anti-vibration pads, clamps, fixing materials and installation consumables"),
-          ].map((item) => (
-            <li key={item} className="flex items-start gap-2.5 text-sm">
-              <ArrowRight className="h-4 w-4 mt-0.5 flex-shrink-0 text-primary" />{item}
-            </li>
-          ))}
-        </ul>
-
-        {/* Horizontal scroll video gallery */}
-        <div className="-mx-6 md:-mx-8 px-6 md:px-8 overflow-x-auto scrollbar-thin snap-x snap-mandatory">
-          <div className="flex gap-4 pb-2">
-            {chillerVideos.map((src, idx) => (
-              <div key={idx} className="snap-start flex-shrink-0 w-[85%] sm:w-[60%] md:w-[48%] lg:w-[40%]">
-                <div className="relative h-72 md:h-96 overflow-hidden rounded-xl shadow-md bg-black">
-                  <video
-                    src={src}
-                    controls
-                    playsInline
-                    preload="metadata"
-                    className="h-full w-full object-cover"
-                  />
-                </div>
-              </div>
+      <div className="grid items-center gap-12 lg:grid-cols-2">
+        <div className="lg:order-2">
+          <MediaCarousel items={chillerItems} alt="Mauritania Embassy chiller" />
+        </div>
+        <div className="lg:order-1">
+          <h3 className="font-display text-xl font-bold mb-2">
+            {t("Installation Chiller SABCON 3 Tonnes", "SABCON 3 Ton Chiller Installation")}
+          </h3>
+          <p className="text-muted-foreground leading-relaxed mb-4">
+            {t(
+              "Fourniture, installation et mise en service d'un système complet de refroidissement d'eau potable avec chiller SABCON 3 tonnes.",
+              "Supply, installation and commissioning of a complete potable water cooling system with SABCON 3 ton chiller."
+            )}
+          </p>
+          <ul className="space-y-2">
+            {[
+              t("Fourniture et mise en service du chiller SABCON 3 tonnes", "Supply and commissioning of SABCON 3 Ton Water Chiller"),
+              t("Pompe de circulation 0.75 HP pour eau potable", "0.75 HP circulation pump suitable for potable water"),
+              t("Tuyauterie de circulation 1 pouce avec raccords, coudes et tés", "1 inch circulation piping including fittings, elbows and tees"),
+              t("Vannes d'isolement, filtre Y, clapet anti-retour et unions", "Isolation valves, Y-strainer, non-return valve and unions"),
+              t("Isolation des tuyaux apparents", "Pipe insulation for exposed piping"),
+              t("Raccordement électrique : MCB / isolateur, câblage et câblage de contrôle", "Electrical connection: MCB / isolator, cabling, termination and control wiring"),
+              t("Supports chiller, plots anti-vibration, colliers et consommables", "Chiller support, anti-vibration pads, clamps, fixing materials and installation consumables"),
+            ].map((item) => (
+              <li key={item} className="flex items-start gap-2.5 text-sm">
+                <ArrowRight className="h-4 w-4 mt-0.5 flex-shrink-0 text-primary" />{item}
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </div>
 
@@ -155,6 +202,7 @@ const MauritaniaEmbassyProject = ({ t }: { t: (fr: string, en: string) => string
     </motion.div>
   );
 };
+
 
 const fadeUp = {
   hidden: { opacity: 0, y: 50 },
