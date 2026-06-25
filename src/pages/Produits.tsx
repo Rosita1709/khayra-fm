@@ -20,6 +20,8 @@ import sandwichPanel3 from "@/assets/projects/sandwich-panel-3.webp";
 import terrainSport from "@/assets/projects/terrain-sport.jpg";
 import saadiyatProject from "@/assets/projects/saadiyat-project.jpg";
 import mauritaniaCanopy1 from "@/assets/projects/mauritania/canopy-1.png";
+import saadiyatVideo from "@/assets/video-homepage.mp4.asset.json";
+
 
 
 import SEO from "@/components/SEO";
