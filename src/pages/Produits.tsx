@@ -19,18 +19,18 @@ import sandwichPanel2 from "@/assets/projects/sandwich-panel-2.jpg";
 import sandwichPanel3 from "@/assets/projects/sandwich-panel-3.webp";
 import terrainSport from "@/assets/projects/terrain-sport.jpg";
 import saadiyatProject from "@/assets/projects/saadiyat-project.jpg";
-
-import mauritaniaCanopy1 from "@/assets/projects/mauritania/canopy-1.png.asset.json";
-import mauritaniaCanopy2 from "@/assets/projects/mauritania/canopy-2.png.asset.json";
-import mauritaniaChiller1 from "@/assets/projects/mauritania/chiller-1.mp4.asset.json";
-import mauritaniaChiller2 from "@/assets/projects/mauritania/chiller-2.mp4.asset.json";
-import mauritaniaChiller3 from "@/assets/projects/mauritania/chiller-3.mp4.asset.json";
+import mauritaniaCanopy1 from "@/assets/projects/mauritania/canopy-1.png";
+import mauritaniaCanopy2 from "@/assets/projects/mauritania/canopy-2.png";
 
 import SEO from "@/components/SEO";
 
 const MauritaniaEmbassyProject = ({ t }: { t: (fr: string, en: string) => string }) => {
-  const canopyImages = [mauritaniaCanopy1.url, mauritaniaCanopy2.url];
-  const chillerVideos = [mauritaniaChiller1.url, mauritaniaChiller2.url, mauritaniaChiller3.url];
+  const canopyImages = [mauritaniaCanopy1, mauritaniaCanopy2];
+  const chillerVideos = [
+    "/videos/chiller-1.mp4",
+    "/videos/chiller-2.mp4",
+    "/videos/chiller-3.mp4"
+  ];
 
   return (
     <motion.div
@@ -160,6 +160,7 @@ const fadeUp = {
   hidden: { opacity: 0, y: 50 },
   visible: (i: number) => ({ opacity: 1, y: 0, transition: { duration: 0.6, delay: i * 0.12 } }),
 };
+
 interface Project {
   img?: string;
   title: string;
@@ -175,6 +176,7 @@ interface Project {
   gallery?: string[];
   beforeCount?: number;
 }
+
 const ProjectCard = ({ project, index: i, t }: { project: Project; index: number; t: (fr: string, en: string) => string }) => {
   const images = project.gallery || [project.img];
   const beforeCount = project.beforeCount || 0;
@@ -186,7 +188,6 @@ const ProjectCard = ({ project, index: i, t }: { project: Project; index: number
   return (
     <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true, margin: "-80px" }} transition={{ duration: 0.5 }}
       className="grid items-center gap-12 lg:grid-cols-2">
-      {/* Image with carousel */}
       <motion.div initial={{ opacity: 0, x: i % 2 === 0 ? -60 : 60 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: "-80px" }} transition={{ duration: 0.8, ease: "easeOut" }}
         className={`relative group overflow-hidden rounded-2xl shadow-xl ${i % 2 === 1 ? "lg:order-2" : ""}`}>
         <div className="relative h-[420px]">
@@ -202,13 +203,10 @@ const ProjectCard = ({ project, index: i, t }: { project: Project; index: number
               transition={{ duration: 0.4 }}
             />
           </AnimatePresence>
-          {/* Before/After label */}
           {beforeCount > 0 && (
             <div className="absolute top-4 left-4 z-10">
               <span className={`rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-wider shadow-lg ${
-                currentImg < beforeCount
-                  ? "bg-amber-500 text-white"
-                  : "bg-emerald-500 text-white"
+                currentImg < beforeCount ? "bg-amber-500 text-white" : "bg-emerald-500 text-white"
               }`}>
                 {currentImg < beforeCount ? t("Avant", "Before") : t("Après", "After")}
               </span>
@@ -229,8 +227,6 @@ const ProjectCard = ({ project, index: i, t }: { project: Project; index: number
             {t("Terminé", "Completed")}
           </div>
         </motion.div>
-
-        {/* Navigation arrows */}
         {images.length > 1 && (
           <>
             <button onClick={prev} className="absolute left-3 top-1/2 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full bg-card/80 backdrop-blur-sm border border-border text-foreground shadow-lg opacity-0 group-hover:opacity-100 transition-opacity hover:bg-card">
@@ -239,7 +235,6 @@ const ProjectCard = ({ project, index: i, t }: { project: Project; index: number
             <button onClick={next} className="absolute right-3 top-1/2 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full bg-card/80 backdrop-blur-sm border border-border text-foreground shadow-lg opacity-0 group-hover:opacity-100 transition-opacity hover:bg-card">
               <ChevronRight className="h-5 w-5" />
             </button>
-            {/* Dots */}
             <div className="absolute bottom-16 left-1/2 -translate-x-1/2 flex gap-1.5">
               {images.map((_: string, idx: number) => (
                 <button key={idx} onClick={() => setCurrentImg(idx)}
@@ -250,23 +245,16 @@ const ProjectCard = ({ project, index: i, t }: { project: Project; index: number
         )}
       </motion.div>
 
-      {/* Content */}
       <motion.div initial={{ opacity: 0, x: i % 2 === 0 ? 60 : -60 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: "-80px" }} transition={{ duration: 0.8, ease: "easeOut" }}
         className={i % 2 === 1 ? "lg:order-1" : ""}>
         <div className="flex flex-wrap items-center gap-3 text-xs text-muted-foreground mb-3">
           <span className="flex items-center gap-1.5"><MapPin className="h-3.5 w-3.5 text-primary" />{project.location}</span>
           <span className="flex items-center gap-1.5"><Calendar className="h-3.5 w-3.5 text-primary" />{project.year}</span>
-          {project.value && (
-            <span className="flex items-center gap-1.5"><DollarSign className="h-3.5 w-3.5 text-primary" />{project.value}</span>
-          )}
-          {project.duration && (
-            <span className="flex items-center gap-1.5"><Clock className="h-3.5 w-3.5 text-primary" />{project.duration}</span>
-          )}
+          {project.value && <span className="flex items-center gap-1.5"><DollarSign className="h-3.5 w-3.5 text-primary" />{project.value}</span>}
+          {project.duration && <span className="flex items-center gap-1.5"><Clock className="h-3.5 w-3.5 text-primary" />{project.duration}</span>}
         </div>
         <h2 className="font-display text-2xl font-bold md:text-3xl">{project.title}</h2>
-        {project.client && (
-          <p className="mt-1 text-sm font-medium text-primary">{t("Client : ", "Client: ")}{project.client}</p>
-        )}
+        {project.client && <p className="mt-1 text-sm font-medium text-primary">{t("Client : ", "Client: ")}{project.client}</p>}
         <p className="mt-4 leading-relaxed text-muted-foreground">{project.desc}</p>
         <div className="mt-6">
           <h4 className="text-sm font-semibold uppercase tracking-wider text-primary mb-3">{t("Périmètre du projet", "Project scope")}</h4>
@@ -285,7 +273,6 @@ const ProjectCard = ({ project, index: i, t }: { project: Project; index: number
             <span className="text-sm font-semibold">{project.result}</span>
           </div>
         </motion.div>
-
       </motion.div>
     </motion.div>
   );

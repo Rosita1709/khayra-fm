@@ -1,7 +1,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Link } from "react-router-dom";
 import heroImg from "@/assets/hero-new.jpg";
-import heroVideoAsset from "@/assets/hero-kfm.mp4.asset.json";
+
 import { TrendingUp, PiggyBank, Heart, Rocket, ArrowRight, Shield, Clock, Headphones, Award } from "lucide-react";
 import { useCountUp } from "@/hooks/useCountUp";
 import { useRef } from "react";
@@ -190,7 +190,7 @@ const Index = () => {
       <section ref={heroRef} className="relative min-h-[92vh] flex items-center overflow-hidden">
         <motion.div className="absolute inset-0" style={{ y: heroY, scale: heroScale }}>
           <video
-            src={heroVideoAsset.url}
+            src="/videos/video-homepage.mp4"
             autoPlay
             loop
             muted
