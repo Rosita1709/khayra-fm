@@ -163,7 +163,7 @@ const MauritaniaEmbassyProject = ({ t }: { t: (fr: string, en: string) => string
         </div>
         <div className="lg:order-1">
           <h3 className="font-display text-xl font-bold mb-2">
-            {t("Installation Chiller SABCON 3 Tonnes", "SABCON 3 Ton Chiller Installation")}
+            {t("Installation d'un système complet de refroidissement", "Installation of a complete cooling system")}
           </h3>
           <p className="text-muted-foreground leading-relaxed mb-4">
             {t(
