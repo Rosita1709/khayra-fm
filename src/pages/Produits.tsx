@@ -18,9 +18,9 @@ import sandwichPanel1 from "@/assets/projects/sandwich-panel-1.jpg";
 import sandwichPanel2 from "@/assets/projects/sandwich-panel-2.jpg";
 import sandwichPanel3 from "@/assets/projects/sandwich-panel-3.webp";
 import terrainSport from "@/assets/projects/terrain-sport.jpg";
-import saadiyatProject from "@/assets/projects/saadiyat-project.jpg";
+
 import mauritaniaCanopy1 from "@/assets/projects/mauritania/canopy-1.png";
-import saadiyatVideo from "@/assets/video-homepage.mp4.asset.json";
+
 
 
 
@@ -229,8 +229,18 @@ interface Project {
 type GalleryItem = { type: "image" | "video"; src: string };
 
 const normalizeGallery = (gallery?: Project["gallery"], fallback?: string): GalleryItem[] => {
-  const items = gallery || (fallback ? [fallback] : []);
-  return items.map((item) => (typeof item === "string" ? { type: "image" as const, src: item } : item));
+  if (gallery && gallery.length > 0) {
+    return gallery.map((item) =>
+      typeof item === "string"
+        ? { type: "image" as const, src: item }
+        : item
+    );
+  }
+  if (fallback) {
+    const isVideo = fallback.endsWith(".mp4") || fallback.endsWith(".webm");
+    return [{ type: isVideo ? "video" as const : "image" as const, src: fallback }];
+  }
+  return [];
 };
 
 
@@ -284,13 +294,17 @@ const ProjectCard = ({ project, index: i, t }: { project: Project; index: number
             </div>
           )}
         </div>
-        <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 via-transparent to-transparent" />
-        <div className="absolute bottom-0 left-0 right-0 p-6">
-          <motion.span className="inline-block rounded-full bg-primary px-3 py-1 text-xs font-semibold text-primary-foreground"
-            initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.3 }}>
-            {project.category}
-          </motion.span>
-        </div>
+        {items[currentImg].type === "image" && (
+  <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 via-transparent to-transparent" />
+)}
+{items[currentImg].type === "image" && (
+  <div className="absolute bottom-0 left-0 right-0 p-6">
+    <motion.span className="inline-block rounded-full bg-primary px-3 py-1 text-xs font-semibold text-primary-foreground"
+      initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.3 }}>
+      {project.category}
+    </motion.span>
+  </div>
+)}
         <motion.div initial={{ opacity: 0, scale: 0.8 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.4 }}
           className="absolute top-4 right-4 rounded-xl bg-card/95 backdrop-blur-sm border border-border px-4 py-2 shadow-lg">
           <div className="flex items-center gap-2 text-xs font-semibold text-primary">
@@ -481,7 +495,7 @@ const Produits = () => {
       beforeCount: 1,
     },
     {
-      img: saadiyatProject,
+      
       title: t("Rénovation Complète Appartement : Saadiyat Island", "Full Apartment Renovation : Saadiyat Island"),
       location: "Saadiyat Island, Abu Dhabi",
       year: "2024",
@@ -498,7 +512,7 @@ const Produits = () => {
         t("Thermostat intelligent (domotique)", "Smart thermostat (home automation)"),
       ],
       result: t("Espace moderne et fonctionnel : Valeur du bien augmentée", "Modern functional living space : Increased property value"),
-      gallery: [{ type: "video" as const, src: saadiyatVideo.url }, saadiyatProject],
+      gallery: [{ type: "video" as const, src: "/videos/saadiyat-project.mp4" }],
     },
 
   ];
