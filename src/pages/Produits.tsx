@@ -20,6 +20,8 @@ import sandwichPanel3 from "@/assets/projects/sandwich-panel-3.webp";
 import terrainSport from "@/assets/projects/terrain-sport.jpg";
 import saadiyatProject from "@/assets/projects/saadiyat-project.jpg";
 import mauritaniaCanopy1 from "@/assets/projects/mauritania/canopy-1.png";
+import saadiyatVideo from "@/assets/video-homepage.mp4.asset.json";
+
 
 
 import SEO from "@/components/SEO";
@@ -220,17 +222,25 @@ interface Project {
   desc: string;
   scope: string[];
   result?: string;
-  gallery?: string[];
+  gallery?: (string | { type: "image" | "video"; src: string })[];
   beforeCount?: number;
 }
 
+type GalleryItem = { type: "image" | "video"; src: string };
+
+const normalizeGallery = (gallery?: Project["gallery"], fallback?: string): GalleryItem[] => {
+  const items = gallery || (fallback ? [fallback] : []);
+  return items.map((item) => (typeof item === "string" ? { type: "image" as const, src: item } : item));
+};
+
+
 const ProjectCard = ({ project, index: i, t }: { project: Project; index: number; t: (fr: string, en: string) => string }) => {
-  const images = project.gallery || [project.img];
+  const items = normalizeGallery(project.gallery, project.img);
   const beforeCount = project.beforeCount || 0;
   const [currentImg, setCurrentImg] = useState(0);
 
-  const next = () => setCurrentImg((prev: number) => (prev + 1) % images.length);
-  const prev = () => setCurrentImg((prev: number) => (prev - 1 + images.length) % images.length);
+  const next = () => setCurrentImg((prev: number) => (prev + 1) % items.length);
+  const prev = () => setCurrentImg((prev: number) => (prev - 1 + items.length) % items.length);
 
   return (
     <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true, margin: "-80px" }} transition={{ duration: 0.5 }}
@@ -239,16 +249,30 @@ const ProjectCard = ({ project, index: i, t }: { project: Project; index: number
         className={`relative group overflow-hidden rounded-2xl shadow-xl ${i % 2 === 1 ? "lg:order-2" : ""}`}>
         <div className="relative h-[420px]">
           <AnimatePresence mode="wait">
-            <motion.img
+            <motion.div
               key={currentImg}
-              src={images[currentImg]}
-              alt={project.title}
-              className="h-full w-full object-cover absolute inset-0"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.4 }}
-            />
+              className="absolute inset-0"
+            >
+              {items[currentImg].type === "image" ? (
+                <img
+                  src={items[currentImg].src}
+                  alt={project.title}
+                  className="h-full w-full object-cover absolute inset-0"
+                />
+              ) : (
+                <video
+                  src={items[currentImg].src}
+                  controls
+                  playsInline
+                  preload="metadata"
+                  className="h-full w-full object-contain bg-black absolute inset-0"
+                />
+              )}
+            </motion.div>
           </AnimatePresence>
           {beforeCount > 0 && (
             <div className="absolute top-4 left-4 z-10">
@@ -274,7 +298,7 @@ const ProjectCard = ({ project, index: i, t }: { project: Project; index: number
             {t("Terminé", "Completed")}
           </div>
         </motion.div>
-        {images.length > 1 && (
+        {items.length > 1 && (
           <>
             <button onClick={prev} className="absolute left-3 top-1/2 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full bg-card/80 backdrop-blur-sm border border-border text-foreground shadow-lg opacity-0 group-hover:opacity-100 transition-opacity hover:bg-card">
               <ChevronLeft className="h-5 w-5" />
@@ -283,7 +307,7 @@ const ProjectCard = ({ project, index: i, t }: { project: Project; index: number
               <ChevronRight className="h-5 w-5" />
             </button>
             <div className="absolute bottom-16 left-1/2 -translate-x-1/2 flex gap-1.5">
-              {images.map((_: string, idx: number) => (
+              {items.map((_, idx: number) => (
                 <button key={idx} onClick={() => setCurrentImg(idx)}
                   className={`h-2 rounded-full transition-all ${idx === currentImg ? "w-6 bg-primary" : "w-2 bg-background/60"}`} />
               ))}
@@ -474,7 +498,9 @@ const Produits = () => {
         t("Thermostat intelligent (domotique)", "Smart thermostat (home automation)"),
       ],
       result: t("Espace moderne et fonctionnel : Valeur du bien augmentée", "Modern functional living space : Increased property value"),
+      gallery: [{ type: "video" as const, src: saadiyatVideo.url }, saadiyatProject],
     },
+
   ];
 
   const stats = [
