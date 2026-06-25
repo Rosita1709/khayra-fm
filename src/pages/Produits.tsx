@@ -498,7 +498,9 @@ const Produits = () => {
         t("Thermostat intelligent (domotique)", "Smart thermostat (home automation)"),
       ],
       result: t("Espace moderne et fonctionnel : Valeur du bien augmentée", "Modern functional living space : Increased property value"),
+      gallery: [saadiyatProject, { type: "video" as const, src: saadiyatVideo.url }],
     },
+
   ];
 
   const stats = [
