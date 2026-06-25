@@ -222,9 +222,17 @@ interface Project {
   desc: string;
   scope: string[];
   result?: string;
-  gallery?: string[];
+  gallery?: (string | { type: "image" | "video"; src: string })[];
   beforeCount?: number;
 }
+
+type GalleryItem = { type: "image" | "video"; src: string };
+
+const normalizeGallery = (gallery?: Project["gallery"], fallback?: string): GalleryItem[] => {
+  const items = gallery || (fallback ? [fallback] : []);
+  return items.map((item) => (typeof item === "string" ? { type: "image" as const, src: item } : item));
+};
+
 
 const ProjectCard = ({ project, index: i, t }: { project: Project; index: number; t: (fr: string, en: string) => string }) => {
   const images = project.gallery || [project.img];
