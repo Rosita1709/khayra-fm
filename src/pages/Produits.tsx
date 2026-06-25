@@ -96,7 +96,6 @@ const MediaCarousel = ({
 const MauritaniaEmbassyProject = ({ t }: { t: (fr: string, en: string) => string }) => {
   const canopyItems = [
     { type: "image" as const, src: mauritaniaCanopy1 },
-    { type: "image" as const, src: mauritaniaCanopy2 },
   ];
   const chillerItems = [
     { type: "video" as const, src: "/videos/chiller-1.mp4" },
